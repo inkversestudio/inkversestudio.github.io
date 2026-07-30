@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Inkverse Studio — Art by Shivam</title>
+
+  <meta
+    name="description"
+    content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Shivam."
+  />
+
+  <meta name="theme-color" content="#f7f1e8" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f1e8;
+      color: #241f1a;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 241, 232, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(151, 115, 54, 0.25);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #8b682f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #a37b32;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 25px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(183, 145, 74, 0.16),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(183, 145, 74, 0.10),
+          transparent 35%
+        ),
+        #f7f1e8;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .small-title {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 5px;
+      color: #9a7536;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 100px);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -3px;
+      color: #211c17;
+    }
+
+    .hero h1 span {
+      color: #a77d34;
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 30px auto;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #655d53;
+    }
+
+    .gold-line {
+      width: 90px;
+      height: 2px;
+      background: #b18a45;
+      margin: 28px auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #9b7435;
+      color: white;
+      box-shadow: 0 8px 25px rgba(139, 104, 47, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #785722;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #9b7435;
+      color: #795a2b;
+    }
+
+    .btn-outline:hover {
+      background: #9b7435;
+      color: white;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 25px;
+    }
+
+    .section-container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-heading span {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #a47b34;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: 48px;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #eee4d6;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 36px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-family: Arial, sans-serif;
+      color: #625b52;
+      margin-bottom: 18px;
+    }
+
+    .about-card {
+      border: 1px solid rgba(151, 115, 54, 0.35);
+      padding: 45px;
+      background: rgba(255,255,255,0.35);
+      box-shadow: 0 20px 50px rgba(80, 60, 30, 0.08);
+    }
+
+    .about-card h3 {
+      font-size: 42px;
+      color: #a07835;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      font-family: Arial, sans-serif;
+      color: #625b52;
+    }
+
+    /* ART TYPES */
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .art-card {
+      padding: 45px 30px;
+      background: #fbf7f0;
+      border: 1px solid rgba(151, 115, 54, 0.22);
+      text-align: center;
+      transition: 0.35s;
+    }
+
+    .art-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(60, 45, 25, 0.12);
+      border-color: #b18a45;
+    }
+
+    .art-number {
+      font-size: 15px;
+      color: #aa8038;
+      margin-bottom: 18px;
+    }
+
+    .art-card h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .art-card p {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #71685e;
+    }
+
+    /* COMMISSION */
+
+    .commission {
+      background: #211d18;
+      color: #f7f1e8;
+      text-align: center;
+    }
+
+    .commission .section-heading span {
+      color: #c39b50;
+    }
+
+    .commission h2 {
+      color: #f7f1e8;
+    }
+
+    .commission p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-family: Arial, sans-serif;
+      color: #cfc5b7;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background: #f7f1e8;
+    }
+
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      border: 1px solid rgba(151, 115, 54, 0.3);
+      padding: 50px 30px;
+      background: #fbf7f0;
+    }
+
+    .contact-box h3 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      font-family: Arial, sans-serif;
+      color: #6d655c;
+      margin-bottom: 25px;
+    }
+
+    .instagram {
+      display: inline-block;
+      margin-top: 18px;
+      color: #9b7435;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #eee4d6;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(151, 115, 54, 0.2);
+    }
+
+    footer h3 {
+      font-size: 25px;
+      color: #8b682f;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      font-family: Arial, sans-serif;
+      color: #776f65;
+      font-size: 13px;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #978e83;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .art-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 38px;
+      }
+
+      section {
+        padding: 75px 20px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .about-text h3 {
+        font-size: 30px;
+      }
+
+      .about-card {
+        padding: 30px;
+      }
+
+      .about-card h3 {
+        font-size: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <nav class="navbar">
+
+      <a href="#" class="logo">
+        INKVERSE
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#art">Art</a></li>
+        <li><a href="#commission">Commission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="small-title">
+          Art • Emotion • Memories
+        </div>
+
+        <h1>
+          Inkverse<br>
+          <span>Studio</span>
+        </h1>
+
+        <div class="gold-line"></div>
+
+        <p>
+          Premium hand-drawn artwork created with patience,
+          precision and emotion. Turning your memories into
+          timeless art.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#commission" class="btn btn-primary">
+            COMMISSION ART
+          </a>
+
+          <a href="#art" class="btn btn-outline">
+            EXPLORE ART
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+      <div class="section-container">
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <div class="section-heading" style="text-align:left;margin-bottom:25px;">
+              <span>THE ARTIST</span>
+            </div>
+
+            <h3>
+              Art made<br>
+              <em>as it is.</em>
+            </h3>
+
+            <p>
+              I'm Shivam, an artist passionate about creating
+              detailed charcoal and graphite artwork.
+            </p>
+
+            <p>
+              Every drawing is created by hand, focusing on
+              realistic details, emotions and the little things
+              that make a memory special.
+            </p>
+
+          </div>
+
+          <div class="about-card">
+
+            <h3>
+              Shivam
+            </h3>
+
+            <p>
+              Founder & Artist<br>
+              Inkverse Studio
+            </p>
+
+            <br>
+
+            <p>
+              Charcoal • Graphite • Custom Artwork
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ART -->
+
+    <section id="art">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>WHAT I CREATE</span>
+
+          <h2>
+            The Art Collection
+          </h2>
+
+        </div>
+
+        <div class="art-grid">
+
+          <div class="art-card">
+
+            <div class="art-number">
+              01
+            </div>
+
+            <h3>
+              Charcoal Art
+            </h3>
+
+            <p>
+              Deep tones, dramatic textures and realistic
+              charcoal portraits.
+            </p>
+
+          </div>
+
+
+          <div class="art-card">
+
+            <div class="art-number">
+              02
+            </div>
+
+            <h3>
+              Graphite Art
+            </h3>
+
+            <p>
+              Fine details and realistic pencil artwork
+              created with precision.
+            </p>
+
+          </div>
+
+
+          <div class="art-card">
+
+            <div class="art-number">
+              03
+            </div>
+
+            <h3>
+              Custom Artwork
+            </h3>
+
+            <p>
+              Turn your favourite photographs and memories
+              into personalised artwork.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMMISSION -->
+
+    <section class="commission" id="commission">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>MAKE IT PERSONAL</span>
+
+          <h2>
+            Turn Your Memories<br>
+            Into Art
+          </h2>
+
+        </div>
+
+        <p>
+          Have a photograph that means something special to you?
+          Let me transform it into a detailed handmade artwork.
+        </p>
+
+        <a
+          href="https://instagram.com/_shivam._.here__"
+          target="_blank"
+          class="btn btn-primary"
+        >
+          DISCUSS YOUR ARTWORK
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>GET IN TOUCH</span>
+
+          <h2>
+            Let's Create Something
+          </h2>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>
+            Art by Shivam
+          </h3>
+
+          <p>
+            For commissions, custom portraits and artwork,
+            send me a message on Instagram.
+          </p>
+
+          <a
+            href="https://instagram.com/_shivam._.here__"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            MESSAGE ON INSTAGRAM
+          </a>
+
+          <br>
+
+          <a
+            href="https://instagram.com/_shivam._.here__"
+            target="_blank"
+            class="instagram"
+          >
+            @_shivam._.here__
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h3>
+      INKVERSE STUDIO
+    </h3>
+
+    <p>
+      Premium handmade artwork by Shivam.
+    </p>
+
+    <div class="copyright">
+      © 2026 Inkverse Studio. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // Smooth scrolling for navigation links
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+      link.addEventListener("click", function(e) {
+
+        const target = document.querySelector(
+          this.getAttribute("href")
+        );
+
+        if (target) {
+
+          e.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth"
+          });
+
+        }
+
+      });
+
+    });
+
+
+    // Small page-load animation
+
+    window.addEventListener("load", () => {
+
+      document.body.style.opacity = "0";
+
+      setTimeout(() => {
+
+        document.body.style.transition =
+          "opacity 0.7s ease";
+
+        document.body.style.opacity = "1";
+
+      }, 100);
+
+    });
+
+  </script>
+
+</body>
+</html>

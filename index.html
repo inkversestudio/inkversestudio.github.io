@@ -303,6 +303,98 @@
       color: #71685e;
     }
 
+    /* =========================
+       SHOP — COMING SOON
+       ========================= */
+
+    .shop {
+      background: #fbf7f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shop::before {
+      content: "INK";
+      position: absolute;
+      right: -70px;
+      top: 20px;
+      font-size: 220px;
+      font-weight: bold;
+      color: rgba(151, 115, 54, 0.035);
+      pointer-events: none;
+    }
+
+    .shop-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 75px 35px;
+      text-align: center;
+      background: #f7f1e8;
+      border: 1px solid rgba(151, 115, 54, 0.3);
+      box-shadow: 0 25px 70px rgba(70, 50, 25, 0.09);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shop-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 25px;
+      border: 1px solid #b18a45;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a07835;
+      font-size: 27px;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      padding: 7px 18px;
+      border: 1px solid #b18a45;
+      color: #9b7435;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-bottom: 22px;
+    }
+
+    .shop-box h3 {
+      font-size: clamp(35px, 6vw, 58px);
+      font-weight: 500;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .shop-box h3 em {
+      color: #a07835;
+      font-weight: 400;
+    }
+
+    .shop-box p {
+      max-width: 550px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      color: #6d655c;
+      font-size: 15px;
+    }
+
+    .shop-divider {
+      width: 60px;
+      height: 1px;
+      background: #b18a45;
+      margin: 30px auto;
+    }
+
+    .shop-note {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #9b8c78;
+      text-transform: uppercase;
+    }
+
     /* COMMISSION */
 
     .commission {
@@ -441,6 +533,15 @@
       section {
         padding: 75px 20px;
       }
+
+      .shop-box {
+        padding: 60px 25px;
+      }
+
+      .shop::before {
+        font-size: 130px;
+        right: -40px;
+      }
     }
 
     @media (max-width: 450px) {
@@ -468,6 +569,10 @@
       .about-card h3 {
         font-size: 35px;
       }
+
+      .shop-box h3 {
+        font-size: 36px;
+      }
     }
   </style>
 </head>
@@ -486,6 +591,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#art">Art</a></li>
+        <li><a href="#shop">Shop</a></li>
         <li><a href="#commission">Commission</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -613,7 +719,12 @@
         <div class="art-grid">
 
           <div class="art-card">
-            <img src="1777481136525.jpg" alt="Charcoal Artwork by Shivam" />
+
+            <img
+              src="1777481136525.jpg"
+              alt="Charcoal Artwork by Shivam"
+            />
+
             <div class="art-number">
               01
             </div>
@@ -631,7 +742,11 @@
 
 
           <div class="art-card">
-            <img src="1785491242440.jpg" alt="Graphite Artwork by Shivam" />
+
+            <img
+              src="1785491242440.jpg"
+              alt="Graphite Artwork by Shivam"
+            />
 
             <div class="art-number">
               02
@@ -664,6 +779,62 @@
               into personalised artwork.
             </p>
 
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SHOP — COMING SOON
+         ========================= -->
+
+    <section class="shop" id="shop">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <span>THE INKVERSE SHOP</span>
+
+          <h2>
+            Shop Artwork
+          </h2>
+
+        </div>
+
+
+        <div class="shop-box">
+
+          <div class="shop-icon">
+            ✦
+          </div>
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <h3>
+            Original Artworks<br>
+            <em>Are Coming Soon.</em>
+          </h3>
+
+          <div class="shop-divider"></div>
+
+          <p>
+            Soon you'll be able to discover and purchase
+            original artworks created at Inkverse Studio.
+            Each piece will be made with the same attention
+            to detail, emotion and craftsmanship.
+          </p>
+
+          <div class="shop-divider"></div>
+
+          <div class="shop-note">
+            Original • Handmade • Limited
           </div>
 
         </div>
@@ -746,10 +917,10 @@
           <br>
 
           <a
-            href="mailto:Inkversestudio.co@gmail.com"
+            href="mailto:inkversestudio.co@gmail.com"
             class="email-link"
           >
-            ✉ Inkversestudio.co@gmail.com
+            ✉ inkversestudio.co@gmail.com
           </a>
 
           <br>
@@ -781,7 +952,10 @@
 
     <p>
       Premium handmade artwork by Shivam.<br>
-      Email: <a href="mailto:Inkversestudio.co@gmail.com">Inkversestudio.co@gmail.com</a>
+      Email:
+      <a href="mailto:inkversestudio.co@gmail.com">
+        inkversestudio.co@gmail.com
+      </a>
     </p>
 
     <div class="copyright">

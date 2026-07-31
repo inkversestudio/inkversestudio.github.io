@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Inkverse Studio — Art by Shivam</title>
 
   <meta
     name="description"
     content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Shivam."
-  />
+  >
 
-  <meta name="theme-color" content="#f7f1e8" />
+  <meta name="theme-color" content="#f7f1e8">
 
   <style>
+
+    /* =========================
+       RESET
+       ========================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -29,6 +34,7 @@
       background: #f7f1e8;
       color: #241f1a;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -36,13 +42,16 @@
       color: inherit;
     }
 
-    /* NAVBAR */
+
+    /* =========================
+       NAVBAR
+       ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(247, 241, 232, 0.92);
+      background: rgba(247, 241, 232, 0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(151, 115, 54, 0.25);
     }
@@ -65,6 +74,7 @@
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 28px;
       list-style: none;
       font-family: Arial, sans-serif;
@@ -72,14 +82,42 @@
     }
 
     .nav-links a {
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     .nav-links a:hover {
       color: #a37b32;
     }
 
-    /* HERO */
+
+    /* MOBILE MENU BUTTON */
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(151, 115, 54, 0.35);
+      background: transparent;
+      cursor: pointer;
+      border-radius: 4px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #8b682f;
+      transition: 0.3s;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
 
     .hero {
       min-height: 88vh;
@@ -88,6 +126,7 @@
       justify-content: center;
       text-align: center;
       padding: 80px 25px;
+
       background:
         radial-gradient(
           circle at top right,
@@ -158,7 +197,7 @@
       font-family: Arial, sans-serif;
       font-size: 14px;
       letter-spacing: 1px;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     .btn-primary {
@@ -182,7 +221,10 @@
       color: white;
     }
 
-    /* SECTION */
+
+    /* =========================
+       GENERAL SECTION
+       ========================= */
 
     section {
       padding: 100px 25px;
@@ -212,7 +254,10 @@
       margin-top: 10px;
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+       ========================= */
 
     .about {
       background: #eee4d6;
@@ -255,7 +300,10 @@
       color: #625b52;
     }
 
-    /* ART TYPES */
+
+    /* =========================
+       ART
+       ========================= */
 
     .art-grid {
       display: grid;
@@ -268,7 +316,7 @@
       background: #fbf7f0;
       border: 1px solid rgba(151, 115, 54, 0.22);
       text-align: center;
-      transition: 0.35s;
+      transition: 0.35s ease;
     }
 
     .art-card:hover {
@@ -303,8 +351,9 @@
       color: #71685e;
     }
 
+
     /* =========================
-       SHOP — COMING SOON
+       SHOP
        ========================= */
 
     .shop {
@@ -333,7 +382,6 @@
       border: 1px solid rgba(151, 115, 54, 0.3);
       box-shadow: 0 25px 70px rgba(70, 50, 25, 0.09);
       position: relative;
-      overflow: hidden;
     }
 
     .shop-icon {
@@ -395,7 +443,10 @@
       text-transform: uppercase;
     }
 
-    /* COMMISSION */
+
+    /* =========================
+       COMMISSION
+       ========================= */
 
     .commission {
       background: #211d18;
@@ -418,7 +469,10 @@
       color: #cfc5b7;
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+       ========================= */
 
     .contact {
       text-align: center;
@@ -469,7 +523,10 @@
       letter-spacing: 1px;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+       ========================= */
 
     footer {
       background: #eee4d6;
@@ -501,12 +558,58 @@
       color: #978e83;
     }
 
-    /* RESPONSIVE */
+
+    /* =========================
+       TABLET
+       ========================= */
 
     @media (max-width: 800px) {
 
+      .navbar {
+        padding: 15px 20px;
+      }
+
+      .menu-btn {
+        display: flex;
+      }
+
       .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
         display: none;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0;
+
+        background: rgba(247, 241, 232, 0.98);
+        backdrop-filter: blur(15px);
+
+        border-bottom: 1px solid rgba(151, 115, 54, 0.25);
+
+        padding: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(151, 115, 54, 0.07);
       }
 
       .hero {
@@ -544,6 +647,11 @@
       }
     }
 
+
+    /* =========================
+       SMALL PHONES
+       ========================= */
+
     @media (max-width: 450px) {
 
       .logo {
@@ -573,36 +681,98 @@
       .shop-box h3 {
         font-size: 36px;
       }
+
+      .shop-box p {
+        font-size: 14px;
+      }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
 
   <header>
+
     <nav class="navbar">
 
-      <a href="#" class="logo">
+      <a href="#top" class="logo">
         INKVERSE
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#art">Art</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#commission">Commission</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+      <!-- MOBILE MENU BUTTON -->
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+
+      <!-- NAVIGATION LINKS -->
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="#about">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="#art">
+            Art
+          </a>
+        </li>
+
+        <li>
+          <a href="#shop">
+            Shop
+          </a>
+        </li>
+
+        <li>
+          <a href="#commission">
+            Commission
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact">
+            Contact
+          </a>
+        </li>
+
       </ul>
 
     </nav>
+
   </header>
 
 
-  <!-- HERO -->
 
-  <main>
+  <!-- =========================
+       MAIN
+       ========================= -->
+
+  <main id="top">
+
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -627,11 +797,17 @@
 
         <div class="hero-buttons">
 
-          <a href="#commission" class="btn btn-primary">
+          <a
+            href="#commission"
+            class="btn btn-primary"
+          >
             COMMISSION ART
           </a>
 
-          <a href="#art" class="btn btn-outline">
+          <a
+            href="#art"
+            class="btn btn-outline"
+          >
             EXPLORE ART
           </a>
 
@@ -642,29 +818,46 @@
     </section>
 
 
-    <!-- ABOUT -->
 
-    <section class="about" id="about">
+    <!-- =========================
+         ABOUT
+         ========================= -->
+
+    <section
+      class="about"
+      id="about"
+    >
 
       <div class="section-container">
 
         <div class="about-grid">
 
+
           <div class="about-text">
 
-            <div class="section-heading" style="text-align:left;margin-bottom:25px;">
-              <span>THE ARTIST</span>
+            <div
+              class="section-heading"
+              style="text-align:left;margin-bottom:25px;"
+            >
+
+              <span>
+                THE ARTIST
+              </span>
+
             </div>
+
 
             <h3>
               Art made<br>
               <em>as it is.</em>
             </h3>
 
+
             <p>
               I'm Shivam, an artist passionate about creating
               detailed charcoal and graphite artwork.
             </p>
+
 
             <p>
               Every drawing is created by hand, focusing on
@@ -673,6 +866,8 @@
             </p>
 
           </div>
+
+
 
           <div class="about-card">
 
@@ -700,15 +895,21 @@
     </section>
 
 
-    <!-- ART -->
+
+    <!-- =========================
+         ART
+         ========================= -->
 
     <section id="art">
 
       <div class="section-container">
 
+
         <div class="section-heading">
 
-          <span>WHAT I CREATE</span>
+          <span>
+            WHAT I CREATE
+          </span>
 
           <h2>
             The Art Collection
@@ -716,14 +917,19 @@
 
         </div>
 
+
+
         <div class="art-grid">
+
+
+          <!-- ART 01 -->
 
           <div class="art-card">
 
             <img
               src="1777481136525.jpg"
               alt="Charcoal Artwork by Shivam"
-            />
+            >
 
             <div class="art-number">
               01
@@ -741,12 +947,15 @@
           </div>
 
 
+
+          <!-- ART 02 -->
+
           <div class="art-card">
 
             <img
               src="1785491242440.jpg"
               alt="Graphite Artwork by Shivam"
-            />
+            >
 
             <div class="art-number">
               02
@@ -763,6 +972,9 @@
 
           </div>
 
+
+
+          <!-- ART 03 -->
 
           <div class="art-card">
 
@@ -781,6 +993,7 @@
 
           </div>
 
+
         </div>
 
       </div>
@@ -788,17 +1001,24 @@
     </section>
 
 
+
     <!-- =========================
-         SHOP — COMING SOON
+         SHOP
          ========================= -->
 
-    <section class="shop" id="shop">
+    <section
+      class="shop"
+      id="shop"
+    >
 
       <div class="section-container">
 
+
         <div class="section-heading">
 
-          <span>THE INKVERSE SHOP</span>
+          <span>
+            THE INKVERSE SHOP
+          </span>
 
           <h2>
             Shop Artwork
@@ -807,22 +1027,28 @@
         </div>
 
 
+
         <div class="shop-box">
+
 
           <div class="shop-icon">
             ✦
           </div>
 
+
           <div class="coming-soon">
             COMING SOON
           </div>
+
 
           <h3>
             Original Artworks<br>
             <em>Are Coming Soon.</em>
           </h3>
 
+
           <div class="shop-divider"></div>
+
 
           <p>
             Soon you'll be able to discover and purchase
@@ -831,11 +1057,14 @@
             to detail, emotion and craftsmanship.
           </p>
 
+
           <div class="shop-divider"></div>
+
 
           <div class="shop-note">
             Original • Handmade • Limited
           </div>
+
 
         </div>
 
@@ -844,15 +1073,24 @@
     </section>
 
 
-    <!-- COMMISSION -->
 
-    <section class="commission" id="commission">
+    <!-- =========================
+         COMMISSION
+         ========================= -->
+
+    <section
+      class="commission"
+      id="commission"
+    >
 
       <div class="section-container">
 
+
         <div class="section-heading">
 
-          <span>MAKE IT PERSONAL</span>
+          <span>
+            MAKE IT PERSONAL
+          </span>
 
           <h2>
             Turn Your Memories<br>
@@ -861,33 +1099,46 @@
 
         </div>
 
+
         <p>
           Have a photograph that means something special to you?
           Let me transform it into a detailed handmade artwork.
         </p>
 
+
         <a
           href="https://instagram.com/_shivam._.here__"
           target="_blank"
+          rel="noopener noreferrer"
           class="btn btn-primary"
         >
           DISCUSS YOUR ARTWORK
         </a>
+
 
       </div>
 
     </section>
 
 
-    <!-- CONTACT -->
 
-    <section class="contact" id="contact">
+    <!-- =========================
+         CONTACT
+         ========================= -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
 
       <div class="section-container">
 
+
         <div class="section-heading">
 
-          <span>GET IN TOUCH</span>
+          <span>
+            GET IN TOUCH
+          </span>
 
           <h2>
             Let's Create Something
@@ -895,26 +1146,34 @@
 
         </div>
 
+
+
         <div class="contact-box">
+
 
           <h3>
             Art by Shivam
           </h3>
+
 
           <p>
             For commissions, custom portraits and artwork,
             send me a message on Instagram or send an email.
           </p>
 
+
           <a
             href="https://instagram.com/_shivam._.here__"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-primary"
           >
             MESSAGE ON INSTAGRAM
           </a>
 
+
           <br>
+
 
           <a
             href="mailto:inkversestudio.co@gmail.com"
@@ -923,15 +1182,19 @@
             ✉ inkversestudio.co@gmail.com
           </a>
 
+
           <br>
+
 
           <a
             href="https://instagram.com/_shivam._.here__"
             target="_blank"
+            rel="noopener noreferrer"
             class="instagram"
           >
             @_shivam._.here__
           </a>
+
 
         </div>
 
@@ -939,10 +1202,14 @@
 
     </section>
 
+
   </main>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
 
   <footer>
 
@@ -950,13 +1217,21 @@
       INKVERSE STUDIO
     </h3>
 
+
     <p>
-      Premium handmade artwork by Shivam.<br>
+      Premium handmade artwork by Shivam.
+      <br>
+
       Email:
-      <a href="mailto:inkversestudio.co@gmail.com">
+
+      <a
+        href="mailto:inkversestudio.co@gmail.com"
+      >
         inkversestudio.co@gmail.com
       </a>
+
     </p>
+
 
     <div class="copyright">
       © 2026 Inkverse Studio. All rights reserved.
@@ -965,51 +1240,115 @@
   </footer>
 
 
-  <!-- JAVASCRIPT -->
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
 
   <script>
 
-    // Smooth scrolling for navigation links
+    /* =========================
+       MOBILE MENU
+       ========================= */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-      link.addEventListener("click", function(e) {
 
-        const target = document.querySelector(
-          this.getAttribute("href")
-        );
+    menuBtn.addEventListener("click", function () {
 
-        if (target) {
+      navLinks.classList.toggle("active");
 
-          e.preventDefault();
+      const isOpen =
+        navLinks.classList.contains("active");
 
-          target.scrollIntoView({
-            behavior: "smooth"
-          });
+      menuBtn.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
 
-        }
+    });
+
+
+
+    /* =========================
+       CLOSE MENU AFTER CLICK
+       ========================= */
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          navLinks.classList.remove("active");
+
+          menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
 
       });
 
-    });
 
 
-    // Small page-load animation
+    /* =========================
+       SMOOTH SCROLL
+       ========================= */
 
-    window.addEventListener("load", () => {
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(function (link) {
 
-      document.body.style.opacity = "0";
+        link.addEventListener(
+          "click",
+          function (e) {
 
-      setTimeout(() => {
+            const target =
+              document.querySelector(
+                this.getAttribute("href")
+              );
 
-        document.body.style.transition =
-          "opacity 0.7s ease";
+            if (target) {
 
-        document.body.style.opacity = "1";
+              e.preventDefault();
 
-      }, 100);
+              target.scrollIntoView({
+                behavior: "smooth"
+              });
 
-    });
+            }
+
+          }
+        );
+
+      });
+
+
+
+    /* =========================
+       PAGE LOAD ANIMATION
+       ========================= */
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        document.body.style.opacity = "0";
+
+        setTimeout(function () {
+
+          document.body.style.transition =
+            "opacity 0.7s ease";
+
+          document.body.style.opacity = "1";
+
+        }, 100);
+
+      }
+    );
 
   </script>
 

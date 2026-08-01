@@ -1,1356 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Inkverse Studio — Art by Shivam</title>
-
-  <meta
-    name="description"
-    content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Shivam."
-  >
-
-  <meta name="theme-color" content="#f7f1e8">
-
-  <style>
-
-    /* =========================
-       RESET
-       ========================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f7f1e8;
-      color: #241f1a;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-
-    /* =========================
-       NAVBAR
-       ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(247, 241, 232, 0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(151, 115, 54, 0.25);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #8b682f;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      transition: 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #a37b32;
-    }
-
-
-    /* MOBILE MENU BUTTON */
-
-    .menu-btn {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(151, 115, 54, 0.35);
-      background: transparent;
-      cursor: pointer;
-      border-radius: 4px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .menu-btn span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: #8b682f;
-      transition: 0.3s;
-    }
-
-
-    /* =========================
-       HERO
-       ========================= */
-
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 25px;
-
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(183, 145, 74, 0.16),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at bottom left,
-          rgba(183, 145, 74, 0.10),
-          transparent 35%
-        ),
-        #f7f1e8;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .small-title {
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-      letter-spacing: 5px;
-      color: #9a7536;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(52px, 9vw, 100px);
-      line-height: 0.95;
-      font-weight: 500;
-      letter-spacing: -3px;
-      color: #211c17;
-    }
-
-    .hero h1 span {
-      color: #a77d34;
-      font-style: italic;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 30px auto;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #655d53;
-    }
-
-    .gold-line {
-      width: 90px;
-      height: 2px;
-      background: #b18a45;
-      margin: 28px auto;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 4px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      letter-spacing: 1px;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary {
-      background: #9b7435;
-      color: white;
-      box-shadow: 0 8px 25px rgba(139, 104, 47, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: #785722;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid #9b7435;
-      color: #795a2b;
-    }
-
-    .btn-outline:hover {
-      background: #9b7435;
-      color: white;
-    }
-
-
-    /* =========================
-       GENERAL SECTION
-       ========================= */
-
-    section {
-      padding: 100px 25px;
-    }
-
-    .section-container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-heading span {
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 4px;
-      color: #a47b34;
-      text-transform: uppercase;
-    }
-
-    .section-heading h2 {
-      font-size: 48px;
-      font-weight: 500;
-      margin-top: 10px;
-    }
-
-
-    /* =========================
-       ABOUT
-       ========================= */
-
-    .about {
-      background: #eee4d6;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .about-text h3 {
-      font-size: 36px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-
-    .about-text p {
-      font-family: Arial, sans-serif;
-      color: #625b52;
-      margin-bottom: 18px;
-    }
-
-    .about-card {
-      border: 1px solid rgba(151, 115, 54, 0.35);
-      padding: 45px;
-      background: rgba(255,255,255,0.35);
-      box-shadow: 0 20px 50px rgba(80, 60, 30, 0.08);
-    }
-
-    .about-card h3 {
-      font-size: 42px;
-      color: #a07835;
-      margin-bottom: 10px;
-    }
-
-    .about-card p {
-      font-family: Arial, sans-serif;
-      color: #625b52;
-    }
-
-
-    /* =========================
-       ART
-       ========================= */
-
-    .art-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .art-card {
-      padding: 30px;
-      background: #fbf7f0;
-      border: 1px solid rgba(151, 115, 54, 0.22);
-      text-align: center;
-      transition: 0.35s ease;
-    }
-
-    .art-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(60, 45, 25, 0.12);
-      border-color: #b18a45;
-    }
-
-    .art-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(151, 115, 54, 0.2);
-    }
-
-    .art-number {
-      font-size: 15px;
-      color: #aa8038;
-      margin-bottom: 12px;
-    }
-
-    .art-card h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .art-card p {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #71685e;
-    }
-
-
-    /* =========================
-       SHOP
-       ========================= */
-
-    .shop {
-      background: #fbf7f0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shop::before {
-      content: "INK";
-      position: absolute;
-      right: -70px;
-      top: 20px;
-      font-size: 220px;
-      font-weight: bold;
-      color: rgba(151, 115, 54, 0.035);
-      pointer-events: none;
-    }
-
-    .shop-box {
-      max-width: 850px;
-      margin: auto;
-      padding: 75px 35px;
-      text-align: center;
-      background: #f7f1e8;
-      border: 1px solid rgba(151, 115, 54, 0.3);
-      box-shadow: 0 25px 70px rgba(70, 50, 25, 0.09);
-      position: relative;
-    }
-
-    .shop-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 25px;
-      border: 1px solid #b18a45;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #a07835;
-      font-size: 27px;
-    }
-
-    .coming-soon {
-      display: inline-block;
-      padding: 7px 18px;
-      border: 1px solid #b18a45;
-      color: #9b7435;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      margin-bottom: 22px;
-    }
-
-    .shop-box h3 {
-      font-size: clamp(35px, 6vw, 58px);
-      font-weight: 500;
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .shop-box h3 em {
-      color: #a07835;
-      font-weight: 400;
-    }
-
-    .shop-box p {
-      max-width: 550px;
-      margin: 0 auto;
-      font-family: Arial, sans-serif;
-      color: #6d655c;
-      font-size: 15px;
-    }
-
-    .shop-divider {
-      width: 60px;
-      height: 1px;
-      background: #b18a45;
-      margin: 30px auto;
-    }
-
-    .shop-note {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: #9b8c78;
-      text-transform: uppercase;
-    }
-
-
-    /* =========================
-       COMMISSION
-       ========================= */
-
-    .commission {
-      background: #211d18;
-      color: #f7f1e8;
-      text-align: center;
-    }
-
-    .commission .section-heading span {
-      color: #c39b50;
-    }
-
-    .commission h2 {
-      color: #f7f1e8;
-    }
-
-    .commission p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      font-family: Arial, sans-serif;
-      color: #cfc5b7;
-    }
-
-
-    /* =========================
-       CONTACT
-       ========================= */
-
-    .contact {
-      text-align: center;
-      background: #f7f1e8;
-    }
-
-    .contact-box {
-      max-width: 650px;
-      margin: auto;
-      border: 1px solid rgba(151, 115, 54, 0.3);
-      padding: 50px 30px;
-      background: #fbf7f0;
-    }
-
-    .contact-box h3 {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .contact-box p {
-      font-family: Arial, sans-serif;
-      color: #6d655c;
-      margin-bottom: 25px;
-    }
-
-    .email-link {
-      display: inline-block;
-      margin-top: 15px;
-      color: #9b7435;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      transition: 0.3s;
-      word-break: break-all;
-    }
-
-    .email-link:hover {
-      color: #785722;
-      text-decoration: underline;
-    }
-
-    .instagram {
-      display: inline-block;
-      margin-top: 12px;
-      color: #9b7435;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    footer {
-      background: #eee4d6;
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(151, 115, 54, 0.2);
-    }
-
-    footer h3 {
-      font-size: 25px;
-      color: #8b682f;
-      margin-bottom: 8px;
-    }
-
-    footer p {
-      font-family: Arial, sans-serif;
-      color: #776f65;
-      font-size: 13px;
-    }
-
-    footer a {
-      color: #8b682f;
-      text-decoration: underline;
-    }
-
-    .copyright {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #978e83;
-    }
-
-
-    /* =========================
-       TABLET
-       ========================= */
-
-    @media (max-width: 800px) {
-
-      .navbar {
-        padding: 15px 20px;
-      }
-
-      .menu-btn {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-
-        display: none;
-        flex-direction: column;
-        align-items: center;
-
-        gap: 0;
-
-        background: rgba(247, 241, 232, 0.98);
-        backdrop-filter: blur(15px);
-
-        border-bottom: 1px solid rgba(151, 115, 54, 0.25);
-
-        padding: 10px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 14px 20px;
-      }
-
-      .nav-links a:hover {
-        background: rgba(151, 115, 54, 0.07);
-      }
-
-      .hero {
-        min-height: 82vh;
-      }
-
-      .hero h1 {
-        font-size: 60px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .art-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-heading h2 {
-        font-size: 38px;
-      }
-
-      section {
-        padding: 75px 20px;
-      }
-
-      .shop-box {
-        padding: 60px 25px;
-      }
-
-      .shop::before {
-        font-size: 130px;
-        right: -40px;
-      }
-    }
-
-
-    /* =========================
-       SMALL PHONES
-       ========================= */
-
-    @media (max-width: 450px) {
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .about-text h3 {
-        font-size: 30px;
-      }
-
-      .about-card {
-        padding: 30px;
-      }
-
-      .about-card h3 {
-        font-size: 35px;
-      }
-
-      .shop-box h3 {
-        font-size: 36px;
-      }
-
-      .shop-box p {
-        font-size: 14px;
-      }
-    }
-
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inkverse Studio | Premium Handmade Sketches & Custom Artwork</title>
+
+<meta name="description" content="Inkverse Studio by Shivam. Premium charcoal, graphite and custom handmade sketches. Portraits, pet portraits, anime art and luxury commissioned artwork.">
+
+<meta name="keywords" content="Inkverse Studio, Shivam, charcoal art, graphite sketch, custom portrait, handmade sketch, premium artwork">
+
+<meta name="author" content="Shivam">
+
+<meta property="og:title" content="Inkverse Studio">
+<meta property="og:description" content="Luxury Handmade Sketches & Custom Artwork">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/*========================
+RESET
+========================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:var(--bg);
+
+color:var(--text);
+
+transition:.4s;
+
+overflow-x:hidden;
+
+}
+
+/*========================
+THEME VARIABLES
+========================*/
+
+:root{
+
+--gold:#d4af37;
+--gold2:#f6d365;
+
+--bg:#0d0d0d;
+
+--bg2:#181818;
+
+--card:#1f1f1f;
+
+--text:#ffffff;
+
+--muted:#bdbdbd;
+
+--shadow:0 10px 35px rgba(0,0,0,.4);
+
+}
+
+body.light{
+
+--bg:#faf7ef;
+
+--bg2:#ffffff;
+
+--card:#ffffff;
+
+--text:#222;
+
+--muted:#555;
+
+--shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+/*========================
+NAVBAR
+========================*/
+
+header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:18px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(18px);
+
+z-index:999;
+
+}
+
+body.light header{
+
+background:rgba(255,255,255,.75);
+
+}
+
+.logo{
+
+font-family:'Cinzel',serif;
+
+font-size:28px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+color:var(--gold);
+
+}
+
+nav{
+
+display:flex;
+
+gap:24px;
+
+}
+
+nav a{
+
+color:var(--text);
+
+text-decoration:none;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:var(--gold);
+
+}
+
+.theme-btn{
+
+cursor:pointer;
+
+border:none;
+
+padding:10px 16px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--gold),var(--gold2));
+
+font-weight:600;
+
+}
+
+/*========================
+HERO
+========================*/
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:140px 8% 80px;
+
+background:
+
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+
+url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+text-align:center;
+
+}
+
+.hero-content{
+
+max-width:850px;
+
+animation:fadeUp 1.1s ease;
+
+}
+
+.hero h1{
+
+font-family:'Cinzel',serif;
+
+font-size:58px;
+
+margin-bottom:20px;
+
+}
+
+.hero span{
+
+color:var(--gold);
+
+}
+
+.hero p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#eeeeee;
+
+margin-bottom:35px;
+
+}
+
+body.light .hero p{
+
+color:#f3f3f3;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:15px 34px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.35s;
+
+margin:8px;
+
+}
+
+.btn-gold{
+
+background:linear-gradient(135deg,var(--gold),var(--gold2));
+
+color:#111;
+
+}
+
+.btn-outline{
+
+border:2px solid var(--gold);
+
+color:white;
+
+}
+
+body.light .btn-outline{
+
+color:#222;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+/*========================
+SECTION
+========================*/
+
+section{
+
+padding:90px 8%;
+
+}
+
+.section-title{
+
+font-family:'Cinzel',serif;
+
+font-size:40px;
+
+text-align:center;
+
+margin-bottom:15px;
+
+}
+
+.section-sub{
+
+text-align:center;
+
+color:var(--muted);
+
+margin-bottom:50px;
+
+}
+
+/*========================
+ANIMATION
+========================*/
+
+.fade{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:1s;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:none;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+/*========================
+RESPONSIVE
+========================*/
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding-top:120px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+}
+
+/*========================
+PART 1A END
+========================*/
+
+</style>
+
 </head>
-
 
 <body>
 
+<header>
 
-  <!-- =========================
-       NAVIGATION
-       ========================= -->
+<div class="logo">
+Inkverse Studio
+</div>
 
-  <header>
+<nav>
 
-    <nav class="navbar">
+<a href="#home">Home</a>
 
-      <a href="#top" class="logo">
-        INKVERSE
-      </a>
+<a href="#gallery">Gallery</a>
 
+<a href="#shop">Shop</a>
 
-      <!-- MOBILE MENU BUTTON -->
+<a href="#about">Why Us</a>
 
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
+<a href="#contact">Contact</a>
 
-        <span></span>
-        <span></span>
-        <span></span>
+</nav>
 
-      </button>
+<button class="theme-btn" id="themeToggle">
+🌙
+</button>
 
+</header>
 
-      <!-- NAVIGATION LINKS -->
+<section class="hero" id="home">
 
-      <ul class="nav-links" id="navLinks">
+<div class="hero-content">
 
-        <li>
-          <a href="#about">
-            About
-          </a>
-        </li>
+<h1>
+Where <span>Luxury</span> Meets Art
+</h1>
 
-        <li>
-          <a href="#art">
-            Art
-          </a>
-        </li>
+<p>
 
-        <li>
-          <a href="#shop">
-            Shop
-          </a>
-        </li>
+Premium handmade charcoal and graphite artwork crafted with passion.
+Every sketch tells a story, turning memories into timeless masterpieces.
 
-        <li>
-          <a href="#commission">
-            Commission
-          </a>
-        </li>
+</p>
 
-        <li>
-          <a href="#contact">
-            Contact
-          </a>
-        </li>
+<a href="#gallery" class="btn btn-gold">
+Explore Gallery
+</a>
 
-      </ul>
+<a href="https://instagram.com/_shivam._.here__" target="_blank" class="btn btn-outline">
+Instagram
+</a>
 
-    </nav>
+</div>
 
-  </header>
+</section>
+<!-- =========================
+PREMIUM GALLERY
+========================= -->
 
+<section id="gallery">
 
+<h2 class="section-title fade">Premium Gallery</h2>
 
-  <!-- =========================
-       MAIN
-       ========================= -->
+<p class="section-sub fade">
+A collection of handcrafted artworks created with precision, patience and passion.
+</p>
 
-  <main id="top">
+<div class="gallery-grid">
 
+<div class="gallery-card fade">
+<div class="img-placeholder">Artwork 01</div>
+<h3>Charcoal Portrait</h3>
+<p>Highly detailed premium charcoal portrait.</p>
+</div>
 
-    <!-- HERO -->
+<div class="gallery-card fade">
+<div class="img-placeholder">Artwork 02</div>
+<h3>Graphite Sketch</h3>
+<p>Luxury graphite artwork with realistic detailing.</p>
+</div>
 
-    <section class="hero">
+<div class="gallery-card fade">
+<div class="img-placeholder">Artwork 03</div>
+<h3>Anime Commission</h3>
+<p>Premium anime illustrations made on order.</p>
+</div>
 
-      <div class="hero-content">
+<div class="gallery-card fade">
+<div class="img-placeholder">Artwork 04</div>
+<h3>Custom Artwork</h3>
+<p>Personalized sketches made from your memories.</p>
+</div>
 
-        <div class="small-title">
-          Art • Emotion • Memories
-        </div>
+</div>
 
-        <h1>
-          Inkverse<br>
-          <span>Studio</span>
-        </h1>
+</section>
 
-        <div class="gold-line"></div>
+<!-- =========================
+SHOP
+========================= -->
 
-        <p>
-          Premium hand-drawn artwork created with patience,
-          precision and emotion. Turning your memories into
-          timeless art.
-        </p>
+<section id="shop">
 
-        <div class="hero-buttons">
+<h2 class="section-title fade">Premium Shop</h2>
 
-          <a
-            href="#commission"
-            class="btn btn-primary"
-          >
-            COMMISSION ART
-          </a>
+<p class="section-sub fade">
+Original artworks, prints and exclusive collections will be available soon.
+</p>
 
-          <a
-            href="#art"
-            class="btn btn-outline"
-          >
-            EXPLORE ART
-          </a>
+<div class="coming-card fade">
 
-        </div>
+<h2>COMING SOON</h2>
 
-      </div>
+<p>
 
-    </section>
+Inkverse Studio is preparing a premium shopping experience.
 
+Stay connected for exclusive artwork releases.
 
+</p>
 
-    <!-- =========================
-         ABOUT
-         ========================= -->
+</div>
 
-    <section
-      class="about"
-      id="about"
-    >
+</section>
 
-      <div class="section-container">
+<!-- =========================
+WHY CHOOSE US
+========================= -->
 
-        <div class="about-grid">
+<section id="about">
 
+<h2 class="section-title fade">
+Why Choose Inkverse Studio
+</h2>
 
-          <div class="about-text">
+<div class="why-grid">
 
-            <div
-              class="section-heading"
-              style="text-align:left;margin-bottom:25px;"
-            >
+<div class="why-card fade">
+<h3>Premium Quality</h3>
+<p>Every artwork is handcrafted with maximum attention to detail.</p>
+</div>
 
-              <span>
-                THE ARTIST
-              </span>
+<div class="why-card fade">
+<h3>100% Handmade</h3>
+<p>No AI generated drawings. Every line is drawn by hand.</p>
+</div>
 
-            </div>
+<div class="why-card fade">
+<h3>Luxury Finish</h3>
+<p>Professional presentation suitable for gifting and collections.</p>
+</div>
 
+<div class="why-card fade">
+<h3>Custom Commissions</h3>
+<p>Your memories transformed into timeless artwork.</p>
+</div>
 
-            <h3>
-              Art made<br>
-              <em>as it is.</em>
-            </h3>
+</div>
 
+</section>
 
-            <p>
-              I'm Shivam, an artist passionate about creating
-              detailed charcoal and graphite artwork.
-            </p>
+<!-- =========================
+CONTACT
+========================= -->
 
+<section id="contact">
 
-            <p>
-              Every drawing is created by hand, focusing on
-              realistic details, emotions and the little things
-              that make a memory special.
-            </p>
+<h2 class="section-title fade">
+Contact
+</h2>
 
-          </div>
+<p class="section-sub fade">
+Let's create something beautiful together.
+</p>
 
+<div class="contact-card fade">
 
+<h3>Inkverse Studio</h3>
 
-          <div class="about-card">
+<p>
+Instagram<br>
+<strong>@_shivam._.here__</strong>
+</p>
 
-            <h3>
-              Shivam
-            </h3>
+<p>
+Email<br>
+<strong>inkversestudio.co@gmail.com</strong>
+</p>
 
-            <p>
-              Founder & Artist<br>
-              Inkverse Studio
-            </p>
+</div>
 
-            <br>
+</section>
 
-            <p>
-              Charcoal • Graphite • Custom Artwork
-            </p>
+<style>
 
-          </div>
+/* Gallery */
 
-        </div>
+.gallery-grid{
 
-      </div>
+display:grid;
 
-    </section>
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
+gap:30px;
 
+}
 
-    <!-- =========================
-         ART
-         ========================= -->
+.gallery-card{
 
-    <section id="art">
+background:var(--card);
 
-      <div class="section-container">
+padding:22px;
 
+border-radius:18px;
 
-        <div class="section-heading">
+box-shadow:var(--shadow);
 
-          <span>
-            WHAT I CREATE
-          </span>
+transition:.4s;
 
-          <h2>
-            The Art Collection
-          </h2>
+text-align:center;
 
-        </div>
+}
 
+.gallery-card:hover{
 
+transform:translateY(-10px);
 
-        <div class="art-grid">
+}
 
+.img-placeholder{
 
-          <!-- ART 01 -->
+height:260px;
 
-          <div class="art-card">
+border-radius:14px;
 
-            <img
-              src="1777481136525.jpg"
-              alt="Charcoal Artwork by Shivam"
-            >
+display:flex;
 
-            <div class="art-number">
-              01
-            </div>
+align-items:center;
 
-            <h3>
-              Charcoal Art
-            </h3>
+justify-content:center;
 
-            <p>
-              Deep tones, dramatic textures and realistic
-              charcoal portraits.
-            </p>
+background:linear-gradient(135deg,#444,#222);
 
-          </div>
+color:white;
 
+font-size:22px;
 
+margin-bottom:18px;
 
-          <!-- ART 02 -->
+}
 
-          <div class="art-card">
+body.light .img-placeholder{
 
-            <img
-              src="1785491242440.jpg"
-              alt="Graphite Artwork by Shivam"
-            >
+background:linear-gradient(135deg,#ececec,#dcdcdc);
 
-            <div class="art-number">
-              02
-            </div>
+color:#222;
 
-            <h3>
-              Graphite Art
-            </h3>
+}
 
-            <p>
-              Fine details and realistic pencil artwork
-              created with precision.
-            </p>
+/* Shop */
 
-          </div>
+.coming-card{
 
+max-width:700px;
 
+margin:auto;
 
-          <!-- ART 03 -->
+padding:40px;
 
-          <div class="art-card">
+text-align:center;
 
-            <div class="art-number">
-              03
-            </div>
+background:var(--card);
 
-            <h3>
-              Custom Artwork
-            </h3>
+border-radius:20px;
 
-            <p>
-              Turn your favourite photographs and memories
-              into personalised artwork.
-            </p>
+box-shadow:var(--shadow);
 
-          </div>
+}
 
+/* Why Choose */
 
-        </div>
+.why-grid{
 
-      </div>
+display:grid;
 
-    </section>
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
+gap:25px;
 
+}
 
-    <!-- =========================
-         SHOP
-         ========================= -->
+.why-card{
 
-    <section
-      class="shop"
-      id="shop"
-    >
+padding:30px;
 
-      <div class="section-container">
+background:var(--card);
 
+border-radius:18px;
 
-        <div class="section-heading">
+box-shadow:var(--shadow);
 
-          <span>
-            THE INKVERSE SHOP
-          </span>
+transition:.35s;
 
-          <h2>
-            Shop Artwork
-          </h2>
+}
 
-        </div>
+.why-card:hover{
 
+transform:translateY(-8px);
 
+}
 
-        <div class="shop-box">
+.why-card h3{
 
+color:var(--gold);
 
-          <div class="shop-icon">
-            ✦
-          </div>
+margin-bottom:12px;
 
+}
 
-          <div class="coming-soon">
-            COMING SOON
-          </div>
+/* Contact */
 
+.contact-card{
 
-          <h3>
-            Original Artworks<br>
-            <em>Are Coming Soon.</em>
-          </h3>
+max-width:650px;
 
+margin:auto;
 
-          <div class="shop-divider"></div>
+padding:35px;
 
+background:var(--card);
 
-          <p>
-            Soon you'll be able to discover and purchase
-            original artworks created at Inkverse Studio.
-            Each piece will be made with the same attention
-            to detail, emotion and craftsmanship.
-          </p>
+border-radius:20px;
 
+box-shadow:var(--shadow);
 
-          <div class="shop-divider"></div>
+text-align:center;
 
+}
 
-          <div class="shop-note">
-            Original • Handmade • Limited
-          </div>
+.contact-card p{
 
+margin-top:20px;
 
-        </div>
+line-height:1.8;
 
-      </div>
+}
 
-    </section>
+</style>
+<!-- =========================
+FOOTER
+========================= -->
 
+<footer>
 
+<div class="footer-content">
 
-    <!-- =========================
-         COMMISSION
-         ========================= -->
+<h2>Inkverse Studio</h2>
 
-    <section
-      class="commission"
-      id="commission"
-    >
+<p>
+Luxury Handmade Sketches • Charcoal • Graphite • Custom Artwork
+</p>
 
-      <div class="section-container">
+<div class="footer-links">
 
+<a href="#home">Home</a>
+<a href="#gallery">Gallery</a>
+<a href="#shop">Shop</a>
+<a href="#about">Why Us</a>
+<a href="#contact">Contact</a>
 
-        <div class="section-heading">
+</div>
 
-          <span>
-            MAKE IT PERSONAL
-          </span>
+<p class="footer-social">
 
-          <h2>
-            Turn Your Memories<br>
-            Into Art
-          </h2>
+Instagram:
+<a href="https://instagram.com/_shivam._.here__" target="_blank">
+@_shivam._.here__
+</a>
 
-        </div>
+<br><br>
 
+Email:
+<a href="mailto:inkversestudio.co@gmail.com">
+inkversestudio.co@gmail.com
+</a>
 
-        <p>
-          Have a photograph that means something special to you?
-          Let me transform it into a detailed handmade artwork.
-        </p>
+</p>
 
+<p class="copyright">
 
-        <a
-          href="https://instagram.com/_shivam._.here__"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          DISCUSS YOUR ARTWORK
-        </a>
+© 2026 Inkverse Studio.
+Designed with ❤️ by Shivam.
 
+</p>
 
-      </div>
+</div>
 
-    </section>
+</footer>
 
+<!-- Back To Top -->
 
+<button id="topBtn">↑</button>
 
-    <!-- =========================
-         CONTACT
-         ========================= -->
+<style>
 
-    <section
-      class="contact"
-      id="contact"
-    >
+/* Footer */
 
-      <div class="section-container">
+footer{
 
+background:#080808;
 
-        <div class="section-heading">
+padding:60px 8%;
 
-          <span>
-            GET IN TOUCH
-          </span>
+text-align:center;
 
-          <h2>
-            Let's Create Something
-          </h2>
+}
 
-        </div>
+body.light footer{
 
+background:#f3f3f3;
 
+}
 
-        <div class="contact-box">
+.footer-content h2{
 
+font-family:'Cinzel',serif;
 
-          <h3>
-            Art by Shivam
-          </h3>
+color:var(--gold);
 
+margin-bottom:15px;
 
-          <p>
-            For commissions, custom portraits and artwork,
-            send me a message on Instagram or send an email.
-          </p>
+}
 
+.footer-links{
 
-          <a
-            href="https://instagram.com/_shivam._.here__"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-          >
-            MESSAGE ON INSTAGRAM
-          </a>
+display:flex;
 
+justify-content:center;
 
-          <br>
+flex-wrap:wrap;
 
+gap:18px;
 
-          <a
-            href="mailto:inkversestudio.co@gmail.com"
-            class="email-link"
-          >
-            ✉ inkversestudio.co@gmail.com
-          </a>
+margin:25px 0;
 
+}
 
-          <br>
+.footer-links a{
 
+text-decoration:none;
 
-          <a
-            href="https://instagram.com/_shivam._.here__"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="instagram"
-          >
-            @_shivam._.here__
-          </a>
+color:var(--text);
 
+transition:.3s;
 
-        </div>
+}
 
-      </div>
+.footer-links a:hover{
 
-    </section>
+color:var(--gold);
 
+}
 
-  </main>
+.footer-social a{
 
+color:var(--gold);
 
+text-decoration:none;
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
+}
 
-  <footer>
+.copyright{
 
-    <h3>
-      INKVERSE STUDIO
-    </h3>
+margin-top:30px;
 
+color:var(--muted);
 
-    <p>
-      Premium handmade artwork by Shivam.
-      <br>
+font-size:14px;
 
-      Email:
+}
 
-      <a
-        href="mailto:inkversestudio.co@gmail.com"
-      >
-        inkversestudio.co@gmail.com
-      </a>
+/* Top Button */
 
-    </p>
+#topBtn{
 
+position:fixed;
 
-    <div class="copyright">
-      © 2026 Inkverse Studio. All rights reserved.
-    </div>
+right:20px;
 
-  </footer>
+bottom:20px;
 
+width:52px;
 
+height:52px;
 
-  <!-- =========================
-       JAVASCRIPT
-       ========================= -->
+border:none;
 
-  <script>
+border-radius:50%;
 
-    /* =========================
-       MOBILE MENU
-       ========================= */
+background:linear-gradient(135deg,var(--gold),var(--gold2));
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+cursor:pointer;
 
+font-size:20px;
 
-    menuBtn.addEventListener("click", function () {
+display:none;
 
-      navLinks.classList.toggle("active");
+box-shadow:var(--shadow);
 
-      const isOpen =
-        navLinks.classList.contains("active");
+z-index:999;
 
-      menuBtn.setAttribute(
-        "aria-expanded",
-        isOpen
-      );
+}
 
-    });
+#topBtn:hover{
 
+transform:translateY(-4px);
 
+}
 
-    /* =========================
-       CLOSE MENU AFTER CLICK
-       ========================= */
+</style>
 
-    document
-      .querySelectorAll(".nav-links a")
-      .forEach(function (link) {
+<script>
 
-        link.addEventListener("click", function () {
+/* ==========================
+Theme Memory
+========================== */
 
-          navLinks.classList.remove("active");
+const toggle=document.getElementById("themeToggle");
 
-          menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-          );
+if(localStorage.getItem("theme")==="light"){
 
-        });
+document.body.classList.add("light");
 
-      });
+toggle.innerHTML="☀️";
 
+}
 
+toggle.onclick=function(){
 
-    /* =========================
-       SMOOTH SCROLL
-       ========================= */
+document.body.classList.toggle("light");
 
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(function (link) {
+if(document.body.classList.contains("light")){
 
-        link.addEventListener(
-          "click",
-          function (e) {
+localStorage.setItem("theme","light");
 
-            const target =
-              document.querySelector(
-                this.getAttribute("href")
-              );
+toggle.innerHTML="☀️";
 
-            if (target) {
+}else{
 
-              e.preventDefault();
+localStorage.setItem("theme","dark");
 
-              target.scrollIntoView({
-                behavior: "smooth"
-              });
+toggle.innerHTML="🌙";
 
-            }
+}
 
-          }
-        );
+};
 
-      });
+/* ==========================
+Scroll Animation
+========================== */
 
+const observer=new IntersectionObserver(entries=>{
 
+entries.forEach(entry=>{
 
-    /* =========================
-       PAGE LOAD ANIMATION
-       ========================= */
+if(entry.isIntersecting){
 
-    window.addEventListener(
-      "load",
-      function () {
+entry.target.classList.add("show");
 
-        document.body.style.opacity = "0";
+}
 
-        setTimeout(function () {
+});
 
-          document.body.style.transition =
-            "opacity 0.7s ease";
+},{threshold:.15});
 
-          document.body.style.opacity = "1";
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 
-        }, 100);
+/* ==========================
+Back To Top
+========================== */
 
-      }
-    );
+const topBtn=document.getElementById("topBtn");
 
-  </script>
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>300){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+</script>
 
 </body>
 </html>

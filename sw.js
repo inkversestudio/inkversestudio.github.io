@@ -1,4 +1,4 @@
-const CACHE_NAME = "inkverse-studio-v3";
+const CACHE_NAME = "inkverse-studio-v4";
 
 const FILES_TO_CACHE = [
     "./",

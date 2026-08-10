@@ -39,13 +39,6 @@ body{
     overflow:hidden;
 }
 
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
-
 
 /* =========================
    APP
@@ -54,6 +47,7 @@ textarea{
 .app{
     width:100%;
     height:100vh;
+
     display:flex;
     flex-direction:column;
 }
@@ -65,7 +59,9 @@ textarea{
 
 header{
     height:78px;
+
     background:#f8f6f0;
+
     border-bottom:1px solid #ddd8cc;
 
     display:flex;
@@ -73,22 +69,30 @@ header{
     justify-content:space-between;
 
     padding:0 28px;
+
     flex-shrink:0;
 }
 
 .logo{
     font-family:Georgia,serif;
+
     font-size:27px;
     font-weight:bold;
+
     letter-spacing:4px;
 }
 
 .logo span{
     display:block;
+
     color:#a17b35;
+
     font-family:Arial,sans-serif;
+
     font-size:10px;
+
     letter-spacing:5px;
+
     margin-top:3px;
 }
 
@@ -99,12 +103,15 @@ header{
 
 .pages{
     flex:1;
+
     position:relative;
+
     overflow:hidden;
 }
 
 .page{
     position:absolute;
+
     inset:0;
 
     overflow-y:auto;
@@ -112,6 +119,7 @@ header{
     padding:45px 25px 110px;
 
     opacity:0;
+
     transform:translateX(25px);
 
     pointer-events:none;
@@ -123,7 +131,9 @@ header{
 
 .page.active{
     opacity:1;
+
     transform:translateX(0);
+
     pointer-events:auto;
 }
 
@@ -136,8 +146,11 @@ header{
     text-align:center;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
     min-height:100%;
@@ -145,34 +158,47 @@ header{
 
 .small-title{
     color:#a17b35;
+
     letter-spacing:5px;
+
     font-size:13px;
+
     margin-bottom:35px;
 }
 
 h1{
     font-family:Georgia,serif;
+
     font-size:58px;
+
     line-height:.95;
+
     max-width:700px;
 }
 
 h1 span{
     color:#a17b35;
+
     font-style:italic;
 }
 
 .line{
     width:105px;
+
     height:2px;
+
     background:#a17b35;
+
     margin:40px auto 28px;
 }
 
 .description{
     max-width:600px;
+
     color:#686868;
+
     font-size:17px;
+
     line-height:1.7;
 }
 
@@ -180,24 +206,24 @@ h1 span{
     margin-top:35px;
 
     border:none;
+
     background:#171717;
+
     color:white;
 
     padding:18px 35px;
 
     font-size:13px;
+
     letter-spacing:3px;
 
     cursor:pointer;
 
-    transition:
-        background .25s ease,
-        transform .25s ease;
+    transition:.25s;
 }
 
 .primary-btn:hover{
     background:#a17b35;
-    transform:translateY(-2px);
 }
 
 
@@ -207,13 +233,17 @@ h1 span{
 
 .section-title{
     font-family:Georgia,serif;
+
     font-size:42px;
+
     margin-bottom:15px;
 }
 
 .section-subtitle{
     color:#777;
+
     line-height:1.7;
+
     margin-bottom:35px;
 }
 
@@ -224,166 +254,121 @@ h1 span{
 
 .card{
     background:#fff;
+
     border:1px solid #e3dfd5;
+
     padding:25px;
+
     min-height:150px;
 }
 
 .card h3{
     font-family:Georgia,serif;
+
     font-size:22px;
+
     margin-bottom:12px;
 }
 
 .card p{
     color:#777;
+
     line-height:1.6;
 }
 
 
 /* =========================
-   PREMIUM GALLERY
+   GALLERY
 ========================= */
 
 .gallery-grid{
     display:grid;
 
     grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(2,1fr);
 
     gap:22px;
-
-    max-width:1000px;
 }
 
-
-/* Artwork Card */
-
 .art-card{
-    position:relative;
-
     background:#fff;
 
     border:1px solid #e3dfd5;
 
-    overflow:hidden;
-
-    cursor:pointer;
+    padding:12px;
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 }
 
 .art-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 
     border-color:#b99a5b;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.08);
+        0 12px 30px rgba(0,0,0,.08);
 }
 
 
-/* Artwork Image Area */
+/* Future image container */
 
 .art-image{
-    position:relative;
-
     width:100%;
-    height:260px;
+
+    height:250px;
 
     background:#e8e3d8;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
+    position:relative;
+
     overflow:hidden;
+
+    margin-bottom:15px;
 }
 
+.art-image::before{
+    content:"";
 
-/* Placeholder */
-
-.art-placeholder{
-    text-align:center;
-    color:#8c806a;
-}
-
-.art-placeholder-icon{
-    font-family:Georgia,serif;
-    font-size:42px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-    opacity:.65;
-}
-
-.art-placeholder-text{
-    font-family:Georgia,serif;
-    font-size:15px;
-    letter-spacing:1px;
-}
-
-
-/* Image-ready class */
-
-.art-image img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:
-        transform .5s ease;
-}
-
-.art-card:hover .art-image img{
-    transform:scale(1.04);
-}
-
-
-/* Gold Overlay */
-
-.art-overlay{
     position:absolute;
 
-    inset:0;
+    width:120px;
+    height:120px;
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(23,23,23,.35),
-            transparent 55%
-        );
+    border:1px solid rgba(161,123,53,.35);
 
-    opacity:0;
-
-    transition:opacity .3s ease;
-
-    pointer-events:none;
+    transform:rotate(45deg);
 }
 
-.art-card:hover .art-overlay{
-    opacity:1;
+.art-image span{
+    position:relative;
+
+    z-index:2;
+
+    font-family:Georgia,serif;
+
+    color:#8c806a;
+
+    font-size:14px;
+
+    letter-spacing:2px;
 }
-
-
-/* Artwork Information */
 
 .art-info{
-    padding:18px 18px 20px;
-
-    background:#fff;
+    padding:3px 5px 10px;
 }
 
 .art-category{
+    display:inline-block;
+
     color:#a17b35;
 
     font-size:10px;
@@ -398,30 +383,17 @@ h1 span{
 .art-title{
     font-family:Georgia,serif;
 
-    font-size:20px;
+    font-size:21px;
 
-    color:#171717;
+    margin-bottom:7px;
 }
 
-
-/* Gallery Note */
-
-.gallery-note{
-    margin-top:30px;
-
-    padding:18px;
-
-    border-left:2px solid #a17b35;
-
-    background:#fffdf8;
-
+.art-description{
     color:#777;
 
     font-size:13px;
 
     line-height:1.6;
-
-    max-width:700px;
 }
 
 
@@ -441,12 +413,15 @@ h1 span{
 
 .coming h2{
     font-family:Georgia,serif;
+
     font-size:34px;
+
     margin-bottom:15px;
 }
 
 .coming p{
     color:#777;
+
     line-height:1.7;
 }
 
@@ -457,6 +432,7 @@ h1 span{
 
 .commission-form{
     max-width:650px;
+
     margin-top:25px;
 }
 
@@ -464,6 +440,7 @@ h1 span{
     display:block;
 
     font-size:12px;
+
     font-weight:bold;
 
     margin:20px 0 8px;
@@ -471,6 +448,7 @@ h1 span{
 
 .commission-form label span{
     color:#999;
+
     font-weight:normal;
 }
 
@@ -484,6 +462,8 @@ h1 span{
     border:1px solid #ddd8cc;
 
     background:#fff;
+
+    font-family:Arial,sans-serif;
 
     font-size:14px;
 
@@ -533,12 +513,15 @@ h1 span{
 
 .contact-card strong{
     display:block;
+
     margin-bottom:8px;
 }
 
 .contact-card a{
     color:#a17b35;
+
     text-decoration:none;
+
     word-break:break-word;
 }
 
@@ -551,7 +534,9 @@ h1 span{
     position:fixed;
 
     bottom:0;
+
     left:0;
+
     right:0;
 
     height:75px;
@@ -563,6 +548,7 @@ h1 span{
     display:flex;
 
     justify-content:space-around;
+
     align-items:center;
 
     z-index:100;
@@ -572,6 +558,7 @@ h1 span{
 
 .nav-btn{
     border:none;
+
     background:none;
 
     color:#777;
@@ -583,6 +570,7 @@ h1 span{
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
     gap:5px;
@@ -594,6 +582,7 @@ h1 span{
 
 .nav-icon{
     font-size:21px;
+
     line-height:1;
 }
 
@@ -618,6 +607,7 @@ h1 span{
     position:absolute;
 
     bottom:72px;
+
     right:0;
 
     width:180px;
@@ -632,6 +622,7 @@ h1 span{
     padding:8px;
 
     opacity:0;
+
     visibility:hidden;
 
     transform:translateY(10px);
@@ -644,7 +635,9 @@ h1 span{
 
 .more-menu.show{
     opacity:1;
+
     visibility:visible;
+
     transform:translateY(0);
 }
 
@@ -652,6 +645,7 @@ h1 span{
     width:100%;
 
     border:none;
+
     background:none;
 
     padding:14px 12px;
@@ -667,6 +661,7 @@ h1 span{
 
 .more-item:hover{
     background:#f5f1e8;
+
     color:#a17b35;
 }
 
@@ -679,6 +674,7 @@ h1 span{
 
     header{
         height:72px;
+
         padding:0 22px;
     }
 
@@ -704,11 +700,12 @@ h1 span{
 
     .gallery-grid{
         grid-template-columns:1fr;
+
         gap:18px;
     }
 
     .art-image{
-        height:240px;
+        height:220px;
     }
 
     .bottom-nav{
@@ -717,6 +714,7 @@ h1 span{
 
     .nav-btn{
         min-width:50px;
+
         font-size:9px;
     }
 
@@ -726,6 +724,7 @@ h1 span{
 
     .more-menu{
         bottom:70px;
+
         right:-5px;
     }
 }
@@ -761,7 +760,7 @@ h1 span{
 
 
 <!-- =========================
-     PAGES
+     ALL PAGES
 ========================= -->
 
 <main class="pages">
@@ -779,7 +778,9 @@ h1 span{
     <div class="home">
 
         <div class="small-title">
+
             ART BY SHIVAM
+
         </div>
 
 
@@ -849,26 +850,13 @@ h1 span{
 
         <!-- ARTWORK 01 -->
 
-        <div
-            class="art-card"
-            onclick="artworkMessage('Graphite Portrait')"
-        >
+        <article class="art-card">
 
             <div class="art-image">
 
-                <div class="art-placeholder">
-
-                    <span class="art-placeholder-icon">
-                        ✦
-                    </span>
-
-                    <span class="art-placeholder-text">
-                        Artwork 01
-                    </span>
-
-                </div>
-
-                <div class="art-overlay"></div>
+                <span>
+                    ARTWORK 01
+                </span>
 
             </div>
 
@@ -876,40 +864,41 @@ h1 span{
             <div class="art-info">
 
                 <div class="art-category">
+
                     GRAPHITE
+
                 </div>
 
+
                 <div class="art-title">
+
                     Graphite Portrait
+
                 </div>
+
+
+                <p class="art-description">
+
+                    Detailed graphite artwork created
+                    with patience and precision.
+
+                </p>
 
             </div>
 
-        </div>
+        </article>
+
 
 
         <!-- ARTWORK 02 -->
 
-        <div
-            class="art-card"
-            onclick="artworkMessage('Charcoal Portrait')"
-        >
+        <article class="art-card">
 
             <div class="art-image">
 
-                <div class="art-placeholder">
-
-                    <span class="art-placeholder-icon">
-                        ◇
-                    </span>
-
-                    <span class="art-placeholder-text">
-                        Artwork 02
-                    </span>
-
-                </div>
-
-                <div class="art-overlay"></div>
+                <span>
+                    ARTWORK 02
+                </span>
 
             </div>
 
@@ -917,40 +906,41 @@ h1 span{
             <div class="art-info">
 
                 <div class="art-category">
+
                     CHARCOAL
+
                 </div>
 
+
                 <div class="art-title">
+
                     Charcoal Portrait
+
                 </div>
+
+
+                <p class="art-description">
+
+                    Expressive charcoal artwork with
+                    rich tones and deep contrast.
+
+                </p>
 
             </div>
 
-        </div>
+        </article>
+
 
 
         <!-- ARTWORK 03 -->
 
-        <div
-            class="art-card"
-            onclick="artworkMessage('Custom Artwork')"
-        >
+        <article class="art-card">
 
             <div class="art-image">
 
-                <div class="art-placeholder">
-
-                    <span class="art-placeholder-icon">
-                        ◎
-                    </span>
-
-                    <span class="art-placeholder-text">
-                        Artwork 03
-                    </span>
-
-                </div>
-
-                <div class="art-overlay"></div>
+                <span>
+                    ARTWORK 03
+                </span>
 
             </div>
 
@@ -958,40 +948,41 @@ h1 span{
             <div class="art-info">
 
                 <div class="art-category">
+
                     CUSTOM
+
                 </div>
 
+
                 <div class="art-title">
+
                     Custom Artwork
+
                 </div>
+
+
+                <p class="art-description">
+
+                    Personal artwork created around
+                    your memories and ideas.
+
+                </p>
 
             </div>
 
-        </div>
+        </article>
+
 
 
         <!-- ARTWORK 04 -->
 
-        <div
-            class="art-card"
-            onclick="artworkMessage('Pencil Sketch')"
-        >
+        <article class="art-card">
 
             <div class="art-image">
 
-                <div class="art-placeholder">
-
-                    <span class="art-placeholder-icon">
-                        ✎
-                    </span>
-
-                    <span class="art-placeholder-text">
-                        Artwork 04
-                    </span>
-
-                </div>
-
-                <div class="art-overlay"></div>
+                <span>
+                    ARTWORK 04
+                </span>
 
             </div>
 
@@ -999,25 +990,30 @@ h1 span{
             <div class="art-info">
 
                 <div class="art-category">
-                    SKETCH
+
+                    PENCIL
+
                 </div>
 
+
                 <div class="art-title">
+
                     Pencil Sketch
+
                 </div>
+
+
+                <p class="art-description">
+
+                    Clean pencil artwork with careful
+                    attention to every detail.
+
+                </p>
 
             </div>
 
-        </div>
+        </article>
 
-
-    </div>
-
-
-    <div class="gallery-note">
-
-        More original artworks will be added to the
-        Inkverse Studio collection soon.
 
     </div>
 
@@ -1034,7 +1030,9 @@ h1 span{
 >
 
     <h2 class="section-title">
+
         Shop
+
     </h2>
 
 
@@ -1048,7 +1046,9 @@ h1 span{
     <div class="coming">
 
         <h2>
+
             Coming Soon
+
         </h2>
 
 
@@ -1076,19 +1076,25 @@ h1 span{
 >
 
     <h2 class="section-title">
+
         About Inkverse
+
     </h2>
 
 
     <p class="section-subtitle">
+
         Art by Shivam.
+
     </p>
 
 
     <div class="card">
 
         <h3>
+
             The Artist
+
         </h3>
 
 
@@ -1128,7 +1134,9 @@ h1 span{
 >
 
     <h2 class="section-title">
+
         Commission
+
     </h2>
 
 
@@ -1144,7 +1152,9 @@ h1 span{
 
 
         <label>
+
             Your Name
+
         </label>
 
 
@@ -1156,31 +1166,40 @@ h1 span{
 
 
         <label>
+
             Artwork Type
+
         </label>
 
 
         <select id="artType">
 
             <option value="">
+
                 Select artwork type
+
             </option>
+
 
             <option>
                 Portrait
             </option>
 
+
             <option>
                 Couple Artwork
             </option>
+
 
             <option>
                 Pet Portrait
             </option>
 
+
             <option>
                 Anime Artwork
             </option>
+
 
             <option>
                 Custom Artwork
@@ -1190,7 +1209,9 @@ h1 span{
 
 
         <label>
+
             Tell me about your artwork
+
         </label>
 
 
@@ -1204,6 +1225,7 @@ h1 span{
         <label>
 
             Budget
+
             <span>
                 (Optional)
             </span>
@@ -1250,7 +1272,9 @@ h1 span{
 >
 
     <h2 class="section-title">
+
         Contact
+
     </h2>
 
 
@@ -1265,7 +1289,9 @@ h1 span{
     <div class="contact-card">
 
         <strong>
+
             Instagram
+
         </strong>
 
 
@@ -1285,7 +1311,9 @@ h1 span{
     <div class="contact-card">
 
         <strong>
+
             Email
+
         </strong>
 
 
@@ -1322,6 +1350,8 @@ h1 span{
 <nav class="bottom-nav">
 
 
+    <!-- HOME -->
+
     <button
         class="nav-btn active"
         onclick="showPage('home',this)"
@@ -1337,6 +1367,8 @@ h1 span{
 
     </button>
 
+
+    <!-- GALLERY -->
 
     <button
         class="nav-btn"
@@ -1354,6 +1386,8 @@ h1 span{
     </button>
 
 
+    <!-- SHOP -->
+
     <button
         class="nav-btn"
         onclick="showPage('shop',this)"
@@ -1369,6 +1403,8 @@ h1 span{
 
     </button>
 
+
+    <!-- ABOUT -->
 
     <button
         class="nav-btn"
@@ -1386,8 +1422,9 @@ h1 span{
     </button>
 
 
-    <div class="more-wrapper">
+    <!-- MORE -->
 
+    <div class="more-wrapper">
 
         <button
             class="nav-btn"
@@ -1410,7 +1447,6 @@ h1 span{
             id="moreMenu"
         >
 
-
             <button
                 class="more-item"
                 onclick="showPage('commission'); closeMoreMenu();"
@@ -1430,10 +1466,10 @@ h1 span{
 
             </button>
 
-
         </div>
 
     </div>
+
 
 </nav>
 
@@ -1441,7 +1477,12 @@ h1 span{
 </div>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 
 /* =========================
    PAGE NAVIGATION
@@ -1528,6 +1569,7 @@ function toggleMoreMenu(){
     const menu =
         document.getElementById("moreMenu");
 
+
     menu.classList.toggle("show");
 
 }
@@ -1544,20 +1586,6 @@ function closeMoreMenu(){
         menu.classList.remove("show");
 
     }
-
-}
-
-
-/* =========================
-   ARTWORK PREVIEW BASE
-========================= */
-
-function artworkMessage(title){
-
-    alert(
-        title +
-        "\n\nArtwork preview will be available soon."
-    );
 
 }
 

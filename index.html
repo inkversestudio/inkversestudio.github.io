@@ -16,10 +16,6 @@ content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Sh
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -39,61 +35,76 @@ body{
     overflow:hidden;
 }
 
-
-/* =========================
-   APP
-========================= */
-
 .app{
     width:100%;
     height:100vh;
-
     display:flex;
     flex-direction:column;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 header{
     height:78px;
-
     background:#f8f6f0;
-
     border-bottom:1px solid #ddd8cc;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 28px;
-
     flex-shrink:0;
 }
 
 .logo{
     font-family:Georgia,serif;
-
     font-size:27px;
     font-weight:bold;
-
     letter-spacing:4px;
 }
 
 .logo span{
     display:block;
+    color:#a17b35;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:5px;
+    margin-top:3px;
+}
+
+
+/* =========================
+   INSTALL BUTTON
+========================= */
+
+.install-btn{
+    display:none;
+
+    border:1px solid #a17b35;
+
+    background:#fffdf8;
 
     color:#a17b35;
 
-    font-family:Arial,sans-serif;
+    padding:10px 14px;
 
     font-size:10px;
 
-    letter-spacing:5px;
+    font-weight:bold;
 
-    margin-top:3px;
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+
+    transition:.25s;
+}
+
+.install-btn:hover{
+    background:#a17b35;
+    color:white;
+}
+
+.install-btn.show{
+    display:block;
 }
 
 
@@ -103,27 +114,18 @@ header{
 
 .pages{
     flex:1;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .page{
     position:absolute;
-
     inset:0;
-
     overflow-y:auto;
-
     padding:45px 25px 110px;
-
     opacity:0;
-
     transform:translateX(25px);
-
     pointer-events:none;
-
     transition:
         opacity .3s ease,
         transform .3s ease;
@@ -131,9 +133,7 @@ header{
 
 .page.active{
     opacity:1;
-
     transform:translateX(0);
-
     pointer-events:auto;
 }
 
@@ -144,81 +144,55 @@ header{
 
 .home{
     text-align:center;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     min-height:100%;
 }
 
 .small-title{
     color:#a17b35;
-
     letter-spacing:5px;
-
     font-size:13px;
-
     margin-bottom:35px;
 }
 
 h1{
     font-family:Georgia,serif;
-
     font-size:58px;
-
     line-height:.95;
-
     max-width:700px;
 }
 
 h1 span{
     color:#a17b35;
-
     font-style:italic;
 }
 
 .line{
     width:105px;
-
     height:2px;
-
     background:#a17b35;
-
     margin:40px auto 28px;
 }
 
 .description{
     max-width:600px;
-
     color:#686868;
-
     font-size:17px;
-
     line-height:1.7;
 }
 
 .primary-btn{
     margin-top:35px;
-
     border:none;
-
     background:#171717;
-
     color:white;
-
     padding:18px 35px;
-
     font-size:13px;
-
     letter-spacing:3px;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
@@ -233,17 +207,13 @@ h1 span{
 
 .section-title{
     font-family:Georgia,serif;
-
     font-size:42px;
-
     margin-bottom:15px;
 }
 
 .section-subtitle{
     color:#777;
-
     line-height:1.7;
-
     margin-bottom:35px;
 }
 
@@ -254,33 +224,25 @@ h1 span{
 
 .grid{
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:18px;
 }
 
 .card{
     background:#fff;
-
     border:1px solid #e3dfd5;
-
     padding:25px;
-
     min-height:150px;
 }
 
 .card h3{
     font-family:Georgia,serif;
-
     font-size:22px;
-
     margin-bottom:12px;
 }
 
 .card p{
     color:#777;
-
     line-height:1.6;
 }
 
@@ -291,25 +253,17 @@ h1 span{
 
 .art-box{
     background:#e8e3d8;
-
     height:190px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     color:#8c806a;
-
     margin-bottom:10px;
-
     font-family:Georgia,serif;
 }
 
 .art-title{
     font-family:Georgia,serif;
-
     font-size:18px;
 }
 
@@ -320,25 +274,19 @@ h1 span{
 
 .coming{
     border:1px solid #b99a5b;
-
     padding:45px 25px;
-
     text-align:center;
-
     background:#fffdf8;
 }
 
 .coming h2{
     font-family:Georgia,serif;
-
     font-size:34px;
-
     margin-bottom:15px;
 }
 
 .coming p{
     color:#777;
-
     line-height:1.7;
 }
 
@@ -349,23 +297,18 @@ h1 span{
 
 .commission-form{
     max-width:650px;
-
     margin-top:25px;
 }
 
 .commission-form label{
     display:block;
-
     font-size:12px;
-
     font-weight:bold;
-
     margin:20px 0 8px;
 }
 
 .commission-form label span{
     color:#999;
-
     font-weight:normal;
 }
 
@@ -373,21 +316,13 @@ h1 span{
 .commission-form select,
 .commission-form textarea{
     width:100%;
-
     padding:15px;
-
     border:1px solid #ddd8cc;
-
     background:#fff;
-
     font-family:Arial,sans-serif;
-
     font-size:14px;
-
     outline:none;
-
     border-radius:0;
-
     transition:.25s;
 }
 
@@ -407,9 +342,7 @@ h1 span{
 
 .form-note{
     margin-top:12px;
-
     color:#999;
-
     font-size:11px;
 }
 
@@ -420,25 +353,19 @@ h1 span{
 
 .contact-card{
     background:#fff;
-
     border:1px solid #e3dfd5;
-
     padding:25px;
-
     margin-bottom:15px;
 }
 
 .contact-card strong{
     display:block;
-
     margin-bottom:8px;
 }
 
 .contact-card a{
     color:#a17b35;
-
     text-decoration:none;
-
     word-break:break-word;
 }
 
@@ -449,57 +376,35 @@ h1 span{
 
 .bottom-nav{
     position:fixed;
-
     bottom:0;
-
     left:0;
-
     right:0;
-
     height:75px;
-
     background:rgba(255,255,255,.97);
-
     border-top:1px solid #ddd8cc;
-
     display:flex;
-
     justify-content:space-around;
-
     align-items:center;
-
     z-index:100;
-
     padding-bottom:env(safe-area-inset-bottom);
 }
 
 .nav-btn{
     border:none;
-
     background:none;
-
     color:#777;
-
     min-width:58px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     gap:5px;
-
     font-size:10px;
-
     cursor:pointer;
 }
 
 .nav-icon{
     font-size:21px;
-
     line-height:1;
 }
 
@@ -522,27 +427,16 @@ h1 span{
 
 .more-menu{
     position:absolute;
-
     bottom:72px;
-
     right:0;
-
     width:180px;
-
     background:#fffdf8;
-
     border:1px solid #ddd8cc;
-
     box-shadow:0 10px 30px rgba(0,0,0,.12);
-
     padding:8px;
-
     opacity:0;
-
     visibility:hidden;
-
     transform:translateY(10px);
-
     transition:
         opacity .25s ease,
         transform .25s ease,
@@ -551,33 +445,23 @@ h1 span{
 
 .more-menu.show{
     opacity:1;
-
     visibility:visible;
-
     transform:translateY(0);
 }
 
 .more-item{
     width:100%;
-
     border:none;
-
     background:none;
-
     padding:14px 12px;
-
     text-align:left;
-
     font-size:13px;
-
     color:#333;
-
     cursor:pointer;
 }
 
 .more-item:hover{
     background:#f5f1e8;
-
     color:#a17b35;
 }
 
@@ -590,12 +474,17 @@ h1 span{
 
     header{
         height:72px;
-
-        padding:0 22px;
+        padding:0 18px;
     }
 
     .logo{
-        font-size:25px;
+        font-size:22px;
+    }
+
+    .install-btn{
+        padding:9px 10px;
+        font-size:8px;
+        letter-spacing:1px;
     }
 
     .page{
@@ -624,7 +513,6 @@ h1 span{
 
     .nav-btn{
         min-width:50px;
-
         font-size:9px;
     }
 
@@ -634,7 +522,6 @@ h1 span{
 
     .more-menu{
         bottom:70px;
-
         right:-5px;
     }
 }
@@ -645,7 +532,6 @@ h1 span{
 
 
 <body>
-
 
 <div class="app">
 
@@ -661,6 +547,17 @@ h1 span{
         </span>
 
     </div>
+
+
+    <button
+        id="installButton"
+        class="install-btn"
+        type="button"
+    >
+
+        INSTALL APP
+
+    </button>
 
 </header>
 
@@ -759,7 +656,6 @@ h1 span{
         </div>
 
 
-
         <div class="card">
 
             <div class="art-box">
@@ -777,7 +673,6 @@ h1 span{
         </div>
 
 
-
         <div class="card">
 
             <div class="art-box">
@@ -793,7 +688,6 @@ h1 span{
             </div>
 
         </div>
-
 
 
         <div class="card">
@@ -951,7 +845,6 @@ h1 span{
         >
 
 
-
         <label>
 
             Artwork Type
@@ -962,48 +855,30 @@ h1 span{
         <select id="artType">
 
             <option value="">
-
                 Select artwork type
-
             </option>
 
-
             <option>
-
                 Portrait
-
             </option>
 
-
             <option>
-
                 Couple Artwork
-
             </option>
 
-
             <option>
-
                 Pet Portrait
-
             </option>
 
-
             <option>
-
                 Anime Artwork
-
             </option>
 
-
             <option>
-
                 Custom Artwork
-
             </option>
 
         </select>
-
 
 
         <label>
@@ -1018,7 +893,6 @@ h1 span{
             rows="5"
             placeholder="Describe what you want..."
         ></textarea>
-
 
 
         <label>
@@ -1036,7 +910,6 @@ h1 span{
             id="budget"
             placeholder="Example: ₹1000 - ₹2000"
         >
-
 
 
         <button
@@ -1081,13 +954,10 @@ h1 span{
     </p>
 
 
-
     <div class="contact-card">
 
         <strong>
-
             Instagram
-
         </strong>
 
 
@@ -1104,18 +974,15 @@ h1 span{
     </div>
 
 
-
     <div class="contact-card">
 
         <strong>
-
             Email
-
         </strong>
 
 
         <a
-            href="mailto:inkversestudio.co@gmail.com?subject=Inkverse%20Studio%20Inquiry"
+            href="mailto:inkversestudio.co@gmail.com?subject=Inkversestudio%20Inquiry"
         >
 
             inkversestudio.co@gmail.com
@@ -1123,7 +990,6 @@ h1 span{
         </a>
 
     </div>
-
 
 
     <button
@@ -1150,19 +1016,14 @@ h1 span{
     >
 
         <span class="nav-icon">
-
             ⌂
-
         </span>
 
         <span>
-
             Home
-
         </span>
 
     </button>
-
 
 
     <button
@@ -1171,19 +1032,14 @@ h1 span{
     >
 
         <span class="nav-icon">
-
             ✦
-
         </span>
 
         <span>
-
             Gallery
-
         </span>
 
     </button>
-
 
 
     <button
@@ -1192,19 +1048,14 @@ h1 span{
     >
 
         <span class="nav-icon">
-
             ◇
-
         </span>
 
         <span>
-
             Shop
-
         </span>
 
     </button>
-
 
 
     <button
@@ -1213,19 +1064,14 @@ h1 span{
     >
 
         <span class="nav-icon">
-
             ◎
-
         </span>
 
         <span>
-
             About
-
         </span>
 
     </button>
-
 
 
     <div class="more-wrapper">
@@ -1237,19 +1083,14 @@ h1 span{
         >
 
             <span class="nav-icon">
-
                 •••
-
             </span>
 
             <span>
-
                 More
-
             </span>
 
         </button>
-
 
 
         <div
@@ -1268,7 +1109,6 @@ h1 span{
             </button>
 
 
-
             <button
                 class="more-item"
                 onclick="showPage('contact'); closeMoreMenu();"
@@ -1281,9 +1121,7 @@ h1 span{
 
         </div>
 
-
     </div>
-
 
 </nav>
 
@@ -1292,6 +1130,7 @@ h1 span{
 
 
 <script>
+
 
 /* =========================
    PAGE NAVIGATION
@@ -1526,6 +1365,96 @@ function sendEmail(){
         );
 
 }
+
+
+/* =========================
+   PWA INSTALL
+========================= */
+
+let deferredInstallPrompt = null;
+
+const installButton =
+    document.getElementById("installButton");
+
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event){
+
+        event.preventDefault();
+
+        deferredInstallPrompt = event;
+
+        installButton.classList.add("show");
+
+    }
+);
+
+
+installButton.addEventListener(
+    "click",
+    async function(){
+
+        if(!deferredInstallPrompt){
+
+            alert(
+                "The app is not ready for installation yet. Please refresh the page and try again."
+            );
+
+            return;
+
+        }
+
+
+        deferredInstallPrompt.prompt();
+
+
+        const result =
+            await deferredInstallPrompt.userChoice;
+
+
+        if(result.outcome === "accepted"){
+
+            console.log(
+                "Inkverse Studio installation accepted."
+            );
+
+        }
+        else{
+
+            console.log(
+                "Inkverse Studio installation dismissed."
+            );
+
+        }
+
+
+        deferredInstallPrompt = null;
+
+        installButton.classList.remove("show");
+
+    }
+);
+
+
+/* =========================
+   INSTALLED CHECK
+========================= */
+
+window.addEventListener(
+    "appinstalled",
+    function(){
+
+        installButton.classList.remove("show");
+
+        deferredInstallPrompt = null;
+
+        console.log(
+            "Inkverse Studio installed."
+        );
+
+    }
+);
 
 
 /* =========================

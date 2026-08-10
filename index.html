@@ -16,6 +16,10 @@ content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Sh
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -35,76 +39,278 @@ body{
     overflow:hidden;
 }
 
-.app{
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-}
 
-header{
-    height:78px;
+/* =========================
+   PREMIUM SPLASH SCREEN
+========================= */
+
+#splashScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
     background:#f8f6f0;
-    border-bottom:1px solid #ddd8cc;
+
     display:flex;
+
     align-items:center;
-    justify-content:space-between;
-    padding:0 28px;
-    flex-shrink:0;
+
+    justify-content:center;
+
+    text-align:center;
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+
 }
 
-.logo{
+
+#splashScreen.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+.splash-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:splashEnter .9s ease forwards;
+
+}
+
+
+.splash-logo{
+
     font-family:Georgia,serif;
-    font-size:27px;
+
+    font-size:38px;
+
     font-weight:bold;
-    letter-spacing:4px;
+
+    letter-spacing:7px;
+
+    color:#171717;
+
 }
 
-.logo span{
-    display:block;
+
+.splash-studio{
+
+    margin-top:7px;
+
     color:#a17b35;
+
     font-family:Arial,sans-serif;
-    font-size:10px;
-    letter-spacing:5px;
-    margin-top:3px;
+
+    font-size:11px;
+
+    letter-spacing:7px;
+
+}
+
+
+.splash-line{
+
+    width:70px;
+
+    height:2px;
+
+    background:#a17b35;
+
+    margin:30px 0 22px;
+
+    animation:
+        lineGrow 1s ease .2s both;
+
+}
+
+
+.splash-tagline{
+
+    color:#777;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.splash-loader{
+
+    width:90px;
+
+    height:2px;
+
+    background:#ddd8cc;
+
+    margin-top:35px;
+
+    overflow:hidden;
+
+}
+
+
+.splash-loader::after{
+
+    content:"";
+
+    display:block;
+
+    width:35%;
+
+    height:100%;
+
+    background:#a17b35;
+
+    animation:
+        loading 1.2s ease-in-out infinite;
+
+}
+
+
+@keyframes splashEnter{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes lineGrow{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:70px;
+
+    }
+
+}
+
+
+@keyframes loading{
+
+    0%{
+
+        transform:translateX(-100%);
+
+    }
+
+    100%{
+
+        transform:translateX(300%);
+
+    }
+
 }
 
 
 /* =========================
-   INSTALL BUTTON
+   APP
 ========================= */
 
-.install-btn{
-    display:none;
+.app{
 
-    border:1px solid #a17b35;
+    width:100%;
 
-    background:#fffdf8;
+    height:100vh;
 
-    color:#a17b35;
+    display:flex;
 
-    padding:10px 14px;
+    flex-direction:column;
 
-    font-size:10px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+    height:78px;
+
+    background:#f8f6f0;
+
+    border-bottom:1px solid #ddd8cc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    flex-shrink:0;
+
+}
+
+
+.logo{
+
+    font-family:Georgia,serif;
+
+    font-size:27px;
 
     font-weight:bold;
 
-    letter-spacing:1.5px;
+    letter-spacing:4px;
 
-    cursor:pointer;
-
-    white-space:nowrap;
-
-    transition:.25s;
 }
 
-.install-btn:hover{
-    background:#a17b35;
-    color:white;
-}
 
-.install-btn.show{
+.logo span{
+
     display:block;
+
+    color:#a17b35;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    margin-top:3px;
+
 }
 
 
@@ -113,28 +319,49 @@ header{
 ========================= */
 
 .pages{
+
     flex:1;
+
     position:relative;
+
     overflow:hidden;
+
 }
+
 
 .page{
+
     position:absolute;
+
     inset:0;
+
     overflow-y:auto;
+
     padding:45px 25px 110px;
+
     opacity:0;
+
     transform:translateX(25px);
+
     pointer-events:none;
+
     transition:
+
         opacity .3s ease,
+
         transform .3s ease;
+
 }
 
+
 .page.active{
+
     opacity:1;
+
     transform:translateX(0);
+
     pointer-events:auto;
+
 }
 
 
@@ -143,61 +370,110 @@ header{
 ========================= */
 
 .home{
+
     text-align:center;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     min-height:100%;
+
 }
+
 
 .small-title{
+
     color:#a17b35;
+
     letter-spacing:5px;
+
     font-size:13px;
+
     margin-bottom:35px;
+
 }
+
 
 h1{
+
     font-family:Georgia,serif;
+
     font-size:58px;
+
     line-height:.95;
+
     max-width:700px;
+
 }
+
 
 h1 span{
+
     color:#a17b35;
+
     font-style:italic;
+
 }
+
 
 .line{
+
     width:105px;
+
     height:2px;
+
     background:#a17b35;
+
     margin:40px auto 28px;
+
 }
+
 
 .description{
+
     max-width:600px;
+
     color:#686868;
+
     font-size:17px;
+
     line-height:1.7;
+
 }
+
 
 .primary-btn{
+
     margin-top:35px;
+
     border:none;
+
     background:#171717;
+
     color:white;
+
     padding:18px 35px;
+
     font-size:13px;
+
     letter-spacing:3px;
+
     cursor:pointer;
+
     transition:.25s;
+
 }
 
+
 .primary-btn:hover{
+
     background:#a17b35;
+
 }
 
 
@@ -206,15 +482,24 @@ h1 span{
 ========================= */
 
 .section-title{
+
     font-family:Georgia,serif;
+
     font-size:42px;
+
     margin-bottom:15px;
+
 }
 
+
 .section-subtitle{
+
     color:#777;
+
     line-height:1.7;
+
     margin-bottom:35px;
+
 }
 
 
@@ -223,27 +508,46 @@ h1 span{
 ========================= */
 
 .grid{
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:18px;
+
 }
+
 
 .card{
+
     background:#fff;
+
     border:1px solid #e3dfd5;
+
     padding:25px;
+
     min-height:150px;
+
 }
+
 
 .card h3{
+
     font-family:Georgia,serif;
+
     font-size:22px;
+
     margin-bottom:12px;
+
 }
 
+
 .card p{
+
     color:#777;
+
     line-height:1.6;
+
 }
 
 
@@ -252,19 +556,32 @@ h1 span{
 ========================= */
 
 .art-box{
+
     background:#e8e3d8;
+
     height:190px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     color:#8c806a;
+
     margin-bottom:10px;
+
     font-family:Georgia,serif;
+
 }
 
+
 .art-title{
+
     font-family:Georgia,serif;
+
     font-size:18px;
+
 }
 
 
@@ -273,21 +590,35 @@ h1 span{
 ========================= */
 
 .coming{
+
     border:1px solid #b99a5b;
+
     padding:45px 25px;
+
     text-align:center;
+
     background:#fffdf8;
+
 }
+
 
 .coming h2{
+
     font-family:Georgia,serif;
+
     font-size:34px;
+
     margin-bottom:15px;
+
 }
 
+
 .coming p{
+
     color:#777;
+
     line-height:1.7;
+
 }
 
 
@@ -296,54 +627,92 @@ h1 span{
 ========================= */
 
 .commission-form{
+
     max-width:650px;
+
     margin-top:25px;
+
 }
+
 
 .commission-form label{
+
     display:block;
+
     font-size:12px;
+
     font-weight:bold;
+
     margin:20px 0 8px;
+
 }
 
+
 .commission-form label span{
+
     color:#999;
+
     font-weight:normal;
+
 }
+
 
 .commission-form input,
 .commission-form select,
 .commission-form textarea{
+
     width:100%;
+
     padding:15px;
+
     border:1px solid #ddd8cc;
+
     background:#fff;
+
     font-family:Arial,sans-serif;
+
     font-size:14px;
+
     outline:none;
+
     border-radius:0;
+
     transition:.25s;
+
 }
 
+
 .commission-form textarea{
+
     resize:vertical;
+
 }
+
 
 .commission-form input:focus,
 .commission-form select:focus,
 .commission-form textarea:focus{
+
     border-color:#a17b35;
+
 }
+
 
 .commission-form .primary-btn{
+
     margin-top:28px;
+
 }
 
+
 .form-note{
+
     margin-top:12px;
+
     color:#999;
+
     font-size:11px;
+
 }
 
 
@@ -352,21 +721,35 @@ h1 span{
 ========================= */
 
 .contact-card{
+
     background:#fff;
+
     border:1px solid #e3dfd5;
+
     padding:25px;
+
     margin-bottom:15px;
+
 }
+
 
 .contact-card strong{
+
     display:block;
+
     margin-bottom:8px;
+
 }
 
+
 .contact-card a{
+
     color:#a17b35;
+
     text-decoration:none;
+
     word-break:break-word;
+
 }
 
 
@@ -375,45 +758,81 @@ h1 span{
 ========================= */
 
 .bottom-nav{
+
     position:fixed;
+
     bottom:0;
+
     left:0;
+
     right:0;
+
     height:75px;
+
     background:rgba(255,255,255,.97);
+
     border-top:1px solid #ddd8cc;
+
     display:flex;
+
     justify-content:space-around;
+
     align-items:center;
+
     z-index:100;
+
     padding-bottom:env(safe-area-inset-bottom);
+
 }
+
 
 .nav-btn{
+
     border:none;
+
     background:none;
+
     color:#777;
+
     min-width:58px;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     gap:5px;
+
     font-size:10px;
+
     cursor:pointer;
+
 }
+
 
 .nav-icon{
+
     font-size:21px;
+
     line-height:1;
+
 }
+
 
 .nav-btn.active{
+
     color:#a17b35;
+
 }
 
+
 .nav-btn.active .nav-icon{
+
     transform:translateY(-2px);
+
 }
 
 
@@ -422,47 +841,85 @@ h1 span{
 ========================= */
 
 .more-wrapper{
+
     position:relative;
+
 }
+
 
 .more-menu{
+
     position:absolute;
+
     bottom:72px;
+
     right:0;
+
     width:180px;
+
     background:#fffdf8;
+
     border:1px solid #ddd8cc;
+
     box-shadow:0 10px 30px rgba(0,0,0,.12);
+
     padding:8px;
+
     opacity:0;
+
     visibility:hidden;
+
     transform:translateY(10px);
+
     transition:
+
         opacity .25s ease,
+
         transform .25s ease,
+
         visibility .25s ease;
+
 }
+
 
 .more-menu.show{
+
     opacity:1;
+
     visibility:visible;
+
     transform:translateY(0);
+
 }
+
 
 .more-item{
+
     width:100%;
+
     border:none;
+
     background:none;
+
     padding:14px 12px;
+
     text-align:left;
+
     font-size:13px;
+
     color:#333;
+
     cursor:pointer;
+
 }
 
+
 .more-item:hover{
+
     background:#f5f1e8;
+
     color:#a17b35;
+
 }
 
 
@@ -473,57 +930,125 @@ h1 span{
 @media(max-width:600px){
 
     header{
+
         height:72px;
-        padding:0 18px;
+
+        padding:0 22px;
+
     }
+
 
     .logo{
-        font-size:22px;
+
+        font-size:25px;
+
     }
 
-    .install-btn{
-        padding:9px 10px;
-        font-size:8px;
-        letter-spacing:1px;
-    }
 
     .page{
+
         padding:35px 20px 105px;
+
     }
+
 
     h1{
+
         font-size:51px;
+
     }
+
 
     .description{
+
         font-size:16px;
+
     }
+
 
     .section-title{
+
         font-size:37px;
+
     }
+
 
     .grid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .bottom-nav{
+
         height:72px;
+
     }
+
 
     .nav-btn{
+
         min-width:50px;
+
         font-size:9px;
+
     }
+
 
     .nav-icon{
+
         font-size:20px;
+
     }
 
+
     .more-menu{
+
         bottom:70px;
+
         right:-5px;
+
     }
+
+
+    .splash-logo{
+
+        font-size:30px;
+
+        letter-spacing:6px;
+
+    }
+
+
+    .splash-studio{
+
+        font-size:9px;
+
+        letter-spacing:6px;
+
+    }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    #splashScreen,
+    .splash-content,
+    .splash-line,
+    .splash-loader::after{
+
+        animation:none;
+
+        transition:none;
+
+    }
+
 }
 
 </style>
@@ -533,8 +1058,42 @@ h1 span{
 
 <body>
 
+
+<!-- =========================
+     PREMIUM SPLASH SCREEN
+========================= -->
+
+<div id="splashScreen">
+
+    <div class="splash-content">
+
+        <div class="splash-logo">
+            INKVERSE
+        </div>
+
+        <div class="splash-studio">
+            STUDIO
+        </div>
+
+        <div class="splash-line"></div>
+
+        <div class="splash-tagline">
+            ART BY SHIVAM
+        </div>
+
+        <div class="splash-loader"></div>
+
+    </div>
+
+</div>
+
+
 <div class="app">
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -548,22 +1107,17 @@ h1 span{
 
     </div>
 
-
-    <button
-        id="installButton"
-        class="install-btn"
-        type="button"
-    >
-
-        INSTALL APP
-
-    </button>
-
 </header>
 
 
+<!-- =========================
+     ALL PAGES
+========================= -->
+
 <main class="pages">
 
+
+<!-- HOME -->
 
 <section
     class="page active"
@@ -573,27 +1127,16 @@ h1 span{
     <div class="home">
 
         <div class="small-title">
-
             ART BY SHIVAM
-
         </div>
 
-
         <h1>
-
             Where<br>
-
-            <span>
-                Memories
-            </span><br>
-
+            <span>Memories</span><br>
             Become Art.
-
         </h1>
 
-
         <div class="line"></div>
-
 
         <p class="description">
 
@@ -602,14 +1145,11 @@ h1 span{
 
         </p>
 
-
         <button
             class="primary-btn"
             onclick="showPage('gallery')"
         >
-
             EXPLORE GALLERY
-
         </button>
 
     </div>
@@ -617,40 +1157,31 @@ h1 span{
 </section>
 
 
+<!-- GALLERY -->
+
 <section
     class="page"
     id="gallery"
 >
 
     <h2 class="section-title">
-
         Gallery
-
     </h2>
 
-
     <p class="section-subtitle">
-
         A collection of artworks created by Shivam.
-
     </p>
-
 
     <div class="grid">
 
-
         <div class="card">
 
             <div class="art-box">
-
                 Artwork 01
-
             </div>
 
             <div class="art-title">
-
                 Graphite Portrait
-
             </div>
 
         </div>
@@ -659,15 +1190,11 @@ h1 span{
         <div class="card">
 
             <div class="art-box">
-
                 Artwork 02
-
             </div>
 
             <div class="art-title">
-
                 Charcoal Portrait
-
             </div>
 
         </div>
@@ -676,15 +1203,11 @@ h1 span{
         <div class="card">
 
             <div class="art-box">
-
                 Artwork 03
-
             </div>
 
             <div class="art-title">
-
                 Custom Artwork
-
             </div>
 
         </div>
@@ -693,24 +1216,21 @@ h1 span{
         <div class="card">
 
             <div class="art-box">
-
                 Artwork 04
-
             </div>
 
             <div class="art-title">
-
                 Pencil Sketch
-
             </div>
 
         </div>
-
 
     </div>
 
 </section>
 
+
+<!-- SHOP -->
 
 <section
     class="page"
@@ -718,27 +1238,18 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Shop
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Bring original artwork into your space.
-
     </p>
-
 
     <div class="coming">
 
         <h2>
-
             Coming Soon
-
         </h2>
-
 
         <p>
 
@@ -754,33 +1265,26 @@ h1 span{
 </section>
 
 
+<!-- ABOUT -->
+
 <section
     class="page"
     id="about"
 >
 
     <h2 class="section-title">
-
         About Inkverse
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Art by Shivam.
-
     </p>
-
 
     <div class="card">
 
         <h3>
-
             The Artist
-
         </h3>
-
 
         <p>
 
@@ -791,9 +1295,7 @@ h1 span{
 
         </p>
 
-
         <br>
-
 
         <p>
 
@@ -808,17 +1310,16 @@ h1 span{
 </section>
 
 
+<!-- COMMISSION -->
+
 <section
     class="page"
     id="commission"
 >
 
     <h2 class="section-title">
-
         Commission
-
     </h2>
-
 
     <p class="section-subtitle">
 
@@ -827,16 +1328,11 @@ h1 span{
 
     </p>
 
-
     <div class="commission-form">
 
-
         <label>
-
             Your Name
-
         </label>
-
 
         <input
             type="text"
@@ -846,11 +1342,8 @@ h1 span{
 
 
         <label>
-
             Artwork Type
-
         </label>
-
 
         <select id="artType">
 
@@ -882,11 +1375,8 @@ h1 span{
 
 
         <label>
-
             Tell me about your artwork
-
         </label>
-
 
         <textarea
             id="artMessage"
@@ -904,7 +1394,6 @@ h1 span{
 
         </label>
 
-
         <input
             type="text"
             id="budget"
@@ -916,23 +1405,19 @@ h1 span{
             class="primary-btn"
             onclick="submitCommission()"
         >
-
             REQUEST ARTWORK
-
         </button>
 
-
         <p class="form-note">
-
             Your request will open in your email app.
-
         </p>
-
 
     </div>
 
 </section>
 
+
+<!-- CONTACT -->
 
 <section
     class="page"
@@ -940,11 +1425,8 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Contact
-
     </h2>
-
 
     <p class="section-subtitle">
 
@@ -960,15 +1442,12 @@ h1 span{
             Instagram
         </strong>
 
-
         <a
             href="https://www.instagram.com/_shivam._.here__/"
             target="_blank"
             rel="noopener"
         >
-
             @_shivam._.here__
-
         </a>
 
     </div>
@@ -980,13 +1459,10 @@ h1 span{
             Email
         </strong>
 
-
         <a
             href="mailto:inkversestudio.co@gmail.com?subject=Inkversestudio%20Inquiry"
         >
-
             inkversestudio.co@gmail.com
-
         </a>
 
     </div>
@@ -996,9 +1472,7 @@ h1 span{
         class="primary-btn"
         onclick="sendEmail()"
     >
-
         EMAIL INKVERSE
-
     </button>
 
 </section>
@@ -1006,6 +1480,10 @@ h1 span{
 
 </main>
 
+
+<!-- =========================
+     BOTTOM NAVIGATION
+========================= -->
 
 <nav class="bottom-nav">
 
@@ -1076,7 +1554,6 @@ h1 span{
 
     <div class="more-wrapper">
 
-
         <button
             class="nav-btn"
             onclick="toggleMoreMenu()"
@@ -1098,14 +1575,11 @@ h1 span{
             id="moreMenu"
         >
 
-
             <button
                 class="more-item"
                 onclick="showPage('commission'); closeMoreMenu();"
             >
-
                 ✎ &nbsp; Commission
-
             </button>
 
 
@@ -1113,15 +1587,13 @@ h1 span{
                 class="more-item"
                 onclick="showPage('contact'); closeMoreMenu();"
             >
-
                 ♡ &nbsp; Contact
-
             </button>
-
 
         </div>
 
     </div>
+
 
 </nav>
 
@@ -1130,6 +1602,36 @@ h1 span{
 
 
 <script>
+
+
+/* =========================
+   SPLASH SCREEN
+========================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                const splash =
+                    document.getElementById(
+                        "splashScreen"
+                    );
+
+                if(splash){
+
+                    splash.classList.add("hide");
+
+                }
+
+            },
+            1800
+        );
+
+    }
+);
 
 
 /* =========================
@@ -1365,96 +1867,6 @@ function sendEmail(){
         );
 
 }
-
-
-/* =========================
-   PWA INSTALL
-========================= */
-
-let deferredInstallPrompt = null;
-
-const installButton =
-    document.getElementById("installButton");
-
-
-window.addEventListener(
-    "beforeinstallprompt",
-    function(event){
-
-        event.preventDefault();
-
-        deferredInstallPrompt = event;
-
-        installButton.classList.add("show");
-
-    }
-);
-
-
-installButton.addEventListener(
-    "click",
-    async function(){
-
-        if(!deferredInstallPrompt){
-
-            alert(
-                "The app is not ready for installation yet. Please refresh the page and try again."
-            );
-
-            return;
-
-        }
-
-
-        deferredInstallPrompt.prompt();
-
-
-        const result =
-            await deferredInstallPrompt.userChoice;
-
-
-        if(result.outcome === "accepted"){
-
-            console.log(
-                "Inkverse Studio installation accepted."
-            );
-
-        }
-        else{
-
-            console.log(
-                "Inkverse Studio installation dismissed."
-            );
-
-        }
-
-
-        deferredInstallPrompt = null;
-
-        installButton.classList.remove("show");
-
-    }
-);
-
-
-/* =========================
-   INSTALLED CHECK
-========================= */
-
-window.addEventListener(
-    "appinstalled",
-    function(){
-
-        installButton.classList.remove("show");
-
-        deferredInstallPrompt = null;
-
-        console.log(
-            "Inkverse Studio installed."
-        );
-
-    }
-);
 
 
 /* =========================

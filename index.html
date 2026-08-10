@@ -22,8 +22,7 @@ content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Sh
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
 }
@@ -58,6 +57,8 @@ header{
     font-size:27px;
     font-weight:bold;
     letter-spacing:4px;
+    cursor:pointer;
+    user-select:none;
 }
 
 .logo span{
@@ -219,6 +220,13 @@ h1 span{
     margin-bottom:15px;
 }
 
+.art-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
 .art-image::before{
     content:"";
     position:absolute;
@@ -226,6 +234,7 @@ h1 span{
     height:120px;
     border:1px solid rgba(161,123,53,.35);
     transform:rotate(45deg);
+    pointer-events:none;
 }
 
 .art-image span{
@@ -260,6 +269,15 @@ h1 span{
     color:#777;
     font-size:13px;
     line-height:1.6;
+}
+
+.empty-gallery{
+    grid-column:1/-1;
+    text-align:center;
+    padding:45px 20px;
+    background:#fff;
+    border:1px solid #e3dfd5;
+    color:#777;
 }
 
 
@@ -447,9 +465,7 @@ h1 span{
 }
 
 
-/* =========================
-   ADMIN LOGIN MODAL
-========================= */
+/* ADMIN LOGIN */
 
 .admin-overlay{
     position:fixed;
@@ -496,15 +512,24 @@ h1 span{
     letter-spacing:1px;
 }
 
-.admin-box input{
+.admin-box input,
+.admin-box select,
+.admin-box textarea{
     width:100%;
     padding:14px;
     border:1px solid #ddd8cc;
     background:#fff;
     outline:none;
+    font-family:Arial,sans-serif;
 }
 
-.admin-box input:focus{
+.admin-box textarea{
+    resize:vertical;
+}
+
+.admin-box input:focus,
+.admin-box select:focus,
+.admin-box textarea:focus{
     border-color:#a17b35;
 }
 
@@ -539,9 +564,7 @@ h1 span{
 }
 
 
-/* =========================
-   ADMIN PANEL
-========================= */
+/* ADMIN PANEL */
 
 .admin-panel{
     position:fixed;
@@ -631,6 +654,64 @@ h1 span{
 }
 
 
+/* ADD ARTWORK */
+
+.add-artwork-form{
+    margin-top:25px;
+}
+
+.add-artwork-form label{
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin:18px 0 7px;
+}
+
+.add-artwork-form input,
+.add-artwork-form select,
+.add-artwork-form textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd8cc;
+    background:#fff;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    outline:none;
+}
+
+.add-artwork-form textarea{
+    resize:vertical;
+}
+
+.add-artwork-form input:focus,
+.add-artwork-form select:focus,
+.add-artwork-form textarea:focus{
+    border-color:#a17b35;
+}
+
+.file-note{
+    margin-top:8px;
+    color:#999;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.upload-status{
+    display:none;
+    margin-top:18px;
+    padding:14px;
+    background:#f5f1e8;
+    border-left:3px solid #a17b35;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.upload-status.show{
+    display:block;
+}
+
+
 /* MOBILE */
 
 @media(max-width:600px){
@@ -700,23 +781,15 @@ h1 span{
 
 </head>
 
-
 <body>
 
-
 <div class="app">
-
 
 <header>
 
     <div class="logo">
-
         INKVERSE
-
-        <span>
-            STUDIO
-        </span>
-
+        <span>STUDIO</span>
     </div>
 
 </header>
@@ -727,10 +800,7 @@ h1 span{
 
 <!-- HOME -->
 
-<section
-    class="page active"
-    id="home"
->
+<section class="page active" id="home">
 
     <div class="home">
 
@@ -765,10 +835,7 @@ h1 span{
 
 <!-- GALLERY -->
 
-<section
-    class="page"
-    id="gallery"
->
+<section class="page" id="gallery">
 
     <h2 class="section-title">
         Gallery
@@ -778,112 +845,31 @@ h1 span{
         A collection of artworks created by Shivam.
     </p>
 
-    <div class="gallery-grid">
-
+    <div class="gallery-grid" id="galleryGrid">
 
         <article class="art-card">
 
             <div class="art-image">
-                <span>ARTWORK 01</span>
+                <span>LOADING...</span>
             </div>
 
             <div class="art-info">
 
                 <div class="art-category">
-                    GRAPHITE
+                    INKVERSE
                 </div>
 
                 <div class="art-title">
-                    Graphite Portrait
+                    Loading Artwork
                 </div>
 
                 <p class="art-description">
-                    Detailed graphite artwork created
-                    with patience and precision.
+                    Loading artworks from Inkverse Studio.
                 </p>
 
             </div>
 
         </article>
-
-
-        <article class="art-card">
-
-            <div class="art-image">
-                <span>ARTWORK 02</span>
-            </div>
-
-            <div class="art-info">
-
-                <div class="art-category">
-                    CHARCOAL
-                </div>
-
-                <div class="art-title">
-                    Charcoal Portrait
-                </div>
-
-                <p class="art-description">
-                    Expressive charcoal artwork with
-                    rich tones and deep contrast.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="art-card">
-
-            <div class="art-image">
-                <span>ARTWORK 03</span>
-            </div>
-
-            <div class="art-info">
-
-                <div class="art-category">
-                    CUSTOM
-                </div>
-
-                <div class="art-title">
-                    Custom Artwork
-                </div>
-
-                <p class="art-description">
-                    Personal artwork created around
-                    your memories and ideas.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="art-card">
-
-            <div class="art-image">
-                <span>ARTWORK 04</span>
-            </div>
-
-            <div class="art-info">
-
-                <div class="art-category">
-                    PENCIL
-                </div>
-
-                <div class="art-title">
-                    Pencil Sketch
-                </div>
-
-                <p class="art-description">
-                    Clean pencil artwork with careful
-                    attention to every detail.
-                </p>
-
-            </div>
-
-        </article>
-
 
     </div>
 
@@ -892,10 +878,7 @@ h1 span{
 
 <!-- SHOP -->
 
-<section
-    class="page"
-    id="shop"
->
+<section class="page" id="shop">
 
     <h2 class="section-title">
         Shop
@@ -925,10 +908,7 @@ h1 span{
 
 <!-- ABOUT -->
 
-<section
-    class="page"
-    id="about"
->
+<section class="page" id="about">
 
     <h2 class="section-title">
         About Inkverse
@@ -966,10 +946,7 @@ h1 span{
 
 <!-- COMMISSION -->
 
-<section
-    class="page"
-    id="commission"
->
+<section class="page" id="commission">
 
     <h2 class="section-title">
         Commission
@@ -999,13 +976,9 @@ h1 span{
             </option>
 
             <option>Portrait</option>
-
             <option>Couple Artwork</option>
-
             <option>Pet Portrait</option>
-
             <option>Anime Artwork</option>
-
             <option>Custom Artwork</option>
 
         </select>
@@ -1049,10 +1022,7 @@ h1 span{
 
 <!-- CONTACT -->
 
-<section
-    class="page"
-    id="contact"
->
+<section class="page" id="contact">
 
     <h2 class="section-title">
         Contact
@@ -1114,11 +1084,8 @@ h1 span{
         class="nav-btn active"
         onclick="showPage('home',this)"
     >
-
         <span class="nav-icon">⌂</span>
-
         <span>Home</span>
-
     </button>
 
 
@@ -1126,11 +1093,8 @@ h1 span{
         class="nav-btn"
         onclick="showPage('gallery',this)"
     >
-
         <span class="nav-icon">✦</span>
-
         <span>Gallery</span>
-
     </button>
 
 
@@ -1138,11 +1102,8 @@ h1 span{
         class="nav-btn"
         onclick="showPage('shop',this)"
     >
-
         <span class="nav-icon">◇</span>
-
         <span>Shop</span>
-
     </button>
 
 
@@ -1150,11 +1111,8 @@ h1 span{
         class="nav-btn"
         onclick="showPage('about',this)"
     >
-
         <span class="nav-icon">◎</span>
-
         <span>About</span>
-
     </button>
 
 
@@ -1164,11 +1122,8 @@ h1 span{
             class="nav-btn"
             onclick="toggleMoreMenu()"
         >
-
             <span class="nav-icon">•••</span>
-
             <span>More</span>
-
         </button>
 
 
@@ -1192,22 +1147,16 @@ h1 span{
                 ♡ &nbsp; Contact
             </button>
 
-
-            <!-- ADMIN LOGIN IS NOT SHOWN IN NORMAL NAVIGATION -->
-
         </div>
 
     </div>
 
 </nav>
 
-
 </div>
 
 
-<!-- =========================
-     ADMIN LOGIN
-========================= -->
+<!-- ADMIN LOGIN -->
 
 <div
     class="admin-overlay"
@@ -1280,9 +1229,7 @@ h1 span{
 </div>
 
 
-<!-- =========================
-     ADMIN PANEL
-========================= -->
+<!-- ADMIN PANEL -->
 
 <div
     class="admin-panel"
@@ -1321,6 +1268,127 @@ h1 span{
         </p>
 
 
+        <!-- ADD ARTWORK -->
+
+        <div class="admin-card">
+
+            <h2>
+                Add New Artwork
+            </h2>
+
+            <p>
+                Add an artwork to your Inkverse Studio gallery.
+                Only your authenticated admin account can use this panel.
+            </p>
+
+
+            <form
+                class="add-artwork-form"
+                id="addArtworkForm"
+                onsubmit="addArtwork(event)"
+            >
+
+                <label for="artworkTitle">
+                    TITLE
+                </label>
+
+                <input
+                    type="text"
+                    id="artworkTitle"
+                    placeholder="Example: Tanjiro Portrait"
+                    required
+                >
+
+
+                <label for="artworkType">
+                    TYPE
+                </label>
+
+                <select
+                    id="artworkType"
+                    required
+                >
+
+                    <option value="">
+                        Select artwork type
+                    </option>
+
+                    <option value="Graphite">
+                        Graphite
+                    </option>
+
+                    <option value="Charcoal">
+                        Charcoal
+                    </option>
+
+                    <option value="Pencil">
+                        Pencil
+                    </option>
+
+                    <option value="Custom">
+                        Custom
+                    </option>
+
+                    <option value="Anime">
+                        Anime
+                    </option>
+
+                    <option value="Portrait">
+                        Portrait
+                    </option>
+
+                </select>
+
+
+                <label for="artworkDescription">
+                    DESCRIPTION
+                </label>
+
+                <textarea
+                    id="artworkDescription"
+                    rows="5"
+                    placeholder="Write a short description..."
+                ></textarea>
+
+
+                <label for="artworkImage">
+                    ARTWORK IMAGE
+                </label>
+
+                <input
+                    type="file"
+                    id="artworkImage"
+                    accept="image/*"
+                    required
+                >
+
+                <p class="file-note">
+                    Select the artwork image from your phone.
+                    JPG, PNG or WEBP recommended.
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="uploadArtworkBtn"
+                >
+                    ADD ARTWORK
+                </button>
+
+
+                <div
+                    class="upload-status"
+                    id="uploadStatus"
+                ></div>
+
+            </form>
+
+        </div>
+
+
+        <!-- STATUS -->
+
         <div class="admin-card">
 
             <h2>
@@ -1328,16 +1396,19 @@ h1 span{
             </h2>
 
             <p>
-                The artwork upload system will be connected
-                in the next step.
+                Your artworks are stored in Supabase and
+                loaded automatically into the public gallery.
             </p>
 
             <div class="admin-status">
 
-                ✓ You are successfully authenticated.<br><br>
+                ✓ Admin authentication active.<br><br>
 
-                Step 18 will add the actual
-                <strong>Add Artwork</strong> system.
+                ✓ Artwork bucket:
+                <strong>artworks</strong><br><br>
+
+                ✓ Artwork table:
+                <strong>artwork</strong>
 
             </div>
 
@@ -1356,9 +1427,7 @@ h1 span{
 </div>
 
 
-<!-- =========================
-     SUPABASE
-========================= -->
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -1401,7 +1470,6 @@ function showPage(pageId,button){
     const selected =
         document.getElementById(pageId);
 
-
     if(selected){
 
         selected.classList.add("active");
@@ -1415,7 +1483,6 @@ function showPage(pageId,button){
         document.querySelectorAll(
             ".bottom-nav .nav-btn"
         );
-
 
     buttons.forEach(function(btn){
 
@@ -1465,7 +1532,11 @@ function toggleMoreMenu(){
     const menu =
         document.getElementById("moreMenu");
 
-    menu.classList.toggle("show");
+    if(menu){
+
+        menu.classList.toggle("show");
+
+    }
 
 }
 
@@ -1672,34 +1743,50 @@ async function adminLogin(){
     }
 
 
-    const result =
-        await supabaseClient.auth.signInWithPassword({
+    try{
 
-            email:email,
+        const result =
+            await supabaseClient.auth.signInWithPassword({
 
-            password:password
+                email:email,
 
-        });
+                password:password
+
+            });
 
 
-    if(result.error){
+        if(result.error){
+
+            errorBox.textContent =
+                "Login failed: " +
+                result.error.message;
+
+            errorBox.classList.add("show");
+
+            return;
+
+        }
+
+
+        closeAdminLogin();
+
+        document
+            .getElementById("adminPanel")
+            .classList.add("show");
+
+        await loadArtworks();
+
+    }
+    catch(error){
 
         errorBox.textContent =
-            "Login failed: " +
-            result.error.message;
+            "Login failed. Please try again.";
 
         errorBox.classList.add("show");
 
-        return;
+        console.error(error);
 
     }
-
-
-    closeAdminLogin();
-
-    document
-        .getElementById("adminPanel")
-        .classList.add("show");
 
 }
 
@@ -1722,6 +1809,452 @@ async function adminLogout(){
     await supabaseClient.auth.signOut();
 
     closeAdminPanel();
+
+}
+
+
+/* =========================
+   ADD ARTWORK
+========================= */
+
+async function addArtwork(event){
+
+    event.preventDefault();
+
+
+    const title =
+        document
+        .getElementById("artworkTitle")
+        .value
+        .trim();
+
+
+    const type =
+        document
+        .getElementById("artworkType")
+        .value;
+
+
+    const description =
+        document
+        .getElementById("artworkDescription")
+        .value
+        .trim();
+
+
+    const fileInput =
+        document.getElementById("artworkImage");
+
+
+    const file =
+        fileInput.files[0];
+
+
+    const status =
+        document.getElementById("uploadStatus");
+
+
+    const uploadButton =
+        document.getElementById("uploadArtworkBtn");
+
+
+    status.classList.add("show");
+
+    status.textContent =
+        "Checking admin access...";
+
+
+    if(!title){
+
+        status.textContent =
+            "Please enter an artwork title.";
+
+        return;
+
+    }
+
+
+    if(!type){
+
+        status.textContent =
+            "Please select an artwork type.";
+
+        return;
+
+    }
+
+
+    if(!file){
+
+        status.textContent =
+            "Please select an artwork image.";
+
+        return;
+
+    }
+
+
+    const sessionResult =
+        await supabaseClient.auth.getSession();
+
+
+    const session =
+        sessionResult.data.session;
+
+
+    if(!session){
+
+        status.textContent =
+            "Admin session expired. Please login again.";
+
+        return;
+
+    }
+
+
+    uploadButton.disabled = true;
+
+    uploadButton.textContent =
+        "UPLOADING...";
+
+
+    try{
+
+        status.textContent =
+            "Uploading artwork image...";
+
+
+        const fileExtension =
+            file.name
+            .split(".")
+            .pop()
+            .toLowerCase();
+
+
+        const safeName =
+            title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g,"-")
+            .replace(/^-+|-+$/g,"");
+
+
+        const uniqueName =
+            safeName +
+            "-" +
+            Date.now() +
+            "." +
+            fileExtension;
+
+
+        const filePath =
+            uniqueName;
+
+
+        const uploadResult =
+            await supabaseClient
+            .storage
+            .from("artworks")
+            .upload(
+                filePath,
+                file,
+                {
+                    cacheControl:"3600",
+                    upsert:false
+                }
+            );
+
+
+        if(uploadResult.error){
+
+            throw uploadResult.error;
+
+        }
+
+
+        status.textContent =
+            "Image uploaded. Saving artwork details...";
+
+
+        const publicUrlResult =
+            supabaseClient
+            .storage
+            .from("artworks")
+            .getPublicUrl(filePath);
+
+
+        const imageUrl =
+            publicUrlResult.data.publicUrl;
+
+
+        const insertResult =
+            await supabaseClient
+            .from("artwork")
+            .insert({
+
+                title:title,
+
+                type:type,
+
+                description:
+                    description || null,
+
+                image_url:imageUrl
+
+            });
+
+
+        if(insertResult.error){
+
+            await supabaseClient
+            .storage
+            .from("artworks")
+            .remove([filePath]);
+
+            throw insertResult.error;
+
+        }
+
+
+        status.textContent =
+            "✓ Artwork added successfully!";
+
+
+        document
+            .getElementById("addArtworkForm")
+            .reset();
+
+
+        uploadButton.textContent =
+            "ADD ARTWORK";
+
+
+        await loadArtworks();
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Artwork upload error:",
+            error
+        );
+
+
+        status.textContent =
+            "Upload failed: " +
+            (
+                error.message ||
+                "Unknown error"
+            );
+
+
+        uploadButton.textContent =
+            "ADD ARTWORK";
+
+    }
+
+
+    uploadButton.disabled = false;
+
+}
+
+
+/* =========================
+   LOAD ARTWORKS
+========================= */
+
+async function loadArtworks(){
+
+    const gallery =
+        document.getElementById("galleryGrid");
+
+
+    if(!gallery){
+
+        return;
+
+    }
+
+
+    gallery.innerHTML =
+
+        '<div class="empty-gallery">' +
+        'Loading artworks...' +
+        '</div>';
+
+
+    try{
+
+        const result =
+            await supabaseClient
+            .from("artwork")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        const artworks =
+            result.data || [];
+
+
+        if(artworks.length === 0){
+
+            gallery.innerHTML =
+
+                '<div class="empty-gallery">' +
+                'No artworks added yet.' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        gallery.innerHTML = "";
+
+
+        artworks.forEach(function(art){
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "art-card";
+
+
+            const imageBox =
+                document.createElement("div");
+
+
+            imageBox.className =
+                "art-image";
+
+
+            if(art.image_url){
+
+                const img =
+                    document.createElement("img");
+
+
+                img.src =
+                    art.image_url;
+
+                img.alt =
+                    art.title || "Inkverse artwork";
+
+                img.loading =
+                    "lazy";
+
+
+                imageBox.appendChild(img);
+
+            }
+            else{
+
+                const span =
+                    document.createElement("span");
+
+
+                span.textContent =
+                    "ARTWORK";
+
+                imageBox.appendChild(span);
+
+            }
+
+
+            const info =
+                document.createElement("div");
+
+
+            info.className =
+                "art-info";
+
+
+            const category =
+                document.createElement("div");
+
+
+            category.className =
+                "art-category";
+
+
+            category.textContent =
+                art.type || "ARTWORK";
+
+
+            const title =
+                document.createElement("div");
+
+
+            title.className =
+                "art-title";
+
+
+            title.textContent =
+                art.title || "Untitled Artwork";
+
+
+            const description =
+                document.createElement("p");
+
+
+            description.className =
+                "art-description";
+
+
+            description.textContent =
+                art.description ||
+                "Artwork created by Shivam.";
+
+
+            info.appendChild(category);
+
+            info.appendChild(title);
+
+            info.appendChild(description);
+
+
+            card.appendChild(imageBox);
+
+            card.appendChild(info);
+
+
+            gallery.appendChild(card);
+
+        });
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Gallery loading error:",
+            error
+        );
+
+
+        gallery.innerHTML =
+
+            '<div class="empty-gallery">' +
+            'Unable to load artworks right now.' +
+            '<br><br>' +
+            'Please check your Supabase table settings.' +
+            '</div>';
+
+    }
 
 }
 
@@ -1771,61 +2304,103 @@ if(
 ========================= */
 
 let logoClicks = 0;
+
 let logoTimer = null;
 
-const logo = document.querySelector(".logo");
 
-if (logo) {
+const logo =
+    document.querySelector(".logo");
 
-    logo.addEventListener("click", function () {
 
-        logoClicks++;
+if(logo){
 
-        clearTimeout(logoTimer);
+    logo.addEventListener(
+        "click",
+        function(){
 
-        logoTimer = setTimeout(function () {
-            logoClicks = 0;
-        }, 2000);
-
-        console.log("Logo clicks:", logoClicks);
-
-        if (logoClicks >= 5) {
-
-            logoClicks = 0;
+            logoClicks++;
 
             clearTimeout(logoTimer);
 
-            openAdminLogin();
+
+            logoTimer =
+                setTimeout(
+                    function(){
+
+                        logoClicks = 0;
+
+                    },
+                    2000
+                );
+
+
+            if(logoClicks >= 5){
+
+                logoClicks = 0;
+
+                clearTimeout(logoTimer);
+
+                openAdminLogin();
+
+            }
 
         }
-
-    });
+    );
 
 }
+
+
 /* =========================
    RESTORE LOGIN SESSION
 ========================= */
 
-supabaseClient.auth.getSession()
-.then(function(result){
+supabaseClient
+.auth
+.getSession()
+.then(
+    async function(result){
 
-    if(
-        result &&
-        result.data &&
-        result.data.session
-    ){
+        if(
+            result &&
+            result.data &&
+            result.data.session
+        ){
+
+            console.log(
+                "Inkverse admin session restored."
+            );
+
+            await loadArtworks();
+
+        }
+        else{
+
+            await loadArtworks();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+supabaseClient
+.auth
+.onAuthStateChange(
+    function(event,session){
 
         console.log(
-            "Inkverse admin session restored."
+            "Auth event:",
+            event
         );
 
     }
-
-});
-
+);
 
 </script>
 
-
 </body>
-</html>
+            </html>

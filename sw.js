@@ -1,4 +1,4 @@
-const CACHE_NAME = "inkverse-studio-v2";
+const CACHE_NAME = "inkverse-studio-v3";
 
 const FILES_TO_CACHE = [
     "./",
@@ -32,6 +32,11 @@ self.addEventListener(
             )
 
         );
+
+        /*
+         * Activate the new Service Worker
+         * immediately.
+         */
 
         self.skipWaiting();
 
@@ -80,6 +85,10 @@ self.addEventListener(
 
         );
 
+        /*
+         * Take control of the app immediately.
+         */
+
         self.clients.claim();
 
     }
@@ -94,21 +103,71 @@ self.addEventListener(
     "fetch",
     function(event){
 
+        /*
+         * Only handle GET requests.
+         */
+
+        if(
+            event.request.method !== "GET"
+        ){
+
+            return;
+
+        }
+
+
         event.respondWith(
 
-            caches.match(
+            fetch(
                 event.request
-            ).then(
-                function(cachedResponse){
+            )
+            .then(
+                function(networkResponse){
 
-                    if(cachedResponse){
+                    /*
+                     * Save a fresh copy of
+                     * successful responses.
+                     */
 
-                        return cachedResponse;
+                    if(
+                        networkResponse &&
+                        networkResponse.status === 200 &&
+                        networkResponse.type === "basic"
+                    ){
+
+                        const responseClone =
+                            networkResponse.clone();
+
+
+                        caches.open(
+                            CACHE_NAME
+                        ).then(
+                            function(cache){
+
+                                cache.put(
+                                    event.request,
+                                    responseClone
+                                );
+
+                            }
+                        );
 
                     }
 
 
-                    return fetch(
+                    return networkResponse;
+
+                }
+            )
+            .catch(
+                function(){
+
+                    /*
+                     * If there is no internet,
+                     * use the cached version.
+                     */
+
+                    return caches.match(
                         event.request
                     );
 

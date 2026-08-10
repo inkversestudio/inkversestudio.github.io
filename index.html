@@ -1405,7 +1405,7 @@ h1 span{
                 ✓ Admin authentication active.<br><br>
 
                 ✓ Artwork bucket:
-                <strong>artworks</strong><br><br>
+                <strong>Artworks</strong><br><br>
 
                 ✓ Artwork table:
                 <strong>artwork</strong>
@@ -1953,7 +1953,7 @@ async function addArtwork(event){
         const uploadResult =
             await supabaseClient
             .storage
-            .from("artworks")
+            .from("Artworks")
             .upload(
                 filePath,
                 file,
@@ -1978,7 +1978,7 @@ async function addArtwork(event){
         const publicUrlResult =
             supabaseClient
             .storage
-            .from("artworks")
+            .from("Artworks")
             .getPublicUrl(filePath);
 
 
@@ -2007,7 +2007,7 @@ async function addArtwork(event){
 
             await supabaseClient
             .storage
-            .from("artworks")
+            .from("Artworks")
             .remove([filePath]);
 
             throw insertResult.error;

@@ -1770,55 +1770,38 @@ if(
    ADMIN ACCESS
 ========================= */
 
-/*
-   Hidden keyboard shortcut:
-
-   Tap/click the logo 5 times quickly
-   to open Admin Login.
-
-   Normal visitors will not see
-   an Admin button.
-*/
-
 let logoClicks = 0;
-
 let logoTimer = null;
 
+const logo = document.querySelector(".logo");
 
-document
-    .querySelector(".logo")
-    .addEventListener(
-        "click",
-        function(){
+if (logo) {
 
-            logoClicks++;
+    logo.addEventListener("click", function () {
+
+        logoClicks++;
+
+        clearTimeout(logoTimer);
+
+        logoTimer = setTimeout(function () {
+            logoClicks = 0;
+        }, 2000);
+
+        console.log("Logo clicks:", logoClicks);
+
+        if (logoClicks >= 5) {
+
+            logoClicks = 0;
 
             clearTimeout(logoTimer);
 
-
-            logoTimer =
-                setTimeout(
-                    function(){
-
-                        logoClicks = 0;
-
-                    },
-                    2000
-                );
-
-
-            if(logoClicks >= 5){
-
-                logoClicks = 0;
-
-                openAdminLogin();
-
-            }
+            openAdminLogin();
 
         }
-    );
 
+    });
 
+}
 /* =========================
    RESTORE LOGIN SESSION
 ========================= */

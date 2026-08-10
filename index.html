@@ -16,10 +16,6 @@ content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Sh
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -39,91 +35,54 @@ body{
     overflow:hidden;
 }
 
-
-/* =========================
-   APP
-========================= */
-
 .app{
     width:100%;
     height:100vh;
-
     display:flex;
     flex-direction:column;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 header{
     height:78px;
-
     background:#f8f6f0;
-
     border-bottom:1px solid #ddd8cc;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 28px;
-
     flex-shrink:0;
 }
 
 .logo{
     font-family:Georgia,serif;
-
     font-size:27px;
     font-weight:bold;
-
     letter-spacing:4px;
 }
 
 .logo span{
     display:block;
-
     color:#a17b35;
-
     font-family:Arial,sans-serif;
-
     font-size:10px;
-
     letter-spacing:5px;
-
     margin-top:3px;
 }
 
-
-/* =========================
-   PAGES
-========================= */
-
 .pages{
     flex:1;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .page{
     position:absolute;
-
     inset:0;
-
     overflow-y:auto;
-
     padding:45px 25px 110px;
-
     opacity:0;
-
     transform:translateX(25px);
-
     pointer-events:none;
-
     transition:
         opacity .3s ease,
         transform .3s ease;
@@ -131,94 +90,61 @@ header{
 
 .page.active{
     opacity:1;
-
     transform:translateX(0);
-
     pointer-events:auto;
 }
 
-
-/* =========================
-   HOME
-========================= */
-
 .home{
     text-align:center;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     min-height:100%;
 }
 
 .small-title{
     color:#a17b35;
-
     letter-spacing:5px;
-
     font-size:13px;
-
     margin-bottom:35px;
 }
 
 h1{
     font-family:Georgia,serif;
-
     font-size:58px;
-
     line-height:.95;
-
     max-width:700px;
 }
 
 h1 span{
     color:#a17b35;
-
     font-style:italic;
 }
 
 .line{
     width:105px;
-
     height:2px;
-
     background:#a17b35;
-
     margin:40px auto 28px;
 }
 
 .description{
     max-width:600px;
-
     color:#686868;
-
     font-size:17px;
-
     line-height:1.7;
 }
 
 .primary-btn{
     margin-top:35px;
-
     border:none;
-
     background:#171717;
-
     color:white;
-
     padding:18px 35px;
-
     font-size:13px;
-
     letter-spacing:3px;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
@@ -226,77 +152,49 @@ h1 span{
     background:#a17b35;
 }
 
-
-/* =========================
-   GENERAL
-========================= */
-
 .section-title{
     font-family:Georgia,serif;
-
     font-size:42px;
-
     margin-bottom:15px;
 }
 
 .section-subtitle{
     color:#777;
-
     line-height:1.7;
-
     margin-bottom:35px;
 }
 
-
-/* =========================
-   GENERAL CARDS
-========================= */
-
 .card{
     background:#fff;
-
     border:1px solid #e3dfd5;
-
     padding:25px;
-
     min-height:150px;
 }
 
 .card h3{
     font-family:Georgia,serif;
-
     font-size:22px;
-
     margin-bottom:12px;
 }
 
 .card p{
     color:#777;
-
     line-height:1.6;
 }
 
 
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 
 .gallery-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:22px;
 }
 
 .art-card{
     background:#fff;
-
     border:1px solid #e3dfd5;
-
     padding:12px;
-
     transition:
         transform .25s ease,
         box-shadow .25s ease,
@@ -305,60 +203,37 @@ h1 span{
 
 .art-card:hover{
     transform:translateY(-4px);
-
     border-color:#b99a5b;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.08);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
-
-
-/* Future image container */
 
 .art-image{
     width:100%;
-
     height:250px;
-
     background:#e8e3d8;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
     overflow:hidden;
-
     margin-bottom:15px;
 }
 
 .art-image::before{
     content:"";
-
     position:absolute;
-
     width:120px;
     height:120px;
-
     border:1px solid rgba(161,123,53,.35);
-
     transform:rotate(45deg);
 }
 
 .art-image span{
     position:relative;
-
     z-index:2;
-
     font-family:Georgia,serif;
-
     color:#8c806a;
-
     font-size:14px;
-
     letter-spacing:2px;
 }
 
@@ -368,87 +243,63 @@ h1 span{
 
 .art-category{
     display:inline-block;
-
     color:#a17b35;
-
     font-size:10px;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
-
     margin-bottom:7px;
 }
 
 .art-title{
     font-family:Georgia,serif;
-
     font-size:21px;
-
     margin-bottom:7px;
 }
 
 .art-description{
     color:#777;
-
     font-size:13px;
-
     line-height:1.6;
 }
 
 
-/* =========================
-   SHOP
-========================= */
+/* SHOP */
 
 .coming{
     border:1px solid #b99a5b;
-
     padding:45px 25px;
-
     text-align:center;
-
     background:#fffdf8;
 }
 
 .coming h2{
     font-family:Georgia,serif;
-
     font-size:34px;
-
     margin-bottom:15px;
 }
 
 .coming p{
     color:#777;
-
     line-height:1.7;
 }
 
 
-/* =========================
-   COMMISSION FORM
-========================= */
+/* COMMISSION */
 
 .commission-form{
     max-width:650px;
-
     margin-top:25px;
 }
 
 .commission-form label{
     display:block;
-
     font-size:12px;
-
     font-weight:bold;
-
     margin:20px 0 8px;
 }
 
 .commission-form label span{
     color:#999;
-
     font-weight:normal;
 }
 
@@ -456,21 +307,13 @@ h1 span{
 .commission-form select,
 .commission-form textarea{
     width:100%;
-
     padding:15px;
-
     border:1px solid #ddd8cc;
-
     background:#fff;
-
     font-family:Arial,sans-serif;
-
     font-size:14px;
-
     outline:none;
-
     border-radius:0;
-
     transition:.25s;
 }
 
@@ -484,105 +327,67 @@ h1 span{
     border-color:#a17b35;
 }
 
-.commission-form .primary-btn{
-    margin-top:28px;
-}
-
 .form-note{
     margin-top:12px;
-
     color:#999;
-
     font-size:11px;
 }
 
 
-/* =========================
-   CONTACT
-========================= */
+/* CONTACT */
 
 .contact-card{
     background:#fff;
-
     border:1px solid #e3dfd5;
-
     padding:25px;
-
     margin-bottom:15px;
 }
 
 .contact-card strong{
     display:block;
-
     margin-bottom:8px;
 }
 
 .contact-card a{
     color:#a17b35;
-
     text-decoration:none;
-
     word-break:break-word;
 }
 
 
-/* =========================
-   BOTTOM NAVIGATION
-========================= */
+/* BOTTOM NAV */
 
 .bottom-nav{
     position:fixed;
-
     bottom:0;
-
     left:0;
-
     right:0;
-
     height:75px;
-
     background:rgba(255,255,255,.97);
-
     border-top:1px solid #ddd8cc;
-
     display:flex;
-
     justify-content:space-around;
-
     align-items:center;
-
     z-index:100;
-
     padding-bottom:env(safe-area-inset-bottom);
 }
 
 .nav-btn{
     border:none;
-
     background:none;
-
     color:#777;
-
     min-width:58px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     gap:5px;
-
     font-size:10px;
-
     cursor:pointer;
 }
 
 .nav-icon{
     font-size:21px;
-
     line-height:1;
 }
 
@@ -595,9 +400,7 @@ h1 span{
 }
 
 
-/* =========================
-   MORE MENU
-========================= */
+/* MORE MENU */
 
 .more-wrapper{
     position:relative;
@@ -605,28 +408,16 @@ h1 span{
 
 .more-menu{
     position:absolute;
-
     bottom:72px;
-
     right:0;
-
     width:180px;
-
     background:#fffdf8;
-
     border:1px solid #ddd8cc;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.12);
-
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
     padding:8px;
-
     opacity:0;
-
     visibility:hidden;
-
     transform:translateY(10px);
-
     transition:
         opacity .25s ease,
         transform .25s ease,
@@ -635,46 +426,217 @@ h1 span{
 
 .more-menu.show{
     opacity:1;
-
     visibility:visible;
-
     transform:translateY(0);
 }
 
 .more-item{
     width:100%;
-
     border:none;
-
     background:none;
-
     padding:14px 12px;
-
     text-align:left;
-
     font-size:13px;
-
     color:#333;
-
     cursor:pointer;
 }
 
 .more-item:hover{
     background:#f5f1e8;
-
     color:#a17b35;
 }
 
 
 /* =========================
-   MOBILE
+   ADMIN LOGIN MODAL
 ========================= */
+
+.admin-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.admin-overlay.show{
+    display:flex;
+}
+
+.admin-box{
+    width:100%;
+    max-width:420px;
+    background:#fffdf8;
+    border:1px solid #b99a5b;
+    padding:32px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.admin-box h2{
+    font-family:Georgia,serif;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.admin-box .admin-subtitle{
+    color:#777;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.admin-box label{
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    margin:16px 0 7px;
+    letter-spacing:1px;
+}
+
+.admin-box input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd8cc;
+    background:#fff;
+    outline:none;
+}
+
+.admin-box input:focus{
+    border-color:#a17b35;
+}
+
+.admin-actions{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+}
+
+.admin-actions button{
+    flex:1;
+}
+
+.secondary-btn{
+    border:1px solid #ddd8cc;
+    background:#fff;
+    color:#333;
+    padding:15px;
+    cursor:pointer;
+}
+
+.admin-error{
+    display:none;
+    margin-top:15px;
+    color:#a33;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.admin-error.show{
+    display:block;
+}
+
+
+/* =========================
+   ADMIN PANEL
+========================= */
+
+.admin-panel{
+    position:fixed;
+    inset:0;
+    background:#f8f6f0;
+    z-index:400;
+    display:none;
+    overflow-y:auto;
+}
+
+.admin-panel.show{
+    display:block;
+}
+
+.admin-header{
+    height:75px;
+    background:#fffdf8;
+    border-bottom:1px solid #ddd8cc;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.admin-brand{
+    font-family:Georgia,serif;
+    font-size:22px;
+}
+
+.admin-brand span{
+    color:#a17b35;
+}
+
+.admin-close{
+    border:1px solid #ddd8cc;
+    background:#fff;
+    padding:10px 14px;
+    cursor:pointer;
+}
+
+.admin-content{
+    max-width:900px;
+    margin:auto;
+    padding:35px 20px 60px;
+}
+
+.admin-content h1{
+    font-family:Georgia,serif;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.admin-content > p{
+    color:#777;
+    line-height:1.6;
+}
+
+.admin-card{
+    margin-top:30px;
+    background:#fff;
+    border:1px solid #e3dfd5;
+    padding:25px;
+}
+
+.admin-card h2{
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.admin-card p{
+    color:#777;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.admin-status{
+    margin-top:20px;
+    padding:15px;
+    background:#f5f1e8;
+    border-left:3px solid #a17b35;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* MOBILE */
 
 @media(max-width:600px){
 
     header{
         height:72px;
-
         padding:0 22px;
     }
 
@@ -700,7 +662,6 @@ h1 span{
 
     .gallery-grid{
         grid-template-columns:1fr;
-
         gap:18px;
     }
 
@@ -714,7 +675,6 @@ h1 span{
 
     .nav-btn{
         min-width:50px;
-
         font-size:9px;
     }
 
@@ -724,8 +684,15 @@ h1 span{
 
     .more-menu{
         bottom:70px;
-
         right:-5px;
+    }
+
+    .admin-box{
+        padding:25px;
+    }
+
+    .admin-content h1{
+        font-size:34px;
     }
 }
 
@@ -739,10 +706,6 @@ h1 span{
 
 <div class="app">
 
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -759,16 +722,10 @@ h1 span{
 </header>
 
 
-<!-- =========================
-     ALL PAGES
-========================= -->
-
 <main class="pages">
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <section
     class="page active"
@@ -778,43 +735,27 @@ h1 span{
     <div class="home">
 
         <div class="small-title">
-
             ART BY SHIVAM
-
         </div>
 
-
         <h1>
-
             Where<br>
-
-            <span>
-                Memories
-            </span><br>
-
+            <span>Memories</span><br>
             Become Art.
-
         </h1>
-
 
         <div class="line"></div>
 
-
         <p class="description">
-
             Premium charcoal, graphite and custom artwork,
             handcrafted with patience, detail and emotion.
-
         </p>
-
 
         <button
             class="primary-btn"
             onclick="showPage('gallery')"
         >
-
             EXPLORE GALLERY
-
         </button>
 
     </div>
@@ -822,9 +763,7 @@ h1 span{
 </section>
 
 
-<!-- =========================
-     GALLERY
-========================= -->
+<!-- GALLERY -->
 
 <section
     class="page"
@@ -832,56 +771,35 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Gallery
-
     </h2>
 
-
     <p class="section-subtitle">
-
         A collection of artworks created by Shivam.
-
     </p>
-
 
     <div class="gallery-grid">
 
 
-        <!-- ARTWORK 01 -->
-
         <article class="art-card">
 
             <div class="art-image">
-
-                <span>
-                    ARTWORK 01
-                </span>
-
+                <span>ARTWORK 01</span>
             </div>
-
 
             <div class="art-info">
 
                 <div class="art-category">
-
                     GRAPHITE
-
                 </div>
-
 
                 <div class="art-title">
-
                     Graphite Portrait
-
                 </div>
 
-
                 <p class="art-description">
-
                     Detailed graphite artwork created
                     with patience and precision.
-
                 </p>
 
             </div>
@@ -889,41 +807,25 @@ h1 span{
         </article>
 
 
-
-        <!-- ARTWORK 02 -->
-
         <article class="art-card">
 
             <div class="art-image">
-
-                <span>
-                    ARTWORK 02
-                </span>
-
+                <span>ARTWORK 02</span>
             </div>
-
 
             <div class="art-info">
 
                 <div class="art-category">
-
                     CHARCOAL
-
                 </div>
-
 
                 <div class="art-title">
-
                     Charcoal Portrait
-
                 </div>
 
-
                 <p class="art-description">
-
                     Expressive charcoal artwork with
                     rich tones and deep contrast.
-
                 </p>
 
             </div>
@@ -931,41 +833,25 @@ h1 span{
         </article>
 
 
-
-        <!-- ARTWORK 03 -->
-
         <article class="art-card">
 
             <div class="art-image">
-
-                <span>
-                    ARTWORK 03
-                </span>
-
+                <span>ARTWORK 03</span>
             </div>
-
 
             <div class="art-info">
 
                 <div class="art-category">
-
                     CUSTOM
-
                 </div>
-
 
                 <div class="art-title">
-
                     Custom Artwork
-
                 </div>
 
-
                 <p class="art-description">
-
                     Personal artwork created around
                     your memories and ideas.
-
                 </p>
 
             </div>
@@ -973,41 +859,25 @@ h1 span{
         </article>
 
 
-
-        <!-- ARTWORK 04 -->
-
         <article class="art-card">
 
             <div class="art-image">
-
-                <span>
-                    ARTWORK 04
-                </span>
-
+                <span>ARTWORK 04</span>
             </div>
-
 
             <div class="art-info">
 
                 <div class="art-category">
-
                     PENCIL
-
                 </div>
-
 
                 <div class="art-title">
-
                     Pencil Sketch
-
                 </div>
 
-
                 <p class="art-description">
-
                     Clean pencil artwork with careful
                     attention to every detail.
-
                 </p>
 
             </div>
@@ -1020,9 +890,7 @@ h1 span{
 </section>
 
 
-<!-- =========================
-     SHOP
-========================= -->
+<!-- SHOP -->
 
 <section
     class="page"
@@ -1030,35 +898,24 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Shop
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Bring original artwork into your space.
-
     </p>
-
 
     <div class="coming">
 
         <h2>
-
             Coming Soon
-
         </h2>
 
-
         <p>
-
             The Inkverse Studio art shop is currently
             being prepared. Original artworks and
             selected art products will be available here
             in the future.
-
         </p>
 
     </div>
@@ -1066,9 +923,7 @@ h1 span{
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section
     class="page"
@@ -1076,47 +931,32 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         About Inkverse
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Art by Shivam.
-
     </p>
-
 
     <div class="card">
 
         <h3>
-
             The Artist
-
         </h3>
 
-
         <p>
-
             Inkverse Studio is a creative space dedicated
             to charcoal, graphite and custom artwork.
             Every piece is created with patience,
             precision and attention to detail.
-
         </p>
-
 
         <br>
 
-
         <p>
-
             The goal is simple — transform memories,
             emotions and ideas into artwork that feels
             personal and timeless.
-
         </p>
 
     </div>
@@ -1124,9 +964,7 @@ h1 span{
 </section>
 
 
-<!-- =========================
-     COMMISSION
-========================= -->
+<!-- COMMISSION -->
 
 <section
     class="page"
@@ -1134,29 +972,17 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Commission
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Turn your favourite memory into a handcrafted
         piece of art.
-
     </p>
-
 
     <div class="commission-form">
 
-
-        <label>
-
-            Your Name
-
-        </label>
-
+        <label>Your Name</label>
 
         <input
             type="text"
@@ -1164,56 +990,29 @@ h1 span{
             placeholder="Enter your name"
         >
 
-
-        <label>
-
-            Artwork Type
-
-        </label>
-
+        <label>Artwork Type</label>
 
         <select id="artType">
 
             <option value="">
-
                 Select artwork type
-
             </option>
 
+            <option>Portrait</option>
 
-            <option>
-                Portrait
-            </option>
+            <option>Couple Artwork</option>
 
+            <option>Pet Portrait</option>
 
-            <option>
-                Couple Artwork
-            </option>
+            <option>Anime Artwork</option>
 
-
-            <option>
-                Pet Portrait
-            </option>
-
-
-            <option>
-                Anime Artwork
-            </option>
-
-
-            <option>
-                Custom Artwork
-            </option>
+            <option>Custom Artwork</option>
 
         </select>
 
-
         <label>
-
             Tell me about your artwork
-
         </label>
-
 
         <textarea
             id="artMessage"
@@ -1221,17 +1020,10 @@ h1 span{
             placeholder="Describe what you want..."
         ></textarea>
 
-
         <label>
-
             Budget
-
-            <span>
-                (Optional)
-            </span>
-
+            <span>(Optional)</span>
         </label>
-
 
         <input
             type="text"
@@ -1239,32 +1031,23 @@ h1 span{
             placeholder="Example: ₹1000 - ₹2000"
         >
 
-
         <button
             class="primary-btn"
             onclick="submitCommission()"
         >
-
             REQUEST ARTWORK
-
         </button>
 
-
         <p class="form-note">
-
             Your request will open in your email app.
-
         </p>
-
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
 <section
     class="page"
@@ -1272,69 +1055,49 @@ h1 span{
 >
 
     <h2 class="section-title">
-
         Contact
-
     </h2>
 
-
     <p class="section-subtitle">
-
         Have a question or want to commission artwork?
         Get in touch.
-
     </p>
-
 
     <div class="contact-card">
 
         <strong>
-
             Instagram
-
         </strong>
-
 
         <a
             href="https://www.instagram.com/_shivam._.here__/"
             target="_blank"
             rel="noopener"
         >
-
             @_shivam._.here__
-
         </a>
 
     </div>
-
 
     <div class="contact-card">
 
         <strong>
-
             Email
-
         </strong>
-
 
         <a
             href="mailto:inkversestudio.co@gmail.com?subject=Inkverse%20Studio%20Inquiry"
         >
-
             inkversestudio.co@gmail.com
-
         </a>
 
     </div>
-
 
     <button
         class="primary-btn"
         onclick="sendEmail()"
     >
-
         EMAIL INKVERSE
-
     </button>
 
 </section>
@@ -1343,86 +1106,57 @@ h1 span{
 </main>
 
 
-<!-- =========================
-     BOTTOM NAVIGATION
-========================= -->
+<!-- BOTTOM NAVIGATION -->
 
 <nav class="bottom-nav">
-
-
-    <!-- HOME -->
 
     <button
         class="nav-btn active"
         onclick="showPage('home',this)"
     >
 
-        <span class="nav-icon">
-            ⌂
-        </span>
+        <span class="nav-icon">⌂</span>
 
-        <span>
-            Home
-        </span>
+        <span>Home</span>
 
     </button>
 
-
-    <!-- GALLERY -->
 
     <button
         class="nav-btn"
         onclick="showPage('gallery',this)"
     >
 
-        <span class="nav-icon">
-            ✦
-        </span>
+        <span class="nav-icon">✦</span>
 
-        <span>
-            Gallery
-        </span>
+        <span>Gallery</span>
 
     </button>
 
-
-    <!-- SHOP -->
 
     <button
         class="nav-btn"
         onclick="showPage('shop',this)"
     >
 
-        <span class="nav-icon">
-            ◇
-        </span>
+        <span class="nav-icon">◇</span>
 
-        <span>
-            Shop
-        </span>
+        <span>Shop</span>
 
     </button>
 
-
-    <!-- ABOUT -->
 
     <button
         class="nav-btn"
         onclick="showPage('about',this)"
     >
 
-        <span class="nav-icon">
-            ◎
-        </span>
+        <span class="nav-icon">◎</span>
 
-        <span>
-            About
-        </span>
+        <span>About</span>
 
     </button>
 
-
-    <!-- MORE -->
 
     <div class="more-wrapper">
 
@@ -1431,13 +1165,9 @@ h1 span{
             onclick="toggleMoreMenu()"
         >
 
-            <span class="nav-icon">
-                •••
-            </span>
+            <span class="nav-icon">•••</span>
 
-            <span>
-                More
-            </span>
+            <span>More</span>
 
         </button>
 
@@ -1449,27 +1179,25 @@ h1 span{
 
             <button
                 class="more-item"
-                onclick="showPage('commission'); closeMoreMenu();"
+                onclick="showPage('commission');closeMoreMenu();"
             >
-
                 ✎ &nbsp; Commission
-
             </button>
 
 
             <button
                 class="more-item"
-                onclick="showPage('contact'); closeMoreMenu();"
+                onclick="showPage('contact');closeMoreMenu();"
             >
-
                 ♡ &nbsp; Contact
-
             </button>
+
+
+            <!-- ADMIN LOGIN IS NOT SHOWN IN NORMAL NAVIGATION -->
 
         </div>
 
     </div>
-
 
 </nav>
 
@@ -1478,10 +1206,180 @@ h1 span{
 
 
 <!-- =========================
-     JAVASCRIPT
+     ADMIN LOGIN
 ========================= -->
 
+<div
+    class="admin-overlay"
+    id="adminOverlay"
+>
+
+    <div class="admin-box">
+
+        <h2>
+            Admin Login
+        </h2>
+
+        <p class="admin-subtitle">
+            Inkverse Studio owner access.
+            This area is only for managing your artwork.
+        </p>
+
+
+        <label>
+            EMAIL
+        </label>
+
+        <input
+            type="email"
+            id="adminEmail"
+            autocomplete="email"
+            placeholder="Admin email"
+        >
+
+
+        <label>
+            PASSWORD
+        </label>
+
+        <input
+            type="password"
+            id="adminPassword"
+            autocomplete="current-password"
+            placeholder="Password"
+        >
+
+
+        <div class="admin-actions">
+
+            <button
+                class="secondary-btn"
+                onclick="closeAdminLogin()"
+            >
+                CANCEL
+            </button>
+
+            <button
+                class="primary-btn"
+                style="margin-top:0;"
+                onclick="adminLogin()"
+            >
+                LOGIN
+            </button>
+
+        </div>
+
+
+        <div
+            class="admin-error"
+            id="adminError"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     ADMIN PANEL
+========================= -->
+
+<div
+    class="admin-panel"
+    id="adminPanel"
+>
+
+    <div class="admin-header">
+
+        <div class="admin-brand">
+
+            INKVERSE
+            <span>ADMIN</span>
+
+        </div>
+
+
+        <button
+            class="admin-close"
+            onclick="closeAdminPanel()"
+        >
+            Close
+        </button>
+
+    </div>
+
+
+    <div class="admin-content">
+
+        <h1>
+            Admin Panel
+        </h1>
+
+        <p>
+            Welcome, Shivam. This is your private
+            Inkverse Studio management area.
+        </p>
+
+
+        <div class="admin-card">
+
+            <h2>
+                Artwork Management
+            </h2>
+
+            <p>
+                The artwork upload system will be connected
+                in the next step.
+            </p>
+
+            <div class="admin-status">
+
+                ✓ You are successfully authenticated.<br><br>
+
+                Step 18 will add the actual
+                <strong>Add Artwork</strong> system.
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="adminLogout()"
+        >
+            LOGOUT
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SUPABASE
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
+
+/* =========================
+   SUPABASE CONFIG
+========================= */
+
+const SUPABASE_URL =
+    "https://agfyscldqtahojtstpbs.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_7oPOjxBkG0CAKOXEjlB9ng_k7FAftwf";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
 
 /* =========================
@@ -1492,7 +1390,6 @@ function showPage(pageId,button){
 
     const pages =
         document.querySelectorAll(".page");
-
 
     pages.forEach(function(page){
 
@@ -1539,7 +1436,6 @@ function showPage(pageId,button){
             const action =
                 btn.getAttribute("onclick") || "";
 
-
             if(
                 action.includes(
                     "'" + pageId + "'"
@@ -1569,7 +1465,6 @@ function toggleMoreMenu(){
     const menu =
         document.getElementById("moreMenu");
 
-
     menu.classList.toggle("show");
 
 }
@@ -1579,7 +1474,6 @@ function closeMoreMenu(){
 
     const menu =
         document.getElementById("moreMenu");
-
 
     if(menu){
 
@@ -1591,7 +1485,7 @@ function closeMoreMenu(){
 
 
 /* =========================
-   COMMISSION FORM
+   COMMISSION
 ========================= */
 
 function submitCommission(){
@@ -1622,9 +1516,7 @@ function submitCommission(){
 
     if(!name){
 
-        alert(
-            "Please enter your name."
-        );
+        alert("Please enter your name.");
 
         return;
 
@@ -1633,9 +1525,7 @@ function submitCommission(){
 
     if(!type){
 
-        alert(
-            "Please select an artwork type."
-        );
+        alert("Please select an artwork type.");
 
         return;
 
@@ -1644,9 +1534,7 @@ function submitCommission(){
 
     if(!message){
 
-        alert(
-            "Please describe your artwork."
-        );
+        alert("Please describe your artwork.");
 
         return;
 
@@ -1720,6 +1608,125 @@ function sendEmail(){
 
 
 /* =========================
+   ADMIN LOGIN
+========================= */
+
+function openAdminLogin(){
+
+    document
+        .getElementById("adminOverlay")
+        .classList.add("show");
+
+    document
+        .getElementById("adminEmail")
+        .focus();
+
+}
+
+
+function closeAdminLogin(){
+
+    document
+        .getElementById("adminOverlay")
+        .classList.remove("show");
+
+    document
+        .getElementById("adminError")
+        .classList.remove("show");
+
+}
+
+
+async function adminLogin(){
+
+    const email =
+        document
+        .getElementById("adminEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("adminPassword")
+        .value;
+
+
+    const errorBox =
+        document
+        .getElementById("adminError");
+
+
+    errorBox.classList.remove("show");
+
+
+    if(!email || !password){
+
+        errorBox.textContent =
+            "Please enter your email and password.";
+
+        errorBox.classList.add("show");
+
+        return;
+
+    }
+
+
+    const result =
+        await supabaseClient.auth.signInWithPassword({
+
+            email:email,
+
+            password:password
+
+        });
+
+
+    if(result.error){
+
+        errorBox.textContent =
+            "Login failed: " +
+            result.error.message;
+
+        errorBox.classList.add("show");
+
+        return;
+
+    }
+
+
+    closeAdminLogin();
+
+    document
+        .getElementById("adminPanel")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+   ADMIN PANEL
+========================= */
+
+function closeAdminPanel(){
+
+    document
+        .getElementById("adminPanel")
+        .classList.remove("show");
+
+}
+
+
+async function adminLogout(){
+
+    await supabaseClient.auth.signOut();
+
+    closeAdminPanel();
+
+}
+
+
+/* =========================
    SERVICE WORKER
 ========================= */
 
@@ -1757,6 +1764,82 @@ if(
     );
 
 }
+
+
+/* =========================
+   ADMIN ACCESS
+========================= */
+
+/*
+   Hidden keyboard shortcut:
+
+   Tap/click the logo 5 times quickly
+   to open Admin Login.
+
+   Normal visitors will not see
+   an Admin button.
+*/
+
+let logoClicks = 0;
+
+let logoTimer = null;
+
+
+document
+    .querySelector(".logo")
+    .addEventListener(
+        "click",
+        function(){
+
+            logoClicks++;
+
+            clearTimeout(logoTimer);
+
+
+            logoTimer =
+                setTimeout(
+                    function(){
+
+                        logoClicks = 0;
+
+                    },
+                    2000
+                );
+
+
+            if(logoClicks >= 5){
+
+                logoClicks = 0;
+
+                openAdminLogin();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   RESTORE LOGIN SESSION
+========================= */
+
+supabaseClient.auth.getSession()
+.then(function(result){
+
+    if(
+        result &&
+        result.data &&
+        result.data.session
+    ){
+
+        console.log(
+            "Inkverse admin session restored."
+        );
+
+    }
+
+});
+
 
 </script>
 

@@ -153,6 +153,11 @@ h1 span{
     background:#a17b35;
 }
 
+.primary-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
 .section-title{
     font-family:Georgia,serif;
     font-size:42px;
@@ -712,6 +717,96 @@ h1 span{
 }
 
 
+/* ADMIN ARTWORK MANAGEMENT */
+
+.admin-artwork-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.admin-artwork-card{
+    background:#fffdf8;
+    border:1px solid #e3dfd5;
+    padding:12px;
+}
+
+.admin-artwork-image{
+    width:100%;
+    height:220px;
+    background:#e8e3d8;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+}
+
+.admin-artwork-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.admin-artwork-info{
+    padding:3px 4px;
+}
+
+.admin-artwork-type{
+    color:#a17b35;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+.admin-artwork-title{
+    font-family:Georgia,serif;
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.admin-artwork-description{
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.delete-artwork-btn{
+    width:100%;
+    margin-top:15px;
+    border:1px solid #b33;
+    background:#fff;
+    color:#a33;
+    padding:13px;
+    font-size:11px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.delete-artwork-btn:hover{
+    background:#a33;
+    color:#fff;
+}
+
+.delete-artwork-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.management-empty{
+    padding:30px 20px;
+    text-align:center;
+    background:#f5f1e8;
+    color:#777;
+    border:1px solid #e3dfd5;
+    line-height:1.6;
+}
+
+
 /* MOBILE */
 
 @media(max-width:600px){
@@ -774,6 +869,14 @@ h1 span{
 
     .admin-content h1{
         font-size:34px;
+    }
+
+    .admin-artwork-grid{
+        grid-template-columns:1fr;
+    }
+
+    .admin-artwork-image{
+        height:220px;
     }
 }
 
@@ -1412,6 +1515,20 @@ h1 span{
 
             </div>
 
+
+            <!-- ADMIN ARTWORK LIST -->
+
+            <div
+                class="admin-artwork-grid"
+                id="adminArtworkGrid"
+            >
+
+                <div class="management-empty">
+                    Loading artworks...
+                </div>
+
+            </div>
+
         </div>
 
 
@@ -1756,7 +1873,7 @@ async function adminLogin(){
 
 
         if(result.error){
-          
+
             errorBox.textContent =
                 "Login failed: " +
                 result.error.message;
@@ -1775,6 +1892,8 @@ async function adminLogin(){
             .classList.add("show");
 
         await loadArtworks();
+
+        await loadAdminArtworks();
 
     }
     catch(error){
@@ -2030,6 +2149,8 @@ async function addArtwork(event){
 
         await loadArtworks();
 
+        await loadAdminArtworks();
+
 
     }
     catch(error){
@@ -2058,144 +2179,9 @@ async function addArtwork(event){
 
 }
 
+
 /* =========================
-   DELETE ARTWORK
-========================= */
-
-async function deleteArtwork(artworkId, imageUrl){
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete this artwork?\n\nThis action cannot be undone."
-        );
-
-    if(!confirmed){
-        return;
-    }
-
-    try{
-
-        const sessionResult =
-            await supabaseClient.auth.getSession();
-
-        const session =
-            sessionResult.data.session;
-
-        if(!session){
-
-            alert(
-                "Admin session expired. Please login again."
-            );
-
-            return;
-        }
-
-
-        /*
-         * Delete database record
-         */
-
-        const deleteResult =
-            await supabaseClient
-            .from("artwork")
-            .delete()
-            .eq("id", artworkId);
-
-
-        if(deleteResult.error){
-
-            throw deleteResult.error;
-
-        }
-
-
-        /*
-         * Delete image from Storage
-         */
-
-        if(imageUrl){
-
-            try{
-
-                const url =
-                    new URL(imageUrl);
-
-                const marker =
-                    "/storage/v1/object/public/Artworks/";
-
-                const index =
-                    url.pathname.indexOf(marker);
-
-                if(index !== -1){
-
-                    const filePath =
-                        decodeURIComponent(
-                            url.pathname.substring(
-                                index + marker.length
-                            )
-                        );
-
-
-                    const storageResult =
-                        await supabaseClient
-                        .storage
-                        .from("Artworks")
-                        .remove([filePath]);
-
-
-                    if(storageResult.error){
-
-                        console.error(
-                            "Storage delete error:",
-                            storageResult.error
-                        );
-
-                    }
-
-                }
-
-            }
-            catch(storageError){
-
-                console.error(
-                    "Could not remove artwork image:",
-                    storageError
-                );
-
-            }
-
-        }
-
-
-        alert(
-            "Artwork deleted successfully."
-        );
-
-
-        await loadArtworks();
-
-    }
-    catch(error){
-
-        console.error(
-            "Delete artwork error:",
-            error
-        );
-
-
-        alert(
-            "Unable to delete artwork: " +
-            (
-                error.message ||
-                "Unknown error"
-            )
-        );
-
-    }
-
-}
-/* =========================
-   LOAD ARTWORKS
+   LOAD PUBLIC ARTWORKS
 ========================= */
 
 async function loadArtworks(){
@@ -2355,54 +2341,21 @@ async function loadArtworks(){
                 "Artwork created by Shivam.";
 
 
-info.appendChild(category);
+            info.appendChild(category);
 
-info.appendChild(title);
+            info.appendChild(title);
 
-info.appendChild(description);
-
-
-/* DELETE BUTTON */
-
-const deleteButton =
-    document.createElement("button");
-
-deleteButton.className =
-    "secondary-btn";
-
-deleteButton.textContent =
-    "DELETE ARTWORK";
-
-deleteButton.style.marginTop =
-    "15px";
-
-deleteButton.style.width =
-    "100%";
-
-deleteButton.onclick =
-    function(){
-
-        deleteArtwork(
-            art.id,
-            art.image_url
-        );
-
-    };
+            info.appendChild(description);
 
 
-/*
- * Delete button only exists
- * inside Admin Panel.
- *
- * It will NOT be added
- * to the public Gallery.
- */
+            card.appendChild(imageBox);
 
-card.appendChild(imageBox);
+            card.appendChild(info);
 
-card.appendChild(info);
 
-gallery.appendChild(card);        });
+            gallery.appendChild(card);
+
+        });
 
 
     }
@@ -2421,6 +2374,447 @@ gallery.appendChild(card);        });
             '<br><br>' +
             'Please check your Supabase table settings.' +
             '</div>';
+
+    }
+
+}
+
+
+/* =========================
+   LOAD ADMIN ARTWORKS
+========================= */
+
+async function loadAdminArtworks(){
+
+    const adminGrid =
+        document.getElementById(
+            "adminArtworkGrid"
+        );
+
+
+    if(!adminGrid){
+
+        return;
+
+    }
+
+
+    adminGrid.innerHTML =
+
+        '<div class="management-empty">' +
+        'Loading artworks...' +
+        '</div>';
+
+
+    try{
+
+        const sessionResult =
+            await supabaseClient.auth.getSession();
+
+
+        const session =
+            sessionResult.data.session;
+
+
+        if(!session){
+
+            adminGrid.innerHTML =
+
+                '<div class="management-empty">' +
+                'Admin session required.' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        const result =
+            await supabaseClient
+            .from("artwork")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        const artworks =
+            result.data || [];
+
+
+        if(artworks.length === 0){
+
+            adminGrid.innerHTML =
+
+                '<div class="management-empty">' +
+                'No artworks added yet.' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        adminGrid.innerHTML = "";
+
+
+        artworks.forEach(function(art){
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "admin-artwork-card";
+
+
+            const imageBox =
+                document.createElement("div");
+
+
+            imageBox.className =
+                "admin-artwork-image";
+
+
+            if(art.image_url){
+
+                const img =
+                    document.createElement("img");
+
+
+                img.src =
+                    art.image_url;
+
+                img.alt =
+                    art.title ||
+                    "Inkverse artwork";
+
+                img.loading =
+                    "lazy";
+
+
+                imageBox.appendChild(img);
+
+            }
+            else{
+
+                const span =
+                    document.createElement("span");
+
+
+                span.textContent =
+                    "NO IMAGE";
+
+                imageBox.appendChild(span);
+
+            }
+
+
+            const info =
+                document.createElement("div");
+
+
+            info.className =
+                "admin-artwork-info";
+
+
+            const type =
+                document.createElement("div");
+
+
+            type.className =
+                "admin-artwork-type";
+
+
+            type.textContent =
+                art.type ||
+                "ARTWORK";
+
+
+            const title =
+                document.createElement("div");
+
+
+            title.className =
+                "admin-artwork-title";
+
+
+            title.textContent =
+                art.title ||
+                "Untitled Artwork";
+
+
+            const description =
+                document.createElement("p");
+
+
+            description.className =
+                "admin-artwork-description";
+
+
+            description.textContent =
+                art.description ||
+                "Artwork created by Shivam.";
+
+
+            const deleteButton =
+                document.createElement("button");
+
+
+            deleteButton.className =
+                "delete-artwork-btn";
+
+
+            deleteButton.textContent =
+                "DELETE ARTWORK";
+
+
+            deleteButton.type =
+                "button";
+
+
+            deleteButton.onclick =
+                function(){
+
+                    deleteArtwork(
+                        art.id,
+                        art.image_url
+                    );
+
+                };
+
+
+            info.appendChild(type);
+
+            info.appendChild(title);
+
+            info.appendChild(description);
+
+            info.appendChild(deleteButton);
+
+
+            card.appendChild(imageBox);
+
+            card.appendChild(info);
+
+
+            adminGrid.appendChild(card);
+
+        });
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Admin artwork loading error:",
+            error
+        );
+
+
+        adminGrid.innerHTML =
+
+            '<div class="management-empty">' +
+            'Unable to load artwork management.' +
+            '<br><br>' +
+            (
+                error.message ||
+                "Please check your Supabase settings."
+            ) +
+            '</div>';
+
+    }
+
+}
+
+
+/* =========================
+   DELETE ARTWORK
+========================= */
+
+async function deleteArtwork(
+    artworkId,
+    imageUrl
+){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this artwork?\n\n" +
+            "The artwork will be removed from the gallery."
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    try{
+
+        const sessionResult =
+            await supabaseClient
+            .auth
+            .getSession();
+
+
+        const session =
+            sessionResult.data.session;
+
+
+        if(!session){
+
+            alert(
+                "Admin session expired. Please login again."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Find the Storage file path
+         * from the public image URL.
+         */
+
+        let filePath = null;
+
+
+        if(imageUrl){
+
+            try{
+
+                const url =
+                    new URL(imageUrl);
+
+
+                const marker =
+                    "/storage/v1/object/public/Artworks/";
+
+
+                const markerIndex =
+                    url.pathname.indexOf(marker);
+
+
+                if(markerIndex !== -1){
+
+                    filePath =
+                        decodeURIComponent(
+                            url.pathname.substring(
+                                markerIndex +
+                                marker.length
+                            )
+                        );
+
+                }
+
+            }
+            catch(error){
+
+                console.error(
+                    "Image URL parsing error:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Delete database record first.
+         */
+
+        const deleteResult =
+            await supabaseClient
+            .from("artwork")
+            .delete()
+            .eq(
+                "id",
+                artworkId
+            );
+
+
+        if(deleteResult.error){
+
+            throw deleteResult.error;
+
+        }
+
+
+        /*
+         * Delete image from Supabase Storage.
+         */
+
+        if(filePath){
+
+            const storageResult =
+                await supabaseClient
+                .storage
+                .from("Artworks")
+                .remove([
+                    filePath
+                ]);
+
+
+            if(storageResult.error){
+
+                console.error(
+                    "Storage image delete error:",
+                    storageResult.error
+                );
+
+            }
+
+        }
+
+
+        alert(
+            "✓ Artwork deleted successfully."
+        );
+
+
+        /*
+         * Refresh public gallery
+         */
+
+        await loadArtworks();
+
+
+        /*
+         * Refresh admin artwork list
+         */
+
+        await loadAdminArtworks();
+
+    }
+    catch(error){
+
+        console.error(
+            "Delete artwork error:",
+            error
+        );
+
+
+        alert(
+            "Unable to delete artwork.\n\n" +
+            (
+                error.message ||
+                "Unknown error"
+            )
+        );
 
     }
 
@@ -2539,6 +2933,8 @@ supabaseClient
             );
 
             await loadArtworks();
+
+            await loadAdminArtworks();
 
         }
         else{

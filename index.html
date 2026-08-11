@@ -2730,7 +2730,29 @@ async function loadAdminArtworks(){
                     );
 
                 };
+const editButton =
+    document.createElement("button");
 
+editButton.className =
+    "edit-artwork-btn";
+
+editButton.textContent =
+    "EDIT ARTWORK";
+
+editButton.type =
+    "button";
+
+editButton.onclick =
+    function(){
+
+        editArtwork(
+            art.id,
+            art.title,
+            art.type,
+            art.description
+        );
+
+    };
 
             info.appendChild(type);
 
@@ -2739,7 +2761,7 @@ async function loadAdminArtworks(){
             info.appendChild(description);
 
             info.appendChild(deleteButton);
-
+            info.appendChild(editButton);
 
             card.appendChild(imageBox);
 

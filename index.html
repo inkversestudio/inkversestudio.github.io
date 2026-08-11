@@ -280,6 +280,16 @@ header{height:72px;padding:0 22px}.logo{font-size:25px}.page{padding:35px 20px 1
 <h2>Edit Artwork</h2>
 <p class="edit-artwork-subtitle">Update the details of this artwork.</p>
 <input type="hidden" id="editArtworkId">
+<div class="edit-current-image" id="editCurrentImage">
+    <span>NO IMAGE</span>
+</div>
+
+<label>CHANGE IMAGE <span style="color:#999;font-weight:normal">(Optional)</span></label>
+<input type="file" id="editArtworkImage" accept="image/*">
+
+<p class="edit-image-note">
+    Leave this empty if you only want to change the title, type or description.
+</p>
 <label>TITLE</label>
 <input type="text" id="editArtworkTitle" placeholder="Artwork title">
 <label>TYPE</label>

@@ -1756,7 +1756,7 @@ async function adminLogin(){
 
 
         if(result.error){
-
+          
             errorBox.textContent =
                 "Login failed: " +
                 result.error.message;
@@ -2058,7 +2058,142 @@ async function addArtwork(event){
 
 }
 
+/* =========================
+   DELETE ARTWORK
+========================= */
 
+async function deleteArtwork(artworkId, imageUrl){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this artwork?\n\nThis action cannot be undone."
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+    try{
+
+        const sessionResult =
+            await supabaseClient.auth.getSession();
+
+        const session =
+            sessionResult.data.session;
+
+        if(!session){
+
+            alert(
+                "Admin session expired. Please login again."
+            );
+
+            return;
+        }
+
+
+        /*
+         * Delete database record
+         */
+
+        const deleteResult =
+            await supabaseClient
+            .from("artwork")
+            .delete()
+            .eq("id", artworkId);
+
+
+        if(deleteResult.error){
+
+            throw deleteResult.error;
+
+        }
+
+
+        /*
+         * Delete image from Storage
+         */
+
+        if(imageUrl){
+
+            try{
+
+                const url =
+                    new URL(imageUrl);
+
+                const marker =
+                    "/storage/v1/object/public/Artworks/";
+
+                const index =
+                    url.pathname.indexOf(marker);
+
+                if(index !== -1){
+
+                    const filePath =
+                        decodeURIComponent(
+                            url.pathname.substring(
+                                index + marker.length
+                            )
+                        );
+
+
+                    const storageResult =
+                        await supabaseClient
+                        .storage
+                        .from("Artworks")
+                        .remove([filePath]);
+
+
+                    if(storageResult.error){
+
+                        console.error(
+                            "Storage delete error:",
+                            storageResult.error
+                        );
+
+                    }
+
+                }
+
+            }
+            catch(storageError){
+
+                console.error(
+                    "Could not remove artwork image:",
+                    storageError
+                );
+
+            }
+
+        }
+
+
+        alert(
+            "Artwork deleted successfully."
+        );
+
+
+        await loadArtworks();
+
+    }
+    catch(error){
+
+        console.error(
+            "Delete artwork error:",
+            error
+        );
+
+
+        alert(
+            "Unable to delete artwork: " +
+            (
+                error.message ||
+                "Unknown error"
+            )
+        );
+
+    }
+
+}
 /* =========================
    LOAD ARTWORKS
 ========================= */
@@ -2220,21 +2355,54 @@ async function loadArtworks(){
                 "Artwork created by Shivam.";
 
 
-            info.appendChild(category);
+info.appendChild(category);
 
-            info.appendChild(title);
+info.appendChild(title);
 
-            info.appendChild(description);
-
-
-            card.appendChild(imageBox);
-
-            card.appendChild(info);
+info.appendChild(description);
 
 
-            gallery.appendChild(card);
+/* DELETE BUTTON */
 
-        });
+const deleteButton =
+    document.createElement("button");
+
+deleteButton.className =
+    "secondary-btn";
+
+deleteButton.textContent =
+    "DELETE ARTWORK";
+
+deleteButton.style.marginTop =
+    "15px";
+
+deleteButton.style.width =
+    "100%";
+
+deleteButton.onclick =
+    function(){
+
+        deleteArtwork(
+            art.id,
+            art.image_url
+        );
+
+    };
+
+
+/*
+ * Delete button only exists
+ * inside Admin Panel.
+ *
+ * It will NOT be added
+ * to the public Gallery.
+ */
+
+card.appendChild(imageBox);
+
+card.appendChild(info);
+
+gallery.appendChild(card);        });
 
 
     }
@@ -2403,4 +2571,4 @@ supabaseClient
 </script>
 
 </body>
-            </html>
+    </html>

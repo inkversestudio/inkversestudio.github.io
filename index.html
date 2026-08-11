@@ -2047,7 +2047,120 @@ async function adminLogin(){
 
 }
 
+<!-- EDIT ARTWORK MODAL -->
 
+<div
+    class="admin-overlay"
+    id="editArtworkOverlay"
+>
+
+    <div class="admin-box">
+
+        <h2>
+            Edit Artwork
+        </h2>
+
+        <p class="admin-subtitle">
+            Update the details of this artwork.
+        </p>
+
+
+        <input
+            type="hidden"
+            id="editArtworkId"
+        >
+
+
+        <label>
+            TITLE
+        </label>
+
+        <input
+            type="text"
+            id="editArtworkTitle"
+            placeholder="Artwork title"
+        >
+
+
+        <label>
+            TYPE
+        </label>
+
+        <select id="editArtworkType">
+
+            <option value="">
+                Select artwork type
+            </option>
+
+            <option value="Graphite">
+                Graphite
+            </option>
+
+            <option value="Charcoal">
+                Charcoal
+            </option>
+
+            <option value="Pencil">
+                Pencil
+            </option>
+
+            <option value="Custom">
+                Custom
+            </option>
+
+            <option value="Anime">
+                Anime
+            </option>
+
+            <option value="Portrait">
+                Portrait
+            </option>
+
+        </select>
+
+
+        <label>
+            DESCRIPTION
+        </label>
+
+        <textarea
+            id="editArtworkDescription"
+            rows="5"
+            placeholder="Write a short description..."
+        ></textarea>
+
+
+        <div class="admin-actions">
+
+            <button
+                class="secondary-btn"
+                type="button"
+                onclick="closeEditArtwork()"
+            >
+                CANCEL
+            </button>
+
+            <button
+                class="primary-btn"
+                type="button"
+                style="margin-top:0;"
+                id="saveEditArtworkBtn"
+                onclick="saveEditedArtwork()"
+            >
+                SAVE CHANGES
+            </button>
+
+        </div>
+
+
+        <div
+            class="admin-error"
+            id="editArtworkError"
+        ></div>
+
+    </div>
+
+</div>
 /* =========================
    ADMIN PANEL
 ========================= */

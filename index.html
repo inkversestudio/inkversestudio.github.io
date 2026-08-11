@@ -2529,43 +2529,32 @@ async function loadAdminArtworks(){
             "adminArtworkGrid"
         );
 
-
     if(!adminGrid){
-
         return;
-
     }
 
-
     adminGrid.innerHTML =
-
         '<div class="management-empty">' +
         'Loading artworks...' +
         '</div>';
-
 
     try{
 
         const sessionResult =
             await supabaseClient.auth.getSession();
 
-
         const session =
             sessionResult.data.session;
-
 
         if(!session){
 
             adminGrid.innerHTML =
-
                 '<div class="management-empty">' +
                 'Admin session required.' +
                 '</div>';
 
             return;
-
         }
-
 
         const result =
             await supabaseClient
@@ -2578,57 +2567,46 @@ async function loadAdminArtworks(){
                 }
             );
 
-
         if(result.error){
-
             throw result.error;
-
         }
-
 
         const artworks =
             result.data || [];
 
-
         if(artworks.length === 0){
 
             adminGrid.innerHTML =
-
                 '<div class="management-empty">' +
                 'No artworks added yet.' +
                 '</div>';
 
             return;
-
         }
 
-
         adminGrid.innerHTML = "";
-
 
         artworks.forEach(function(art){
 
             const card =
                 document.createElement("div");
 
-
             card.className =
                 "admin-artwork-card";
 
 
+            /* IMAGE */
+
             const imageBox =
                 document.createElement("div");
 
-
             imageBox.className =
                 "admin-artwork-image";
-
 
             if(art.image_url){
 
                 const img =
                     document.createElement("img");
-
 
                 img.src =
                     art.image_url;
@@ -2640,7 +2618,6 @@ async function loadAdminArtworks(){
                 img.loading =
                     "lazy";
 
-
                 imageBox.appendChild(img);
 
             }
@@ -2648,7 +2625,6 @@ async function loadAdminArtworks(){
 
                 const span =
                     document.createElement("span");
-
 
                 span.textContent =
                     "NO IMAGE";
@@ -2658,68 +2634,94 @@ async function loadAdminArtworks(){
             }
 
 
+            /* INFO */
+
             const info =
                 document.createElement("div");
-
 
             info.className =
                 "admin-artwork-info";
 
 
+            /* TYPE */
+
             const type =
                 document.createElement("div");
 
-
             type.className =
                 "admin-artwork-type";
-
 
             type.textContent =
                 art.type ||
                 "ARTWORK";
 
 
+            /* TITLE */
+
             const title =
                 document.createElement("div");
 
-
             title.className =
                 "admin-artwork-title";
-
 
             title.textContent =
                 art.title ||
                 "Untitled Artwork";
 
 
+            /* DESCRIPTION */
+
             const description =
                 document.createElement("p");
 
-
             description.className =
                 "admin-artwork-description";
-
 
             description.textContent =
                 art.description ||
                 "Artwork created by Shivam.";
 
 
-            const deleteButton =
+            /* EDIT BUTTON */
+
+            const editButton =
                 document.createElement("button");
 
+            editButton.className =
+                "edit-artwork-btn";
+
+            editButton.textContent =
+                "EDIT ARTWORK";
+
+            editButton.type =
+                "button";
+
+            editButton.onclick =
+                function(){
+
+                    editArtwork(
+                        art.id,
+                        art.title,
+                        art.type,
+                        art.description
+                    );
+
+                };
+
+
+            /* DELETE BUTTON */
+
+            const deleteButton =
+                document.createElement("button");
 
             deleteButton.className =
                 "delete-artwork-btn";
 
-
             deleteButton.textContent =
                 "DELETE ARTWORK";
 
-
             deleteButton.type =
                 "button";
-
 
             deleteButton.onclick =
                 function(){
@@ -2730,29 +2732,9 @@ async function loadAdminArtworks(){
                     );
 
                 };
-const editButton =
-    document.createElement("button");
 
-editButton.className =
-    "edit-artwork-btn";
 
-editButton.textContent =
-    "EDIT ARTWORK";
-
-editButton.type =
-    "button";
-
-editButton.onclick =
-    function(){
-
-        editArtwork(
-            art.id,
-            art.title,
-            art.type,
-            art.description
-        );
-
-    };
+            /* ADD CONTENT */
 
             info.appendChild(type);
 
@@ -2760,18 +2742,20 @@ editButton.onclick =
 
             info.appendChild(description);
 
-            info.appendChild(deleteButton);
             info.appendChild(editButton);
+
+            info.appendChild(deleteButton);
+
+
+            /* ADD CARD */
 
             card.appendChild(imageBox);
 
             card.appendChild(info);
 
-
             adminGrid.appendChild(card);
 
         });
-
 
     }
     catch(error){
@@ -2781,9 +2765,7 @@ editButton.onclick =
             error
         );
 
-
         adminGrid.innerHTML =
-
             '<div class="management-empty">' +
             'Unable to load artwork management.' +
             '<br><br>' +
@@ -2797,8 +2779,7 @@ editButton.onclick =
 
 }
 
-
-/* =========================
+ /* =========================
    DELETE ARTWORK
 ========================= */
 
@@ -3127,4 +3108,4 @@ supabaseClient
 </script>
 
 </body>
-    </html>
+</html>

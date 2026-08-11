@@ -796,7 +796,145 @@ h1 span{
     opacity:.6;
     cursor:not-allowed;
 }
+.edit-artwork-btn{
+    width:100%;
+    margin-top:10px;
+    border:1px solid #a17b35;
+    background:#fff;
+    color:#a17b35;
+    padding:13px;
+    font-size:11px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.25s;
+}
 
+.edit-artwork-btn:hover{
+    background:#a17b35;
+    color:#fff;
+}
+
+.edit-artwork-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+
+/* EDIT ARTWORK MODAL */
+
+.edit-artwork-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:600;
+    overflow-y:auto;
+}
+
+.edit-artwork-overlay.show{
+    display:flex;
+}
+
+.edit-artwork-box{
+    width:100%;
+    max-width:500px;
+    background:#fffdf8;
+    border:1px solid #b99a5b;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.edit-artwork-box h2{
+    font-family:Georgia,serif;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.edit-artwork-subtitle{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+    margin-bottom:22px;
+}
+
+.edit-artwork-box label{
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin:16px 0 7px;
+}
+
+.edit-artwork-box input,
+.edit-artwork-box select,
+.edit-artwork-box textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd8cc;
+    background:#fff;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    outline:none;
+}
+
+.edit-artwork-box textarea{
+    resize:vertical;
+}
+
+.edit-artwork-box input:focus,
+.edit-artwork-box select:focus,
+.edit-artwork-box textarea:focus{
+    border-color:#a17b35;
+}
+
+.edit-current-image{
+    width:100%;
+    height:220px;
+    background:#e8e3d8;
+    margin-top:10px;
+    overflow:hidden;
+}
+
+.edit-current-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.edit-image-note{
+    margin-top:8px;
+    color:#999;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.edit-artwork-actions{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+}
+
+.edit-artwork-actions button{
+    flex:1;
+}
+
+.edit-status{
+    display:none;
+    margin-top:15px;
+    padding:13px;
+    background:#f5f1e8;
+    border-left:3px solid #a17b35;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.edit-status.show{
+    display:block;
+}
 .management-empty{
     padding:30px 20px;
     text-align:center;

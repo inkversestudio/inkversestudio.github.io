@@ -454,7 +454,13 @@ const info=document.createElement("div");info.className="admin-artwork-info";
 const type=document.createElement("div");type.className="admin-artwork-type";type.textContent=art.type||"ARTWORK";
 const title=document.createElement("div");title.className="admin-artwork-title";title.textContent=art.title||"Untitled Artwork";
 const desc=document.createElement("p");desc.className="admin-artwork-description";desc.textContent=art.description||"Artwork created by Shivam.";
-const edit=document.createElement("button");edit.className="edit-artwork-btn";edit.type="button";edit.textContent="EDIT ARTWORK";edit.onclick=()=>editArtwork(art.id,art.title,art.type,art.description);
+const edit=document.createElement("button");edit.className="edit-artwork-btn";edit.type="button";edit.textContent="EDIT ARTWORK";edit.onclick=()=>editArtwork(
+    art.id,
+    art.title,
+    art.type,
+    art.description,
+    art.image_url
+);
 const del=document.createElement("button");del.className="delete-artwork-btn";del.type="button";del.textContent="DELETE ARTWORK";del.onclick=()=>deleteArtwork(art.id,art.image_url);
 info.append(type,title,desc,edit,del);card.append(imageBox,info);grid.appendChild(card);
 });

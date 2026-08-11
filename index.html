@@ -464,13 +464,29 @@ grid.innerHTML='<div class="management-empty">Unable to load artwork management.
 }
 }
 
-function editArtwork(id,title,type,description){
-document.getElementById("editArtworkId").value=id;
-document.getElementById("editArtworkTitle").value=title||"";
-document.getElementById("editArtworkType").value=type||"";
-document.getElementById("editArtworkDescription").value=description||"";
-document.getElementById("editArtworkError").classList.remove("show");
-document.getElementById("editArtworkOverlay").classList.add("show");
+function editArtwork(id,title,type,description,imageUrl){
+    document.getElementById("editArtworkId").value = id;
+    document.getElementById("editArtworkTitle").value = title || "";
+    document.getElementById("editArtworkType").value = type || "";
+    document.getElementById("editArtworkDescription").value = description || "";
+
+    const imageBox = document.getElementById("editCurrentImage");
+
+    if(imageUrl){
+        imageBox.innerHTML = "";
+
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = title || "Current artwork";
+
+        imageBox.appendChild(img);
+    }else{
+        imageBox.innerHTML = "<span>NO IMAGE</span>";
+    }
+
+    document.getElementById("editArtworkImage").value = "";
+    document.getElementById("editArtworkError").classList.remove("show");
+    document.getElementById("editArtworkOverlay").classList.add("show");
 }
 function closeEditArtwork(){
 document.getElementById("editArtworkOverlay").classList.remove("show");

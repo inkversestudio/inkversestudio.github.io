@@ -1,4 +1,4 @@
-const CACHE_NAME = "inkverse-studio-v2";
+const CACHE_NAME = "inkverse-studio-v3";
 
 const FILES_TO_CACHE = [
   "./",
@@ -31,19 +31,30 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-  if (event.request.method !== "GET") return;
+  const request = event.request;
+
+  if (request.method !== "GET") return;
+
+  const url = new URL(request.url);
+
+  // Only cache files belonging to this website.
+  if (url.origin !== self.location.origin) {
+    return;
+  }
 
   event.respondWith(
-    fetch(event.request)
+    fetch(request)
       .then(response => {
-        const copy = response.clone();
+        if (response.ok) {
+          const copy = response.clone();
 
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, copy);
-        });
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(request, copy);
+          });
+        }
 
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => caches.match(request))
   );
 });

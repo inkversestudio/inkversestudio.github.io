@@ -1431,7 +1431,40 @@ function validateArtworkType(type) {
     value: type
   };
 }
+/* SAFE ERROR HANDLING */
 
+function logAppError(context, error) {
+  console.error(`[Inkverse ${context}]`, error);
+}
+
+function getSafeErrorMessage(context) {
+
+  const messages = {
+    login:
+      "Login failed. Please check your credentials and try again.",
+
+    upload:
+      "Artwork could not be uploaded. Please try again.",
+
+    save:
+      "Artwork could not be saved. Please try again.",
+
+    update:
+      "Artwork could not be updated. Please try again.",
+
+    delete:
+      "Artwork could not be deleted. Please try again.",
+
+    gallery:
+      "Unable to load artworks right now. Please try again later.",
+
+    management:
+      "Unable to load artwork management right now. Please try again later."
+  };
+
+  return messages[context] ||
+    "Something went wrong. Please try again.";
+}
 function submitCommission(){
 
 const name =
@@ -2948,4 +2981,4 @@ event
 </script>
 
 </body>
-</html>
+  </html>

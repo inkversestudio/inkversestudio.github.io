@@ -1374,6 +1374,64 @@ document
 
 /* COMMISSION */
 
+/* STRICT INPUT VALIDATION */
+
+const INPUT_LIMITS = {
+  name: 80,
+  title: 100,
+  description: 1000,
+  message: 2000,
+  budget: 100
+};
+
+const ALLOWED_ARTWORK_TYPES = [
+  "Graphite",
+  "Charcoal",
+  "Pencil",
+  "Custom",
+  "Anime",
+  "Portrait"
+];
+
+function validateText(value, maxLength, fieldName, required = true) {
+
+  const text = String(value ?? "").trim();
+
+  if (required && !text) {
+    return {
+      valid: false,
+      message: `${fieldName} is required.`
+    };
+  }
+
+  if (text.length > maxLength) {
+    return {
+      valid: false,
+      message: `${fieldName} is too long.`
+    };
+  }
+
+  return {
+    valid: true,
+    value: text
+  };
+}
+
+function validateArtworkType(type) {
+
+  if (!ALLOWED_ARTWORK_TYPES.includes(type)) {
+    return {
+      valid: false,
+      message: "Invalid artwork type."
+    };
+  }
+
+  return {
+    valid: true,
+    value: type
+  };
+}
+
 function submitCommission(){
 
 const name =
@@ -1392,15 +1450,37 @@ const budget =
 document.getElementById("budget")
 .value.trim();
 
-if(!name)
-return alert("Please enter your name.");
+const nameCheck =
+  validateText(name, INPUT_LIMITS.name, "Name");
 
-if(!type)
-return alert("Please select an artwork type.");
+if(!nameCheck.valid) {
+  alert(nameCheck.message);
+  return;
+}
 
-if(!message)
-return alert("Please describe your artwork.");
+const typeCheck =
+  validateArtworkType(type);
 
+if(!typeCheck.valid) {
+  alert(typeCheck.message);
+  return;
+}
+
+const messageCheck =
+  validateText(message, INPUT_LIMITS.message, "Artwork details");
+
+if(!messageCheck.valid) {
+  alert(messageCheck.message);
+  return;
+}
+
+const budgetCheck =
+  validateText(budget, INPUT_LIMITS.budget, "Budget", false);
+
+if(!budgetCheck.valid) {
+  alert(budgetCheck.message);
+  return;
+}
 const subject =
 "New Inkverse Studio Commission Request";
 
@@ -1576,19 +1656,42 @@ document.getElementById("uploadArtworkBtn");
 
 status.classList.add("show");
 
-if(!title){
+const titleCheck =
+validateText(title, INPUT_LIMITS.title, "Artwork title");
+
+if(!titleCheck.valid){
 
 status.textContent =
-"Please enter an artwork title.";
+titleCheck.message;
 
 return;
 
 }
 
-if(!type){
+const typeCheck =
+validateArtworkType(type);
+
+if(!typeCheck.valid){
 
 status.textContent =
-"Please select an artwork type.";
+typeCheck.message;
+
+return;
+
+}
+
+const descriptionCheck =
+validateText(
+description,
+INPUT_LIMITS.description,
+"Description",
+false
+);
+
+if(!descriptionCheck.valid){
+
+status.textContent =
+descriptionCheck.message;
 
 return;
 
@@ -2246,25 +2349,54 @@ document.getElementById("saveEditArtworkBtn");
 
 errorBox.classList.remove("show");
 
-if(!title){
+const titleCheck =
+  validateText(
+    title,
+    INPUT_LIMITS.title,
+    "Artwork title"
+  );
 
-errorBox.textContent =
-"Please enter a title.";
+if(!titleCheck.valid){
 
-errorBox.classList.add("show");
+  errorBox.textContent =
+    titleCheck.message;
 
-return;
+  errorBox.classList.add("show");
+
+  return;
 
 }
 
-if(!type){
+const typeCheck =
+  validateArtworkType(type);
 
-errorBox.textContent =
-"Please select a type.";
+if(!typeCheck.valid){
 
-errorBox.classList.add("show");
+  errorBox.textContent =
+    typeCheck.message;
 
-return;
+  errorBox.classList.add("show");
+
+  return;
+
+}
+
+const descriptionCheck =
+  validateText(
+    description,
+    INPUT_LIMITS.description,
+    "Description",
+    false
+  );
+
+if(!descriptionCheck.valid){
+
+  errorBox.textContent =
+    descriptionCheck.message;
+
+  errorBox.classList.add("show");
+
+  return;
 
 }
 
@@ -2816,4 +2948,4 @@ event
 </script>
 
 </body>
-  </html>
+</html>

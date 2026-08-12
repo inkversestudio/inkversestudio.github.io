@@ -3,271 +3,332 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Inkverse Studio — Art by Shivam</title>
-<meta name="description" content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Shivam.">
+
+<meta
+  name="description"
+  content="Inkverse Studio — Premium charcoal, graphite and custom artwork by Shivam."
+>
+
 <meta name="theme-color" content="#f8f6f0">
+
 <link rel="manifest" href="./manifest.json">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+html,body{
+  width:100%;
+  height:100%
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f8f6f0;
-color:#171717;
-overflow:hidden
+  font-family:Arial,sans-serif;
+  background:#f8f6f0;
+  color:#171717;
+  overflow:hidden
 }
+
 .app{
-width:100%;
-height:100vh;
-display:flex;
-flex-direction:column
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column
 }
+
 header{
-height:78px;
-background:#f8f6f0;
-border-bottom:1px solid #ddd8cc;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 28px;
-flex-shrink:0
+  height:78px;
+  background:#f8f6f0;
+  border-bottom:1px solid #ddd8cc;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  flex-shrink:0
 }
+
 .logo{
-font-family:Georgia,serif;
-font-size:27px;
-font-weight:bold;
-letter-spacing:4px;
-cursor:pointer;
-user-select:none
+  font-family:Georgia,serif;
+  font-size:27px;
+  font-weight:bold;
+  letter-spacing:4px;
+  cursor:pointer;
+  user-select:none
 }
+
 .logo span{
-display:block;
-color:#a17b35;
-font-family:Arial,sans-serif;
-font-size:10px;
-letter-spacing:5px;
-margin-top:3px
+  display:block;
+  color:#a17b35;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:5px;
+  margin-top:3px
 }
+
 .pages{
-flex:1;
-position:relative;
-overflow:hidden
+  flex:1;
+  position:relative;
+  overflow:hidden
 }
+
 .page{
-position:absolute;
-inset:0;
-overflow-y:auto;
-padding:45px 25px 110px;
-opacity:0;
-transform:translateX(25px);
-pointer-events:none;
-transition:opacity .3s ease,transform .3s ease
+  position:absolute;
+  inset:0;
+  overflow-y:auto;
+  padding:45px 25px 110px;
+  opacity:0;
+  transform:translateX(25px);
+  pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease
 }
+
 .page.active{
-opacity:1;
-transform:translateX(0);
-pointer-events:auto
+  opacity:1;
+  transform:translateX(0);
+  pointer-events:auto
 }
+
 .home{
-text-align:center;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-min-height:100%
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100%
 }
+
 .small-title{
-color:#a17b35;
-letter-spacing:5px;
-font-size:13px;
-margin-bottom:35px
+  color:#a17b35;
+  letter-spacing:5px;
+  font-size:13px;
+  margin-bottom:35px
 }
+
 h1{
-font-family:Georgia,serif;
-font-size:58px;
-line-height:.95;
-max-width:700px
+  font-family:Georgia,serif;
+  font-size:58px;
+  line-height:.95;
+  max-width:700px
 }
+
 h1 span{
-color:#a17b35;
-font-style:italic
+  color:#a17b35;
+  font-style:italic
 }
+
 .line{
-width:105px;
-height:2px;
-background:#a17b35;
-margin:40px auto 28px
+  width:105px;
+  height:2px;
+  background:#a17b35;
+  margin:40px auto 28px
 }
+
 .description{
-max-width:600px;
-color:#686868;
-font-size:17px;
-line-height:1.7
+  max-width:600px;
+  color:#686868;
+  font-size:17px;
+  line-height:1.7
 }
+
 .primary-btn{
-margin-top:35px;
-border:none;
-background:#171717;
-color:white;
-padding:18px 35px;
-font-size:13px;
-letter-spacing:3px;
-cursor:pointer;
-transition:.25s
+  margin-top:35px;
+  border:none;
+  background:#171717;
+  color:white;
+  padding:18px 35px;
+  font-size:13px;
+  letter-spacing:3px;
+  cursor:pointer;
+  transition:.25s
 }
+
 .primary-btn:hover{
-background:#a17b35
+  background:#a17b35
 }
+
 .primary-btn:disabled{
-opacity:.6;
-cursor:not-allowed
+  opacity:.6;
+  cursor:not-allowed
 }
+
 .section-title{
-font-family:Georgia,serif;
-font-size:42px;
-margin-bottom:15px
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:15px
 }
+
 .section-subtitle{
-color:#777;
-line-height:1.7;
-margin-bottom:35px
+  color:#777;
+  line-height:1.7;
+  margin-bottom:35px
 }
-.card,.contact-card{
-background:#fff;
-border:1px solid #e3dfd5;
-padding:25px
+
+.card,
+.contact-card{
+  background:#fff;
+  border:1px solid #e3dfd5;
+  padding:25px
 }
+
 .card h3{
-font-family:Georgia,serif;
-font-size:22px;
-margin-bottom:12px
+  font-family:Georgia,serif;
+  font-size:22px;
+  margin-bottom:12px
 }
-.card p,.contact-card{
-line-height:1.6
+
+.card p,
+.contact-card{
+  line-height:1.6
 }
-.card p,.contact-card a{
-color:#777
+
+.card p,
+.contact-card a{
+  color:#777
 }
 
 /* GALLERY */
+
 .gallery-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:22px
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px
 }
+
 .art-card{
-background:#fff;
-border:1px solid #e3dfd5;
-padding:12px;
-transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
+  background:#fff;
+  border:1px solid #e3dfd5;
+  padding:12px;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
 }
+
 .art-card:hover{
-transform:translateY(-4px);
-border-color:#b99a5b;
-box-shadow:0 12px 30px rgba(0,0,0,.08)
+  transform:translateY(-4px);
+  border-color:#b99a5b;
+  box-shadow:0 12px 30px rgba(0,0,0,.08)
 }
+
 .art-image{
-width:100%;
-height:250px;
-background:#e8e3d8;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-margin-bottom:15px
+  width:100%;
+  height:250px;
+  background:#e8e3d8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:15px
 }
+
 .art-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
 }
+
 .art-image::before{
-content:"";
-position:absolute;
-width:120px;
-height:120px;
-border:1px solid rgba(161,123,53,.35);
-transform:rotate(45deg);
-pointer-events:none
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border:1px solid rgba(161,123,53,.35);
+  transform:rotate(45deg);
+  pointer-events:none
 }
+
 .art-image span{
-position:relative;
-z-index:2;
-font-family:Georgia,serif;
-color:#8c806a;
-font-size:14px;
-letter-spacing:2px
+  position:relative;
+  z-index:2;
+  font-family:Georgia,serif;
+  color:#8c806a;
+  font-size:14px;
+  letter-spacing:2px
 }
+
 .art-info{
-padding:3px 5px 10px
+  padding:3px 5px 10px
 }
+
 .art-category{
-display:inline-block;
-color:#a17b35;
-font-size:10px;
-letter-spacing:2px;
-text-transform:uppercase;
-margin-bottom:7px
+  display:inline-block;
+  color:#a17b35;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:7px
 }
+
 .art-title{
-font-family:Georgia,serif;
-font-size:21px;
-margin-bottom:7px
+  font-family:Georgia,serif;
+  font-size:21px;
+  margin-bottom:7px
 }
+
 .art-description{
-color:#777;
-font-size:13px;
-line-height:1.6
+  color:#777;
+  font-size:13px;
+  line-height:1.6
 }
-.empty-gallery,.management-empty{
-grid-column:1/-1;
-text-align:center;
-padding:45px 20px;
-background:#fff;
-border:1px solid #e3dfd5;
-color:#777;
-line-height:1.6
+
+.empty-gallery,
+.management-empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:45px 20px;
+  background:#fff;
+  border:1px solid #e3dfd5;
+  color:#777;
+  line-height:1.6
 }
 
 /* SHOP */
+
 .coming{
-border:1px solid #b99a5b;
-padding:45px 25px;
-text-align:center;
-background:#fffdf8
+  border:1px solid #b99a5b;
+  padding:45px 25px;
+  text-align:center;
+  background:#fffdf8
 }
+
 .coming h2{
-font-family:Georgia,serif;
-font-size:34px;
-margin-bottom:15px
+  font-family:Georgia,serif;
+  font-size:34px;
+  margin-bottom:15px
 }
+
 .coming p{
-color:#777;
-line-height:1.7
+  color:#777;
+  line-height:1.7
 }
 
 /* FORMS */
+
 .commission-form{
-max-width:650px;
-margin-top:25px
+  max-width:650px;
+  margin-top:25px
 }
+
 .commission-form label,
 .admin-box label,
 .add-artwork-form label,
 .edit-artwork-box label{
-display:block;
-font-size:11px;
-font-weight:bold;
-letter-spacing:1px;
-margin:18px 0 7px
+  display:block;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin:18px 0 7px
 }
+
 .commission-form label span{
-color:#999;
-font-weight:normal
+  color:#999;
+  font-weight:normal
 }
+
 .commission-form input,
 .commission-form select,
 .commission-form textarea,
@@ -280,20 +341,22 @@ font-weight:normal
 .edit-artwork-box input,
 .edit-artwork-box select,
 .edit-artwork-box textarea{
-width:100%;
-padding:14px;
-border:1px solid #ddd8cc;
-background:#fff;
-font-family:Arial,sans-serif;
-font-size:14px;
-outline:none;
-border-radius:0
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd8cc;
+  background:#fff;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  outline:none;
+  border-radius:0
 }
+
 .commission-form textarea,
 .add-artwork-form textarea,
 .edit-artwork-box textarea{
-resize:vertical
+  resize:vertical
 }
+
 .commission-form input:focus,
 .commission-form select:focus,
 .commission-form textarea:focus,
@@ -306,432 +369,507 @@ resize:vertical
 .edit-artwork-box input:focus,
 .edit-artwork-box select:focus,
 .edit-artwork-box textarea:focus{
-border-color:#a17b35
+  border-color:#a17b35
 }
+
 .form-note,
 .file-note,
 .edit-image-note{
-margin-top:12px;
-color:#999;
-font-size:11px;
-line-height:1.5
+  margin-top:12px;
+  color:#999;
+  font-size:11px;
+  line-height:1.5
 }
+
 .contact-card{
-margin-bottom:15px
+  margin-bottom:15px
 }
+
 .contact-card strong{
-display:block;
-margin-bottom:8px;
-color:#171717
+  display:block;
+  margin-bottom:8px;
+  color:#171717
 }
+
 .contact-card a{
-color:#a17b35;
-text-decoration:none;
-word-break:break-word
+  color:#a17b35;
+  text-decoration:none;
+  word-break:break-word
 }
 
 /* NAV */
+
 .bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-height:75px;
-background:rgba(255,255,255,.97);
-border-top:1px solid #ddd8cc;
-display:flex;
-justify-content:space-around;
-align-items:center;
-z-index:100;
-padding-bottom:env(safe-area-inset-bottom)
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:75px;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #ddd8cc;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:100;
+  padding-bottom:env(safe-area-inset-bottom)
 }
+
 .nav-btn{
-border:none;
-background:none;
-color:#777;
-min-width:58px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:5px;
-font-size:10px;
-cursor:pointer
+  border:none;
+  background:none;
+  color:#777;
+  min-width:58px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font-size:10px;
+  cursor:pointer
 }
+
 .nav-icon{
-font-size:21px;
-line-height:1
+  font-size:21px;
+  line-height:1
 }
+
 .nav-btn.active{
-color:#a17b35
+  color:#a17b35
 }
+
 .nav-btn.active .nav-icon{
-transform:translateY(-2px)
+  transform:translateY(-2px)
 }
+
 .more-wrapper{
-position:relative
+  position:relative
 }
+
 .more-menu{
-position:absolute;
-bottom:72px;
-right:0;
-width:180px;
-background:#fffdf8;
-border:1px solid #ddd8cc;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-padding:8px;
-opacity:0;
-visibility:hidden;
-transform:translateY(10px);
-transition:opacity .25s ease,transform .25s ease,visibility .25s ease
+  position:absolute;
+  bottom:72px;
+  right:0;
+  width:180px;
+  background:#fffdf8;
+  border:1px solid #ddd8cc;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  padding:8px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease
 }
+
 .more-menu.show{
-opacity:1;
-visibility:visible;
-transform:translateY(0)
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0)
 }
+
 .more-item{
-width:100%;
-border:none;
-background:none;
-padding:14px 12px;
-text-align:left;
-font-size:13px;
-color:#333;
-cursor:pointer
+  width:100%;
+  border:none;
+  background:none;
+  padding:14px 12px;
+  text-align:left;
+  font-size:13px;
+  color:#333;
+  cursor:pointer
 }
+
 .more-item:hover{
-background:#f5f1e8;
-color:#a17b35
+  background:#f5f1e8;
+  color:#a17b35
 }
 
 /* ADMIN LOGIN */
+
 .admin-overlay,
 .edit-artwork-overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.45);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:500;
-overflow-y:auto
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:500;
+  overflow-y:auto
 }
+
 .admin-overlay.show,
 .edit-artwork-overlay.show{
-display:flex
+  display:flex
 }
+
 .admin-box,
 .edit-artwork-box{
-width:100%;
-max-width:500px;
-background:#fffdf8;
-border:1px solid #b99a5b;
-padding:30px;
-box-shadow:0 20px 60px rgba(0,0,0,.2)
+  width:100%;
+  max-width:500px;
+  background:#fffdf8;
+  border:1px solid #b99a5b;
+  padding:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2)
 }
+
 .admin-box h2,
 .edit-artwork-box h2{
-font-family:Georgia,serif;
-font-size:30px;
-margin-bottom:8px
+  font-family:Georgia,serif;
+  font-size:30px;
+  margin-bottom:8px
 }
+
 .admin-subtitle,
 .edit-artwork-subtitle{
-color:#777;
-font-size:12px;
-line-height:1.6;
-margin-bottom:22px
+  color:#777;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:22px
 }
+
 .admin-actions,
 .edit-artwork-actions{
-display:flex;
-gap:10px;
-margin-top:22px
+  display:flex;
+  gap:10px;
+  margin-top:22px
 }
+
 .admin-actions button,
 .edit-artwork-actions button{
-flex:1
+  flex:1
 }
+
 .secondary-btn{
-border:1px solid #ddd8cc;
-background:#fff;
-color:#333;
-padding:15px;
-cursor:pointer
+  border:1px solid #ddd8cc;
+  background:#fff;
+  color:#333;
+  padding:15px;
+  cursor:pointer
 }
+
 .admin-error,
 .edit-status{
-display:none;
-margin-top:15px;
-padding:13px;
-background:#f5f1e8;
-border-left:3px solid #a17b35;
-font-size:12px;
-line-height:1.5
+  display:none;
+  margin-top:15px;
+  padding:13px;
+  background:#f5f1e8;
+  border-left:3px solid #a17b35;
+  font-size:12px;
+  line-height:1.5
 }
+
 .admin-error.show,
 .edit-status.show{
-display:block
+  display:block
 }
 
 /* ADMIN PANEL */
+
 .admin-panel{
-position:fixed;
-inset:0;
-background:#f8f6f0;
-z-index:400;
-display:none;
-overflow-y:auto
+  position:fixed;
+  inset:0;
+  background:#f8f6f0;
+  z-index:400;
+  display:none;
+  overflow-y:auto
 }
+
 .admin-panel.show{
-display:block
+  display:block
 }
+
 .admin-header{
-height:75px;
-background:#fffdf8;
-border-bottom:1px solid #ddd8cc;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 22px;
-position:sticky;
-top:0;
-z-index:10
+  height:75px;
+  background:#fffdf8;
+  border-bottom:1px solid #ddd8cc;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  position:sticky;
+  top:0;
+  z-index:10
 }
+
 .admin-brand{
-font-family:Georgia,serif;
-font-size:22px
+  font-family:Georgia,serif;
+  font-size:22px
 }
+
 .admin-brand span{
-color:#a17b35
+  color:#a17b35
 }
+
 .admin-close{
-border:1px solid #ddd8cc;
-background:#fff;
-padding:10px 14px;
-cursor:pointer
+  border:1px solid #ddd8cc;
+  background:#fff;
+  padding:10px 14px;
+  cursor:pointer
 }
+
 .admin-content{
-max-width:900px;
-margin:auto;
-padding:35px 20px 60px
+  max-width:900px;
+  margin:auto;
+  padding:35px 20px 60px
 }
+
 .admin-content h1{
-font-family:Georgia,serif;
-font-size:40px;
-margin-bottom:10px
+  font-family:Georgia,serif;
+  font-size:40px;
+  margin-bottom:10px
 }
+
 .admin-content>p{
-color:#777;
-line-height:1.6
+  color:#777;
+  line-height:1.6
 }
+
 .admin-card{
-margin-top:30px;
-background:#fff;
-border:1px solid #e3dfd5;
-padding:25px
+  margin-top:30px;
+  background:#fff;
+  border:1px solid #e3dfd5;
+  padding:25px
 }
+
 .admin-card h2{
-font-family:Georgia,serif;
-font-size:25px;
-margin-bottom:10px
+  font-family:Georgia,serif;
+  font-size:25px;
+  margin-bottom:10px
 }
+
 .admin-card p{
-color:#777;
-font-size:13px;
-line-height:1.6
+  color:#777;
+  font-size:13px;
+  line-height:1.6
 }
+
 .admin-status{
-margin-top:20px;
-padding:15px;
-background:#f5f1e8;
-border-left:3px solid #a17b35;
-font-size:13px;
-line-height:1.5
+  margin-top:20px;
+  padding:15px;
+  background:#f5f1e8;
+  border-left:3px solid #a17b35;
+  font-size:13px;
+  line-height:1.5
 }
+
 .upload-status{
-display:none;
-margin-top:18px;
-padding:14px;
-background:#f5f1e8;
-border-left:3px solid #a17b35;
-font-size:12px;
-line-height:1.5
+  display:none;
+  margin-top:18px;
+  padding:14px;
+  background:#f5f1e8;
+  border-left:3px solid #a17b35;
+  font-size:12px;
+  line-height:1.5
 }
+
 .upload-status.show{
-display:block
+  display:block
 }
 
 /* MANAGEMENT */
+
 .admin-artwork-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-margin-top:25px
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:25px
 }
+
 .admin-artwork-card{
-background:#fffdf8;
-border:1px solid #e3dfd5;
-padding:12px
+  background:#fffdf8;
+  border:1px solid #e3dfd5;
+  padding:12px
 }
+
 .admin-artwork-image{
-width:100%;
-height:220px;
-background:#e8e3d8;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
-margin-bottom:14px
+  width:100%;
+  height:220px;
+  background:#e8e3d8;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:14px
 }
+
 .admin-artwork-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
 }
+
 .admin-artwork-info{
-padding:3px 4px
+  padding:3px 4px
 }
+
 .admin-artwork-type{
-color:#a17b35;
-font-size:10px;
-letter-spacing:2px;
-text-transform:uppercase;
-margin-bottom:7px
+  color:#a17b35;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:7px
 }
+
 .admin-artwork-title{
-font-family:Georgia,serif;
-font-size:20px;
-margin-bottom:7px
+  font-family:Georgia,serif;
+  font-size:20px;
+  margin-bottom:7px
 }
+
 .admin-artwork-description{
-color:#777;
-font-size:12px;
-line-height:1.5
+  color:#777;
+  font-size:12px;
+  line-height:1.5
 }
+
 .delete-artwork-btn,
 .edit-artwork-btn{
-width:100%;
-margin-top:10px;
-padding:13px;
-font-size:11px;
-letter-spacing:2px;
-cursor:pointer;
-transition:.25s
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  font-size:11px;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.25s
 }
+
 .delete-artwork-btn{
-border:1px solid #b33;
-background:#fff;
-color:#a33
+  border:1px solid #b33;
+  background:#fff;
+  color:#a33
 }
+
 .delete-artwork-btn:hover{
-background:#a33;
-color:#fff
+  background:#a33;
+  color:#fff
 }
+
 .edit-artwork-btn{
-border:1px solid #a17b35;
-background:#fff;
-color:#a17b35
+  border:1px solid #a17b35;
+  background:#fff;
+  color:#a17b35
 }
+
 .edit-artwork-btn:hover{
-background:#a17b35;
-color:#fff
+  background:#a17b35;
+  color:#fff
 }
+
 .delete-artwork-btn:disabled,
 .edit-artwork-btn:disabled{
-opacity:.6;
-cursor:not-allowed
+  opacity:.6;
+  cursor:not-allowed
 }
 
 /* EDIT IMAGE */
+
 .edit-current-image{
-width:100%;
-height:220px;
-background:#e8e3d8;
-margin-top:10px;
-overflow:hidden
+  width:100%;
+  height:220px;
+  background:#e8e3d8;
+  margin-top:10px;
+  overflow:hidden
 }
+
 .edit-current-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
 }
+
 .edit-image-preview{
-width:100%;
-height:220px;
-margin-top:12px;
-background:#e8e3d8;
-overflow:hidden;
-display:none
+  width:100%;
+  height:220px;
+  margin-top:12px;
+  background:#e8e3d8;
+  overflow:hidden;
+  display:none
 }
+
 .edit-image-preview.show{
-display:block
+  display:block
 }
+
 .edit-image-preview img{
-width:100%;
-height:100%;
-object-fit:cover
+  width:100%;
+  height:100%;
+  object-fit:cover
 }
 
 /* MOBILE */
+
 @media(max-width:600px){
-header{
-height:72px;
-padding:0 22px
-}
-.logo{
-font-size:25px
-}
-.page{
-padding:35px 20px 105px
-}
-h1{
-font-size:51px
-}
-.description{
-font-size:16px
-}
-.section-title{
-font-size:37px
-}
-.gallery-grid{
-grid-template-columns:1fr;
-gap:18px
-}
-.art-image{
-height:220px
-}
-.bottom-nav{
-height:72px
-}
-.nav-btn{
-min-width:50px;
-font-size:9px
-}
-.nav-icon{
-font-size:20px
-}
-.more-menu{
-bottom:70px;
-right:-5px
-}
-.admin-box,
-.edit-artwork-box{
-padding:25px
-}
-.admin-content h1{
-font-size:34px
-}
-.admin-artwork-grid{
-grid-template-columns:1fr
-}
-.admin-artwork-image{
-height:220px
-}
+
+  header{
+    height:72px;
+    padding:0 22px
+  }
+
+  .logo{
+    font-size:25px
+  }
+
+  .page{
+    padding:35px 20px 105px
+  }
+
+  h1{
+    font-size:51px
+  }
+
+  .description{
+    font-size:16px
+  }
+
+  .section-title{
+    font-size:37px
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+    gap:18px
+  }
+
+  .art-image{
+    height:220px
+  }
+
+  .bottom-nav{
+    height:72px
+  }
+
+  .nav-btn{
+    min-width:50px;
+    font-size:9px
+  }
+
+  .nav-icon{
+    font-size:20px
+  }
+
+  .more-menu{
+    bottom:70px;
+    right:-5px
+  }
+
+  .admin-box,
+  .edit-artwork-box{
+    padding:25px
+  }
+
+  .admin-content h1{
+    font-size:34px
+  }
+
+  .admin-artwork-grid{
+    grid-template-columns:1fr
+  }
+
+  .admin-artwork-image{
+    height:220px
+  }
 }
 </style>
 </head>
@@ -741,213 +879,369 @@ height:220px
 <div class="app">
 
 <header>
-<div class="logo">INKVERSE<span>STUDIO</span></div>
+  <div class="logo">
+    INKVERSE
+    <span>STUDIO</span>
+  </div>
 </header>
 
 <main class="pages">
 
+<!-- HOME -->
+
 <section class="page active" id="home">
-<div class="home">
-<div class="small-title">ART BY SHIVAM</div>
 
-<h1>
-Where<br>
-<span>Memories</span><br>
-Become Art.
-</h1>
+  <div class="home">
 
-<div class="line"></div>
+    <div class="small-title">
+      ART BY SHIVAM
+    </div>
 
-<p class="description">
-Premium charcoal, graphite and custom artwork, handcrafted with patience, detail and emotion.
-</p>
+    <h1>
+      Where<br>
+      <span>Memories</span><br>
+      Become Art.
+    </h1>
 
-<button class="primary-btn" onclick="showPage('gallery')">
-EXPLORE GALLERY
-</button>
-</div>
+    <div class="line"></div>
+
+    <p class="description">
+      Premium charcoal, graphite and custom artwork,
+      handcrafted with patience, detail and emotion.
+    </p>
+
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="showPage('gallery')"
+    >
+      EXPLORE GALLERY
+    </button>
+
+  </div>
+
 </section>
+
+
+<!-- GALLERY -->
 
 <section class="page" id="gallery">
-<h2 class="section-title">Gallery</h2>
-<p class="section-subtitle">
-A collection of artworks created by Shivam.
-</p>
 
-<div class="gallery-grid" id="galleryGrid">
-<div class="empty-gallery">
-Loading artworks...
-</div>
-</div>
+  <h2 class="section-title">
+    Gallery
+  </h2>
+
+  <p class="section-subtitle">
+    A collection of artworks created by Shivam.
+  </p>
+
+  <div
+    class="gallery-grid"
+    id="galleryGrid"
+  >
+    <div class="empty-gallery">
+      Loading artworks...
+    </div>
+  </div>
+
 </section>
+
+
+<!-- SHOP -->
 
 <section class="page" id="shop">
-<h2 class="section-title">Shop</h2>
-<p class="section-subtitle">
-Bring original artwork into your space.
-</p>
 
-<div class="coming">
-<h2>Coming Soon</h2>
-<p>
-The Inkverse Studio art shop is currently being prepared.
-Original artworks and selected art products will be available here in the future.
-</p>
-</div>
+  <h2 class="section-title">
+    Shop
+  </h2>
+
+  <p class="section-subtitle">
+    Bring original artwork into your space.
+  </p>
+
+  <div class="coming">
+
+    <h2>
+      Coming Soon
+    </h2>
+
+    <p>
+      The Inkverse Studio art shop is currently being prepared.
+      Original artworks and selected art products will be available
+      here in the future.
+    </p>
+
+  </div>
+
 </section>
+
+
+<!-- ABOUT -->
 
 <section class="page" id="about">
-<h2 class="section-title">About Inkverse</h2>
-<p class="section-subtitle">Art by Shivam.</p>
 
-<div class="card">
-<h3>The Artist</h3>
+  <h2 class="section-title">
+    About Inkverse
+  </h2>
 
-<p>
-Inkverse Studio is a creative space dedicated to charcoal,
-graphite and custom artwork. Every piece is created with
-patience, precision and attention to detail.
-</p>
+  <p class="section-subtitle">
+    Art by Shivam.
+  </p>
 
-<br>
+  <div class="card">
 
-<p>
-The goal is simple — transform memories, emotions and ideas
-into artwork that feels personal and timeless.
-</p>
-</div>
+    <h3>
+      The Artist
+    </h3>
+
+    <p>
+      Inkverse Studio is a creative space dedicated to charcoal,
+      graphite and custom artwork. Every piece is created with
+      patience, precision and attention to detail.
+    </p>
+
+    <br>
+
+    <p>
+      The goal is simple — transform memories, emotions and ideas
+      into artwork that feels personal and timeless.
+    </p>
+
+  </div>
+
 </section>
+
+
+<!-- COMMISSION -->
 
 <section class="page" id="commission">
-<h2 class="section-title">Commission</h2>
 
-<p class="section-subtitle">
-Turn your favourite memory into a handcrafted piece of art.
-</p>
+  <h2 class="section-title">
+    Commission
+  </h2>
 
-<div class="commission-form">
+  <p class="section-subtitle">
+    Turn your favourite memory into a handcrafted piece of art.
+  </p>
 
-<label>Your Name</label>
-<input type="text" id="clientName" placeholder="Enter your name">
+  <div class="commission-form">
 
-<label>Artwork Type</label>
+    <label>
+      Your Name
+    </label>
 
-<select id="artType">
-<option value="">Select artwork type</option>
-<option>Portrait</option>
-<option>Couple Artwork</option>
-<option>Pet Portrait</option>
-<option>Anime Artwork</option>
-<option>Custom Artwork</option>
-</select>
+    <input
+      type="text"
+      id="clientName"
+      maxlength="80"
+      placeholder="Enter your name"
+    >
 
-<label>Tell me about your artwork</label>
+    <label>
+      Artwork Type
+    </label>
 
-<textarea
-id="artMessage"
-rows="5"
-placeholder="Describe what you want..."
-></textarea>
+    <select id="artType">
 
-<label>
-Budget <span>(Optional)</span>
-</label>
+      <option value="">
+        Select artwork type
+      </option>
 
-<input
-type="text"
-id="budget"
-placeholder="Example: ₹1000 - ₹2000"
->
+      <option value="Portrait">
+        Portrait
+      </option>
 
-<button class="primary-btn" onclick="submitCommission()">
-REQUEST ARTWORK
-</button>
+      <option value="Couple Artwork">
+        Couple Artwork
+      </option>
 
-<p class="form-note">
-Your request will open in your email app.
-</p>
+      <option value="Pet Portrait">
+        Pet Portrait
+      </option>
 
-</div>
+      <option value="Anime Artwork">
+        Anime Artwork
+      </option>
+
+      <option value="Custom Artwork">
+        Custom Artwork
+      </option>
+
+    </select>
+
+    <label>
+      Tell me about your artwork
+    </label>
+
+    <textarea
+      id="artMessage"
+      rows="5"
+      maxlength="2000"
+      placeholder="Describe what you want..."
+    ></textarea>
+
+    <label>
+      Budget
+      <span>
+        (Optional)
+      </span>
+    </label>
+
+    <input
+      type="text"
+      id="budget"
+      maxlength="100"
+      placeholder="Example: ₹1000 - ₹2000"
+    >
+
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="submitCommission()"
+    >
+      REQUEST ARTWORK
+    </button>
+
+    <p class="form-note">
+      Your request will open in your email app.
+    </p>
+
+  </div>
+
 </section>
+
+
+<!-- CONTACT -->
 
 <section class="page" id="contact">
 
-<h2 class="section-title">Contact</h2>
+  <h2 class="section-title">
+    Contact
+  </h2>
 
-<p class="section-subtitle">
-Have a question or want to commission artwork? Get in touch.
-</p>
+  <p class="section-subtitle">
+    Have a question or want to commission artwork?
+    Get in touch.
+  </p>
 
-<div class="contact-card">
-<strong>Instagram</strong>
-<a
-href="https://www.instagram.com/_shivam._.here__/"
-target="_blank"
-rel="noopener"
->
-@_shivam._.here__
-</a>
-</div>
+  <div class="contact-card">
 
-<div class="contact-card">
-<strong>Email</strong>
-<a href="mailto:inkversestudio.co@gmail.com?subject=Inkverse%20Studio%20Inquiry">
-inkversestudio.co@gmail.com
-</a>
-</div>
+    <strong>
+      Instagram
+    </strong>
 
-<button class="primary-btn" onclick="sendEmail()">
-EMAIL INKVERSE
-</button>
+    <a
+      href="https://www.instagram.com/_shivam._.here__/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      @_shivam._.here__
+    </a>
+
+  </div>
+
+  <div class="contact-card">
+
+    <strong>
+      Email
+    </strong>
+
+    <a
+      href="mailto:inkversestudio.co@gmail.com?subject=Inkverse%20Studio%20Inquiry"
+    >
+      inkversestudio.co@gmail.com
+    </a>
+
+  </div>
+
+  <button
+    class="primary-btn"
+    type="button"
+    onclick="sendEmail()"
+  >
+    EMAIL INKVERSE
+  </button>
 
 </section>
 
 </main>
 
+
+<!-- BOTTOM NAV -->
+
 <nav class="bottom-nav">
 
-<button class="nav-btn active" onclick="showPage('home',this)">
-<span class="nav-icon">⌂</span>
-<span>Home</span>
-</button>
+  <button
+    class="nav-btn active"
+    type="button"
+    onclick="showPage('home',this)"
+  >
+    <span class="nav-icon">⌂</span>
+    <span>Home</span>
+  </button>
 
-<button class="nav-btn" onclick="showPage('gallery',this)">
-<span class="nav-icon">✦</span>
-<span>Gallery</span>
-</button>
+  <button
+    class="nav-btn"
+    type="button"
+    onclick="showPage('gallery',this)"
+  >
+    <span class="nav-icon">✦</span>
+    <span>Gallery</span>
+  </button>
 
-<button class="nav-btn" onclick="showPage('shop',this)">
-<span class="nav-icon">◇</span>
-<span>Shop</span>
-</button>
+  <button
+    class="nav-btn"
+    type="button"
+    onclick="showPage('shop',this)"
+  >
+    <span class="nav-icon">◇</span>
+    <span>Shop</span>
+  </button>
 
-<button class="nav-btn" onclick="showPage('about',this)">
-<span class="nav-icon">◎</span>
-<span>About</span>
-</button>
+  <button
+    class="nav-btn"
+    type="button"
+    onclick="showPage('about',this)"
+  >
+    <span class="nav-icon">◎</span>
+    <span>About</span>
+  </button>
 
-<div class="more-wrapper">
+  <div class="more-wrapper">
 
-<button class="nav-btn" onclick="toggleMoreMenu()">
-<span class="nav-icon">•••</span>
-<span>More</span>
-</button>
+    <button
+      class="nav-btn"
+      type="button"
+      onclick="toggleMoreMenu()"
+    >
+      <span class="nav-icon">•••</span>
+      <span>More</span>
+    </button>
 
-<div class="more-menu" id="moreMenu">
+    <div
+      class="more-menu"
+      id="moreMenu"
+    >
 
-<button class="more-item"
-onclick="showPage('commission');closeMoreMenu()">
-✎ &nbsp; Commission
-</button>
+      <button
+        class="more-item"
+        type="button"
+        onclick="showPage('commission');closeMoreMenu()"
+      >
+        ✎ &nbsp; Commission
+      </button>
 
-<button class="more-item"
-onclick="showPage('contact');closeMoreMenu()">
-♡ &nbsp; Contact
-</button>
+      <button
+        class="more-item"
+        type="button"
+        onclick="showPage('contact');closeMoreMenu()"
+      >
+        ♡ &nbsp; Contact
+      </button>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </nav>
 
@@ -956,332 +1250,422 @@ onclick="showPage('contact');closeMoreMenu()">
 
 <!-- ADMIN LOGIN -->
 
-<div class="admin-overlay" id="adminOverlay">
-
-<div class="admin-box">
-
-<h2>Admin Login</h2>
-
-<p class="admin-subtitle">
-Inkverse Studio owner access. This area is only for managing your artwork.
-</p>
-
-<label>EMAIL</label>
-
-<input
-type="email"
-id="adminEmail"
-autocomplete="email"
-placeholder="Admin email"
+<div
+  class="admin-overlay"
+  id="adminOverlay"
 >
 
-<label>PASSWORD</label>
+  <div class="admin-box">
 
-<input
-type="password"
-id="adminPassword"
-autocomplete="current-password"
-placeholder="Password"
->
+    <h2>
+      Admin Login
+    </h2>
 
-<div class="admin-actions">
+    <p class="admin-subtitle">
+      Inkverse Studio owner access.
+      This area is only for managing your artwork.
+    </p>
 
-<button
-class="secondary-btn"
-onclick="closeAdminLogin()"
->
-CANCEL
-</button>
+    <label>
+      EMAIL
+    </label>
 
-<button
-class="primary-btn"
-style="margin-top:0"
-onclick="adminLogin()"
->
-LOGIN
-</button>
+    <input
+      type="email"
+      id="adminEmail"
+      autocomplete="email"
+      placeholder="Admin email"
+    >
 
-</div>
+    <label>
+      PASSWORD
+    </label>
 
-<div class="admin-error" id="adminError"></div>
+    <input
+      type="password"
+      id="adminPassword"
+      autocomplete="current-password"
+      placeholder="Password"
+    >
 
-</div>
+    <div class="admin-actions">
+
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="closeAdminLogin()"
+      >
+        CANCEL
+      </button>
+
+      <button
+        class="primary-btn"
+        type="button"
+        style="margin-top:0"
+        onclick="adminLogin()"
+      >
+        LOGIN
+      </button>
+
+    </div>
+
+    <div
+      class="admin-error"
+      id="adminError"
+    ></div>
+
+  </div>
+
 </div>
 
 
 <!-- ADMIN PANEL -->
 
-<div class="admin-panel" id="adminPanel">
-
-<div class="admin-header">
-
-<div class="admin-brand">
-INKVERSE <span>ADMIN</span>
-</div>
-
-<button
-class="admin-close"
-onclick="closeAdminPanel()"
->
-Close
-</button>
-
-</div>
-
-<div class="admin-content">
-
-<h1>Admin Panel</h1>
-
-<p>
-Welcome, Shivam. This is your private Inkverse Studio management area.
-</p>
-
-
-<!-- ADD ARTWORK -->
-
-<div class="admin-card">
-
-<h2>Add New Artwork</h2>
-
-<p>
-Add an artwork to your Inkverse Studio gallery.
-Only your authenticated admin account can use this panel.
-</p>
-
-<form
-class="add-artwork-form"
-id="addArtworkForm"
-onsubmit="addArtwork(event)"
->
-
-<label for="artworkTitle">TITLE</label>
-
-<input
-type="text"
-id="artworkTitle"
-placeholder="Example: Tanjiro Portrait"
-required
->
-
-<label for="artworkType">TYPE</label>
-
-<select id="artworkType" required>
-
-<option value="">
-Select artwork type
-</option>
-
-<option value="Graphite">Graphite</option>
-<option value="Charcoal">Charcoal</option>
-<option value="Pencil">Pencil</option>
-<option value="Custom">Custom</option>
-<option value="Anime">Anime</option>
-<option value="Portrait">Portrait</option>
-
-</select>
-
-<label for="artworkDescription">
-DESCRIPTION
-</label>
-
-<textarea
-id="artworkDescription"
-rows="5"
-placeholder="Write a short description..."
-></textarea>
-
-<label for="artworkImage">
-ARTWORK IMAGE
-</label>
-
-<input
-type="file"
-id="artworkImage"
-accept="image/*"
-required
->
-
-<p class="file-note">
-Select the artwork image from your phone.
-JPG, PNG or WEBP recommended.
-</p>
-
-<button
-type="submit"
-class="primary-btn"
-id="uploadArtworkBtn"
->
-ADD ARTWORK
-</button>
-
 <div
-class="upload-status"
-id="uploadStatus"
-></div>
-
-</form>
-
-</div>
-
-
-<!-- MANAGEMENT -->
-
-<div class="admin-card">
-
-<h2>Artwork Management</h2>
-
-<p>
-Your artworks are stored in Supabase and loaded automatically into the public gallery.
-</p>
-
-<div class="admin-status">
-
-✓ Admin authentication active.
-<br><br>
-
-✓ Artwork bucket:
-<strong>Artworks</strong>
-
-<br><br>
-
-✓ Artwork table:
-<strong>artwork</strong>
-
-</div>
-
-<div
-class="admin-artwork-grid"
-id="adminArtworkGrid"
+  class="admin-panel"
+  id="adminPanel"
 >
 
-<div class="management-empty">
-Loading artworks...
-</div>
+  <div class="admin-header">
 
-</div>
+    <div class="admin-brand">
+      INKVERSE <span>ADMIN</span>
+    </div>
 
-</div>
+    <button
+      class="admin-close"
+      type="button"
+      onclick="closeAdminPanel()"
+    >
+      Close
+    </button>
 
-<button
-class="primary-btn"
-onclick="adminLogout()"
->
-LOGOUT
-</button>
+  </div>
 
-</div>
+  <div class="admin-content">
+
+    <h1>
+      Admin Panel
+    </h1>
+
+    <p>
+      Welcome, Shivam. This is your private Inkverse Studio
+      management area.
+    </p>
+
+
+    <!-- ADD ARTWORK -->
+
+    <div class="admin-card">
+
+      <h2>
+        Add New Artwork
+      </h2>
+
+      <p>
+        Add an artwork to your Inkverse Studio gallery.
+        Only your authenticated admin account can use this panel.
+      </p>
+
+      <form
+        class="add-artwork-form"
+        id="addArtworkForm"
+        onsubmit="addArtwork(event)"
+      >
+
+        <label for="artworkTitle">
+          TITLE
+        </label>
+
+        <input
+          type="text"
+          id="artworkTitle"
+          maxlength="100"
+          placeholder="Example: Tanjiro Portrait"
+          required
+        >
+
+        <label for="artworkType">
+          TYPE
+        </label>
+
+        <select
+          id="artworkType"
+          required
+        >
+
+          <option value="">
+            Select artwork type
+          </option>
+
+          <option value="Graphite">
+            Graphite
+          </option>
+
+          <option value="Charcoal">
+            Charcoal
+          </option>
+
+          <option value="Pencil">
+            Pencil
+          </option>
+
+          <option value="Custom">
+            Custom
+          </option>
+
+          <option value="Anime">
+            Anime
+          </option>
+
+          <option value="Portrait">
+            Portrait
+          </option>
+
+        </select>
+
+        <label for="artworkDescription">
+          DESCRIPTION
+        </label>
+
+        <textarea
+          id="artworkDescription"
+          rows="5"
+          maxlength="1000"
+          placeholder="Write a short description..."
+        ></textarea>
+
+        <label for="artworkImage">
+          ARTWORK IMAGE
+        </label>
+
+        <input
+          type="file"
+          id="artworkImage"
+          accept="image/jpeg,image/png,image/webp"
+          required
+        >
+
+        <p class="file-note">
+          Select the artwork image from your phone.
+          JPG, PNG or WEBP recommended. Maximum 5 MB.
+        </p>
+
+        <button
+          type="submit"
+          class="primary-btn"
+          id="uploadArtworkBtn"
+        >
+          ADD ARTWORK
+        </button>
+
+        <div
+          class="upload-status"
+          id="uploadStatus"
+        ></div>
+
+      </form>
+
+    </div>
+
+
+    <!-- MANAGEMENT -->
+
+    <div class="admin-card">
+
+      <h2>
+        Artwork Management
+      </h2>
+
+      <p>
+        Your artworks are stored in Supabase and loaded automatically
+        into the public gallery.
+      </p>
+
+      <div class="admin-status">
+
+        ✓ Admin authentication active.
+
+        <br><br>
+
+        ✓ Artwork bucket:
+        <strong>Artworks</strong>
+
+        <br><br>
+
+        ✓ Artwork table:
+        <strong>artwork</strong>
+
+      </div>
+
+      <div
+        class="admin-artwork-grid"
+        id="adminArtworkGrid"
+      >
+
+        <div class="management-empty">
+          Loading artworks...
+        </div>
+
+      </div>
+
+    </div>
+
+    <button
+      class="primary-btn"
+      type="button"
+      onclick="adminLogout()"
+    >
+      LOGOUT
+    </button>
+
+  </div>
+
 </div>
 
 
 <!-- EDIT ARTWORK MODAL -->
 
 <div
-class="edit-artwork-overlay"
-id="editArtworkOverlay"
+  class="edit-artwork-overlay"
+  id="editArtworkOverlay"
 >
 
-<div class="edit-artwork-box">
+  <div class="edit-artwork-box">
 
-<h2>Edit Artwork</h2>
+    <h2>
+      Edit Artwork
+    </h2>
 
-<p class="edit-artwork-subtitle">
-Update the details or replace the image of this artwork.
-</p>
+    <p class="edit-artwork-subtitle">
+      Update the details or replace the image of this artwork.
+    </p>
 
-<input
-type="hidden"
-id="editArtworkId"
->
+    <input
+      type="hidden"
+      id="editArtworkId"
+    >
 
-<input
-type="hidden"
-id="editArtworkOldImage"
->
+    <input
+      type="hidden"
+      id="editArtworkOldImage"
+    >
 
-<label>TITLE</label>
+    <label>
+      TITLE
+    </label>
 
-<input
-type="text"
-id="editArtworkTitle"
-placeholder="Artwork title"
->
+    <input
+      type="text"
+      id="editArtworkTitle"
+      maxlength="100"
+      placeholder="Artwork title"
+    >
 
-<label>TYPE</label>
+    <label>
+      TYPE
+    </label>
 
-<select id="editArtworkType">
+    <select id="editArtworkType">
 
-<option value="">
-Select artwork type
-</option>
+      <option value="">
+        Select artwork type
+      </option>
 
-<option value="Graphite">Graphite</option>
-<option value="Charcoal">Charcoal</option>
-<option value="Pencil">Pencil</option>
-<option value="Custom">Custom</option>
-<option value="Anime">Anime</option>
-<option value="Portrait">Portrait</option>
+      <option value="Graphite">
+        Graphite
+      </option>
 
-</select>
+      <option value="Charcoal">
+        Charcoal
+      </option>
 
-<label>DESCRIPTION</label>
+      <option value="Pencil">
+        Pencil
+      </option>
 
-<textarea
-id="editArtworkDescription"
-rows="5"
-placeholder="Write a short description..."
-></textarea>
+      <option value="Custom">
+        Custom
+      </option>
 
+      <option value="Anime">
+        Anime
+      </option>
 
-<label>REPLACE IMAGE <span style="color:#999;font-weight:normal">(Optional)</span></label>
+      <option value="Portrait">
+        Portrait
+      </option>
 
-<input
-type="file"
-id="editArtworkImage"
-accept="image/*"
-onchange="previewEditImage(event)"
->
+    </select>
 
-<p class="edit-image-note">
-Leave this empty if you only want to change the title,
-type or description.
-</p>
+    <label>
+      DESCRIPTION
+    </label>
 
-<div
-class="edit-image-preview"
-id="editImagePreview"
->
-<img id="editPreviewImg" alt="New artwork preview">
-</div>
+    <textarea
+      id="editArtworkDescription"
+      rows="5"
+      maxlength="1000"
+      placeholder="Write a short description..."
+    ></textarea>
 
+    <label>
+      REPLACE IMAGE
+      <span style="color:#999;font-weight:normal">
+        (Optional)
+      </span>
+    </label>
 
-<div class="edit-artwork-actions">
+    <input
+      type="file"
+      id="editArtworkImage"
+      accept="image/jpeg,image/png,image/webp"
+      onchange="previewEditImage(event)"
+    >
 
-<button
-class="secondary-btn"
-type="button"
-onclick="closeEditArtwork()"
->
-CANCEL
-</button>
+    <p class="edit-image-note">
+      Leave this empty if you only want to change the title,
+      type or description.
+    </p>
 
-<button
-class="primary-btn"
-type="button"
-style="margin-top:0"
-id="saveEditArtworkBtn"
-onclick="saveEditedArtwork()"
->
-SAVE CHANGES
-</button>
+    <div
+      class="edit-image-preview"
+      id="editImagePreview"
+    >
+      <img
+        id="editPreviewImg"
+        alt="New artwork preview"
+      >
+    </div>
 
-</div>
+    <div class="edit-artwork-actions">
 
-<div
-class="admin-error"
-id="editArtworkError"
-></div>
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="closeEditArtwork()"
+      >
+        CANCEL
+      </button>
 
-</div>
+      <button
+        class="primary-btn"
+        type="button"
+        style="margin-top:0"
+        id="saveEditArtworkBtn"
+        onclick="saveEditedArtwork()"
+      >
+        SAVE CHANGES
+      </button>
+
+    </div>
+
+    <div
+      class="admin-error"
+      id="editArtworkError"
+    ></div>
+
+  </div>
 
 </div>
 
@@ -1290,91 +1674,26 @@ id="editArtworkError"
 
 <script>
 
+/* =========================================================
+   SUPABASE
+========================================================= */
+
 const SUPABASE_URL =
-"https://agfyscldqtahojtstpbs.supabase.co";
+  "https://agfyscldqtahojtstpbs.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
-"sb_publishable_7oPOjxBkG0CAKOXEjlB9ng_k7FAftwf";
+  "sb_publishable_7oPOjxBkG0CAKOXEjlB9ng_k7FAftwf";
 
 const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_PUBLISHABLE_KEY
-);
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
 
 
-/* PAGE NAVIGATION */
-
-function showPage(pageId,button){
-
-document
-.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
-
-const selected =
-document.getElementById(pageId);
-
-if(selected){
-
-selected.classList.add("active");
-selected.scrollTop=0;
-
-}
-
-document
-.querySelectorAll(".bottom-nav .nav-btn")
-.forEach(btn=>btn.classList.remove("active"));
-
-if(button){
-
-button.classList.add("active");
-
-}else{
-
-document
-.querySelectorAll(".bottom-nav .nav-btn")
-.forEach(btn=>{
-
-if(
-(btn.getAttribute("onclick")||"")
-.includes("'"+pageId+"'")
-){
-
-btn.classList.add("active");
-
-}
-
-});
-
-}
-
-closeMoreMenu();
-
-}
-
-
-/* MORE MENU */
-
-function toggleMoreMenu(){
-
-document
-.getElementById("moreMenu")
-?.classList.toggle("show");
-
-}
-
-function closeMoreMenu(){
-
-document
-.getElementById("moreMenu")
-?.classList.remove("show");
-
-}
-
-
-/* COMMISSION */
-
-/* STRICT INPUT VALIDATION */
+/* =========================================================
+   INPUT VALIDATION
+========================================================= */
 
 const INPUT_LIMITS = {
   name: 80,
@@ -1393,53 +1712,84 @@ const ALLOWED_ARTWORK_TYPES = [
   "Portrait"
 ];
 
-function validateText(value, maxLength, fieldName, required = true) {
+function validateText(
+  value,
+  maxLength,
+  fieldName,
+  required = true
+){
 
-  const text = String(value ?? "").trim();
+  const text =
+    String(value ?? "").trim();
 
-  if (required && !text) {
+  if(required && !text){
+
     return {
-      valid: false,
-      message: `${fieldName} is required.`
+      valid:false,
+      message:`${fieldName} is required.`
     };
+
   }
 
-  if (text.length > maxLength) {
+  if(text.length > maxLength){
+
     return {
-      valid: false,
-      message: `${fieldName} is too long.`
+      valid:false,
+      message:`${fieldName} is too long.`
     };
-  }
 
-  return {
-    valid: true,
-    value: text
-  };
-}
-
-function validateArtworkType(type) {
-
-  if (!ALLOWED_ARTWORK_TYPES.includes(type)) {
-    return {
-      valid: false,
-      message: "Invalid artwork type."
-    };
   }
 
   return {
-    valid: true,
-    value: type
+    valid:true,
+    value:text
   };
-}
-/* SAFE ERROR HANDLING */
 
-function logAppError(context, error) {
-  console.error(`[Inkverse ${context}]`, error);
 }
 
-function getSafeErrorMessage(context) {
+
+function validateArtworkType(type){
+
+  if(
+    !ALLOWED_ARTWORK_TYPES.includes(type)
+  ){
+
+    return {
+      valid:false,
+      message:"Invalid artwork type."
+    };
+
+  }
+
+  return {
+    valid:true,
+    value:type
+  };
+
+}
+
+
+/* =========================================================
+   SAFE ERROR HANDLING
+========================================================= */
+
+function logAppError(
+  context,
+  error
+){
+
+  console.error(
+    `[Inkverse ${context}]`,
+    error
+  );
+
+}
+
+
+function getSafeErrorMessage(context){
 
   const messages = {
+
     login:
       "Login failed. Please check your credentials and try again.",
 
@@ -1460,728 +1810,20 @@ function getSafeErrorMessage(context) {
 
     management:
       "Unable to load artwork management right now. Please try again later."
+
   };
 
-  return messages[context] ||
-    "Something went wrong. Please try again.";
-}
-function submitCommission(){
-
-const name =
-document.getElementById("clientName")
-.value.trim();
-
-const type =
-document.getElementById("artType")
-.value;
-
-const message =
-document.getElementById("artMessage")
-.value.trim();
-
-const budget =
-document.getElementById("budget")
-.value.trim();
-
-const nameCheck =
-  validateText(name, INPUT_LIMITS.name, "Name");
-
-if(!nameCheck.valid) {
-  alert(nameCheck.message);
-  return;
-}
-
-const typeCheck =
-  validateArtworkType(type);
-
-if(!typeCheck.valid) {
-  alert(typeCheck.message);
-  return;
-}
-
-const messageCheck =
-  validateText(message, INPUT_LIMITS.message, "Artwork details");
-
-if(!messageCheck.valid) {
-  alert(messageCheck.message);
-  return;
-}
-
-const budgetCheck =
-  validateText(budget, INPUT_LIMITS.budget, "Budget", false);
-
-if(!budgetCheck.valid) {
-  alert(budgetCheck.message);
-  return;
-}
-const subject =
-"New Inkverse Studio Commission Request";
-
-const body =
-"Hello Shivam,\n\n"+
-"I would like to request a custom artwork.\n\n"+
-"Name: "+name+"\n"+
-"Artwork Type: "+type+"\n"+
-"Budget: "+(budget||"Not specified")+
-"\n\nArtwork Details:\n"+
-message+
-"\n\nThank you.";
-
-window.location.href =
-"mailto:inkversestudio.co@gmail.com?subject="+
-encodeURIComponent(subject)+
-"&body="+
-encodeURIComponent(body);
+  return (
+    messages[context] ||
+    "Something went wrong. Please try again."
+  );
 
 }
 
 
-function sendEmail(){
-
-window.location.href =
-"mailto:inkversestudio.co@gmail.com?subject="+
-encodeURIComponent("Inkverse Studio Inquiry");
-
-}
-
-
-/* ADMIN LOGIN */
-
-function openAdminLogin(){
-
-document
-.getElementById("adminOverlay")
-.classList.add("show");
-
-document
-.getElementById("adminEmail")
-.focus();
-
-}
-
-function closeAdminLogin(){
-
-document
-.getElementById("adminOverlay")
-.classList.remove("show");
-
-document
-.getElementById("adminError")
-.classList.remove("show");
-
-}
-
-
-async function adminLogin(){
-
-const email =
-document.getElementById("adminEmail")
-.value.trim();
-
-const password =
-document.getElementById("adminPassword")
-.value;
-
-const errorBox =
-document.getElementById("adminError");
-
-errorBox.classList.remove("show");
-
-if(!email||!password){
-
-errorBox.textContent =
-"Please enter your email and password.";
-
-errorBox.classList.add("show");
-
-return;
-
-}
-
-try{
-
-const result =
-await supabaseClient.auth.signInWithPassword({
-email,
-password
-});
-
-if(result.error){
-
-  logAppError("Login", result.error);
-
-  errorBox.textContent =
-    getSafeErrorMessage("login");
-
-  errorBox.classList.add("show");
-
-  return;
-
-}
-
-closeAdminLogin();
-
-document
-.getElementById("adminPanel")
-.classList.add("show");
-
-await loadArtworks();
-await loadAdminArtworks();
-
-}catch(error){
-
-console.error(error);
-
-errorBox.textContent =
-"Login failed. Please try again.";
-
-errorBox.classList.add("show");
-
-}
-
-}
-
-
-function closeAdminPanel(){
-
-document
-.getElementById("adminPanel")
-.classList.remove("show");
-
-}
-
-
-async function adminLogout(){
-
-await supabaseClient.auth.signOut();
-
-closeAdminPanel();
-
-}
-
-
-/* ADD ARTWORK */
-
-async function addArtwork(event){
-
-event.preventDefault();
-
-const title =
-document.getElementById("artworkTitle")
-.value.trim();
-
-const type =
-document.getElementById("artworkType")
-.value;
-
-const description =
-document.getElementById("artworkDescription")
-.value.trim();
-
-const file =
-document.getElementById("artworkImage")
-.files[0];
-
-const status =
-document.getElementById("uploadStatus");
-
-const button =
-document.getElementById("uploadArtworkBtn");
-
-status.classList.add("show");
-
-const titleCheck =
-validateText(title, INPUT_LIMITS.title, "Artwork title");
-
-if(!titleCheck.valid){
-
-status.textContent =
-titleCheck.message;
-
-return;
-
-}
-
-const typeCheck =
-validateArtworkType(type);
-
-if(!typeCheck.valid){
-
-status.textContent =
-typeCheck.message;
-
-return;
-
-}
-
-const descriptionCheck =
-validateText(
-description,
-INPUT_LIMITS.description,
-"Description",
-false
-);
-
-if(!descriptionCheck.valid){
-
-status.textContent =
-descriptionCheck.message;
-
-return;
-
-}
-
-if(!file){
-
-status.textContent =
-"Please select an artwork image.";
-
-return;
-
-}
-const imageValidation =
-await validateArtworkImage(file);
-
-if(!imageValidation.valid){
-
-status.textContent =
-imageValidation.message;
-
-return;
-
-}
-const {
-data:{session}
-} =
-await supabaseClient.auth.getSession();
-
-if(!session){
-
-status.textContent =
-"Admin session expired. Please login again.";
-
-return;
-
-}
-
-button.disabled=true;
-button.textContent="UPLOADING...";
-
-try{
-
-status.textContent =
-"Uploading artwork image...";
-
-const extension =
-file.name.split(".").pop().toLowerCase();
-
-const safeName =
-title
-.toLowerCase()
-.replace(/[^a-z0-9]+/g,"-")
-.replace(/^-+|-+$/g,"")
-||
-"artwork";
-
-const filePath =
-safeName+"-"+Date.now()+"."+extension;
-
-const upload =
-await supabaseClient
-.storage
-.from("Artworks")
-.upload(
-filePath,
-file,
-{
-cacheControl:"3600",
-upsert:false
-}
-);
-
-if(upload.error)
-throw upload.error;
-
-status.textContent =
-"Image uploaded. Saving artwork details...";
-
-const {data:publicData} =
-supabaseClient
-.storage
-.from("Artworks")
-.getPublicUrl(filePath);
-
-const insert =
-await supabaseClient
-.from("artwork")
-.insert({
-title,
-type,
-description:description||null,
-image_url:publicData.publicUrl
-});
-
-if(insert.error){
-
-await supabaseClient
-.storage
-.from("Artworks")
-.remove([filePath]);
-
-throw insert.error;
-
-}
-
-status.textContent =
-"✓ Artwork added successfully!";
-
-document
-.getElementById("addArtworkForm")
-.reset();
-
-await loadArtworks();
-await loadAdminArtworks();
-
-}catch(error){
-
-  logAppError("Upload", error);
-
-  status.textContent =
-    getSafeErrorMessage("upload");
-
-}finally{
-
-button.disabled=false;
-button.textContent="ADD ARTWORK";
-
-}
-
-}
-
-
-/* LOAD PUBLIC GALLERY */
-
-async function loadArtworks(){
-
-const gallery =
-document.getElementById("galleryGrid");
-
-if(!gallery)return;
-
-gallery.innerHTML =
-'<div class="empty-gallery">Loading artworks...</div>';
-
-try{
-
-const result =
-await supabaseClient
-.from("artwork")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(result.error)
-throw result.error;
-
-const artworks =
-result.data||[];
-
-if(!artworks.length){
-
-gallery.innerHTML =
-'<div class="empty-gallery">No artworks added yet.</div>';
-
-return;
-
-}
-
-gallery.innerHTML="";
-
-artworks.forEach(art=>{
-
-const card =
-document.createElement("article");
-
-card.className="art-card";
-
-const imageBox =
-document.createElement("div");
-
-imageBox.className="art-image";
-
-if(art.image_url){
-
-const img =
-document.createElement("img");
-
-img.src =
-art.image_url;
-
-img.alt =
-art.title||"Inkverse artwork";
-
-img.loading="lazy";
-
-imageBox.appendChild(img);
-
-}else{
-
-const span =
-document.createElement("span");
-
-span.textContent="ARTWORK";
-
-imageBox.appendChild(span);
-
-}
-
-const info =
-document.createElement("div");
-
-info.className="art-info";
-
-const category =
-document.createElement("div");
-
-category.className="art-category";
-
-category.textContent =
-art.type||"ARTWORK";
-
-const title =
-document.createElement("div");
-
-title.className="art-title";
-
-title.textContent =
-art.title||"Untitled Artwork";
-
-const desc =
-document.createElement("p");
-
-desc.className="art-description";
-
-desc.textContent =
-art.description||
-"Artwork created by Shivam.";
-
-info.append(
-category,
-title,
-desc
-);
-
-card.append(
-imageBox,
-info
-);
-
-gallery.appendChild(card);
-
-});
-
-}catch(error){
-
-  logAppError("Gallery", error);
-
-  gallery.innerHTML =
-    '<div class="empty-gallery">'+
-    getSafeErrorMessage("gallery")+
-    '</div>';
-
-}
-
-/* LOAD ADMIN ARTWORKS */
-
-async function loadAdminArtworks(){
-
-const grid =
-document.getElementById("adminArtworkGrid");
-
-if(!grid)return;
-
-grid.innerHTML =
-'<div class="management-empty">Loading artworks...</div>';
-
-try{
-
-const {
-data:{session}
-} =
-await supabaseClient.auth.getSession();
-
-if(!session){
-
-grid.innerHTML =
-'<div class="management-empty">Admin session required.</div>';
-
-return;
-
-}
-
-const result =
-await supabaseClient
-.from("artwork")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(result.error)
-throw result.error;
-
-const artworks =
-result.data||[];
-
-if(!artworks.length){
-
-grid.innerHTML =
-'<div class="management-empty">No artworks added yet.</div>';
-
-return;
-
-}
-
-grid.innerHTML="";
-
-artworks.forEach(art=>{
-
-const card =
-document.createElement("div");
-
-card.className="admin-artwork-card";
-
-const imageBox =
-document.createElement("div");
-
-imageBox.className="admin-artwork-image";
-
-if(art.image_url){
-
-const img =
-document.createElement("img");
-
-img.src =
-art.image_url;
-
-img.alt =
-art.title||"Inkverse artwork";
-
-img.loading="lazy";
-
-imageBox.appendChild(img);
-
-}else{
-
-const span =
-document.createElement("span");
-
-span.textContent="NO IMAGE";
-
-imageBox.appendChild(span);
-
-}
-
-const info =
-document.createElement("div");
-
-info.className="admin-artwork-info";
-
-const type =
-document.createElement("div");
-
-type.className="admin-artwork-type";
-
-type.textContent =
-art.type||"ARTWORK";
-
-const title =
-document.createElement("div");
-
-title.className="admin-artwork-title";
-
-title.textContent =
-art.title||"Untitled Artwork";
-
-const desc =
-document.createElement("p");
-
-desc.className="admin-artwork-description";
-
-desc.textContent =
-art.description||
-"Artwork created by Shivam.";
-
-
-/* EDIT BUTTON */
-
-const edit =
-document.createElement("button");
-
-edit.className="edit-artwork-btn";
-
-edit.type="button";
-
-edit.textContent="EDIT ARTWORK";
-
-edit.onclick=()=>{
-
-editArtwork(
-art.id,
-art.title,
-art.type,
-art.description,
-art.image_url
-);
-
-};
-
-
-/* DELETE BUTTON */
-
-const del =
-document.createElement("button");
-
-del.className="delete-artwork-btn";
-
-del.type="button";
-
-del.textContent="DELETE ARTWORK";
-
-del.onclick=()=>{
-
-deleteArtwork(
-art.id,
-art.image_url
-);
-
-};
-
-info.append(
-type,
-title,
-desc,
-edit,
-del
-);
-
-card.append(
-imageBox,
-info
-);
-
-grid.appendChild(card);
-
-});
-
-}catch(error){
-
-  logAppError("Management", error);
-
-  grid.innerHTML =
-    '<div class="management-empty">'+
-    getSafeErrorMessage("management")+
-    '</div>';
-
-}
-/* ESCAPE HTML */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(text){
 
@@ -2192,574 +1834,444 @@ function escapeHtml(text){
     String(text ?? "");
 
   return div.innerHTML;
-}
 
 }
 
 
-/* OPEN EDIT */
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
 
-function editArtwork(
-id,
-title,
-type,
-description,
-imageUrl
+function showPage(
+  pageId,
+  button
 ){
 
-document
-.getElementById("editArtworkId")
-.value=id;
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      p => p.classList.remove("active")
+    );
 
-document
-.getElementById("editArtworkOldImage")
-.value=imageUrl||"";
+  const selected =
+    document.getElementById(pageId);
 
-document
-.getElementById("editArtworkTitle")
-.value=title||"";
+  if(selected){
 
-document
-.getElementById("editArtworkType")
-.value=type||"";
+    selected.classList.add("active");
+    selected.scrollTop = 0;
 
-document
-.getElementById("editArtworkDescription")
-.value=description||"";
+  }
 
-document
-.getElementById("editArtworkImage")
-.value="";
+  document
+    .querySelectorAll(".bottom-nav .nav-btn")
+    .forEach(
+      btn => btn.classList.remove("active")
+    );
 
-document
-.getElementById("editImagePreview")
-.classList.remove("show");
+  if(button){
 
-document
-.getElementById("editArtworkError")
-.classList.remove("show");
+    button.classList.add("active");
 
-document
-.getElementById("editArtworkOverlay")
-.classList.add("show");
+  }else{
 
-}
+    document
+      .querySelectorAll(".bottom-nav .nav-btn")
+      .forEach(btn => {
 
+        if(
+          (btn.getAttribute("onclick") || "")
+          .includes("'" + pageId + "'")
+        ){
 
-/* PREVIEW NEW IMAGE */
+          btn.classList.add("active");
 
-function previewEditImage(event){
+        }
 
-const file =
-event.target.files[0];
+      });
 
-const preview =
-document.getElementById("editImagePreview");
+  }
 
-const img =
-document.getElementById("editPreviewImg");
-
-if(!file){
-
-preview.classList.remove("show");
-
-return;
-
-}
-
-const reader =
-new FileReader();
-
-reader.onload=function(e){
-
-img.src=e.target.result;
-
-preview.classList.add("show");
-
-};
-
-reader.readAsDataURL(file);
+  closeMoreMenu();
 
 }
 
 
-/* CLOSE EDIT */
+/* =========================================================
+   MORE MENU
+========================================================= */
 
-function closeEditArtwork(){
+function toggleMoreMenu(){
 
-document
-.getElementById("editArtworkOverlay")
-.classList.remove("show");
+  const menu =
+    document.getElementById("moreMenu");
 
-document
-.getElementById("editArtworkError")
-.classList.remove("show");
+  if(menu){
 
-document
-.getElementById("editImagePreview")
-.classList.remove("show");
+    menu.classList.toggle("show");
 
-document
-.getElementById("editArtworkImage")
-.value="";
+  }
 
 }
 
 
-/* GET STORAGE FILE PATH */
+function closeMoreMenu(){
 
-function getStorageFilePath(imageUrl){
+  const menu =
+    document.getElementById("moreMenu");
 
-if(!imageUrl)
-return null;
+  if(menu){
 
-try{
+    menu.classList.remove("show");
 
-const url =
-new URL(imageUrl);
-
-const marker =
-"/storage/v1/object/public/Artworks/";
-
-const index =
-url.pathname.indexOf(marker);
-
-if(index===-1)
-return null;
-
-return decodeURIComponent(
-url.pathname.substring(
-index+marker.length
-)
-);
-
-}catch(error){
-
-console.error(
-"Could not detect storage path:",
-error
-);
-
-return null;
-
-}
+  }
 
 }
 
 
-/* SAVE EDITED ARTWORK */
+/* =========================================================
+   COMMISSION
+========================================================= */
 
-async function saveEditedArtwork(){
+function submitCommission(){
 
-const id =
-document.getElementById("editArtworkId")
-.value;
+  const name =
+    document
+      .getElementById("clientName")
+      .value
+      .trim();
 
-const title =
-document.getElementById("editArtworkTitle")
-.value.trim();
+  const type =
+    document
+      .getElementById("artType")
+      .value;
 
-const type =
-document.getElementById("editArtworkType")
-.value;
+  const message =
+    document
+      .getElementById("artMessage")
+      .value
+      .trim();
 
-const description =
-document.getElementById("editArtworkDescription")
-.value.trim();
-
-const oldImageUrl =
-document.getElementById("editArtworkOldImage")
-.value;
-
-const newFile =
-document.getElementById("editArtworkImage")
-.files[0];
-
-const errorBox =
-document.getElementById("editArtworkError");
-
-const button =
-document.getElementById("saveEditArtworkBtn");
-
-errorBox.classList.remove("show");
-
-const titleCheck =
-  validateText(
-    title,
-    INPUT_LIMITS.title,
-    "Artwork title"
-  );
-
-if(!titleCheck.valid){
-
-  errorBox.textContent =
-    titleCheck.message;
-
-  errorBox.classList.add("show");
-
-  return;
-
-}
-
-const typeCheck =
-  validateArtworkType(type);
-
-if(!typeCheck.valid){
-
-  errorBox.textContent =
-    typeCheck.message;
-
-  errorBox.classList.add("show");
-
-  return;
-
-}
-
-const descriptionCheck =
-  validateText(
-    description,
-    INPUT_LIMITS.description,
-    "Description",
-    false
-  );
-
-if(!descriptionCheck.valid){
-
-  errorBox.textContent =
-    descriptionCheck.message;
-
-  errorBox.classList.add("show");
-
-  return;
-
-}
-
-button.disabled=true;
-button.textContent="SAVING...";
-
-try{
-
-/* CHECK SESSION */
-
-const {
-data:{session}
-} =
-await supabaseClient.auth.getSession();
-
-if(!session)
-throw new Error(
-"Admin session expired. Please login again."
-);
+  const budget =
+    document
+      .getElementById("budget")
+      .value
+      .trim();
 
 
-/* KEEP OLD IMAGE BY DEFAULT */
+  const nameCheck =
+    validateText(
+      name,
+      INPUT_LIMITS.name,
+      "Name"
+    );
 
-let finalImageUrl =
-oldImageUrl;
+  if(!nameCheck.valid){
+
+    alert(nameCheck.message);
+    return;
+
+  }
 
 
-/* IF NEW IMAGE SELECTED */
+  /*
+    Commission types are different from
+    admin artwork types, so validate separately.
+  */
 
-if(newFile){
+  const allowedCommissionTypes = [
+    "Portrait",
+    "Couple Artwork",
+    "Pet Portrait",
+    "Anime Artwork",
+    "Custom Artwork"
+  ];
 
-button.textContent="UPLOADING IMAGE...";
-const imageValidation =
-await validateArtworkImage(newFile);
+  if(
+    !allowedCommissionTypes.includes(type)
+  ){
 
-if(!imageValidation.valid){
+    alert("Please select an artwork type.");
+    return;
 
-errorBox.textContent =
-imageValidation.message;
+  }
 
-errorBox.classList.add("show");
 
-return;
+  const messageCheck =
+    validateText(
+      message,
+      INPUT_LIMITS.message,
+      "Artwork details"
+    );
+
+  if(!messageCheck.valid){
+
+    alert(messageCheck.message);
+    return;
+
+  }
+
+
+  const budgetCheck =
+    validateText(
+      budget,
+      INPUT_LIMITS.budget,
+      "Budget",
+      false
+    );
+
+  if(!budgetCheck.valid){
+
+    alert(budgetCheck.message);
+    return;
+
+  }
+
+
+  const subject =
+    "New Inkverse Studio Commission Request";
+
+
+  const body =
+    "Hello Shivam,\n\n" +
+    "I would like to request a custom artwork.\n\n" +
+    "Name: " + name + "\n" +
+    "Artwork Type: " + type + "\n" +
+    "Budget: " +
+    (budget || "Not specified") +
+    "\n\nArtwork Details:\n" +
+    message +
+    "\n\nThank you.";
+
+
+  window.location.href =
+    "mailto:inkversestudio.co@gmail.com" +
+    "?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
 
 }
 
-/* FILE EXTENSION */
 
-const extension =
-newFile.name
-.split(".")
-.pop()
-.toLowerCase();
+function sendEmail(){
 
-
-/* SAFE FILE NAME */
-
-const safeName =
-title
-.toLowerCase()
-.replace(/[^a-z0-9]+/g,"-")
-.replace(/^-+|-+$/g,"")
-||
-"artwork";
-
-
-/* UNIQUE NEW FILE */
-
-const newFilePath =
-safeName+
-"-"+
-Date.now()+
-"."+
-extension;
-
-
-/* UPLOAD NEW IMAGE */
-
-const upload =
-await supabaseClient
-.storage
-.from("Artworks")
-.upload(
-newFilePath,
-newFile,
-{
-cacheControl:"3600",
-upsert:false
-}
-);
-
-if(upload.error)
-throw upload.error;
-
-
-/* GET PUBLIC URL */
-
-const {data:publicData} =
-supabaseClient
-.storage
-.from("Artworks")
-.getPublicUrl(newFilePath);
-
-if(!publicData||!publicData.publicUrl){
-
-/* REMOVE NEW IMAGE IF URL FAILED */
-
-await supabaseClient
-.storage
-.from("Artworks")
-.remove([newFilePath]);
-
-throw new Error(
-"Could not create the new image URL."
-);
-
-}
-
-finalImageUrl =
-publicData.publicUrl;
-
-
-/* UPDATE DATABASE */
-
-button.textContent="UPDATING ARTWORK...";
-
-const result =
-await supabaseClient
-.from("artwork")
-.update({
-title:title,
-type:type,
-description:description||null,
-image_url:finalImageUrl
-})
-.eq("id",id);
-
-if(result.error){
-
-/* DATABASE FAILED — REMOVE NEW IMAGE */
-
-await supabaseClient
-.storage
-.from("Artworks")
-.remove([newFilePath]);
-
-throw result.error;
+  window.location.href =
+    "mailto:inkversestudio.co@gmail.com" +
+    "?subject=" +
+    encodeURIComponent(
+      "Inkverse Studio Inquiry"
+    );
 
 }
 
 
-/* DELETE OLD IMAGE */
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
 
-if(oldImageUrl){
+function openAdminLogin(){
 
-const oldFilePath =
-getStorageFilePath(oldImageUrl);
+  const overlay =
+    document.getElementById("adminOverlay");
 
-if(oldFilePath){
+  if(!overlay)return;
 
-const oldDelete =
-await supabaseClient
-.storage
-.from("Artworks")
-.remove([oldFilePath]);
+  overlay.classList.add("show");
 
-if(oldDelete.error){
+  const email =
+    document.getElementById("adminEmail");
 
-console.warn(
-"Old image could not be deleted:",
-oldDelete.error
-);
+  if(email){
 
-}
+    setTimeout(
+      () => email.focus(),
+      100
+    );
 
-}
-
-}
-
-}else{
-
-/* ONLY TEXT DETAILS CHANGED */
-
-button.textContent="UPDATING DETAILS...";
-
-const result =
-await supabaseClient
-.from("artwork")
-.update({
-title:title,
-type:type,
-description:description||null
-})
-.eq("id",id);
-
-if(result.error)
-throw result.error;
+  }
 
 }
 
 
-/* SUCCESS */
+function closeAdminLogin(){
 
-closeEditArtwork();
+  const overlay =
+    document.getElementById("adminOverlay");
 
-await loadArtworks();
+  if(overlay){
 
-await loadAdminArtworks();
+    overlay.classList.remove("show");
 
-alert(
-"✓ Artwork updated successfully!"
-);
+  }
 
+  const errorBox =
+    document.getElementById("adminError");
 
-}catch(error){
+  if(errorBox){
 
-  logAppError("Update", error);
+    errorBox.classList.remove("show");
+    errorBox.textContent = "";
 
-  errorBox.textContent =
-    getSafeErrorMessage("update");
-
-  errorBox.classList.add("show");
-
-}finally{
-
-button.disabled=false;
-button.textContent="SAVE CHANGES";
-
-}
+  }
 
 }
 
 
-/* DELETE ARTWORK */
+async function adminLogin(){
 
-async function deleteArtwork(
-artworkId,
-imageUrl
-){
+  const email =
+    document
+      .getElementById("adminEmail")
+      .value
+      .trim();
 
-if(
-!confirm(
-"Are you sure you want to delete this artwork?\n\n"+
-"The artwork will be removed from the gallery."
-)
-)
-return;
+  const password =
+    document
+      .getElementById("adminPassword")
+      .value;
 
-try{
+  const errorBox =
+    document.getElementById("adminError");
 
-const {
-data:{session}
-} =
-await supabaseClient.auth.getSession();
 
-if(!session){
+  errorBox.classList.remove("show");
+  errorBox.textContent = "";
 
-alert(
-"Admin session expired. Please login again."
-);
 
-return;
+  if(!email || !password){
+
+    errorBox.textContent =
+      "Please enter your email and password.";
+
+    errorBox.classList.add("show");
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+      });
+
+
+    if(error){
+
+      logAppError(
+        "Login",
+        error
+      );
+
+      errorBox.textContent =
+        getSafeErrorMessage("login");
+
+      errorBox.classList.add("show");
+
+      return;
+
+    }
+
+
+    if(!data || !data.session){
+
+      errorBox.textContent =
+        "Login could not be completed. Please try again.";
+
+      errorBox.classList.add("show");
+
+      return;
+
+    }
+
+
+    closeAdminLogin();
+
+    document
+      .getElementById("adminPanel")
+      .classList.add("show");
+
+
+    await loadArtworks();
+
+    await loadAdminArtworks();
+
+
+  }catch(error){
+
+    logAppError(
+      "Login",
+      error
+    );
+
+    errorBox.textContent =
+      getSafeErrorMessage("login");
+
+    errorBox.classList.add("show");
+
+  }
 
 }
 
 
-/* DELETE DATABASE ROW */
+function closeAdminPanel(){
 
-const result =
-await supabaseClient
-.from("artwork")
-.delete()
-.eq("id",artworkId);
-
-if(result.error)
-throw result.error;
-
-
-/* DELETE IMAGE */
-
-if(imageUrl){
-
-const filePath =
-getStorageFilePath(imageUrl);
-
-if(filePath){
-
-const storage =
-await supabaseClient
-.storage
-.from("Artworks")
-.remove([filePath]);
-
-if(storage.error){
-
-console.error(
-"Storage delete error:",
-storage.error
-);
+  document
+    .getElementById("adminPanel")
+    .classList.remove("show");
 
 }
 
-}
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
+async function adminLogout(){
+
+  try{
+
+    const {
+      error
+    } =
+      await supabaseClient.auth.signOut();
+
+    if(error){
+
+      logAppError(
+        "Logout",
+        error
+      );
+
+    }
+
+  }catch(error){
+
+    logAppError(
+      "Logout",
+      error
+    );
+
+  }
+
+  closeAdminPanel();
 
 }
 
-alert(
-"✓ Artwork deleted successfully."
-);
 
-await loadArtworks();
+/* =========================================================
+   IMAGE VALIDATION
+========================================================= */
 
-await loadAdminArtworks();
-
-}catch(error){
-
-  logAppError("Delete", error);
-
-  alert(
-    getSafeErrorMessage("delete")
-  );
-
-}
-
-}
-
-/* SECURE IMAGE VALIDATION */
-
-const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_IMAGE_SIZE =
+  5 * 1024 * 1024;
 
 const ALLOWED_IMAGE_TYPES = [
   "image/jpeg",
@@ -2767,214 +2279,2022 @@ const ALLOWED_IMAGE_TYPES = [
   "image/webp"
 ];
 
-async function validateArtworkImage(file) {
 
-  if (!file) {
+async function validateArtworkImage(file){
+
+  if(!file){
+
     return {
-      valid: false,
-      message: "Please select an image."
+      valid:false,
+      message:"Please select an image."
     };
+
   }
 
-  // File size check
-  if (file.size > MAX_IMAGE_SIZE) {
+
+  if(file.size > MAX_IMAGE_SIZE){
+
     return {
-      valid: false,
-      message: "Image must be 5 MB or smaller."
+      valid:false,
+      message:"Image must be 5 MB or smaller."
     };
+
   }
 
-  // MIME type check
-  if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+
+  if(
+    !ALLOWED_IMAGE_TYPES.includes(
+      file.type
+    )
+  ){
+
     return {
-      valid: false,
-      message: "Only JPG, PNG or WEBP images are allowed."
+      valid:false,
+      message:"Only JPG, PNG or WEBP images are allowed."
     };
+
   }
 
-  // Verify actual image content
-  try {
 
-    const imageURL = URL.createObjectURL(file);
+  try{
 
-    const image = new Image();
+    const imageURL =
+      URL.createObjectURL(file);
 
-    const validImage = await new Promise(resolve => {
+    const image =
+      new Image();
 
-      image.onload = () => {
-        URL.revokeObjectURL(imageURL);
 
-        if (image.width > 0 && image.height > 0) {
-          resolve(true);
-        } else {
+    const validImage =
+      await new Promise(resolve => {
+
+        image.onload = () => {
+
+          URL.revokeObjectURL(
+            imageURL
+          );
+
+          resolve(
+            image.width > 0 &&
+            image.height > 0
+          );
+
+        };
+
+
+        image.onerror = () => {
+
+          URL.revokeObjectURL(
+            imageURL
+          );
+
           resolve(false);
-        }
+
+        };
+
+
+        image.src =
+          imageURL;
+
+      });
+
+
+    if(!validImage){
+
+      return {
+        valid:false,
+        message:
+          "The selected file is not a valid image."
       };
 
-      image.onerror = () => {
-        URL.revokeObjectURL(imageURL);
-        resolve(false);
-      };
+    }
 
-      image.src = imageURL;
+
+  }catch(error){
+
+    logAppError(
+      "Image Validation",
+      error
+    );
+
+    return {
+      valid:false,
+      message:
+        "The selected image could not be verified."
+    };
+
+  }
+
+
+  return {
+    valid:true
+  };
+
+}
+
+
+/* =========================================================
+   ADD ARTWORK
+========================================================= */
+
+async function addArtwork(event){
+
+  event.preventDefault();
+
+
+  const title =
+    document
+      .getElementById("artworkTitle")
+      .value
+      .trim();
+
+  const type =
+    document
+      .getElementById("artworkType")
+      .value;
+
+  const description =
+    document
+      .getElementById("artworkDescription")
+      .value
+      .trim();
+
+  const file =
+    document
+      .getElementById("artworkImage")
+      .files[0];
+
+  const status =
+    document
+      .getElementById("uploadStatus");
+
+  const button =
+    document
+      .getElementById("uploadArtworkBtn");
+
+
+  status.classList.add("show");
+
+
+  const titleCheck =
+    validateText(
+      title,
+      INPUT_LIMITS.title,
+      "Artwork title"
+    );
+
+
+  if(!titleCheck.valid){
+
+    status.textContent =
+      titleCheck.message;
+
+    return;
+
+  }
+
+
+  const typeCheck =
+    validateArtworkType(type);
+
+
+  if(!typeCheck.valid){
+
+    status.textContent =
+      typeCheck.message;
+
+    return;
+
+  }
+
+
+  const descriptionCheck =
+    validateText(
+      description,
+      INPUT_LIMITS.description,
+      "Description",
+      false
+    );
+
+
+  if(!descriptionCheck.valid){
+
+    status.textContent =
+      descriptionCheck.message;
+
+    return;
+
+  }
+
+
+  const imageValidation =
+    await validateArtworkImage(file);
+
+
+  if(!imageValidation.valid){
+
+    status.textContent =
+      imageValidation.message;
+
+    return;
+
+  }
+
+
+  const {
+    data:sessionData,
+    error:sessionError
+  } =
+    await supabaseClient.auth.getSession();
+
+
+  if(sessionError){
+
+    logAppError(
+      "Session",
+      sessionError
+    );
+
+    status.textContent =
+      "Unable to verify admin session.";
+
+    return;
+
+  }
+
+
+  const session =
+    sessionData.session;
+
+
+  if(!session){
+
+    status.textContent =
+      "Admin session expired. Please login again.";
+
+    return;
+
+  }
+
+
+  button.disabled = true;
+  button.textContent = "UPLOADING...";
+
+
+  let uploadedFilePath = null;
+
+
+  try{
+
+    status.textContent =
+      "Uploading artwork image...";
+
+
+    const extension =
+      file.name
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+
+    const safeName =
+      title
+        .toLowerCase()
+        .replace(
+          /[^a-z0-9]+/g,
+          "-"
+        )
+        .replace(
+          /^-+|-+$/g,
+          ""
+        )
+        ||
+        "artwork";
+
+
+    const filePath =
+      safeName +
+      "-" +
+      Date.now() +
+      "." +
+      extension;
+
+
+    uploadedFilePath =
+      filePath;
+
+
+    const upload =
+      await supabaseClient
+        .storage
+        .from("Artworks")
+        .upload(
+          filePath,
+          file,
+          {
+            cacheControl:"3600",
+            upsert:false,
+            contentType:file.type
+          }
+        );
+
+
+    if(upload.error){
+
+      throw upload.error;
+
+    }
+
+
+    status.textContent =
+      "Image uploaded. Saving artwork details...";
+
+
+    const {
+      data:publicData
+    } =
+      supabaseClient
+        .storage
+        .from("Artworks")
+        .getPublicUrl(
+          filePath
+        );
+
+
+    if(
+      !publicData ||
+      !publicData.publicUrl
+    ){
+
+      throw new Error(
+        "Could not create public image URL."
+      );
+
+    }
+
+
+    const insert =
+      await supabaseClient
+        .from("artwork")
+        .insert({
+
+          title:title,
+
+          type:type,
+
+          description:
+            description ||
+            null,
+
+          image_url:
+            publicData.publicUrl
+
+        });
+
+
+    if(insert.error){
+
+      throw insert.error;
+
+    }
+
+
+    status.textContent =
+      "✓ Artwork added successfully!";
+
+
+    document
+      .getElementById("addArtworkForm")
+      .reset();
+
+
+    await loadArtworks();
+
+    await loadAdminArtworks();
+
+
+  }catch(error){
+
+    logAppError(
+      "Upload",
+      error
+    );
+
+
+    if(uploadedFilePath){
+
+      try{
+
+        await supabaseClient
+          .storage
+          .from("Artworks")
+          .remove([
+            uploadedFilePath
+          ]);
+
+      }catch(cleanupError){
+
+        logAppError(
+          "Upload Cleanup",
+          cleanupError
+        );
+
+      }
+
+    }
+
+
+    status.textContent =
+      getSafeErrorMessage("upload");
+
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "ADD ARTWORK";
+
+  }
+
+}
+
+
+/* =========================================================
+   LOAD PUBLIC GALLERY
+========================================================= */
+
+async function loadArtworks(){
+
+  const gallery =
+    document.getElementById(
+      "galleryGrid"
+    );
+
+
+  if(!gallery)return;
+
+
+  gallery.innerHTML =
+    '<div class="empty-gallery">' +
+    'Loading artworks...' +
+    '</div>';
+
+
+  try{
+
+    const result =
+      await supabaseClient
+        .from("artwork")
+        .select("*")
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    const artworks =
+      result.data || [];
+
+
+    if(!artworks.length){
+
+      gallery.innerHTML =
+        '<div class="empty-gallery">' +
+        'No artworks added yet.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    gallery.innerHTML = "";
+
+
+    artworks.forEach(art => {
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+      card.className =
+        "art-card";
+
+
+      const imageBox =
+        document.createElement(
+          "div"
+        );
+
+      imageBox.className =
+        "art-image";
+
+
+      if(art.image_url){
+
+        const img =
+          document.createElement(
+            "img"
+          );
+
+        img.src =
+          art.image_url;
+
+        img.alt =
+          art.title ||
+          "Inkverse artwork";
+
+        img.loading =
+          "lazy";
+
+        img.onerror =
+          function(){
+
+            this.style.display =
+              "none";
+
+          };
+
+        imageBox.appendChild(
+          img
+        );
+
+
+      }else{
+
+        const span =
+          document.createElement(
+            "span"
+          );
+
+        span.textContent =
+          "ARTWORK";
+
+        imageBox.appendChild(
+          span
+        );
+
+      }
+
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+      info.className =
+        "art-info";
+
+
+      const category =
+        document.createElement(
+          "div"
+        );
+
+      category.className =
+        "art-category";
+
+      category.textContent =
+        art.type ||
+        "ARTWORK";
+
+
+      const title =
+        document.createElement(
+          "div"
+        );
+
+      title.className =
+        "art-title";
+
+      title.textContent =
+        art.title ||
+        "Untitled Artwork";
+
+
+      const desc =
+        document.createElement(
+          "p"
+        );
+
+      desc.className =
+        "art-description";
+
+      desc.textContent =
+        art.description ||
+        "Artwork created by Shivam.";
+
+
+      info.append(
+        category,
+        title,
+        desc
+      );
+
+
+      card.append(
+        imageBox,
+        info
+      );
+
+
+      gallery.appendChild(
+        card
+      );
 
     });
 
-    if (!validImage) {
-      return {
-        valid: false,
-        message: "The selected file is not a valid image."
-      };
-    }
 
-  } catch (error) {
+  }catch(error){
 
-    console.error("Image validation error:", error);
+    logAppError(
+      "Gallery",
+      error
+    );
 
-    return {
-      valid: false,
-      message: "The selected image could not be verified."
-    };
+
+    gallery.innerHTML =
+      '<div class="empty-gallery">' +
+      escapeHtml(
+        getSafeErrorMessage(
+          "gallery"
+        )
+      ) +
+      '</div>';
 
   }
 
-  return {
-    valid: true
-  };
-}
-/* ESCAPE HTML */
-
-function escapeHtml(text){
-
-const div =
-document.createElement("div");
-
-div.textContent=text;
-
-return div.innerHTML;
-
 }
 
 
-/* ADMIN ACCESS */
-/* CLICK LOGO 5 TIMES */
+/* =========================================================
+   LOAD ADMIN ARTWORKS
+   IMPORTANT:
+   This function is now properly OUTSIDE loadArtworks().
+========================================================= */
 
-let logoClicks=0;
-let logoTimer=null;
+async function loadAdminArtworks(){
+
+  const grid =
+    document.getElementById(
+      "adminArtworkGrid"
+    );
+
+
+  if(!grid)return;
+
+
+  grid.innerHTML =
+    '<div class="management-empty">' +
+    'Loading artworks...' +
+    '</div>';
+
+
+  try{
+
+    const {
+      data:sessionData,
+      error:sessionError
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if(sessionError){
+
+      throw sessionError;
+
+    }
+
+
+    const session =
+      sessionData.session;
+
+
+    if(!session){
+
+      grid.innerHTML =
+        '<div class="management-empty">' +
+        'Admin session required.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    const result =
+      await supabaseClient
+        .from("artwork")
+        .select("*")
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    const artworks =
+      result.data || [];
+
+
+    if(!artworks.length){
+
+      grid.innerHTML =
+        '<div class="management-empty">' +
+        'No artworks added yet.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    grid.innerHTML = "";
+
+
+    artworks.forEach(art => {
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+      card.className =
+        "admin-artwork-card";
+
+
+      const imageBox =
+        document.createElement(
+          "div"
+        );
+
+      imageBox.className =
+        "admin-artwork-image";
+
+
+      if(art.image_url){
+
+        const img =
+          document.createElement(
+            "img"
+          );
+
+        img.src =
+          art.image_url;
+
+        img.alt =
+          art.title ||
+          "Inkverse artwork";
+
+        img.loading =
+          "lazy";
+
+        imageBox.appendChild(
+          img
+        );
+
+
+      }else{
+
+        const span =
+          document.createElement(
+            "span"
+          );
+
+        span.textContent =
+          "NO IMAGE";
+
+        imageBox.appendChild(
+          span
+        );
+
+      }
+
+
+      const info =
+        document.createElement(
+          "div"
+        );
+
+      info.className =
+        "admin-artwork-info";
+
+
+      const type =
+        document.createElement(
+          "div"
+        );
+
+      type.className =
+        "admin-artwork-type";
+
+      type.textContent =
+        art.type ||
+        "ARTWORK";
+
+
+      const title =
+        document.createElement(
+          "div"
+        );
+
+      title.className =
+        "admin-artwork-title";
+
+      title.textContent =
+        art.title ||
+        "Untitled Artwork";
+
+
+      const desc =
+        document.createElement(
+          "p"
+        );
+
+      desc.className =
+        "admin-artwork-description";
+
+      desc.textContent =
+        art.description ||
+        "Artwork created by Shivam.";
+
+
+      /* EDIT BUTTON */
+
+      const edit =
+        document.createElement(
+          "button"
+        );
+
+      edit.className =
+        "edit-artwork-btn";
+
+      edit.type =
+        "button";
+
+      edit.textContent =
+        "EDIT ARTWORK";
+
+
+      edit.onclick =
+        function(){
+
+          editArtwork(
+            art.id,
+            art.title,
+            art.type,
+            art.description,
+            art.image_url
+          );
+
+        };
+
+
+      /* DELETE BUTTON */
+
+      const del =
+        document.createElement(
+          "button"
+        );
+
+      del.className =
+        "delete-artwork-btn";
+
+      del.type =
+        "button";
+
+      del.textContent =
+        "DELETE ARTWORK";
+
+
+      del.onclick =
+        function(){
+
+          deleteArtwork(
+            art.id,
+            art.image_url
+          );
+
+        };
+
+
+      info.append(
+        type,
+        title,
+        desc,
+        edit,
+        del
+      );
+
+
+      card.append(
+        imageBox,
+        info
+      );
+
+
+      grid.appendChild(
+        card
+      );
+
+    });
+
+
+  }catch(error){
+
+    logAppError(
+      "Management",
+      error
+    );
+
+
+    grid.innerHTML =
+      '<div class="management-empty">' +
+      escapeHtml(
+        getSafeErrorMessage(
+          "management"
+        )
+      ) +
+      '</div>';
+
+  }
+
+}
+
+
+/* =========================================================
+   OPEN EDIT
+========================================================= */
+
+function editArtwork(
+  id,
+  title,
+  type,
+  description,
+  imageUrl
+){
+
+  document
+    .getElementById(
+      "editArtworkId"
+    )
+    .value =
+      id || "";
+
+
+  document
+    .getElementById(
+      "editArtworkOldImage"
+    )
+    .value =
+      imageUrl || "";
+
+
+  document
+    .getElementById(
+      "editArtworkTitle"
+    )
+    .value =
+      title || "";
+
+
+  document
+    .getElementById(
+      "editArtworkType"
+    )
+    .value =
+      type || "";
+
+
+  document
+    .getElementById(
+      "editArtworkDescription"
+    )
+    .value =
+      description || "";
+
+
+  document
+    .getElementById(
+      "editArtworkImage"
+    )
+    .value =
+      "";
+
+
+  document
+    .getElementById(
+      "editImagePreview"
+    )
+    .classList
+    .remove("show");
+
+
+  document
+    .getElementById(
+      "editArtworkError"
+    )
+    .classList
+    .remove("show");
+
+
+  document
+    .getElementById(
+      "editArtworkOverlay"
+    )
+    .classList
+    .add("show");
+
+}
+
+
+/* =========================================================
+   PREVIEW NEW IMAGE
+========================================================= */
+
+function previewEditImage(event){
+
+  const file =
+    event.target.files[0];
+
+  const preview =
+    document.getElementById(
+      "editImagePreview"
+    );
+
+  const img =
+    document.getElementById(
+      "editPreviewImg"
+    );
+
+
+  if(!file){
+
+    preview.classList.remove(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(e){
+
+      img.src =
+        e.target.result;
+
+      preview.classList.add(
+        "show"
+      );
+
+    };
+
+
+  reader.readAsDataURL(
+    file
+  );
+
+}
+
+
+/* =========================================================
+   CLOSE EDIT
+========================================================= */
+
+function closeEditArtwork(){
+
+  document
+    .getElementById(
+      "editArtworkOverlay"
+    )
+    .classList
+    .remove("show");
+
+
+  document
+    .getElementById(
+      "editArtworkError"
+    )
+    .classList
+    .remove("show");
+
+
+  document
+    .getElementById(
+      "editArtworkImage"
+    )
+    .value =
+      "";
+
+
+  document
+    .getElementById(
+      "editImagePreview"
+    )
+    .classList
+    .remove("show");
+
+}
+
+
+/* =========================================================
+   GET STORAGE FILE PATH
+========================================================= */
+
+function getStorageFilePath(
+  imageUrl
+){
+
+  if(!imageUrl)
+    return null;
+
+
+  try{
+
+    const url =
+      new URL(imageUrl);
+
+
+    const marker =
+      "/storage/v1/object/public/Artworks/";
+
+
+    const index =
+      url.pathname.indexOf(
+        marker
+      );
+
+
+    if(index === -1)
+      return null;
+
+
+    return decodeURIComponent(
+      url.pathname.substring(
+        index +
+        marker.length
+      )
+    );
+
+
+  }catch(error){
+
+    logAppError(
+      "Storage Path",
+      error
+    );
+
+    return null;
+
+  }
+
+}
+
+
+/* =========================================================
+   SAVE EDITED ARTWORK
+========================================================= */
+
+async function saveEditedArtwork(){
+
+  const id =
+    document
+      .getElementById(
+        "editArtworkId"
+      )
+      .value;
+
+
+  const title =
+    document
+      .getElementById(
+        "editArtworkTitle"
+      )
+      .value
+      .trim();
+
+
+  const type =
+    document
+      .getElementById(
+        "editArtworkType"
+      )
+      .value;
+
+
+  const description =
+    document
+      .getElementById(
+        "editArtworkDescription"
+      )
+      .value
+      .trim();
+
+
+  const oldImageUrl =
+    document
+      .getElementById(
+        "editArtworkOldImage"
+      )
+      .value;
+
+
+  const newFile =
+    document
+      .getElementById(
+        "editArtworkImage"
+      )
+      .files[0];
+
+
+  const errorBox =
+    document
+      .getElementById(
+        "editArtworkError"
+      );
+
+
+  const button =
+    document
+      .getElementById(
+        "saveEditArtworkBtn"
+      );
+
+
+  errorBox.classList.remove(
+    "show"
+  );
+
+  errorBox.textContent = "";
+
+
+  if(!id){
+
+    errorBox.textContent =
+      "Artwork ID is missing.";
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  const titleCheck =
+    validateText(
+      title,
+      INPUT_LIMITS.title,
+      "Artwork title"
+    );
+
+
+  if(!titleCheck.valid){
+
+    errorBox.textContent =
+      titleCheck.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  const typeCheck =
+    validateArtworkType(type);
+
+
+  if(!typeCheck.valid){
+
+    errorBox.textContent =
+      typeCheck.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  const descriptionCheck =
+    validateText(
+      description,
+      INPUT_LIMITS.description,
+      "Description",
+      false
+    );
+
+
+  if(!descriptionCheck.valid){
+
+    errorBox.textContent =
+      descriptionCheck.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  if(newFile){
+
+    const imageValidation =
+      await validateArtworkImage(
+        newFile
+      );
+
+
+    if(!imageValidation.valid){
+
+      errorBox.textContent =
+        imageValidation.message;
+
+      errorBox.classList.add(
+        "show"
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "SAVING...";
+
+
+  let newFilePath =
+    null;
+
+
+  try{
+
+    /* CHECK SESSION */
+
+    const {
+      data:sessionData,
+      error:sessionError
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if(sessionError){
+
+      throw sessionError;
+
+    }
+
+
+    const session =
+      sessionData.session;
+
+
+    if(!session){
+
+      throw new Error(
+        "Admin session expired."
+      );
+
+    }
+
+
+    let finalImageUrl =
+      oldImageUrl;
+
+
+    /* NEW IMAGE */
+
+    if(newFile){
+
+      button.textContent =
+        "UPLOADING IMAGE...";
+
+
+      const extension =
+        newFile.name
+          .split(".")
+          .pop()
+          .toLowerCase();
+
+
+      const safeName =
+        title
+          .toLowerCase()
+          .replace(
+            /[^a-z0-9]+/g,
+            "-"
+          )
+          .replace(
+            /^-+|-+$/g,
+            ""
+          )
+          ||
+          "artwork";
+
+
+      newFilePath =
+        safeName +
+        "-" +
+        Date.now() +
+        "." +
+        extension;
+
+
+      const upload =
+        await supabaseClient
+          .storage
+          .from("Artworks")
+          .upload(
+            newFilePath,
+            newFile,
+            {
+              cacheControl:"3600",
+              upsert:false,
+              contentType:
+                newFile.type
+            }
+          );
+
+
+      if(upload.error){
+
+        throw upload.error;
+
+      }
+
+
+      const {
+        data:publicData
+      } =
+        supabaseClient
+          .storage
+          .from("Artworks")
+          .getPublicUrl(
+            newFilePath
+          );
+
+
+      if(
+        !publicData ||
+        !publicData.publicUrl
+      ){
+
+        throw new Error(
+          "Could not create image URL."
+        );
+
+      }
+
+
+      finalImageUrl =
+        publicData.publicUrl;
+
+    }
+
+
+    /* UPDATE DATABASE */
+
+    button.textContent =
+      "UPDATING ARTWORK...";
+
+
+    const result =
+      await supabaseClient
+        .from("artwork")
+        .update({
+
+          title:title,
+
+          type:type,
+
+          description:
+            description ||
+            null,
+
+          image_url:
+            finalImageUrl
+
+        })
+        .eq(
+          "id",
+          id
+        );
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    /* DELETE OLD IMAGE ONLY
+       AFTER DATABASE UPDATE */
+
+    if(
+      newFile &&
+      oldImageUrl
+    ){
+
+      const oldFilePath =
+        getStorageFilePath(
+          oldImageUrl
+        );
+
+
+      if(oldFilePath){
+
+        const oldDelete =
+          await supabaseClient
+            .storage
+            .from("Artworks")
+            .remove([
+              oldFilePath
+            ]);
+
+
+        if(oldDelete.error){
+
+          logAppError(
+            "Old Image Delete",
+            oldDelete.error
+          );
+
+        }
+
+      }
+
+    }
+
+
+    closeEditArtwork();
+
+
+    await loadArtworks();
+
+    await loadAdminArtworks();
+
+
+    alert(
+      "✓ Artwork updated successfully!"
+    );
+
+
+  }catch(error){
+
+    logAppError(
+      "Update",
+      error
+    );
+
+
+    /*
+      If new image was uploaded but
+      database update failed, clean it up.
+    */
+
+    if(newFilePath){
+
+      try{
+
+        await supabaseClient
+          .storage
+          .from("Artworks")
+          .remove([
+            newFilePath
+          ]);
+
+      }catch(cleanupError){
+
+        logAppError(
+          "Update Cleanup",
+          cleanupError
+        );
+
+      }
+
+    }
+
+
+    errorBox.textContent =
+      getSafeErrorMessage(
+        "update"
+      );
+
+    errorBox.classList.add(
+      "show"
+    );
+
+
+  }finally{
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "SAVE CHANGES";
+
+  }
+
+}
+
+
+/* =========================================================
+   DELETE ARTWORK
+========================================================= */
+
+async function deleteArtwork(
+  artworkId,
+  imageUrl
+){
+
+  if(!artworkId){
+
+    alert(
+      "Artwork ID is missing."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "Are you sure you want to delete this artwork?\n\n" +
+      "The artwork will be removed from the gallery."
+    );
+
+
+  if(!confirmed)
+    return;
+
+
+  try{
+
+    const {
+      data:sessionData,
+      error:sessionError
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if(sessionError){
+
+      throw sessionError;
+
+    }
+
+
+    const session =
+      sessionData.session;
+
+
+    if(!session){
+
+      alert(
+        "Admin session expired. Please login again."
+      );
+
+      return;
+
+    }
+
+
+    /* DELETE DATABASE ROW */
+
+    const result =
+      await supabaseClient
+        .from("artwork")
+        .delete()
+        .eq(
+          "id",
+          artworkId
+        );
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    /* DELETE IMAGE */
+
+    if(imageUrl){
+
+      const filePath =
+        getStorageFilePath(
+          imageUrl
+        );
+
+
+      if(filePath){
+
+        const storage =
+          await supabaseClient
+            .storage
+            .from("Artworks")
+            .remove([
+              filePath
+            ]);
+
+
+        if(storage.error){
+
+          logAppError(
+            "Storage Delete",
+            storage.error
+          );
+
+        }
+
+      }
+
+    }
+
+
+    alert(
+      "✓ Artwork deleted successfully."
+    );
+
+
+    await loadArtworks();
+
+    await loadAdminArtworks();
+
+
+  }catch(error){
+
+    logAppError(
+      "Delete",
+      error
+    );
+
+
+    alert(
+      getSafeErrorMessage(
+        "delete"
+      )
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   ADMIN ACCESS
+   CLICK LOGO 5 TIMES
+========================================================= */
+
+let logoClicks =
+  0;
+
+let logoTimer =
+  null;
+
 
 const logo =
-document.querySelector(".logo");
+  document.querySelector(
+    ".logo"
+  );
+
 
 if(logo){
 
-logo.addEventListener("click",()=>{
+  logo.addEventListener(
+    "click",
+    () => {
 
-logoClicks++;
+      logoClicks++;
 
-clearTimeout(logoTimer);
 
-logoTimer =
-setTimeout(
-()=>logoClicks=0,
-2000
+      clearTimeout(
+        logoTimer
+      );
+
+
+      logoTimer =
+        setTimeout(
+          () => {
+            logoClicks = 0;
+          },
+          2000
+        );
+
+
+      if(
+        logoClicks >= 5
+      ){
+
+        logoClicks = 0;
+
+        clearTimeout(
+          logoTimer
+        );
+
+        openAdminLogin();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeMoreMenu();
+
+      closeAdminLogin();
+
+      closeEditArtwork();
+
+    }
+
+  }
 );
 
-if(logoClicks>=5){
 
-logoClicks=0;
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
 
-clearTimeout(logoTimer);
+if(
+  "serviceWorker" in navigator
+){
 
-openAdminLogin();
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator
+        .serviceWorker
+        .register("./sw.js")
+        .then(
+          () => {
+
+            console.log(
+              "Service Worker registered."
+            );
+
+          }
+        )
+        .catch(
+          error => {
+
+            console.log(
+              "Service Worker registration failed.",
+              error
+            );
+
+          }
+        );
+
+    }
+  );
 
 }
 
-});
 
-}
-
-
-/* SERVICE WORKER */
-
-if("serviceWorker" in navigator){
-
-window.addEventListener(
-"load",
-()=>{
-
-navigator
-.serviceWorker
-.register("./sw.js")
-.then(
-()=>console.log(
-"Service Worker registered."
-)
-)
-.catch(
-error=>console.log(
-"Service Worker registration failed:",
-error
-)
-);
-
-});
-
-}
-
-
-/* INITIAL LOAD */
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
 (async function(){
 
-try{
+  try{
 
-const {
-data:{session}
-} =
-await supabaseClient
-.auth
-.getSession();
+    const {
+      data:sessionData,
+      error:sessionError
+    } =
+      await supabaseClient.auth.getSession();
 
-await loadArtworks();
 
-if(session){
+    if(sessionError){
 
-console.log(
-"Inkverse admin session restored."
-);
+      logAppError(
+        "Initial Session",
+        sessionError
+      );
 
-await loadAdminArtworks();
+    }
 
-}
 
-}catch(error){
+    await loadArtworks();
 
-console.error(
-"Initial loading error:",
-error
-);
 
-}
+    const session =
+      sessionData &&
+      sessionData.session;
+
+
+    if(session){
+
+      console.log(
+        "Inkverse admin session restored."
+      );
+
+
+      /*
+        Only authenticated users
+        attempt to load management.
+      */
+
+      await loadAdminArtworks();
+
+    }
+
+
+  }catch(error){
+
+    logAppError(
+      "Initial Loading",
+      error
+    );
+
+  }
 
 })();
 
 
-/* AUTH LISTENER */
+/* =========================================================
+   AUTH LISTENER
+========================================================= */
 
 supabaseClient
-.auth
-.onAuthStateChange(
-(event,session)=>{
+  .auth
+  .onAuthStateChange(
+    (event,session) => {
 
-console.log(
-"Auth event:",
-event
-);
+      console.log(
+        "Auth event:",
+        event
+      );
 
-}
-);
+
+      if(
+        event === "SIGNED_OUT"
+      ){
+
+        closeAdminPanel();
+
+      }
+
+    }
+  );
 
 </script>
 
 </body>
-  </html>
+      </html>

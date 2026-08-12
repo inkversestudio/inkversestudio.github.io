@@ -1602,7 +1602,17 @@ status.textContent =
 return;
 
 }
+const imageValidation =
+await validateArtworkImage(file);
 
+if(!imageValidation.valid){
+
+status.textContent =
+imageValidation.message;
+
+return;
+
+}
 const {
 data:{session}
 } =
@@ -2287,7 +2297,19 @@ oldImageUrl;
 if(newFile){
 
 button.textContent="UPLOADING IMAGE...";
+const imageValidation =
+await validateArtworkImage(newFile);
 
+if(!imageValidation.valid){
+
+errorBox.textContent =
+imageValidation.message;
+
+errorBox.classList.add("show");
+
+return;
+
+}
 
 /* FILE EXTENSION */
 
@@ -2574,7 +2596,91 @@ alert(
 
 }
 
+/* SECURE IMAGE VALIDATION */
 
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
+
+const ALLOWED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp"
+];
+
+async function validateArtworkImage(file) {
+
+  if (!file) {
+    return {
+      valid: false,
+      message: "Please select an image."
+    };
+  }
+
+  // File size check
+  if (file.size > MAX_IMAGE_SIZE) {
+    return {
+      valid: false,
+      message: "Image must be 5 MB or smaller."
+    };
+  }
+
+  // MIME type check
+  if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+    return {
+      valid: false,
+      message: "Only JPG, PNG or WEBP images are allowed."
+    };
+  }
+
+  // Verify actual image content
+  try {
+
+    const imageURL = URL.createObjectURL(file);
+
+    const image = new Image();
+
+    const validImage = await new Promise(resolve => {
+
+      image.onload = () => {
+        URL.revokeObjectURL(imageURL);
+
+        if (image.width > 0 && image.height > 0) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      };
+
+      image.onerror = () => {
+        URL.revokeObjectURL(imageURL);
+        resolve(false);
+      };
+
+      image.src = imageURL;
+
+    });
+
+    if (!validImage) {
+      return {
+        valid: false,
+        message: "The selected file is not a valid image."
+      };
+    }
+
+  } catch (error) {
+
+    console.error("Image validation error:", error);
+
+    return {
+      valid: false,
+      message: "The selected image could not be verified."
+    };
+
+  }
+
+  return {
+    valid: true
+  };
+}
 /* ESCAPE HTML */
 
 function escapeHtml(text){
@@ -2710,4 +2816,4 @@ event
 </script>
 
 </body>
-</html>
+  </html>

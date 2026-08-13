@@ -634,7 +634,28 @@ async function adminLogin() {
 function closeAdminPanel() {
   document.getElementById("adminPanel").classList.remove("show");
 }
+async function adminLogout() {
+  try {
+    const { error } = await supabaseClient.auth.signOut();
 
+    if (error) {
+      logAppError("Logout", error);
+      alert("Logout failed. Please try again.");
+      return;
+    }
+
+    closeAdminPanel();
+
+    document.getElementById("adminEmail").value = "";
+    document.getElementById("adminPassword").value = "";
+
+    console.log("Inkverse admin logged out successfully.");
+
+  } catch (error) {
+    logAppError("Logout", error);
+    alert("Logout failed. Please try again.");
+  }
+}
 /* =========================
    ADD ARTWORK
 ========================= */

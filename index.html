@@ -812,11 +812,25 @@ async function loadArtworks() {
     '<div class="empty-gallery">Loading artworks...</div>';
 
   try {
-    const result =
-      await supabaseClient
-        .from("artwork")
-        .select("*")
-        .order("created_at", { ascending:false });
+    console.log("PUBLIC GALLERY: starting query...");
+
+    const queryPromise = supabaseClient
+      .from("artwork")
+      .select("id,title,type,description,image_url,created_at")
+      .order("created_at", { ascending: false });
+
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error("SUPABASE_QUERY_TIMEOUT"));
+      }, 10000);
+    });
+
+    const result = await Promise.race([
+      queryPromise,
+      timeoutPromise
+    ]);
+
+    console.log("PUBLIC GALLERY RESULT:", result);
 
     if (result.error) {
       throw result.error;
@@ -824,9 +838,13 @@ async function loadArtworks() {
 
     const artworks = result.data || [];
 
+    console.log("PUBLIC ARTWORKS:", artworks);
+
     if (!artworks.length) {
       gallery.innerHTML =
-        '<div class="empty-gallery">No artworks added yet.</div>';
+        '<div class="empty-gallery">' +
+        'Supabase connected successfully, but no artworks were returned.' +
+        '</div>';
       return;
     }
 
@@ -841,19 +859,26 @@ async function loadArtworks() {
 
       if (art.image_url) {
         const img = document.createElement("img");
+
         img.src = art.image_url;
         img.alt = art.title || "Inkverse artwork";
         img.loading = "lazy";
+
         img.onerror = () => {
           img.remove();
+
           const span = document.createElement("span");
           span.textContent = "IMAGE UNAVAILABLE";
+
           imageBox.appendChild(span);
         };
+
         imageBox.appendChild(img);
+
       } else {
         const span = document.createElement("span");
-        span.textContent = "ARTWORK";
+        span.textContent = "NO IMAGE";
+
         imageBox.appendChild(span);
       }
 
@@ -875,16 +900,26 @@ async function loadArtworks() {
 
       info.append(category, title, desc);
       card.append(imageBox, info);
+
       gallery.appendChild(card);
     });
 
   } catch (error) {
-    logAppError("Gallery", error);
+    console.error("PUBLIC GALLERY ERROR:", error);
+
+    let message = "Gallery error: ";
+
+    if (error?.message === "SUPABASE_QUERY_TIMEOUT") {
+      message += "Supabase request timed out after 10 seconds.";
+    } else {
+      message += error?.message || "Unknown error";
+    }
 
     gallery.innerHTML =
       '<div class="empty-gallery">' +
-      getSafeErrorMessage("gallery") +
-      "</div>";
+      '<strong>Gallery Error</strong><br><br>' +
+      message +
+      '</div>';
   }
 }
 

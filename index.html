@@ -176,22 +176,32 @@ function validateAllowedType(type,allowedTypes,fieldName="Artwork type"){return 
 const validateArtworkType=type=>validateAllowedType(type,ADMIN_ARTWORK_TYPES);
 const validateCommissionType=type=>validateAllowedType(type,COMMISSION_TYPES);
 
-async function ensureVisitorSession(){
+async async function ensureVisitorSession(){
   const {data,error}=await supabaseClient.auth.getSession();
-  if(error)throw error;
-  if(data.session?.user?.is_anonymous){
+
+  if(error) throw error;
+
+  if(data.session?.user?.id){
     visitorId=data.session.user.id;
     return data.session;
   }
-  if(data.session && !data.session.user.is_anonymous){
-    visitorId=null;
-    return data.session;
-  }
+
   const result=await supabaseClient.auth.signInAnonymously();
-  if(result.error)throw result.error;
+
+  if(result.error) throw result.error;
+
   visitorId=result.data.user.id;
   return result.data.session;
 }
+
+async function getVisitorId(){
+  if(visitorId) return visitorId;
+
+  const session=await ensureVisitorSession();
+
+  return session?.user?.id || null;
+}
+
 async function getVisitorId(){
   if(visitorId)return visitorId;
   const session=await ensureVisitorSession();

@@ -18,26 +18,36 @@
   box-sizing:border-box
 }
 
-html,body{
+html,
+body{
   width:100%;
-  height:100%
+  height:100%;
 }
 
 body{
   font-family:Arial,sans-serif;
   background:#f8f6f0;
   color:#171717;
-  overflow:hidden
+  overflow:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  -webkit-tap-highlight-color:transparent;
 }
 
 .app{
   width:100%;
   height:100vh;
   display:flex;
-  flex-direction:column
+  flex-direction:column;
 }
-
-/* ================= HEADER ================= */
 
 header{
   height:78px;
@@ -47,7 +57,7 @@ header{
   align-items:center;
   justify-content:space-between;
   padding:0 28px;
-  flex-shrink:0
+  flex-shrink:0;
 }
 
 .logo{
@@ -56,7 +66,7 @@ header{
   font-weight:bold;
   letter-spacing:4px;
   cursor:pointer;
-  user-select:none
+  user-select:none;
 }
 
 .logo span{
@@ -65,15 +75,13 @@ header{
   font-family:Arial,sans-serif;
   font-size:10px;
   letter-spacing:5px;
-  margin-top:3px
+  margin-top:3px;
 }
-
-/* ================= PAGES ================= */
 
 .pages{
   flex:1;
   position:relative;
-  overflow:hidden
+  overflow:hidden;
 }
 
 .page{
@@ -84,13 +92,14 @@ header{
   opacity:0;
   transform:translateX(25px);
   pointer-events:none;
-  transition:opacity .3s ease,transform .3s ease
+  transition:opacity .3s ease,transform .3s ease;
+  -webkit-overflow-scrolling:touch;
 }
 
 .page.active{
   opacity:1;
   transform:translateX(0);
-  pointer-events:auto
+  pointer-events:auto;
 }
 
 .home{
@@ -99,57 +108,41 @@ header{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  min-height:100%
+  min-height:100%;
 }
-
-/* ================= TYPOGRAPHY ================= */
 
 .small-title{
   color:#a17b35;
   letter-spacing:5px;
   font-size:13px;
-  margin-bottom:35px
+  margin-bottom:35px;
 }
 
 h1{
   font-family:Georgia,serif;
   font-size:58px;
   line-height:.95;
-  max-width:700px
+  max-width:700px;
 }
 
 h1 span{
   color:#a17b35;
-  font-style:italic
+  font-style:italic;
 }
 
 .line{
   width:105px;
   height:2px;
   background:#a17b35;
-  margin:40px auto 28px
+  margin:40px auto 28px;
 }
 
 .description{
   max-width:600px;
   color:#686868;
   font-size:17px;
-  line-height:1.7
-}
-
-.section-title{
-  font-family:Georgia,serif;
-  font-size:42px;
-  margin-bottom:15px
-}
-
-.section-subtitle{
-  color:#777;
   line-height:1.7;
-  margin-bottom:35px
 }
-
-/* ================= BUTTONS ================= */
 
 .primary-btn{
   margin-top:35px;
@@ -160,73 +153,62 @@ h1 span{
   font-size:13px;
   letter-spacing:3px;
   cursor:pointer;
-  transition:.25s
+  transition:.25s;
+  touch-action:manipulation;
 }
 
 .primary-btn:hover{
-  background:#a17b35
+  background:#a17b35;
+}
+
+.primary-btn:active{
+  transform:scale(.98);
 }
 
 .primary-btn:disabled{
   opacity:.6;
-  cursor:not-allowed
+  cursor:not-allowed;
 }
 
-.secondary-btn{
-  border:1px solid #ddd8cc;
-  background:#fff;
-  color:#333;
-  padding:15px;
-  cursor:pointer
+.section-title{
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:15px;
 }
 
-/* ================= CARDS ================= */
+.section-subtitle{
+  color:#777;
+  line-height:1.7;
+  margin-bottom:35px;
+}
 
 .card,
 .contact-card{
   background:#fff;
   border:1px solid #e3dfd5;
-  padding:25px
+  padding:25px;
 }
 
 .card h3{
   font-family:Georgia,serif;
   font-size:22px;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .card p,
 .contact-card{
-  line-height:1.6
+  line-height:1.6;
 }
 
 .card p,
 .contact-card a{
-  color:#777
+  color:#777;
 }
-
-.contact-card{
-  margin-bottom:15px
-}
-
-.contact-card strong{
-  display:block;
-  margin-bottom:8px;
-  color:#171717
-}
-
-.contact-card a{
-  color:#a17b35;
-  text-decoration:none;
-  word-break:break-word
-}
-
-/* ================= GALLERY ================= */
 
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:22px
+  gap:22px;
 }
 
 .art-card{
@@ -234,13 +216,13 @@ h1 span{
   border:1px solid #e3dfd5;
   padding:12px;
   cursor:pointer;
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
 }
 
 .art-card:hover{
   transform:translateY(-4px);
   border-color:#b99a5b;
-  box-shadow:0 12px 30px rgba(0,0,0,.08)
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 .art-image{
@@ -252,7 +234,7 @@ h1 span{
   justify-content:center;
   position:relative;
   overflow:hidden;
-  margin-bottom:15px
+  margin-bottom:15px;
 }
 
 .art-image img{
@@ -260,11 +242,11 @@ h1 span{
   height:100%;
   object-fit:cover;
   display:block;
-  transition:transform .4s ease
+  transition:transform .4s ease;
 }
 
 .art-card:hover .art-image img{
-  transform:scale(1.03)
+  transform:scale(1.03);
 }
 
 .art-image::before{
@@ -275,7 +257,7 @@ h1 span{
   border:1px solid rgba(161,123,53,.35);
   transform:rotate(45deg);
   pointer-events:none;
-  z-index:2
+  z-index:2;
 }
 
 .art-image span{
@@ -284,11 +266,11 @@ h1 span{
   font-family:Georgia,serif;
   color:#8c806a;
   font-size:14px;
-  letter-spacing:2px
+  letter-spacing:2px;
 }
 
 .art-info{
-  padding:3px 5px 10px
+  padding:3px 5px 10px;
 }
 
 .art-category{
@@ -297,35 +279,33 @@ h1 span{
   font-size:10px;
   letter-spacing:2px;
   text-transform:uppercase;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .art-title{
   font-family:Georgia,serif;
   font-size:21px;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .art-description{
   color:#777;
   font-size:13px;
-  line-height:1.6
+  line-height:1.6;
 }
-
-/* ================= LIKE ================= */
 
 .art-like-row{
   display:flex;
   align-items:center;
   gap:8px;
-  margin-top:13px
+  margin-top:13px;
 }
 
 .like-btn{
   border:1px solid #ddd8cc;
   background:#fff;
   color:#777;
-  min-width:88px;
+  min-width:90px;
   padding:8px 11px;
   display:inline-flex;
   align-items:center;
@@ -333,36 +313,34 @@ h1 span{
   gap:6px;
   font-size:12px;
   cursor:pointer;
-  transition:.2s
+  transition:.2s;
 }
 
 .like-btn:hover{
   border-color:#a17b35;
-  color:#a17b35
+  color:#a17b35;
 }
 
 .like-btn.liked{
   border-color:#a17b35;
   color:#a17b35;
-  background:#fffdf8
+  background:#fffdf8;
 }
 
 .like-heart{
   font-size:17px;
-  line-height:1
+  line-height:1;
 }
 
 .like-count{
   font-size:11px;
-  color:#888
+  color:#888;
 }
 
 .like-btn:disabled{
   opacity:.6;
-  cursor:not-allowed
+  cursor:not-allowed;
 }
-
-/* ================= EMPTY ================= */
 
 .empty-gallery,
 .management-empty{
@@ -372,10 +350,8 @@ h1 span{
   background:#fff;
   border:1px solid #e3dfd5;
   color:#777;
-  line-height:1.6
+  line-height:1.6;
 }
-
-/* ================= ART VIEWER ================= */
 
 .art-viewer{
   position:fixed;
@@ -387,12 +363,12 @@ h1 span{
   justify-content:center;
   padding:30px;
   opacity:0;
-  transition:opacity .25s ease
+  transition:opacity .25s ease;
 }
 
 .art-viewer.show{
   display:flex;
-  opacity:1
+  opacity:1;
 }
 
 .art-viewer-content{
@@ -403,7 +379,7 @@ h1 span{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  position:relative
+  position:relative;
 }
 
 .art-viewer-image-wrap{
@@ -413,7 +389,7 @@ h1 span{
   align-items:center;
   flex:1;
   min-height:0;
-  padding:20px 10px
+  padding:20px 10px;
 }
 
 .art-viewer-image{
@@ -423,7 +399,7 @@ h1 span{
   height:auto;
   object-fit:contain;
   display:block;
-  box-shadow:0 20px 70px rgba(0,0,0,.5)
+  box-shadow:0 20px 70px rgba(0,0,0,.5);
 }
 
 .art-viewer-info{
@@ -431,7 +407,7 @@ h1 span{
   max-width:800px;
   text-align:center;
   padding:15px 20px 5px;
-  color:white
+  color:white;
 }
 
 .art-viewer-category{
@@ -439,13 +415,13 @@ h1 span{
   font-size:10px;
   letter-spacing:3px;
   text-transform:uppercase;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .art-viewer-title{
   font-family:Georgia,serif;
   font-size:30px;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .art-viewer-description{
@@ -453,7 +429,7 @@ h1 span{
   font-size:13px;
   line-height:1.6;
   max-width:650px;
-  margin:auto
+  margin:auto;
 }
 
 .art-viewer-close{
@@ -472,46 +448,42 @@ h1 span{
   align-items:center;
   justify-content:center;
   transition:.25s;
-  z-index:5
+  z-index:5;
 }
 
 .art-viewer-close:hover{
   background:#a17b35;
-  border-color:#a17b35
+  border-color:#a17b35;
 }
 
 .art-viewer-hint{
   color:#888;
   font-size:10px;
   letter-spacing:1px;
-  margin-top:8px
+  margin-top:8px;
 }
-
-/* ================= SHOP ================= */
 
 .coming{
   border:1px solid #b99a5b;
   padding:45px 25px;
   text-align:center;
-  background:#fffdf8
+  background:#fffdf8;
 }
 
 .coming h2{
   font-family:Georgia,serif;
   font-size:34px;
-  margin-bottom:15px
+  margin-bottom:15px;
 }
 
 .coming p{
   color:#777;
-  line-height:1.7
+  line-height:1.7;
 }
-
-/* ================= FORMS ================= */
 
 .commission-form{
   max-width:650px;
-  margin-top:25px
+  margin-top:25px;
 }
 
 .commission-form label,
@@ -522,12 +494,12 @@ h1 span{
   font-size:11px;
   font-weight:bold;
   letter-spacing:1px;
-  margin:18px 0 7px
+  margin:18px 0 7px;
 }
 
 .commission-form label span{
   color:#999;
-  font-weight:normal
+  font-weight:normal;
 }
 
 .commission-form input,
@@ -549,13 +521,13 @@ h1 span{
   font-family:Arial,sans-serif;
   font-size:14px;
   outline:none;
-  border-radius:0
+  border-radius:0;
 }
 
 .commission-form textarea,
 .add-artwork-form textarea,
 .edit-artwork-box textarea{
-  resize:vertical
+  resize:vertical;
 }
 
 .commission-form input:focus,
@@ -570,7 +542,7 @@ h1 span{
 .edit-artwork-box input:focus,
 .edit-artwork-box select:focus,
 .edit-artwork-box textarea:focus{
-  border-color:#a17b35
+  border-color:#a17b35;
 }
 
 .form-note,
@@ -579,10 +551,24 @@ h1 span{
   margin-top:12px;
   color:#999;
   font-size:11px;
-  line-height:1.5
+  line-height:1.5;
 }
 
-/* ================= BOTTOM NAV ================= */
+.contact-card{
+  margin-bottom:15px;
+}
+
+.contact-card strong{
+  display:block;
+  margin-bottom:8px;
+  color:#171717;
+}
+
+.contact-card a{
+  color:#a17b35;
+  text-decoration:none;
+  word-break:break-word;
+}
 
 .bottom-nav{
   position:fixed;
@@ -596,7 +582,7 @@ h1 span{
   justify-content:space-around;
   align-items:center;
   z-index:100;
-  padding-bottom:env(safe-area-inset-bottom)
+  padding-bottom:env(safe-area-inset-bottom);
 }
 
 .nav-btn{
@@ -610,24 +596,25 @@ h1 span{
   justify-content:center;
   gap:5px;
   font-size:10px;
-  cursor:pointer
+  cursor:pointer;
+  touch-action:manipulation;
 }
 
 .nav-icon{
   font-size:21px;
-  line-height:1
+  line-height:1;
 }
 
 .nav-btn.active{
-  color:#a17b35
+  color:#a17b35;
 }
 
 .nav-btn.active .nav-icon{
-  transform:translateY(-2px)
+  transform:translateY(-2px);
 }
 
 .more-wrapper{
-  position:relative
+  position:relative;
 }
 
 .more-menu{
@@ -642,13 +629,13 @@ h1 span{
   opacity:0;
   visibility:hidden;
   transform:translateY(10px);
-  transition:opacity .25s ease,transform .25s ease,visibility .25s ease
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease;
 }
 
 .more-menu.show{
   opacity:1;
   visibility:visible;
-  transform:translateY(0)
+  transform:translateY(0);
 }
 
 .more-item{
@@ -659,15 +646,13 @@ h1 span{
   text-align:left;
   font-size:13px;
   color:#333;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .more-item:hover{
   background:#f5f1e8;
-  color:#a17b35
+  color:#a17b35;
 }
-
-/* ================= ADMIN LOGIN ================= */
 
 .admin-overlay,
 .edit-artwork-overlay{
@@ -679,12 +664,12 @@ h1 span{
   justify-content:center;
   padding:20px;
   z-index:500;
-  overflow-y:auto
+  overflow-y:auto;
 }
 
 .admin-overlay.show,
 .edit-artwork-overlay.show{
-  display:flex
+  display:flex;
 }
 
 .admin-box,
@@ -694,14 +679,14 @@ h1 span{
   background:#fffdf8;
   border:1px solid #b99a5b;
   padding:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.2)
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
 
 .admin-box h2,
 .edit-artwork-box h2{
   font-family:Georgia,serif;
   font-size:30px;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .admin-subtitle,
@@ -709,19 +694,27 @@ h1 span{
   color:#777;
   font-size:12px;
   line-height:1.6;
-  margin-bottom:22px
+  margin-bottom:22px;
 }
 
 .admin-actions,
 .edit-artwork-actions{
   display:flex;
   gap:10px;
-  margin-top:22px
+  margin-top:22px;
 }
 
 .admin-actions button,
 .edit-artwork-actions button{
-  flex:1
+  flex:1;
+}
+
+.secondary-btn{
+  border:1px solid #ddd8cc;
+  background:#fff;
+  color:#333;
+  padding:15px;
+  cursor:pointer;
 }
 
 .admin-error,
@@ -732,15 +725,13 @@ h1 span{
   background:#f5f1e8;
   border-left:3px solid #a17b35;
   font-size:12px;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .admin-error.show,
 .edit-status.show{
-  display:block
+  display:block;
 }
-
-/* ================= ADMIN PANEL ================= */
 
 .admin-panel{
   position:fixed;
@@ -748,11 +739,11 @@ h1 span{
   background:#f8f6f0;
   z-index:400;
   display:none;
-  overflow-y:auto
+  overflow-y:auto;
 }
 
 .admin-panel.show{
-  display:block
+  display:block;
 }
 
 .admin-header{
@@ -765,59 +756,59 @@ h1 span{
   padding:0 22px;
   position:sticky;
   top:0;
-  z-index:10
+  z-index:10;
 }
 
 .admin-brand{
   font-family:Georgia,serif;
-  font-size:22px
+  font-size:22px;
 }
 
 .admin-brand span{
-  color:#a17b35
+  color:#a17b35;
 }
 
 .admin-close{
   border:1px solid #ddd8cc;
   background:#fff;
   padding:10px 14px;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .admin-content{
   max-width:900px;
   margin:auto;
-  padding:35px 20px 60px
+  padding:35px 20px 60px;
 }
 
 .admin-content h1{
   font-family:Georgia,serif;
   font-size:40px;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 
 .admin-content>p{
   color:#777;
-  line-height:1.6
+  line-height:1.6;
 }
 
 .admin-card{
   margin-top:30px;
   background:#fff;
   border:1px solid #e3dfd5;
-  padding:25px
+  padding:25px;
 }
 
 .admin-card h2{
   font-family:Georgia,serif;
   font-size:25px;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 
 .admin-card p{
   color:#777;
   font-size:13px;
-  line-height:1.6
+  line-height:1.6;
 }
 
 .admin-status{
@@ -826,7 +817,7 @@ h1 span{
   background:#f5f1e8;
   border-left:3px solid #a17b35;
   font-size:13px;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .upload-status{
@@ -836,24 +827,24 @@ h1 span{
   background:#f5f1e8;
   border-left:3px solid #a17b35;
   font-size:12px;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .upload-status.show{
-  display:block
+  display:block;
 }
 
 .admin-artwork-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:18px;
-  margin-top:25px
+  margin-top:25px;
 }
 
 .admin-artwork-card{
   background:#fffdf8;
   border:1px solid #e3dfd5;
-  padding:12px
+  padding:12px;
 }
 
 .admin-artwork-image{
@@ -864,18 +855,18 @@ h1 span{
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:14px
+  margin-bottom:14px;
 }
 
 .admin-artwork-image img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block
+  display:block;
 }
 
 .admin-artwork-info{
-  padding:3px 4px
+  padding:3px 4px;
 }
 
 .admin-artwork-type{
@@ -883,19 +874,19 @@ h1 span{
   font-size:10px;
   letter-spacing:2px;
   text-transform:uppercase;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .admin-artwork-title{
   font-family:Georgia,serif;
   font-size:20px;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .admin-artwork-description{
   color:#777;
   font-size:12px;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .delete-artwork-btn,
@@ -906,52 +897,35 @@ h1 span{
   font-size:11px;
   letter-spacing:2px;
   cursor:pointer;
-  transition:.25s
+  transition:.25s;
 }
 
 .delete-artwork-btn{
   border:1px solid #b33;
   background:#fff;
-  color:#a33
+  color:#a33;
 }
 
 .delete-artwork-btn:hover{
   background:#a33;
-  color:#fff
+  color:#fff;
 }
 
 .edit-artwork-btn{
   border:1px solid #a17b35;
   background:#fff;
-  color:#a17b35
+  color:#a17b35;
 }
 
 .edit-artwork-btn:hover{
   background:#a17b35;
-  color:#fff
+  color:#fff;
 }
 
 .delete-artwork-btn:disabled,
 .edit-artwork-btn:disabled{
   opacity:.6;
-  cursor:not-allowed
-}
-
-/* ================= EDIT ================= */
-
-.edit-current-image{
-  width:100%;
-  height:220px;
-  background:#e8e3d8;
-  margin-top:10px;
-  overflow:hidden
-}
-
-.edit-current-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block
+  cursor:not-allowed;
 }
 
 .edit-image-preview{
@@ -960,118 +934,116 @@ h1 span{
   margin-top:12px;
   background:#e8e3d8;
   overflow:hidden;
-  display:none
+  display:none;
 }
 
 .edit-image-preview.show{
-  display:block
+  display:block;
 }
 
 .edit-image-preview img{
   width:100%;
   height:100%;
-  object-fit:cover
+  object-fit:cover;
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
   header{
     height:72px;
-    padding:0 22px
+    padding:0 22px;
   }
 
   .logo{
-    font-size:25px
+    font-size:25px;
   }
 
   .page{
-    padding:35px 20px 105px
+    padding:35px 20px 105px;
   }
 
   h1{
-    font-size:51px
+    font-size:51px;
   }
 
   .description{
-    font-size:16px
+    font-size:16px;
   }
 
   .section-title{
-    font-size:37px
+    font-size:37px;
   }
 
   .gallery-grid{
     grid-template-columns:1fr;
-    gap:18px
+    gap:18px;
   }
 
   .art-image{
-    height:220px
+    height:220px;
   }
 
   .bottom-nav{
-    height:72px
+    height:72px;
   }
 
   .nav-btn{
     min-width:50px;
-    font-size:9px
+    font-size:9px;
   }
 
   .nav-icon{
-    font-size:20px
+    font-size:20px;
   }
 
   .more-menu{
     bottom:70px;
-    right:-5px
+    right:-5px;
   }
 
   .admin-box,
   .edit-artwork-box{
-    padding:25px
+    padding:25px;
   }
 
   .admin-content h1{
-    font-size:34px
+    font-size:34px;
   }
 
   .admin-artwork-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .admin-artwork-image{
-    height:220px
+    height:220px;
   }
 
   .art-viewer{
-    padding:15px
+    padding:15px;
   }
 
   .art-viewer-image-wrap{
-    padding:40px 0 15px
+    padding:40px 0 15px;
   }
 
   .art-viewer-image{
     max-width:100%;
-    max-height:65vh
+    max-height:65vh;
   }
 
   .art-viewer-title{
-    font-size:25px
+    font-size:25px;
   }
 
   .art-viewer-description{
-    font-size:12px
+    font-size:12px;
   }
 
   .art-viewer-close{
     top:0;
     right:0;
     width:44px;
-    height:44px
+    height:44px;
   }
 }
 
@@ -1083,7 +1055,7 @@ h1 span{
     animation-duration:.01ms!important;
     animation-iteration-count:1!important;
     transition-duration:.01ms!important;
-    scroll-behavior:auto!important
+    scroll-behavior:auto!important;
   }
 }
 </style>
@@ -1094,7 +1066,7 @@ h1 span{
 <div class="app">
 
 <header>
-  <div class="logo" id="adminLogo">
+  <div class="logo" id="logoButton">
     INKVERSE
     <span>STUDIO</span>
   </div>
@@ -1102,15 +1074,11 @@ h1 span{
 
 <main class="pages">
 
-<!-- ================= HOME ================= -->
-
 <section class="page active" id="home">
 
   <div class="home">
 
-    <div class="small-title">
-      ART BY SHIVAM
-    </div>
+    <div class="small-title">ART BY SHIVAM</div>
 
     <h1>
       Where<br>
@@ -1136,33 +1104,29 @@ h1 span{
 
 </section>
 
-<!-- ================= GALLERY ================= -->
 
 <section class="page" id="gallery">
 
-  <h2 class="section-title">
-    Gallery
-  </h2>
+  <h2 class="section-title">Gallery</h2>
 
   <p class="section-subtitle">
     A collection of artworks created by Shivam.
   </p>
 
   <div class="gallery-grid" id="galleryGrid">
+
     <div class="empty-gallery">
       Loading artworks...
     </div>
+
   </div>
 
 </section>
 
-<!-- ================= SHOP ================= -->
 
 <section class="page" id="shop">
 
-  <h2 class="section-title">
-    Shop
-  </h2>
+  <h2 class="section-title">Shop</h2>
 
   <p class="section-subtitle">
     Bring original artwork into your space.
@@ -1170,22 +1134,18 @@ h1 span{
 
   <div class="coming">
 
-    <h2>
-      Coming Soon
-    </h2>
+    <h2>Coming Soon</h2>
 
     <p>
       The Inkverse Studio art shop is currently being prepared.
       <br>
-      Original artworks and selected art products will be available
-      here in the future.
+      Original artworks and selected art products will be available here in the future.
     </p>
 
   </div>
 
 </section>
 
-<!-- ================= ABOUT ================= -->
 
 <section class="page" id="about">
 
@@ -1199,9 +1159,7 @@ h1 span{
 
   <div class="card">
 
-    <h3>
-      The Artist
-    </h3>
+    <h3>The Artist</h3>
 
     <p>
       Inkverse Studio is a creative space dedicated to charcoal,
@@ -1220,7 +1178,6 @@ h1 span{
 
 </section>
 
-<!-- ================= COMMISSION ================= -->
 
 <section class="page" id="commission">
 
@@ -1234,19 +1191,16 @@ h1 span{
 
   <div class="commission-form">
 
-    <label for="clientName">
-      Your Name
-    </label>
+    <label>Your Name</label>
 
     <input
       type="text"
       id="clientName"
       maxlength="80"
-      placeholder="Enter your name">
+      placeholder="Enter your name"
+    >
 
-    <label for="artType">
-      Artwork Type
-    </label>
+    <label>Artwork Type</label>
 
     <select id="artType">
 
@@ -1254,29 +1208,16 @@ h1 span{
         Select artwork type
       </option>
 
-      <option value="Portrait">
-        Portrait
-      </option>
-
-      <option value="Couple Artwork">
-        Couple Artwork
-      </option>
-
-      <option value="Pet Portrait">
-        Pet Portrait
-      </option>
-
-      <option value="Anime Artwork">
-        Anime Artwork
-      </option>
-
-      <option value="Custom Artwork">
-        Custom Artwork
-      </option>
+      <option>Portrait</option>
+      <option>Couple Artwork</option>
+      <option>Pet Portrait</option>
+      <option>Anime Artwork</option>
+      <option>Custom Artwork</option>
 
     </select>
 
-    <label for="artMessage">
+
+    <label>
       Tell me about your artwork
     </label>
 
@@ -1284,17 +1225,22 @@ h1 span{
       id="artMessage"
       rows="5"
       maxlength="2000"
-      placeholder="Describe what you want..."></textarea>
+      placeholder="Describe what you want..."
+    ></textarea>
 
-    <label for="budget">
-      Budget <span>(Optional)</span>
+
+    <label>
+      Budget
+      <span>(Optional)</span>
     </label>
 
     <input
       type="text"
       id="budget"
       maxlength="100"
-      placeholder="Example: ₹1000 - ₹2000">
+      placeholder="Example: ₹1000 - ₹2000"
+    >
+
 
     <button
       class="primary-btn"
@@ -1311,7 +1257,6 @@ h1 span{
 
 </section>
 
-<!-- ================= CONTACT ================= -->
 
 <section class="page" id="contact">
 
@@ -1324,26 +1269,24 @@ h1 span{
     Get in touch.
   </p>
 
+
   <div class="contact-card">
 
-    <strong>
-      Instagram
-    </strong>
+    <strong>Instagram</strong>
 
     <a
       href="https://www.instagram.com/_shivam._.here__/"
       target="_blank"
-      rel="noopener">
+      rel="noopener noreferrer">
       @_shivam._.here__
     </a>
 
   </div>
 
+
   <div class="contact-card">
 
-    <strong>
-      Email
-    </strong>
+    <strong>Email</strong>
 
     <a
       href="mailto:inkversestudio.co@gmail.com?subject=Inkverse%20Studio%20Inquiry">
@@ -1351,6 +1294,7 @@ h1 span{
     </a>
 
   </div>
+
 
   <button
     class="primary-btn"
@@ -1363,7 +1307,6 @@ h1 span{
 
 </main>
 
-<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
 
@@ -1377,6 +1320,7 @@ h1 span{
 
   </button>
 
+
   <button
     class="nav-btn"
     type="button"
@@ -1386,6 +1330,7 @@ h1 span{
     <span>Gallery</span>
 
   </button>
+
 
   <button
     class="nav-btn"
@@ -1397,6 +1342,7 @@ h1 span{
 
   </button>
 
+
   <button
     class="nav-btn"
     type="button"
@@ -1406,6 +1352,7 @@ h1 span{
     <span>About</span>
 
   </button>
+
 
   <div class="more-wrapper">
 
@@ -1419,20 +1366,28 @@ h1 span{
 
     </button>
 
-    <div class="more-menu" id="moreMenu">
+
+    <div
+      class="more-menu"
+      id="moreMenu">
 
       <button
         class="more-item"
         type="button"
         onclick="showPage('commission');closeMoreMenu()">
+
         ✎ &nbsp; Commission
+
       </button>
+
 
       <button
         class="more-item"
         type="button"
         onclick="showPage('contact');closeMoreMenu()">
+
         ♡ &nbsp; Contact
+
       </button>
 
     </div>
@@ -1443,13 +1398,14 @@ h1 span{
 
 </div>
 
-<!-- ================= ART VIEWER ================= -->
+
+<!-- ARTWORK VIEWER -->
 
 <div
   class="art-viewer"
   id="artViewer"
-  onclick="handleViewerBackground(event)"
-  aria-hidden="true">
+  aria-hidden="true"
+  onclick="handleViewerBackground(event)">
 
   <div class="art-viewer-content">
 
@@ -1458,8 +1414,11 @@ h1 span{
       type="button"
       aria-label="Close artwork viewer"
       onclick="closeArtworkViewer()">
+
       ×
+
     </button>
+
 
     <div class="art-viewer-image-wrap">
 
@@ -1471,6 +1430,7 @@ h1 span{
 
     </div>
 
+
     <div class="art-viewer-info">
 
       <div
@@ -1478,15 +1438,18 @@ h1 span{
         id="artViewerCategory">
       </div>
 
+
       <div
         class="art-viewer-title"
         id="artViewerTitle">
       </div>
 
+
       <p
         class="art-viewer-description"
         id="artViewerDescription">
       </p>
+
 
       <div class="art-viewer-hint">
         TAP OUTSIDE TO CLOSE
@@ -1498,7 +1461,8 @@ h1 span{
 
 </div>
 
-<!-- ================= ADMIN LOGIN ================= -->
+
+<!-- ADMIN LOGIN -->
 
 <div
   class="admin-overlay"
@@ -1506,18 +1470,15 @@ h1 span{
 
   <div class="admin-box">
 
-    <h2>
-      Admin Login
-    </h2>
+    <h2>Admin Login</h2>
 
     <p class="admin-subtitle">
       Inkverse Studio owner access.
       This area is only for managing your artwork.
     </p>
 
-    <label for="adminEmail">
-      EMAIL
-    </label>
+
+    <label>EMAIL</label>
 
     <input
       type="email"
@@ -1525,9 +1486,8 @@ h1 span{
       autocomplete="email"
       placeholder="Admin email">
 
-    <label for="adminPassword">
-      PASSWORD
-    </label>
+
+    <label>PASSWORD</label>
 
     <input
       type="password"
@@ -1535,24 +1495,31 @@ h1 span{
       autocomplete="current-password"
       placeholder="Password">
 
+
     <div class="admin-actions">
 
       <button
         class="secondary-btn"
         type="button"
         onclick="closeAdminLogin()">
+
         CANCEL
+
       </button>
+
 
       <button
         class="primary-btn"
         type="button"
         style="margin-top:0"
         onclick="adminLogin()">
+
         LOGIN
+
       </button>
 
     </div>
+
 
     <div
       class="admin-error"
@@ -1563,7 +1530,8 @@ h1 span{
 
 </div>
 
-<!-- ================= ADMIN PANEL ================= -->
+
+<!-- ADMIN PANEL -->
 
 <div
   class="admin-panel"
@@ -1575,43 +1543,46 @@ h1 span{
       INKVERSE <span>ADMIN</span>
     </div>
 
+
     <button
       class="admin-close"
       type="button"
       onclick="closeAdminPanel()">
+
       Close
+
     </button>
 
   </div>
 
+
   <div class="admin-content">
 
-    <h1>
-      Admin Panel
-    </h1>
+    <h1>Admin Panel</h1>
 
     <p>
-      Welcome, Shivam. This is your private Inkverse Studio
-      management area.
+      Welcome, Shivam. This is your private
+      Inkverse Studio management area.
     </p>
+
 
     <!-- ADD ARTWORK -->
 
     <div class="admin-card">
 
-      <h2>
-        Add New Artwork
-      </h2>
+      <h2>Add New Artwork</h2>
 
       <p>
         Add an artwork to your Inkverse Studio gallery.
         Only your authenticated admin account can use this panel.
       </p>
 
+
       <form
         class="add-artwork-form"
         id="addArtworkForm"
         onsubmit="addArtwork(event)">
+
 
         <label for="artworkTitle">
           TITLE
@@ -1623,6 +1594,7 @@ h1 span{
           maxlength="100"
           placeholder="Example: Tanjiro Portrait"
           required>
+
 
         <label for="artworkType">
           TYPE
@@ -1636,31 +1608,15 @@ h1 span{
             Select artwork type
           </option>
 
-          <option value="Graphite">
-            Graphite
-          </option>
-
-          <option value="Charcoal">
-            Charcoal
-          </option>
-
-          <option value="Pencil">
-            Pencil
-          </option>
-
-          <option value="Custom">
-            Custom
-          </option>
-
-          <option value="Anime">
-            Anime
-          </option>
-
-          <option value="Portrait">
-            Portrait
-          </option>
+          <option>Graphite</option>
+          <option>Charcoal</option>
+          <option>Pencil</option>
+          <option>Custom</option>
+          <option>Anime</option>
+          <option>Portrait</option>
 
         </select>
+
 
         <label for="artworkDescription">
           DESCRIPTION
@@ -1672,6 +1628,7 @@ h1 span{
           maxlength="1000"
           placeholder="Write a short description..."></textarea>
 
+
         <label for="artworkImage">
           ARTWORK IMAGE
         </label>
@@ -1682,18 +1639,23 @@ h1 span{
           accept="image/jpeg,image/png,image/webp"
           required>
 
+
         <p class="file-note">
           Select the artwork image from your phone.
           JPG, PNG or WEBP recommended.
           Maximum 5 MB.
         </p>
 
+
         <button
           type="submit"
           class="primary-btn"
           id="uploadArtworkBtn">
+
           ADD ARTWORK
+
         </button>
+
 
         <div
           class="upload-status"
@@ -1704,18 +1666,18 @@ h1 span{
 
     </div>
 
+
     <!-- ARTWORK MANAGEMENT -->
 
     <div class="admin-card">
 
-      <h2>
-        Artwork Management
-      </h2>
+      <h2>Artwork Management</h2>
 
       <p>
-        Your artworks are stored in Supabase and loaded
-        automatically into the public gallery.
+        Your artworks are stored in Supabase
+        and loaded automatically into the public gallery.
       </p>
+
 
       <div class="admin-status">
 
@@ -1732,6 +1694,7 @@ h1 span{
 
       </div>
 
+
       <div
         class="admin-artwork-grid"
         id="adminArtworkGrid">
@@ -1744,18 +1707,22 @@ h1 span{
 
     </div>
 
+
     <button
       class="primary-btn"
       type="button"
       onclick="adminLogout()">
+
       LOGOUT
+
     </button>
 
   </div>
 
 </div>
 
-<!-- ================= EDIT ARTWORK ================= -->
+
+<!-- EDIT ARTWORK -->
 
 <div
   class="edit-artwork-overlay"
@@ -1763,13 +1730,12 @@ h1 span{
 
   <div class="edit-artwork-box">
 
-    <h2>
-      Edit Artwork
-    </h2>
+    <h2>Edit Artwork</h2>
 
     <p class="edit-artwork-subtitle">
       Update the details or replace the image of this artwork.
     </p>
+
 
     <input
       type="hidden"
@@ -1779,9 +1745,8 @@ h1 span{
       type="hidden"
       id="editArtworkOldImage">
 
-    <label for="editArtworkTitle">
-      TITLE
-    </label>
+
+    <label>TITLE</label>
 
     <input
       type="text"
@@ -1789,9 +1754,8 @@ h1 span{
       maxlength="100"
       placeholder="Artwork title">
 
-    <label for="editArtworkType">
-      TYPE
-    </label>
+
+    <label>TYPE</label>
 
     <select id="editArtworkType">
 
@@ -1799,35 +1763,17 @@ h1 span{
         Select artwork type
       </option>
 
-      <option value="Graphite">
-        Graphite
-      </option>
-
-      <option value="Charcoal">
-        Charcoal
-      </option>
-
-      <option value="Pencil">
-        Pencil
-      </option>
-
-      <option value="Custom">
-        Custom
-      </option>
-
-      <option value="Anime">
-        Anime
-      </option>
-
-      <option value="Portrait">
-        Portrait
-      </option>
+      <option>Graphite</option>
+      <option>Charcoal</option>
+      <option>Pencil</option>
+      <option>Custom</option>
+      <option>Anime</option>
+      <option>Portrait</option>
 
     </select>
 
-    <label for="editArtworkDescription">
-      DESCRIPTION
-    </label>
+
+    <label>DESCRIPTION</label>
 
     <textarea
       id="editArtworkDescription"
@@ -1835,7 +1781,8 @@ h1 span{
       maxlength="1000"
       placeholder="Write a short description..."></textarea>
 
-    <label for="editArtworkImage">
+
+    <label>
       REPLACE IMAGE
       <span style="color:#999;font-weight:normal">
         (Optional)
@@ -1848,10 +1795,12 @@ h1 span{
       accept="image/jpeg,image/png,image/webp"
       onchange="previewEditImage(event)">
 
+
     <p class="edit-image-note">
       Leave this empty if you only want to change
       the title, type or description.
     </p>
+
 
     <div
       class="edit-image-preview"
@@ -1863,14 +1812,18 @@ h1 span{
 
     </div>
 
+
     <div class="edit-artwork-actions">
 
       <button
         class="secondary-btn"
         type="button"
         onclick="closeEditArtwork()">
+
         CANCEL
+
       </button>
+
 
       <button
         class="primary-btn"
@@ -1878,10 +1831,13 @@ h1 span{
         style="margin-top:0"
         id="saveEditArtworkBtn"
         onclick="saveEditedArtwork()">
+
         SAVE CHANGES
+
       </button>
 
     </div>
+
 
     <div
       class="admin-error"
@@ -1892,14 +1848,24 @@ h1 span{
 
 </div>
 
+
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script>
 "use strict";
 
 /* =========================================================
-   SUPABASE
+   INKVERSE STUDIO
+   FIXED MAIN JAVASCRIPT
 ========================================================= */
+
+
+/* -----------------------------
+   SUPABASE CONFIG
+----------------------------- */
 
 const SUPABASE_URL =
   "https://agfyscldqtahojtstpbs.supabase.co";
@@ -1907,23 +1873,44 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_7oPOjxBkG0CAKOXEjlB9ng_k7FAftwf";
 
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
+
+let supabaseClient = null;
+
+
+/*
+  IMPORTANT:
+  Supabase failure must NOT stop the whole website.
+  Navigation/buttons can still work.
+*/
+
+try{
+
+  if(
+    window.supabase &&
+    typeof window.supabase.createClient === "function"
+  ){
+
+    supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+  }
+
+}catch(error){
+
+  console.error(
+    "Supabase initialization failed:",
+    error
   );
 
-/* =========================================================
-   CONSTANTS
-========================================================= */
+}
 
-const INPUT_LIMITS = {
-  name:80,
-  title:100,
-  description:1000,
-  message:2000,
-  budget:100
-};
+
+/* -----------------------------
+   CONSTANTS
+----------------------------- */
 
 const ADMIN_ARTWORK_TYPES = [
   "Graphite",
@@ -1942,7 +1929,8 @@ const COMMISSION_TYPES = [
   "Custom Artwork"
 ];
 
-const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+const MAX_IMAGE_SIZE =
+  5 * 1024 * 1024;
 
 const ALLOWED_IMAGE_TYPES = [
   "image/jpeg",
@@ -1950,17 +1938,38 @@ const ALLOWED_IMAGE_TYPES = [
   "image/webp"
 ];
 
+
 let visitorId = null;
 
-/* =========================================================
-   HELPER
-========================================================= */
 
-const $ = id => document.getElementById(id);
+/* -----------------------------
+   SHORT SELECTOR
+----------------------------- */
+
+function $(id){
+
+  return document.getElementById(id);
+
+}
+
+
+/* -----------------------------
+   ERROR LOG
+----------------------------- */
 
 function logAppError(context,error){
-  console.error(`[Inkverse ${context}]`,error);
+
+  console.error(
+    "[Inkverse " + context + "]",
+    error
+  );
+
 }
+
+
+/* -----------------------------
+   SAFE ERROR MESSAGES
+----------------------------- */
 
 function safeMessage(context){
 
@@ -1988,132 +1997,9 @@ function safeMessage(context){
 
   return messages[context] ||
     "Something went wrong. Please try again.";
+
 }
 
-function validateText(
-  value,
-  maxLength,
-  fieldName,
-  required=true
-){
-
-  const text = String(value ?? "").trim();
-
-  if(required && !text){
-
-    return {
-      valid:false,
-      message:`${fieldName} is required.`
-    };
-
-  }
-
-  if(text.length > maxLength){
-
-    return {
-      valid:false,
-      message:`${fieldName} is too long.`
-    };
-
-  }
-
-  return {
-    valid:true,
-    value:text
-  };
-}
-
-function validateAllowedType(
-  type,
-  allowedTypes,
-  fieldName="Artwork type"
-){
-
-  return allowedTypes.includes(type)
-
-    ? {
-        valid:true,
-        value:type
-      }
-
-    : {
-        valid:false,
-        message:`Invalid ${fieldName.toLowerCase()}.`
-      };
-}
-
-const validateArtworkType =
-  type => validateAllowedType(
-    type,
-    ADMIN_ARTWORK_TYPES
-  );
-
-const validateCommissionType =
-  type => validateAllowedType(
-    type,
-    COMMISSION_TYPES
-  );
-
-/* =========================================================
-   VISITOR SESSION
-========================================================= */
-
-async function ensureVisitorSession(){
-
-  const {
-    data,
-    error
-  } = await supabaseClient.auth.getSession();
-
-  if(error){
-    throw error;
-  }
-
-  /*
-    If a user is already logged in,
-    use that session.
-  */
-
-  if(data?.session?.user?.id){
-
-    visitorId = data.session.user.id;
-
-    return data.session;
-  }
-
-  /*
-    Otherwise create an anonymous visitor.
-  */
-
-  const result =
-    await supabaseClient.auth.signInAnonymously();
-
-  if(result.error){
-    throw result.error;
-  }
-
-  visitorId =
-    result.data?.user?.id || null;
-
-  return result.data?.session || null;
-}
-
-/*
-  IMPORTANT:
-  Only ONE getVisitorId function exists now.
-*/
-
-async function getVisitorId(){
-
-  if(visitorId){
-    return visitorId;
-  }
-
-  const session =
-    await ensureVisitorSession();
-
-  return session?.user?.id || null;
-}
 
 /* =========================================================
    PAGE NAVIGATION
@@ -2121,26 +2007,44 @@ async function getVisitorId(){
 
 function showPage(pageId,button){
 
-  document
-    .querySelectorAll(".page")
-    .forEach(page =>
-      page.classList.remove("active")
+  const selected =
+    $(pageId);
+
+  if(!selected){
+
+    console.error(
+      "Page not found:",
+      pageId
     );
 
-  const selected = $(pageId);
-
-  if(selected){
-
-    selected.classList.add("active");
-    selected.scrollTop = 0;
+    return;
 
   }
 
+
+  document
+    .querySelectorAll(".page")
+    .forEach(function(page){
+
+      page.classList.remove("active");
+
+    });
+
+
+  selected.classList.add("active");
+
+
+  selected.scrollTop = 0;
+
+
   document
     .querySelectorAll(".bottom-nav .nav-btn")
-    .forEach(btn =>
-      btn.classList.remove("active")
-    );
+    .forEach(function(btn){
+
+      btn.classList.remove("active");
+
+    });
+
 
   if(button){
 
@@ -2150,13 +2054,15 @@ function showPage(pageId,button){
 
     document
       .querySelectorAll(".bottom-nav .nav-btn")
-      .forEach(btn => {
+      .forEach(function(btn){
 
         const onclick =
           btn.getAttribute("onclick") || "";
 
         if(
-          onclick.includes("'" + pageId + "'")
+          onclick.includes(
+            "'" + pageId + "'"
+          )
         ){
 
           btn.classList.add("active");
@@ -2167,20 +2073,50 @@ function showPage(pageId,button){
 
   }
 
+
   closeMoreMenu();
+
+
+  /*
+    Gallery is loaded whenever user opens it.
+  */
+
+  if(pageId === "gallery"){
+
+    loadArtworks();
+
+  }
+
 }
+
+
+/* =========================================================
+   MORE MENU
+========================================================= */
 
 function toggleMoreMenu(){
 
-  $("moreMenu")?.classList.toggle("show");
+  const menu =
+    $("moreMenu");
+
+  if(!menu)return;
+
+  menu.classList.toggle("show");
 
 }
+
 
 function closeMoreMenu(){
 
-  $("moreMenu")?.classList.remove("show");
+  const menu =
+    $("moreMenu");
+
+  if(!menu)return;
+
+  menu.classList.remove("show");
 
 }
+
 
 /* =========================================================
    ARTWORK VIEWER
@@ -2193,11 +2129,11 @@ function openArtworkViewer(
   description
 ){
 
-  const viewer = $("artViewer");
+  const viewer =
+    $("artViewer");
 
-  if(!viewer){
-    return;
-  }
+  if(!viewer)return;
+
 
   $("artViewerImage").src =
     imageUrl || "";
@@ -2212,56 +2148,64 @@ function openArtworkViewer(
     title || "Untitled Artwork";
 
   $("artViewerDescription").textContent =
-    description || "Artwork created by Shivam.";
+    description ||
+    "Artwork created by Shivam.";
+
 
   viewer.classList.add("show");
-
-  document.body.style.overflow =
-    "hidden";
 
   viewer.setAttribute(
     "aria-hidden",
     "false"
   );
-}
-
-function closeArtworkViewer(){
-
-  const viewer = $("artViewer");
-
-  if(!viewer){
-    return;
-  }
-
-  viewer.classList.remove("show");
-
-  /*
-    FIX:
-    Restore normal page scrolling.
-  */
 
   document.body.style.overflow =
     "hidden";
+
+}
+
+
+function closeArtworkViewer(){
+
+  const viewer =
+    $("artViewer");
+
+  if(!viewer)return;
+
+
+  viewer.classList.remove("show");
 
   viewer.setAttribute(
     "aria-hidden",
     "true"
   );
 
-  setTimeout(() => {
+  document.body.style.overflow =
+    "hidden";
 
-    if(!viewer.classList.contains("show")){
 
-      $("artViewerImage").src = "";
+  setTimeout(function(){
+
+    if(
+      !viewer.classList.contains("show")
+    ){
+
+      $("artViewerImage").src =
+        "";
 
     }
 
   },250);
+
 }
+
 
 function handleViewerBackground(event){
 
-  if(event.target === $("artViewer")){
+  if(
+    event.target ===
+    $("artViewer")
+  ){
 
     closeArtworkViewer();
 
@@ -2269,91 +2213,401 @@ function handleViewerBackground(event){
 
 }
 
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+function validateText(
+  value,
+  maxLength,
+  fieldName,
+  required
+){
+
+  if(required === undefined){
+    required = true;
+  }
+
+
+  const text =
+    String(value || "").trim();
+
+
+  if(
+    required &&
+    !text
+  ){
+
+    return {
+      valid:false,
+      message:
+        fieldName +
+        " is required."
+    };
+
+  }
+
+
+  if(
+    text.length >
+    maxLength
+  ){
+
+    return {
+      valid:false,
+      message:
+        fieldName +
+        " is too long."
+    };
+
+  }
+
+
+  return {
+    valid:true,
+    value:text
+  };
+
+}
+
+
+function validateAllowedType(
+  type,
+  allowedTypes,
+  fieldName
+){
+
+  if(
+    allowedTypes.includes(type)
+  ){
+
+    return {
+      valid:true,
+      value:type
+    };
+
+  }
+
+
+  return {
+    valid:false,
+    message:
+      "Invalid " +
+      fieldName.toLowerCase() +
+      "."
+  };
+
+}
+
+
+function validateArtworkType(type){
+
+  return validateAllowedType(
+    type,
+    ADMIN_ARTWORK_TYPES,
+    "Artwork type"
+  );
+
+}
+
+
+function validateCommissionType(type){
+
+  return validateAllowedType(
+    type,
+    COMMISSION_TYPES,
+    "Artwork type"
+  );
+
+}
+
+
+/* =========================================================
+   SUPABASE AVAILABILITY
+========================================================= */
+
+function isSupabaseReady(){
+
+  return !!(
+    supabaseClient &&
+    typeof supabaseClient.from === "function"
+  );
+
+}
+
+
+/* =========================================================
+   VISITOR SESSION
+========================================================= */
+
+async function ensureVisitorSession(){
+
+  if(!isSupabaseReady()){
+
+    return null;
+
+  }
+
+
+  try{
+
+    const sessionResult =
+      await supabaseClient.auth.getSession();
+
+
+    if(
+      sessionResult.error
+    ){
+
+      throw sessionResult.error;
+
+    }
+
+
+    const existingSession =
+      sessionResult.data &&
+      sessionResult.data.session;
+
+
+    if(
+      existingSession &&
+      existingSession.user
+    ){
+
+      visitorId =
+        existingSession.user.id;
+
+      return existingSession;
+
+    }
+
+
+    /*
+      Anonymous auth is only requested
+      when a user actually needs it.
+    */
+
+    if(
+      typeof supabaseClient
+        .auth
+        .signInAnonymously !== "function"
+    ){
+
+      return null;
+
+    }
+
+
+    const result =
+      await supabaseClient
+        .auth
+        .signInAnonymously();
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    visitorId =
+      result.data.user.id;
+
+
+    return result.data.session;
+
+  }catch(error){
+
+    logAppError(
+      "VisitorSession",
+      error
+    );
+
+    return null;
+
+  }
+
+}
+
+
+async function getVisitorId(){
+
+  if(visitorId){
+
+    return visitorId;
+
+  }
+
+
+  const session =
+    await ensureVisitorSession();
+
+
+  if(
+    session &&
+    session.user
+  ){
+
+    visitorId =
+      session.user.id;
+
+    return visitorId;
+
+  }
+
+
+  return null;
+
+}
+
+
 /* =========================================================
    LIKE SYSTEM
 ========================================================= */
 
-async function getLikeCount(artworkId){
+async function getLikeCount(
+  artworkId
+){
 
-  const {
-    count,
-    error
-  } = await supabaseClient
-    .from("artwork_likes")
-    .select("id",{
-      count:"exact",
-      head:true
-    })
-    .eq("artwork_id",artworkId);
+  if(!isSupabaseReady()){
 
-  if(error){
-    throw error;
+    return 0;
+
   }
 
-  return count || 0;
+
+  const result =
+    await supabaseClient
+      .from("artwork_likes")
+      .select(
+        "id",
+        {
+          count:"exact",
+          head:true
+        }
+      )
+      .eq(
+        "artwork_id",
+        artworkId
+      );
+
+
+  if(result.error){
+
+    throw result.error;
+
+  }
+
+
+  return result.count || 0;
+
 }
 
-async function isArtworkLiked(artworkId){
+
+async function isArtworkLiked(
+  artworkId
+){
+
+  if(!isSupabaseReady()){
+
+    return false;
+
+  }
+
 
   const id =
     await getVisitorId();
 
+
   if(!id){
+
     return false;
+
   }
 
-  const {
-    data,
-    error
-  } = await supabaseClient
-    .from("artwork_likes")
-    .select("id")
-    .eq("artwork_id",artworkId)
-    .eq("visitor_id",id)
-    .maybeSingle();
 
-  if(error){
-    throw error;
+  const result =
+    await supabaseClient
+      .from("artwork_likes")
+      .select("id")
+      .eq(
+        "artwork_id",
+        artworkId
+      )
+      .eq(
+        "visitor_id",
+        id
+      )
+      .maybeSingle();
+
+
+  if(result.error){
+
+    throw result.error;
+
   }
 
-  return !!data;
+
+  return !!result.data;
+
 }
+
 
 async function renderLikeState(
   card,
   artworkId
 ){
 
-  const btn =
-    card.querySelector(".like-btn");
+  const button =
+    card.querySelector(
+      ".like-btn"
+    );
 
   const countBox =
-    card.querySelector(".like-count");
+    card.querySelector(
+      ".like-count"
+    );
 
-  if(!btn || !countBox){
-    return;
-  }
+
+  if(!button)return;
+
 
   try{
 
-    const [
-      count,
-      liked
-    ] = await Promise.all([
+    const result =
+      await Promise.all([
 
-      getLikeCount(artworkId),
+        getLikeCount(
+          artworkId
+        ),
 
-      isArtworkLiked(artworkId)
+        isArtworkLiked(
+          artworkId
+        )
 
-    ]);
+      ]);
 
-    btn.classList.toggle(
+
+    const count =
+      result[0];
+
+    const liked =
+      result[1];
+
+
+    button.classList.toggle(
       "liked",
       liked
     );
 
+
     const heart =
-      btn.querySelector(".like-heart");
+      button.querySelector(
+        ".like-heart"
+      );
+
 
     if(heart){
 
@@ -2362,42 +2616,71 @@ async function renderLikeState(
 
     }
 
-    countBox.textContent =
-      count;
 
-    btn.title =
+    if(countBox){
+
+      countBox.textContent =
+        count;
+
+    }
+
+
+    button.title =
       liked
         ? "Unlike artwork"
         : "Like artwork";
 
+
   }catch(error){
 
     logAppError(
-      "LikeState",
+      "Likes",
       error
     );
 
   }
+
 }
+
 
 async function toggleLike(
   event,
   artworkId,
-  btn
+  button
 ){
 
   event.stopPropagation();
 
-  if(btn.disabled){
+
+  if(
+    button.disabled
+  ){
+
     return;
+
   }
 
-  btn.disabled = true;
+
+  if(!isSupabaseReady()){
+
+    alert(
+      "Likes are temporarily unavailable."
+    );
+
+    return;
+
+  }
+
+
+  button.disabled =
+    true;
+
 
   try{
 
     const id =
       await getVisitorId();
+
 
     if(!id){
 
@@ -2407,78 +2690,116 @@ async function toggleLike(
 
     }
 
-    const currentlyLiked =
-      btn.classList.contains("liked");
 
-    if(currentlyLiked){
+    const liked =
+      button.classList.contains(
+        "liked"
+      );
 
-      const {
-        error
-      } = await supabaseClient
-        .from("artwork_likes")
-        .delete()
-        .eq("artwork_id",artworkId)
-        .eq("visitor_id",id);
 
-      if(error){
-        throw error;
+    if(liked){
+
+      const result =
+        await supabaseClient
+          .from("artwork_likes")
+          .delete()
+          .eq(
+            "artwork_id",
+            artworkId
+          )
+          .eq(
+            "visitor_id",
+            id
+          );
+
+
+      if(result.error){
+
+        throw result.error;
+
       }
 
     }else{
 
-      const {
-        error
-      } = await supabaseClient
-        .from("artwork_likes")
-        .insert({
-          artwork_id:artworkId,
-          visitor_id:id
-        });
+      const result =
+        await supabaseClient
+          .from("artwork_likes")
+          .insert({
+
+            artwork_id:
+              artworkId,
+
+            visitor_id:
+              id
+
+          });
+
 
       /*
-        23505 = duplicate like.
-        Treat it as already liked.
+        23505 means the like
+        already exists.
       */
 
       if(
-        error &&
-        error.code !== "23505"
+        result.error &&
+        result.error.code !== "23505"
       ){
 
-        throw error;
+        throw result.error;
 
       }
 
     }
 
-    const [
-      count,
-      newLiked
-    ] = await Promise.all([
 
-      getLikeCount(artworkId),
+    const result =
+      await Promise.all([
 
-      isArtworkLiked(artworkId)
+        getLikeCount(
+          artworkId
+        ),
 
-    ]);
+        isArtworkLiked(
+          artworkId
+        )
 
-    btn.classList.toggle(
+      ]);
+
+
+    const count =
+      result[0];
+
+    const newLiked =
+      result[1];
+
+
+    button.classList.toggle(
       "liked",
       newLiked
     );
 
+
     const heart =
-      btn.querySelector(".like-heart");
+      button.querySelector(
+        ".like-heart"
+      );
+
 
     if(heart){
 
       heart.textContent =
-        newLiked ? "♥" : "♡";
+        newLiked
+          ? "♥"
+          : "♡";
 
     }
 
+
     const countBox =
-      btn.querySelector(".like-count");
+      button.querySelector(
+        ".like-count"
+      );
+
 
     if(countBox){
 
@@ -2487,10 +2808,6 @@ async function toggleLike(
 
     }
 
-    btn.title =
-      newLiked
-        ? "Unlike artwork"
-        : "Like artwork";
 
   }catch(error){
 
@@ -2499,21 +2816,19 @@ async function toggleLike(
       error
     );
 
-    /*
-      Show actual Supabase error in console
-      for debugging, but keep user message clean.
-    */
-
     alert(
       "Like could not be updated. Please try again."
     );
 
   }finally{
 
-    btn.disabled = false;
+    button.disabled =
+      false;
 
   }
+
 }
+
 
 /* =========================================================
    LOAD PUBLIC GALLERY
@@ -2524,212 +2839,288 @@ async function loadArtworks(){
   const gallery =
     $("galleryGrid");
 
-  if(!gallery){
+
+  if(!gallery)return;
+
+
+  if(!isSupabaseReady()){
+
+    gallery.innerHTML =
+      '<div class="empty-gallery">' +
+      '<strong>Gallery temporarily unavailable</strong>' +
+      '<br><br>' +
+      'Supabase could not be connected.' +
+      '</div>';
+
     return;
+
   }
 
+
   gallery.innerHTML =
-    '<div class="empty-gallery">Loading artworks...</div>';
+    '<div class="empty-gallery">' +
+    'Loading artworks...' +
+    '</div>';
+
 
   try{
 
-    const {
-      data,
-      error
-    } = await supabaseClient
-      .from("artwork")
-      .select(
-        "id,title,type,description,image_url,created_at"
-      )
-      .order(
-        "created_at",
-        {ascending:false}
-      );
+    const result =
+      await supabaseClient
+        .from("artwork")
+        .select(
+          "id,title,type,description,image_url,created_at"
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
 
-    if(error){
-      throw error;
+
+    if(result.error){
+
+      throw result.error;
+
     }
 
+
     const artworks =
-      data || [];
+      result.data || [];
+
 
     if(!artworks.length){
 
       gallery.innerHTML =
-        '<div class="empty-gallery">No artworks available yet.</div>';
+        '<div class="empty-gallery">' +
+        'No artworks have been added yet.' +
+        '</div>';
 
       return;
+
     }
 
-    gallery.innerHTML = "";
 
-    artworks.forEach(art => {
+    gallery.innerHTML =
+      "";
 
-      const card =
-        document.createElement("article");
 
-      card.className =
-        "art-card";
+    artworks.forEach(
+      function(art){
 
-      card.onclick = () =>
-        openArtworkViewer(
-          art.image_url,
-          art.title,
-          art.type,
-          art.description
-        );
-
-      /* IMAGE */
-
-      const imageBox =
-        document.createElement("div");
-
-      imageBox.className =
-        "art-image";
-
-      if(art.image_url){
-
-        const img =
-          document.createElement("img");
-
-        img.src =
-          art.image_url;
-
-        img.alt =
-          art.title ||
-          "Inkverse artwork";
-
-        img.loading =
-          "lazy";
-
-        img.onerror = () => {
-
-          img.remove();
-
-          const span =
-            document.createElement("span");
-
-          span.textContent =
-            "IMAGE UNAVAILABLE";
-
-          imageBox.appendChild(span);
-
-        };
-
-        imageBox.appendChild(img);
-
-      }else{
-
-        const span =
-          document.createElement("span");
-
-        span.textContent =
-          "NO IMAGE";
-
-        imageBox.appendChild(span);
-
-      }
-
-      /* INFO */
-
-      const info =
-        document.createElement("div");
-
-      info.className =
-        "art-info";
-
-      const category =
-        document.createElement("div");
-
-      category.className =
-        "art-category";
-
-      category.textContent =
-        art.type ||
-        "ARTWORK";
-
-      const title =
-        document.createElement("div");
-
-      title.className =
-        "art-title";
-
-      title.textContent =
-        art.title ||
-        "Untitled Artwork";
-
-      const desc =
-        document.createElement("p");
-
-      desc.className =
-        "art-description";
-
-      desc.textContent =
-        art.description ||
-        "Artwork created by Shivam.";
-
-      /* LIKE ROW */
-
-      const likeRow =
-        document.createElement("div");
-
-      likeRow.className =
-        "art-like-row";
-
-      const likeBtn =
-        document.createElement("button");
-
-      likeBtn.type =
-        "button";
-
-      likeBtn.className =
-        "like-btn";
-
-      likeBtn.innerHTML =
-        '<span class="like-heart">♡</span>' +
-        '<span>Like</span>' +
-        '<span class="like-count">0</span>';
-
-      likeBtn.onclick =
-        event =>
-          toggleLike(
-            event,
-            art.id,
-            likeBtn
+        const card =
+          document.createElement(
+            "article"
           );
 
-      likeRow.appendChild(
-        likeBtn
-      );
+        card.className =
+          "art-card";
 
-      info.append(
-        category,
-        title,
-        desc,
-        likeRow
-      );
 
-      card.append(
-        imageBox,
-        info
-      );
+        card.onclick =
+          function(){
 
-      gallery.appendChild(
-        card
-      );
+            openArtworkViewer(
+              art.image_url,
+              art.title,
+              art.type,
+              art.description
+            );
 
-      /*
-        Load likes independently
-        so one failed like query does
-        not destroy the gallery.
-      */
+          };
 
-      renderLikeState(
-        card,
-        art.id
-      );
 
-    });
+        const imageBox =
+          document.createElement(
+            "div"
+          );
+
+        imageBox.className =
+          "art-image";
+
+
+        if(art.image_url){
+
+          const img =
+            document.createElement(
+              "img"
+            );
+
+          img.src =
+            art.image_url;
+
+          img.alt =
+            art.title ||
+            "Inkverse artwork";
+
+          img.loading =
+            "lazy";
+
+
+          img.onerror =
+            function(){
+
+              img.remove();
+
+
+              const span =
+                document.createElement(
+                  "span"
+                );
+
+              span.textContent =
+                "IMAGE UNAVAILABLE";
+
+
+              imageBox.appendChild(
+                span
+              );
+
+            };
+
+
+          imageBox.appendChild(
+            img
+          );
+
+        }else{
+
+          const span =
+            document.createElement(
+              "span"
+            );
+
+          span.textContent =
+            "NO IMAGE";
+
+
+          imageBox.appendChild(
+            span
+          );
+
+        }
+
+
+        const info =
+          document.createElement(
+            "div"
+          );
+
+        info.className =
+          "art-info";
+
+
+        const category =
+          document.createElement(
+            "div"
+          );
+
+        category.className =
+          "art-category";
+
+        category.textContent =
+          art.type ||
+          "ARTWORK";
+
+
+        const title =
+          document.createElement(
+            "div"
+          );
+
+        title.className =
+          "art-title";
+
+        title.textContent =
+          art.title ||
+          "Untitled Artwork";
+
+
+        const desc =
+          document.createElement(
+            "p"
+          );
+
+        desc.className =
+          "art-description";
+
+        desc.textContent =
+          art.description ||
+          "Artwork created by Shivam.";
+
+
+        const likeRow =
+          document.createElement(
+            "div"
+          );
+
+        likeRow.className =
+          "art-like-row";
+
+
+        const likeButton =
+          document.createElement(
+            "button"
+          );
+
+        likeButton.type =
+          "button";
+
+        likeButton.className =
+          "like-btn";
+
+
+        likeButton.innerHTML =
+          '<span class="like-heart">♡</span>' +
+          '<span>Like</span>' +
+          '<span class="like-count">0</span>';
+
+
+        likeButton.onclick =
+          function(event){
+
+            toggleLike(
+              event,
+              art.id,
+              likeButton
+            );
+
+          };
+
+
+        likeRow.appendChild(
+          likeButton
+        );
+
+
+        info.append(
+          category,
+          title,
+          desc,
+          likeRow
+        );
+
+
+        card.append(
+          imageBox,
+          info
+        );
+
+
+        gallery.appendChild(
+          card
+        );
+
+
+        renderLikeState(
+          card,
+          art.id
+        );
+
+      }
+    );
+
 
   }catch(error){
 
@@ -2737,6 +3128,7 @@ async function loadArtworks(){
       "Gallery",
       error
     );
+
 
     gallery.innerHTML =
       '<div class="empty-gallery">' +
@@ -2746,7 +3138,9 @@ async function loadArtworks(){
       '</div>';
 
   }
+
 }
+
 
 /* =========================================================
    COMMISSION
@@ -2766,74 +3160,98 @@ function submitCommission(){
   const budget =
     $("budget").value.trim();
 
-  const n =
+
+  const nameValidation =
     validateText(
       name,
-      INPUT_LIMITS.name,
+      80,
       "Name"
     );
 
-  if(!n.valid){
 
-    alert(n.message);
+  if(!nameValidation.valid){
+
+    alert(
+      nameValidation.message
+    );
+
     return;
 
   }
 
-  const t =
+
+  const typeValidation =
     validateCommissionType(
       type
     );
 
-  if(!t.valid){
 
-    alert(t.message);
+  if(!typeValidation.valid){
+
+    alert(
+      typeValidation.message
+    );
+
     return;
 
   }
 
-  const m =
+
+  const messageValidation =
     validateText(
       message,
-      INPUT_LIMITS.message,
+      2000,
       "Artwork details"
     );
 
-  if(!m.valid){
 
-    alert(m.message);
+  if(!messageValidation.valid){
+
+    alert(
+      messageValidation.message
+    );
+
     return;
 
   }
 
-  const b =
+
+  const budgetValidation =
     validateText(
       budget,
-      INPUT_LIMITS.budget,
+      100,
       "Budget",
       false
     );
 
-  if(!b.valid){
 
-    alert(b.message);
+  if(!budgetValidation.valid){
+
+    alert(
+      budgetValidation.message
+    );
+
     return;
 
   }
+
 
   const body =
 `Hello Shivam,
 
 I would like to request a custom artwork.
 
-Name: ${n.value}
-Artwork Type: ${t.value}
-Budget: ${b.value || "Not specified"}
+Name: ${name}
+
+Artwork Type: ${type}
+
+Budget: ${budget || "Not specified"}
 
 Artwork Details:
-${m.value}
+${message}
 
 Thank you.`;
+
 
   const mailto =
     "mailto:inkversestudio.co@gmail.com" +
@@ -2842,15 +3260,20 @@ Thank you.`;
       "New Inkverse Studio Commission Request"
     ) +
     "&body=" +
-    encodeURIComponent(body);
+    encodeURIComponent(
+      body
+    );
 
-  location.href =
+
+  window.location.href =
     mailto;
+
 }
+
 
 function sendEmail(){
 
-  location.href =
+  window.location.href =
     "mailto:inkversestudio.co@gmail.com" +
     "?subject=" +
     encodeURIComponent(
@@ -2859,29 +3282,64 @@ function sendEmail(){
 
 }
 
+
 /* =========================================================
    ADMIN LOGIN
 ========================================================= */
 
 function openAdminLogin(){
 
-  $("adminOverlay")
-    .classList.add("show");
+  const overlay =
+    $("adminOverlay");
 
-  $("adminEmail")
-    .focus();
+
+  if(!overlay)return;
+
+
+  overlay.classList.add(
+    "show"
+  );
+
+
+  setTimeout(
+    function(){
+
+      $("adminEmail").focus();
+
+    },
+    100
+  );
 
 }
+
 
 function closeAdminLogin(){
 
-  $("adminOverlay")
-    .classList.remove("show");
+  const overlay =
+    $("adminOverlay");
 
-  $("adminError")
-    .classList.remove("show");
+  if(overlay){
+
+    overlay.classList.remove(
+      "show"
+    );
+
+  }
+
+
+  const errorBox =
+    $("adminError");
+
+  if(errorBox){
+
+    errorBox.classList.remove(
+      "show"
+    );
+
+  }
 
 }
+
 
 async function adminLogin(){
 
@@ -2894,9 +3352,11 @@ async function adminLogin(){
   const errorBox =
     $("adminError");
 
+
   errorBox.classList.remove(
     "show"
   );
+
 
   if(!email || !password){
 
@@ -2908,45 +3368,63 @@ async function adminLogin(){
     );
 
     return;
+
   }
+
+
+  if(!isSupabaseReady()){
+
+    errorBox.textContent =
+      "Supabase is not connected. Please check your internet connection and Supabase configuration.";
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
 
   try{
 
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.signInWithPassword({
-        email,
-        password
-      });
+    const result =
+      await supabaseClient
+        .auth
+        .signInWithPassword({
+
+          email:email,
+
+          password:password
+
+        });
+
 
     if(
-      error ||
-      !data?.session
+      result.error ||
+      !result.data ||
+      !result.data.session
     ){
 
-      throw (
-        error ||
-        new Error("No session")
-      );
+      throw result.error ||
+        new Error(
+          "No admin session"
+        );
 
     }
 
-    /*
-      Important:
-      update visitor ID after admin login.
-    */
-
-    visitorId =
-      data.session.user.id;
 
     closeAdminLogin();
 
+
     $("adminPanel")
-      .classList.add("show");
+      .classList.add(
+        "show"
+      );
+
 
     await loadAdminArtworks();
+
 
   }catch(error){
 
@@ -2955,40 +3433,66 @@ async function adminLogin(){
       error
     );
 
+
     errorBox.textContent =
       safeMessage("login");
+
 
     errorBox.classList.add(
       "show"
     );
 
   }
+
 }
+
 
 function closeAdminPanel(){
 
   $("adminPanel")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
 }
 
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
 async function adminLogout(){
+
+  if(!isSupabaseReady()){
+
+    closeAdminPanel();
+
+    return;
+
+  }
+
 
   try{
 
-    const {
-      error
-    } =
-      await supabaseClient.auth.signOut();
+    const result =
+      await supabaseClient
+        .auth
+        .signOut();
 
-    if(error){
-      throw error;
+
+    if(result.error){
+
+      throw result.error;
+
     }
+
 
     visitorId =
       null;
 
+
     closeAdminPanel();
+
 
     $("adminEmail").value =
       "";
@@ -2996,17 +3500,6 @@ async function adminLogout(){
     $("adminPassword").value =
       "";
 
-    /*
-      Create fresh anonymous visitor session.
-    */
-
-    await ensureVisitorSession();
-
-    /*
-      Refresh likes using the anonymous visitor.
-    */
-
-    await loadArtworks();
 
   }catch(error){
 
@@ -3015,12 +3508,15 @@ async function adminLogout(){
       error
     );
 
+
     alert(
       "Logout failed. Please try again."
     );
 
   }
+
 }
+
 
 /* =========================================================
    IMAGE VALIDATION
@@ -3037,6 +3533,7 @@ async function validateArtworkImage(file){
 
   }
 
+
   if(
     file.size >
     MAX_IMAGE_SIZE
@@ -3044,10 +3541,12 @@ async function validateArtworkImage(file){
 
     return {
       valid:false,
-      message:"Image must be 5 MB or smaller."
+      message:
+        "Image must be 5 MB or smaller."
     };
 
   }
+
 
   if(
     !ALLOWED_IMAGE_TYPES.includes(
@@ -3057,49 +3556,62 @@ async function validateArtworkImage(file){
 
     return {
       valid:false,
-      message:"Only JPG, PNG or WEBP images are allowed."
+      message:
+        "Only JPG, PNG or WEBP images are allowed."
     };
 
   }
 
+
   try{
 
     const url =
-      URL.createObjectURL(file);
+      URL.createObjectURL(
+        file
+      );
+
 
     const img =
       new Image();
 
+
     const valid =
-      await new Promise(resolve => {
+      await new Promise(
+        function(resolve){
 
-        img.onload = () => {
+          img.onload =
+            function(){
 
-          URL.revokeObjectURL(
-            url
-          );
+              URL.revokeObjectURL(
+                url
+              );
 
-          resolve(
-            img.width > 0 &&
-            img.height > 0
-          );
+              resolve(
+                img.width > 0 &&
+                img.height > 0
+              );
 
-        };
+            };
 
-        img.onerror = () => {
 
-          URL.revokeObjectURL(
-            url
-          );
+          img.onerror =
+            function(){
 
-          resolve(false);
+              URL.revokeObjectURL(
+                url
+              );
 
-        };
+              resolve(false);
 
-        img.src =
-          url;
+            };
 
-      });
+
+          img.src =
+            url;
+
+        }
+      );
+
 
     if(!valid){
 
@@ -3111,9 +3623,11 @@ async function validateArtworkImage(file){
 
     }
 
+
     return {
       valid:true
     };
+
 
   }catch(error){
 
@@ -3124,7 +3638,9 @@ async function validateArtworkImage(file){
     };
 
   }
+
 }
+
 
 /* =========================================================
    ADD ARTWORK
@@ -3133,6 +3649,23 @@ async function validateArtworkImage(file){
 async function addArtwork(event){
 
   event.preventDefault();
+
+
+  const status =
+    $("uploadStatus");
+
+  const button =
+    $("uploadArtworkBtn");
+
+
+  status.classList.add(
+    "show"
+  );
+
+
+  status.textContent =
+    "Checking artwork...";
+
 
   const title =
     $("artworkTitle").value.trim();
@@ -3149,93 +3682,105 @@ async function addArtwork(event){
     $("artworkImage")
       .files[0];
 
-  const status =
-    $("uploadStatus");
 
-  const button =
-    $("uploadArtworkBtn");
-
-  status.classList.add(
-    "show"
-  );
-
-  const t =
+  const titleValidation =
     validateText(
       title,
-      INPUT_LIMITS.title,
+      100,
       "Artwork title"
     );
 
-  const y =
+
+  const typeValidation =
     validateArtworkType(
       type
     );
 
-  const d =
+
+  const descriptionValidation =
     validateText(
       description,
-      INPUT_LIMITS.description,
+      1000,
       "Description",
       false
     );
 
-  let v;
+
+  const imageValidation =
+    await validateArtworkImage(
+      file
+    );
+
 
   if(
-    t.valid &&
-    y.valid &&
-    d.valid
-  ){
-
-    v =
-      await validateArtworkImage(
-        file
-      );
-
-  }else{
-
-    v = {
-      valid:false,
-      message:"Please check the artwork details."
-    };
-
-  }
-
-  if(
-    !t.valid ||
-    !y.valid ||
-    !d.valid ||
-    !v.valid
+    !titleValidation.valid
   ){
 
     status.textContent =
-      !t.valid
-        ? t.message
-        : !y.valid
-        ? y.message
-        : !d.valid
-        ? d.message
-        : v.message;
+      titleValidation.message;
 
     return;
 
   }
 
-  const {
-    data
-  } =
-    await supabaseClient.auth.getSession();
-
-  const session =
-    data?.session;
-
-  /*
-    Anonymous users cannot add artwork.
-  */
 
   if(
-    !session ||
-    session.user.is_anonymous
+    !typeValidation.valid
+  ){
+
+    status.textContent =
+      typeValidation.message;
+
+    return;
+
+  }
+
+
+  if(
+    !descriptionValidation.valid
+  ){
+
+    status.textContent =
+      descriptionValidation.message;
+
+    return;
+
+  }
+
+
+  if(
+    !imageValidation.valid
+  ){
+
+    status.textContent =
+      imageValidation.message;
+
+    return;
+
+  }
+
+
+  if(!isSupabaseReady()){
+
+    status.textContent =
+      "Supabase is not connected.";
+
+    return;
+
+  }
+
+
+  const sessionResult =
+    await supabaseClient
+      .auth
+      .getSession();
+
+
+  if(
+    sessionResult.error ||
+    !sessionResult.data ||
+    !sessionResult.data.session ||
+    sessionResult.data.session.user.is_anonymous
   ){
 
     status.textContent =
@@ -3245,24 +3790,28 @@ async function addArtwork(event){
 
   }
 
+
   button.disabled =
     true;
 
   button.textContent =
     "UPLOADING...";
 
+
   let path =
     null;
 
+
   try{
 
-    const ext =
+    const extension =
       file.name
         .split(".")
         .pop()
         .toLowerCase();
 
-    const safe =
+
+    const safeTitle =
       title
         .toLowerCase()
         .replace(
@@ -3275,16 +3824,14 @@ async function addArtwork(event){
         ) ||
       "artwork";
 
+
     path =
-      safe +
+      safeTitle +
       "-" +
       Date.now() +
       "." +
-      ext;
+      extension;
 
-    /*
-      Upload image
-    */
 
     const upload =
       await supabaseClient
@@ -3300,62 +3847,59 @@ async function addArtwork(event){
           }
         );
 
+
     if(upload.error){
 
       throw upload.error;
 
     }
 
-    /*
-      Get public URL
-    */
 
-    const {
-      data:publicData
-    } =
+    const publicUrlResult =
       supabaseClient
         .storage
         .from("Artworks")
-        .getPublicUrl(path);
+        .getPublicUrl(
+          path
+        );
+
 
     const publicUrl =
-      publicData?.publicUrl;
+      publicUrlResult.data &&
+      publicUrlResult.data.publicUrl;
+
 
     if(!publicUrl){
 
       throw new Error(
-        "No public URL"
+        "Could not create public image URL."
       );
 
     }
 
-    /*
-      Save database row
-    */
 
     const insertResult =
       await supabaseClient
         .from("artwork")
         .insert({
 
-          title:t.value,
+          title:
+            titleValidation.value,
 
-          type:y.value,
+          type:
+            typeValidation.value,
 
           description:
-            d.value || null,
+            descriptionValidation.value ||
+            null,
 
           image_url:
             publicUrl
 
         });
 
-    if(insertResult.error){
 
-      /*
-        If database insert fails,
-        remove uploaded image.
-      */
+    if(insertResult.error){
 
       await supabaseClient
         .storage
@@ -3366,15 +3910,18 @@ async function addArtwork(event){
 
     }
 
+
     status.textContent =
       "✓ Artwork added successfully!";
 
-    $("addArtworkForm")
-      .reset();
+
+    $("addArtworkForm").reset();
+
 
     await loadArtworks();
 
     await loadAdminArtworks();
+
 
   }catch(error){
 
@@ -3383,18 +3930,31 @@ async function addArtwork(event){
       error
     );
 
+
     if(path){
 
-      await supabaseClient
-        .storage
-        .from("Artworks")
-        .remove([path])
-        .catch(() => {});
+      try{
+
+        await supabaseClient
+          .storage
+          .from("Artworks")
+          .remove([path]);
+
+      }catch(cleanupError){
+
+        logAppError(
+          "UploadCleanup",
+          cleanupError
+        );
+
+      }
 
     }
 
+
     status.textContent =
       safeMessage("upload");
+
 
   }finally{
 
@@ -3405,10 +3965,12 @@ async function addArtwork(event){
       "ADD ARTWORK";
 
   }
+
 }
 
+
 /* =========================================================
-   ADMIN ARTWORK LIST
+   LOAD ADMIN ARTWORKS
 ========================================================= */
 
 async function loadAdminArtworks(){
@@ -3416,22 +3978,40 @@ async function loadAdminArtworks(){
   const grid =
     $("adminArtworkGrid");
 
-  if(!grid){
+
+  if(!grid)return;
+
+
+  if(!isSupabaseReady()){
+
+    grid.innerHTML =
+      '<div class="management-empty">' +
+      'Supabase is not connected.' +
+      '</div>';
+
     return;
+
   }
 
+
   grid.innerHTML =
-    '<div class="management-empty">Loading artworks...</div>';
+    '<div class="management-empty">' +
+    'Loading artworks...' +
+    '</div>';
+
 
   try{
 
-    const {
-      data
-    } =
-      await supabaseClient.auth.getSession();
+    const sessionResult =
+      await supabaseClient
+        .auth
+        .getSession();
+
 
     const session =
-      data?.session;
+      sessionResult.data &&
+      sessionResult.data.session;
+
 
     if(
       !session ||
@@ -3439,61 +4019,81 @@ async function loadAdminArtworks(){
     ){
 
       grid.innerHTML =
-        '<div class="management-empty">Admin session required.</div>';
+        '<div class="management-empty">' +
+        'Admin session required.' +
+        '</div>';
 
       return;
 
     }
 
-    const {
-      data:artworks,
-      error
-    } =
+
+    const result =
       await supabaseClient
         .from("artwork")
         .select("*")
         .order(
           "created_at",
-          {ascending:false}
+          {
+            ascending:false
+          }
         );
 
-    if(error){
-      throw error;
+
+    if(result.error){
+
+      throw result.error;
+
     }
 
-    if(!artworks?.length){
+
+    const artworks =
+      result.data || [];
+
+
+    if(!artworks.length){
 
       grid.innerHTML =
-        '<div class="management-empty">No artworks added yet.</div>';
+        '<div class="management-empty">' +
+        'No artworks added yet.' +
+        '</div>';
 
       return;
 
     }
 
+
     grid.innerHTML =
       "";
 
+
     artworks.forEach(
-      art => {
+      function(art){
 
         const card =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         card.className =
           "admin-artwork-card";
 
-        /* IMAGE */
 
         const imageBox =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         imageBox.className =
           "admin-artwork-image";
 
+
         if(art.image_url){
 
           const img =
-            document.createElement("img");
+            document.createElement(
+              "img"
+            );
 
           img.src =
             art.image_url;
@@ -3505,22 +4105,27 @@ async function loadAdminArtworks(){
           img.loading =
             "lazy";
 
+
           imageBox.appendChild(
             img
           );
 
         }
 
-        /* INFO */
 
         const info =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         info.className =
           "admin-artwork-info";
 
+
         const type =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         type.className =
           "admin-artwork-type";
@@ -3529,8 +4134,11 @@ async function loadAdminArtworks(){
           art.type ||
           "ARTWORK";
 
+
         const title =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
 
         title.className =
           "admin-artwork-title";
@@ -3539,20 +4147,24 @@ async function loadAdminArtworks(){
           art.title ||
           "Untitled Artwork";
 
-        const desc =
-          document.createElement("p");
 
-        desc.className =
+        const description =
+          document.createElement(
+            "p"
+          );
+
+        description.className =
           "admin-artwork-description";
 
-        desc.textContent =
+        description.textContent =
           art.description ||
           "Artwork created by Shivam.";
 
-        /* EDIT */
 
         const edit =
-          document.createElement("button");
+          document.createElement(
+            "button"
+          );
 
         edit.className =
           "edit-artwork-btn";
@@ -3563,8 +4175,10 @@ async function loadAdminArtworks(){
         edit.textContent =
           "EDIT ARTWORK";
 
+
         edit.onclick =
-          () =>
+          function(){
+
             editArtwork(
               art.id,
               art.title,
@@ -3573,10 +4187,13 @@ async function loadAdminArtworks(){
               art.image_url
             );
 
-        /* DELETE */
+          };
+
 
         const del =
-          document.createElement("button");
+          document.createElement(
+            "button"
+          );
 
         del.className =
           "delete-artwork-btn";
@@ -3587,25 +4204,32 @@ async function loadAdminArtworks(){
         del.textContent =
           "DELETE ARTWORK";
 
+
         del.onclick =
-          () =>
+          function(){
+
             deleteArtwork(
               art.id,
               art.image_url
             );
 
+          };
+
+
         info.append(
           type,
           title,
-          desc,
+          description,
           edit,
           del
         );
+
 
         card.append(
           imageBox,
           info
         );
+
 
         grid.appendChild(
           card
@@ -3614,6 +4238,7 @@ async function loadAdminArtworks(){
       }
     );
 
+
   }catch(error){
 
     logAppError(
@@ -3621,13 +4246,16 @@ async function loadAdminArtworks(){
       error
     );
 
+
     grid.innerHTML =
       '<div class="management-empty">' +
       safeMessage("management") +
       '</div>';
 
   }
+
 }
+
 
 /* =========================================================
    EDIT ARTWORK
@@ -3660,14 +4288,22 @@ function editArtwork(
     "";
 
   $("editImagePreview")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
   $("editArtworkError")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
   $("editArtworkOverlay")
-    .classList.add("show");
+    .classList.add(
+      "show"
+    );
+
 }
+
 
 function previewEditImage(event){
 
@@ -3680,6 +4316,7 @@ function previewEditImage(event){
   const img =
     $("editPreviewImg");
 
+
   if(!file){
 
     preview.classList.remove(
@@ -3687,7 +4324,9 @@ function previewEditImage(event){
     );
 
     return;
+
   }
+
 
   if(
     !ALLOWED_IMAGE_TYPES.includes(
@@ -3710,6 +4349,7 @@ function previewEditImage(event){
 
   }
 
+
   if(
     file.size >
     MAX_IMAGE_SIZE
@@ -3730,11 +4370,13 @@ function previewEditImage(event){
 
   }
 
+
   const reader =
     new FileReader();
 
+
   reader.onload =
-    result => {
+    function(result){
 
       img.src =
         result.target.result;
@@ -3745,39 +4387,56 @@ function previewEditImage(event){
 
     };
 
+
   reader.readAsDataURL(
     file
   );
+
 }
+
 
 function closeEditArtwork(){
 
   $("editArtworkOverlay")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
   $("editArtworkError")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
   $("editImagePreview")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
-  $("editArtworkImage")
-    .value = "";
+  $("editArtworkImage").value =
+    "";
 
 }
 
-function getStorageFilePath(url){
+
+function getStorageFilePath(
+  url
+){
 
   try{
 
-    const u =
+    const parsed =
       new URL(url);
+
 
     const marker =
       "/storage/v1/object/public/Artworks/";
 
+
     const index =
-      u.pathname.indexOf(marker);
+      parsed.pathname.indexOf(
+        marker
+      );
+
 
     if(index < 0){
 
@@ -3785,18 +4444,23 @@ function getStorageFilePath(url){
 
     }
 
+
     return decodeURIComponent(
-      u.pathname.substring(
-        index + marker.length
+      parsed.pathname.substring(
+        index +
+        marker.length
       )
     );
+
 
   }catch(error){
 
     return null;
 
   }
+
 }
+
 
 /* =========================================================
    SAVE EDITED ARTWORK
@@ -3821,7 +4485,8 @@ async function saveEditedArtwork(){
       .trim();
 
   const oldImageUrl =
-    $("editArtworkOldImage").value;
+    $("editArtworkOldImage")
+      .value;
 
   const newFile =
     $("editArtworkImage")
@@ -3833,45 +4498,39 @@ async function saveEditedArtwork(){
   const button =
     $("saveEditArtworkBtn");
 
+
   errorBox.classList.remove(
     "show"
   );
 
-  const t =
+
+  const titleValidation =
     validateText(
       title,
-      INPUT_LIMITS.title,
+      100,
       "Artwork title"
     );
 
-  const y =
+
+  const typeValidation =
     validateArtworkType(
       type
     );
 
-  const d =
+
+  const descriptionValidation =
     validateText(
       description,
-      INPUT_LIMITS.description,
+      1000,
       "Description",
       false
     );
 
-  if(
-    !id ||
-    !t.valid ||
-    !y.valid ||
-    !d.valid
-  ){
+
+  if(!id){
 
     errorBox.textContent =
-      !id
-        ? "Artwork could not be identified."
-        : !t.valid
-        ? t.message
-        : !y.valid
-        ? y.message
-        : d.message;
+      "Artwork could not be identified.";
 
     errorBox.classList.add(
       "show"
@@ -3881,11 +4540,69 @@ async function saveEditedArtwork(){
 
   }
 
+
+  if(!titleValidation.valid){
+
+    errorBox.textContent =
+      titleValidation.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  if(!typeValidation.valid){
+
+    errorBox.textContent =
+      typeValidation.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  if(!descriptionValidation.valid){
+
+    errorBox.textContent =
+      descriptionValidation.message;
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
+  if(!isSupabaseReady()){
+
+    errorBox.textContent =
+      "Supabase is not connected.";
+
+    errorBox.classList.add(
+      "show"
+    );
+
+    return;
+
+  }
+
+
   button.disabled =
     true;
 
   button.textContent =
     "SAVING...";
+
 
   let newPath =
     null;
@@ -3893,15 +4610,19 @@ async function saveEditedArtwork(){
   let finalUrl =
     oldImageUrl;
 
+
   try{
 
-    const {
-      data
-    } =
-      await supabaseClient.auth.getSession();
+    const sessionResult =
+      await supabaseClient
+        .auth
+        .getSession();
+
 
     const session =
-      data?.session;
+      sessionResult.data &&
+      sessionResult.data.session;
+
 
     if(
       !session ||
@@ -3914,9 +4635,6 @@ async function saveEditedArtwork(){
 
     }
 
-    /*
-      If new image selected
-    */
 
     if(newFile){
 
@@ -3924,6 +4642,7 @@ async function saveEditedArtwork(){
         await validateArtworkImage(
           newFile
         );
+
 
       if(!validation.valid){
 
@@ -3933,16 +4652,19 @@ async function saveEditedArtwork(){
 
       }
 
+
       button.textContent =
         "UPLOADING IMAGE...";
 
-      const ext =
+
+      const extension =
         newFile.name
           .split(".")
           .pop()
           .toLowerCase();
 
-      const safe =
+
+      const safeTitle =
         title
           .toLowerCase()
           .replace(
@@ -3955,12 +4677,14 @@ async function saveEditedArtwork(){
           ) ||
         "artwork";
 
+
       newPath =
-        safe +
+        safeTitle +
         "-" +
         Date.now() +
         "." +
-        ext;
+        extension;
+
 
       const upload =
         await supabaseClient
@@ -3976,15 +4700,15 @@ async function saveEditedArtwork(){
             }
           );
 
+
       if(upload.error){
 
         throw upload.error;
 
       }
 
-      const {
-        data:publicData
-      } =
+
+      const publicResult =
         supabaseClient
           .storage
           .from("Artworks")
@@ -3992,33 +4716,27 @@ async function saveEditedArtwork(){
             newPath
           );
 
+
       finalUrl =
-        publicData?.publicUrl;
-
-      if(!finalUrl){
-
-        throw new Error(
-          "Could not create image URL."
-        );
-
-      }
+        publicResult.data.publicUrl;
 
     }
 
-    /*
-      Update database
-    */
 
     const updateData = {
 
-      title:t.value,
+      title:
+        titleValidation.value,
 
-      type:y.value,
+      type:
+        typeValidation.value,
 
       description:
-        d.value || null
+        descriptionValidation.value ||
+        null
 
     };
+
 
     if(newFile){
 
@@ -4027,22 +4745,28 @@ async function saveEditedArtwork(){
 
     }
 
-    const {
-      error:updateError
-    } =
+
+    const updateResult =
       await supabaseClient
         .from("artwork")
-        .update(updateData)
-        .eq("id",id);
+        .update(
+          updateData
+        )
+        .eq(
+          "id",
+          id
+        );
 
-    if(updateError){
 
-      throw updateError;
+    if(updateResult.error){
+
+      throw updateResult.error;
 
     }
 
+
     /*
-      Remove old image only after
+      Delete old image only after
       database update succeeds.
     */
 
@@ -4056,28 +4780,44 @@ async function saveEditedArtwork(){
           oldImageUrl
         );
 
+
       if(oldPath){
 
-        await supabaseClient
-          .storage
-          .from("Artworks")
-          .remove([
-            oldPath
-          ]);
+        try{
+
+          await supabaseClient
+            .storage
+            .from("Artworks")
+            .remove([
+              oldPath
+            ]);
+
+        }catch(cleanupError){
+
+          logAppError(
+            "OldImageCleanup",
+            cleanupError
+          );
+
+        }
 
       }
 
     }
 
+
     closeEditArtwork();
+
 
     await loadArtworks();
 
     await loadAdminArtworks();
 
+
     alert(
       "✓ Artwork updated successfully!"
     );
+
 
   }catch(error){
 
@@ -4086,40 +4826,41 @@ async function saveEditedArtwork(){
       error
     );
 
-    /*
-      If new image was uploaded but
-      database update failed, clean it.
-    */
 
     if(newPath){
 
-      await supabaseClient
-        .storage
-        .from("Artworks")
-        .remove([newPath])
-        .catch(() => {});
+      try{
+
+        await supabaseClient
+          .storage
+          .from("Artworks")
+          .remove([
+            newPath
+          ]);
+
+      }catch(cleanupError){
+
+        logAppError(
+          "UpdateCleanup",
+          cleanupError
+        );
+
+      }
 
     }
+
 
     errorBox.textContent =
       error.message ===
       "Admin session expired."
         ? error.message
-        : error.message &&
-          (
-            error.message.includes(
-              "Image must"
-            ) ||
-            error.message.includes(
-              "Only JPG"
-            )
-          )
-        ? error.message
         : safeMessage("update");
+
 
     errorBox.classList.add(
       "show"
     );
+
 
   }finally{
 
@@ -4130,7 +4871,9 @@ async function saveEditedArtwork(){
       "SAVE CHANGES";
 
   }
+
 }
+
 
 /* =========================================================
    DELETE ARTWORK
@@ -4151,25 +4894,43 @@ async function deleteArtwork(
 
   }
 
+
   const confirmed =
     confirm(
-      "Are you sure you want to delete this artwork?\n\n" +
-      "The artwork will be removed from the gallery."
+      "Are you sure you want to delete this artwork?\n\nThe artwork will be removed from the gallery."
     );
 
+
   if(!confirmed){
+
     return;
+
   }
+
+
+  if(!isSupabaseReady()){
+
+    alert(
+      "Supabase is not connected."
+    );
+
+    return;
+
+  }
+
 
   try{
 
-    const {
-      data
-    } =
-      await supabaseClient.auth.getSession();
+    const sessionResult =
+      await supabaseClient
+        .auth
+        .getSession();
+
 
     const session =
-      data?.session;
+      sessionResult.data &&
+      sessionResult.data.session;
+
 
     if(
       !session ||
@@ -4184,27 +4945,23 @@ async function deleteArtwork(
 
     }
 
-    /*
-      Delete database row
-    */
 
-    const {
-      error
-    } =
+    const deleteResult =
       await supabaseClient
         .from("artwork")
         .delete()
-        .eq("id",id);
+        .eq(
+          "id",
+          id
+        );
 
-    if(error){
 
-      throw error;
+    if(deleteResult.error){
+
+      throw deleteResult.error;
 
     }
 
-    /*
-      Delete storage image
-    */
 
     if(imageUrl){
 
@@ -4213,11 +4970,11 @@ async function deleteArtwork(
           imageUrl
         );
 
+
       if(path){
 
-        const {
-          error:storageError
-        } =
+        try{
+
           await supabaseClient
             .storage
             .from("Artworks")
@@ -4225,17 +4982,11 @@ async function deleteArtwork(
               path
             ]);
 
-        /*
-          Database deletion has already
-          succeeded. Log storage failure
-          instead of telling user deletion failed.
-        */
-
-        if(storageError){
+        }catch(cleanupError){
 
           logAppError(
-            "StorageDelete",
-            storageError
+            "DeleteImageCleanup",
+            cleanupError
           );
 
         }
@@ -4244,13 +4995,16 @@ async function deleteArtwork(
 
     }
 
+
     alert(
       "✓ Artwork deleted successfully."
     );
 
+
     await loadArtworks();
 
     await loadAdminArtworks();
+
 
   }catch(error){
 
@@ -4259,15 +5013,19 @@ async function deleteArtwork(
       error
     );
 
+
     alert(
       safeMessage("delete")
     );
 
   }
+
 }
 
+
 /* =========================================================
-   SECRET ADMIN ACCESS
+   HIDDEN ADMIN ACCESS
+   TAP/CHECK LOGO 5 TIMES
 ========================================================= */
 
 let logoClicks =
@@ -4276,38 +5034,62 @@ let logoClicks =
 let logoTimer =
   null;
 
-$("adminLogo")?.addEventListener(
-  "click",
-  () => {
 
-    logoClicks++;
+function setupAdminLogo(){
 
-    clearTimeout(
-      logoTimer
-    );
+  const logo =
+    $("logoButton");
 
-    logoTimer =
-      setTimeout(
-        () => {
-          logoClicks = 0;
-        },
-        2000
-      );
 
-    if(logoClicks >= 5){
+  if(!logo)return;
 
-      logoClicks = 0;
+
+  logo.addEventListener(
+    "click",
+    function(){
+
+      logoClicks++;
+
 
       clearTimeout(
         logoTimer
       );
 
-      openAdminLogin();
+
+      logoTimer =
+        setTimeout(
+          function(){
+
+            logoClicks =
+              0;
+
+          },
+          2000
+        );
+
+
+      if(
+        logoClicks >= 5
+      ){
+
+        logoClicks =
+          0;
+
+
+        clearTimeout(
+          logoTimer
+        );
+
+
+        openAdminLogin();
+
+      }
 
     }
+  );
 
-  }
-);
+}
+
 
 /* =========================================================
    KEYBOARD
@@ -4315,9 +5097,11 @@ $("adminLogo")?.addEventListener(
 
 document.addEventListener(
   "keydown",
-  event => {
+  function(event){
 
-    if(event.key === "Escape"){
+    if(
+      event.key === "Escape"
+    ){
 
       closeArtworkViewer();
 
@@ -4329,16 +5113,16 @@ document.addEventListener(
 
     }
 
+
     /*
-      Enter on admin password
+      Admin login with Enter
     */
 
     if(
       event.key === "Enter" &&
-      document.activeElement ===
-      $("adminPassword") &&
-      $("adminOverlay")
-        .classList.contains("show")
+      $("adminOverlay").classList.contains("show") &&
+      document.activeElement !== $("adminEmail") &&
+      document.activeElement !== $("adminPassword")
     ){
 
       adminLogin();
@@ -4348,18 +5132,20 @@ document.addEventListener(
   }
 );
 
+
 /* =========================================================
-   CLICK OUTSIDE MORE MENU
+   OUTSIDE CLICK FOR MORE MENU
 ========================================================= */
 
 document.addEventListener(
   "click",
-  event => {
+  function(event){
 
     const wrapper =
       document.querySelector(
         ".more-wrapper"
       );
+
 
     if(
       wrapper &&
@@ -4375,6 +5161,73 @@ document.addEventListener(
   }
 );
 
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+if(
+  isSupabaseReady()
+){
+
+  supabaseClient
+    .auth
+    .onAuthStateChange(
+      function(event,session){
+
+        if(
+          event ===
+          "SIGNED_OUT"
+        ){
+
+          visitorId =
+            null;
+
+          closeAdminPanel();
+
+        }
+
+
+        if(
+          session &&
+          session.user
+        ){
+
+          visitorId =
+            session.user.id;
+
+        }
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   INITIAL START
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    setupAdminLogo();
+
+
+    /*
+      IMPORTANT:
+      We do NOT force anonymous login here.
+      This prevents Supabase auth problems
+      from breaking the whole website.
+    */
+
+    loadArtworks();
+
+  }
+);
+
+
 /* =========================================================
    SERVICE WORKER
 ========================================================= */
@@ -4385,16 +5238,19 @@ if(
 
   window.addEventListener(
     "load",
-    () => {
+    function(){
 
       navigator.serviceWorker
         .register("./sw.js")
         .catch(
-          error =>
+          function(error){
+
             logAppError(
               "ServiceWorker",
               error
-            )
+            );
+
+          }
         );
 
     }
@@ -4402,74 +5258,7 @@ if(
 
 }
 
-/* =========================================================
-   SUPABASE AUTH STATE
-========================================================= */
-
-supabaseClient.auth.onAuthStateChange(
-  (event,session) => {
-
-    if(event === "SIGNED_OUT"){
-
-      visitorId =
-        null;
-
-      closeAdminPanel();
-
-      /*
-        Do not immediately call
-        signInAnonymously here.
-        It can create auth-state recursion.
-      */
-
-    }
-
-    if(session?.user?.id){
-
-      visitorId =
-        session.user.id;
-
-    }
-
-  }
-);
-
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
-
-(async function(){
-
-  try{
-
-    /*
-      Get anonymous visitor session
-      and load gallery.
-    */
-
-    await ensureVisitorSession();
-
-    await loadArtworks();
-
-  }catch(error){
-
-    logAppError(
-      "InitialLoad",
-      error
-    );
-
-    /*
-      Gallery can still attempt to load
-      even if anonymous authentication
-      is unavailable.
-    */
-
-    await loadArtworks();
-
-  }
-
-})();
 </script>
 
 </body>
-</html>
+      </html>
